@@ -323,6 +323,15 @@ export const TextBlockDataFragmentDoc = gql`
   className: TextClassName
 }
     `;
+export const UserProfileCardBlockDataFragmentDoc = gql`
+    fragment UserProfileCardBlockData on UserProfileCardBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}
+    `;
 export const VideoElementDataFragmentDoc = gql`
     fragment VideoElementData on VideoElement {
   title
@@ -366,6 +375,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...RichTextElementData
     ...TestimonialElementData
     ...TextBlockData
+    ...UserProfileCardBlockData
     ...VideoElementData
     ...BlankSectionData
   }
@@ -409,6 +419,7 @@ export const CompositionDataFragmentDoc = gql`
       ...RichTextElementData
       ...TestimonialElementData
       ...TextBlockData
+      ...UserProfileCardBlockData
       ...VideoElementData
       ...BlankSectionData
     }
@@ -470,6 +481,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...RichTextElementData
     ...TestimonialElementData
     ...TextBlockData
+    ...UserProfileCardBlockData
     ...VideoElementData
     ...BlankSectionData
   }
@@ -513,6 +525,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...RichTextElementData
     ...TestimonialElementData
     ...TextBlockData
+    ...UserProfileCardBlockData
     ...VideoElementData
     ...BlankSectionData
   }
@@ -536,6 +549,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...RichTextElementData
     ...TestimonialElementData
     ...TextBlockData
+    ...UserProfileCardBlockData
     ...VideoElementData
     ...BlankSectionData
   }
@@ -996,6 +1010,7 @@ export const getContentByIdDocument = gql`
       ...RichTextElementData
       ...TestimonialElementData
       ...TextBlockData
+      ...UserProfileCardBlockData
       ...VideoElementData
       ...BlankSectionData
       ...BlankExperienceData
@@ -1035,6 +1050,7 @@ ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${UserProfileCardBlockDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlankExperienceDataFragmentDoc}
@@ -1099,6 +1115,7 @@ ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${UserProfileCardBlockDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}

@@ -1,0 +1,7 @@
+fragment UserProfileCardBlockData on UserProfileCardBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}

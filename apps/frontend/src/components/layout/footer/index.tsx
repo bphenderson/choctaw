@@ -76,7 +76,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
             height={35}
             alt="Moseybank Logo"
             unoptimized
-            style={{ webkitFilter: "invert(100%);", filter: "invert(100%);" }}
+            style={{ WebkitFilter: "invert(100%);", filter: "invert(100%);" }}
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 text-sm items-center justify-center">

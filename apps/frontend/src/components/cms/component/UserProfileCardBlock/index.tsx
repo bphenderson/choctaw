@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import { CmsImage } from "@/components/shared/cms_image";
-import { ContentTypeProps } from "@optimizely/cms/types";
 import {
   CmsEditable,
   type CmsComponent,
@@ -13,14 +11,7 @@ import {
   UserProfileCardBlockDataFragmentDoc,
 } from "@/gql/graphql";
 
-interface UserProfileCardBlockProps extends ContentTypeProps {
-  Name?: string;
-  Bio?: string;
-  ProfileImage?: {
-    url: string;
-    alt?: string;
-  };
-}
+
 
 export const UserProfileCardBlockComponent: CmsComponent<
   UserProfileCardBlockDataFragment

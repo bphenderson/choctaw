@@ -106,8 +106,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <PageActivator />
             <div className="flex min-h-screen flex-col justify-between">
               <div className="global-alert">
-                Introducing XCentium's Financial Services Accelerator, powered
-                by Optimizely SaaS.
+                Introducing XCentium&apos;s Financial Services Accelerator,
+                powered by Optimizely SaaS.
               </div>
               <Header />
               <main className="grow">{children}</main>

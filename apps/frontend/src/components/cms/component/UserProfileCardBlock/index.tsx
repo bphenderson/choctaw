@@ -11,8 +11,6 @@ import {
   UserProfileCardBlockDataFragmentDoc,
 } from "@/gql/graphql";
 
-
-
 export const UserProfileCardBlockComponent: CmsComponent<
   UserProfileCardBlockDataFragment
 > = ({ data: { Name, Bio, ProfileImage } }) => {
@@ -39,6 +37,3 @@ UserProfileCardBlockComponent.getDataFragment = () => [
 ];
 
 export default UserProfileCardBlockComponent;
-
-// Optimizely CMS metadata
-UserProfileCardBlockComponent.contentType = "UserProfileCardBlock";

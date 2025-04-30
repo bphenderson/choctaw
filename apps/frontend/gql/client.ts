@@ -296,6 +296,25 @@ export const RichTextElementDataFragmentDoc = gql`
   }
 }
     `;
+export const SecondaryNavigationBlockDataFragmentDoc = gql`
+    fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {
+  _metadata {
+    displayName
+  }
+  NavigationHeading
+  NavigationLinks {
+    title
+    text
+    target
+    url {
+      base
+      hierarchical
+      default
+    }
+  }
+  ShowBorder
+}
+    `;
 export const TestimonialElementDataFragmentDoc = gql`
     fragment TestimonialElementData on TestimonialElement {
   customerName
@@ -373,6 +392,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
+    ...SecondaryNavigationBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -417,6 +437,7 @@ export const CompositionDataFragmentDoc = gql`
       ...ParagraphElementData
       ...QuoteBlockData
       ...RichTextElementData
+      ...SecondaryNavigationBlockData
       ...TestimonialElementData
       ...TextBlockData
       ...UserProfileCardBlockData
@@ -479,6 +500,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
+    ...SecondaryNavigationBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -523,6 +545,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
+    ...SecondaryNavigationBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -547,6 +570,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
+    ...SecondaryNavigationBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -1008,6 +1032,7 @@ export const getContentByIdDocument = gql`
       ...ParagraphElementData
       ...QuoteBlockData
       ...RichTextElementData
+      ...SecondaryNavigationBlockData
       ...TestimonialElementData
       ...TextBlockData
       ...UserProfileCardBlockData
@@ -1048,6 +1073,7 @@ ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
+${SecondaryNavigationBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
 ${UserProfileCardBlockDataFragmentDoc}
@@ -1113,6 +1139,7 @@ ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
+${SecondaryNavigationBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
 ${UserProfileCardBlockDataFragmentDoc}

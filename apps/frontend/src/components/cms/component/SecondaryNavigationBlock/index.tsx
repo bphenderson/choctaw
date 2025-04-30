@@ -2,6 +2,7 @@ import { type CmsComponent } from '@remkoj/optimizely-cms-react';
 import { LinkItemDataFragmentDoc, LinkDataFragmentDoc, SecondaryNavigationBlockDataFragment } from '@/gql/graphql';
 import { getFragmentData } from '@gql';
 import Link from '../MenuNavigationBlock/_link';
+import { SecondaryNavigationBlockDataFragmentDoc } from '@gql/client';
 
 
 /*  ----- extra helper: ensures getDataFragment exists ----- */

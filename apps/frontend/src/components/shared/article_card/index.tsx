@@ -64,7 +64,6 @@ export const ArticleCard: FunctionComponent<ArticleCardProps> = ({
           className="w-full h-full"
           withHoverEffect
         >
-          {/* @ts-expect-error */}
           <Image
             src={article.image.src}
             width={article.image.width}

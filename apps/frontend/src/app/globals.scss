@@ -301,6 +301,12 @@
   color: #666;
   font-size: 0.9em;
 }
+
+.logo-golden {
+  filter: invert(40%) sepia(91%) saturate(4166%) hue-rotate(39deg)
+    brightness(95%) contrast(95%);
+}
+
 @media (max-width: 800px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);

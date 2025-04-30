@@ -1,4 +1,4 @@
-'use server'
+"use server";
 import { CmsComponent } from "@remkoj/optimizely-cms-react";
 import {
   ArticleListElementDataFragmentDoc,
@@ -62,7 +62,7 @@ export const ArticleListElementElement: CmsComponent<
   const byLabel = await getLabel("By", { locale, fallback: "By" });
   const andLabel = await getLabel("and", { locale, fallback: "and" });
 
-  let shownArticles = articles
+  let shownArticles = articles;
   if (articles.length > (articleListCount || 3)) {
     const ids: number[] = [];
     for (let i = 0; i < (articleListCount || 3); i++) {
@@ -70,9 +70,9 @@ export const ArticleListElementElement: CmsComponent<
       while (ids.includes(pickedId)) {
         pickedId = Math.floor(Math.random() * articles.length);
       }
-      ids.push(pickedId)
+      ids.push(pickedId);
     }
-    shownArticles = articles.filter((article, id) => ids.includes(id))
+    shownArticles = articles.filter((article, id) => ids.includes(id));
   }
 
   //console.log(`showing ${ shownArticles.length } from ${ articles.length } fetched - asked for ${ articleListCount } articles`);
@@ -126,7 +126,7 @@ export const ArticleListElementElement: CmsComponent<
                 />
                 <div className="flex justify-between mb-[16px]">
                   <p className="text-[12px] text-pale-sky my-0">
-                    {byLabel} {authors ? authors : "Mosey Bank"}
+                    {byLabel} {authors ? authors : "B&H Bank"}
                   </p>
                   <p className="text-[12px] text-pale-sky my-0">
                     <DateDisplay

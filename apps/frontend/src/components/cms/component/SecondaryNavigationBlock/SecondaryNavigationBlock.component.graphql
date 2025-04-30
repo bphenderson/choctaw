@@ -1,0 +1,17 @@
+fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {
+  _metadata {
+    displayName
+  }
+  NavigationHeading
+  NavigationLinks {
+    title
+    text
+    target
+    url {
+      base
+      hierarchical
+      default
+    }
+  }
+  ShowBorder
+}

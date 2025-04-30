@@ -1,0 +1,49 @@
+{
+  "key": "SecondaryNavigationBlockComponent",
+  "displayName": "Secondary Navigation",
+  "description": "Horizontal navigation for subpages of the same parent page",
+  "baseType": "component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "NavigationHeading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "Optional heading for the navigation",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "NavigationLinks": {
+      "type": "array",
+      "format": "LinkCollection",
+      "displayName": "Links",
+      "description": "Navigation links to display",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20,
+      "editorSettings": {},
+      "items": {
+        "type": "component",
+        "contentType": "link"
+      }
+    },
+    "ShowBorder": {
+      "type": "boolean",
+      "format": "checkbox",
+      "displayName": "Show Border",
+      "description": "Show a border around the navigation",
+      "localized": false,
+      "required": false,
+      "group": "Appearance",
+      "sortOrder": 30,
+      "editorSettings": {}
+    }
+  }
+}

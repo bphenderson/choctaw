@@ -1,0 +1,32 @@
+{
+  "key": "accordionItemBlock",
+  "baseType": "block",
+  "displayName": "Accordion Item",
+  "description": "Individual FAQ Item for Accordion",
+  "properties": {
+    "ItemTitle": {
+      "type": "string",
+      "displayName": "Item Title",
+      "description": "Title of FAQ Item",
+      "localized": true,
+      "required": true,
+      "sortOrder": 10
+    },
+    "ItemContent": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Item Content",
+      "description": "Answer or content for FAQ item",
+      "localized": true,
+      "required": true,
+      "sortOrder": 20
+    },
+    "ItemOpenByDefault": {
+      "type": "boolean",
+      "displayName": "Open by Default",
+      "description": "Should this item be expanded by default?",
+      "required": false,
+      "sortOrder": 30
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "key": "accordionBlock",
+  "baseType": "component",
+  "displayName": "Accordion Block",
+  "description": "Frequently Asked Questions accordion section",
+  "properties": {
+    "AccordionBlockHeading": {
+      "type": "string",
+      "displayName": "Heading",
+      "description": "Title of the FAQ section",
+      "localized": true,
+      "required": false,
+      "sortOrder": 10
+    },
+    "AccordionBlockItems": {
+  "type": "contentReference",
+  "displayName": "Accordion Items",
+  "description": "List of FAQ items for the accordion",
+  "sortOrder": 20,
+  "allowedTypes": ["accordionItemBlock"],
+  "editorSettings": {
+    "allowMultiple": true
+  }
+},
+    "AccordionBlockMultipleOpenItems": {
+      "type": "boolean",
+      "displayName": "Allow Multiple Open Items",
+      "description": "If true, multiple accordion items can be expanded at once",
+      "required": false,
+      "sortOrder": 30
+    }
+  }
+}

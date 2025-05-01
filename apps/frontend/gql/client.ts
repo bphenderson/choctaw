@@ -66,6 +66,20 @@ export const ElementDataFragmentDoc = gql`
   ...IElementData
 }
     `;
+export const AccordionBlockDataFragmentDoc = gql`
+    fragment AccordionBlockData on AccordionBlock {
+  heading: AccordionBlockHeading
+  multipleOpenItems: AccordionBlockMultipleOpenItems
+  items: AccordionBlockItems {
+    itemTitle: ItemTitle
+    itemContent: ItemContent {
+      json
+      html
+    }
+    itemOpenByDefault: ItemOpenByDefault
+  }
+}
+    `;
 export const ArticleListElementDataFragmentDoc = gql`
     fragment ArticleListElementData on ArticleListElement {
   articleListCount
@@ -376,6 +390,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...BlockData
     ...ImageMediaComponentData
     ...VideoMediaComponentData
+    ...AccordionBlockData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
@@ -421,6 +436,7 @@ export const CompositionDataFragmentDoc = gql`
     component {
       ...BlockData
       ...ElementData
+      ...AccordionBlockData
       ...ArticleListElementData
       ...ButtonBlockData
       ...CTAElementData
@@ -484,6 +500,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...BlockData
     ...ImageMediaComponentData
     ...VideoMediaComponentData
+    ...AccordionBlockData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
@@ -529,6 +546,7 @@ export const LandingPageDataFragmentDoc = gql`
     fragment LandingPageData on LandingPage {
   TopContentArea {
     ...BlockData
+    ...AccordionBlockData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
@@ -554,6 +572,7 @@ export const LandingPageDataFragmentDoc = gql`
   }
   MainContentArea {
     ...BlockData
+    ...AccordionBlockData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
@@ -1016,6 +1035,7 @@ export const getContentByIdDocument = gql`
     items {
       ...BlockData
       ...PageData
+      ...AccordionBlockData
       ...ArticleListElementData
       ...ButtonBlockData
       ...CTAElementData
@@ -1050,6 +1070,7 @@ ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${PageDataFragmentDoc}
+${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
@@ -1117,6 +1138,7 @@ ${CompositionDataFragmentDoc}
 ${BlockDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
+${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}

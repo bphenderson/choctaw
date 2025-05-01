@@ -25,6 +25,8 @@ import ArticleListElementLoader from "./ArticleListElement/loading";
 import ComponentPageFactory from "./Page";
 import UserProfileCardBlockComponent from "./UserProfileCardBlock";
 import SecondaryNavigationBlockComponent from "./SecondaryNavigationBlock";
+import AccordionBlockComponent from "./AccordionBlock";
+
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -120,6 +122,10 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "UserProfileCardBlock",
     component: UserProfileCardBlockComponent,
+  },
+  {
+    type: "AccordionBlock",
+    component: AccordionBlockComponent,
   },
   ...ComponentPageFactory,
 ];

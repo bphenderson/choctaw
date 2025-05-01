@@ -1,0 +1,9 @@
+fragment AccordionBlockData on AccordionBlock {
+  heading: AccordionBlockHeading
+  multipleOpenItems: AccordionBlockMultipleOpenItems
+  items: AccordionBlockItems {
+      itemTitle: ItemTitle
+      itemContent: ItemContent { json, html }
+      itemOpenByDefault: ItemOpenByDefault
+  }
+}

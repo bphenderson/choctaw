@@ -1,0 +1,45 @@
+{
+  "key": "CalculatorBlock",
+  "displayName": "Calculator Block",
+  "description": "Various calculators for different purposes",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": ["elementEnabled"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "displayName": "name",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "profileImage": {
+      "type": "contentReference",
+      "displayName": "User Photo",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "editorSettings": {},
+      "allowedTypes": ["Image"],
+      "restrictedTypes": []
+    },
+    "bio": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Bio",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 50,
+      "editorSettings": {}
+    }
+  }
+}

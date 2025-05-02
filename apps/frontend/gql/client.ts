@@ -105,6 +105,15 @@ export const CTAElementDataFragmentDoc = gql`
   }
 }
     `;
+export const CalculatorBlockDataFragmentDoc = gql`
+    fragment CalculatorBlockData on CalculatorBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}
+    `;
 export const IContentListItemFragmentDoc = gql`
     fragment IContentListItem on _IContent {
   ...IContentData
@@ -394,6 +403,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CalculatorBlockData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...HeadingElementData
@@ -440,6 +450,7 @@ export const CompositionDataFragmentDoc = gql`
       ...ArticleListElementData
       ...ButtonBlockData
       ...CTAElementData
+      ...CalculatorBlockData
       ...CarouselBlockData
       ...ContentRecsElementData
       ...HeadingElementData
@@ -504,6 +515,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CalculatorBlockData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...HeadingElementData
@@ -550,6 +562,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CalculatorBlockData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...HeadingElementData
@@ -576,6 +589,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CalculatorBlockData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...HeadingElementData
@@ -1039,6 +1053,7 @@ export const getContentByIdDocument = gql`
       ...ArticleListElementData
       ...ButtonBlockData
       ...CTAElementData
+      ...CalculatorBlockData
       ...CarouselBlockData
       ...ContentRecsElementData
       ...HeadingElementData
@@ -1074,6 +1089,8 @@ ${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CalculatorBlockDataFragmentDoc}
+${ReferenceDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
@@ -1081,7 +1098,6 @@ ${VideoMediaComponentDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
-${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
@@ -1142,6 +1158,7 @@ ${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CalculatorBlockDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}

@@ -1,0 +1,7 @@
+fragment CalculatorBlockData on CalculatorBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}

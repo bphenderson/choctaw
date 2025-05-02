@@ -14,7 +14,7 @@
     @apply inline-block relative no-underline whitespace-nowrap;
   }
   .btn-before {
-    @apply before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-azure before:rounded-[40px] before:transition-all before:duration-300 before:ease-in-out;
+    @apply before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-verdansk before:rounded-[40px] before:transition-all before:duration-300 before:ease-in-out;
   }
   .btn-before--hover {
     @apply hover:before:translate-x-[0px] hover:before:translate-y-[8px];
@@ -109,12 +109,12 @@
   // Fully styled classes
   .on-base {
     --bg-main: var(--ghost-white);
-    --bg-dark: var(--verdansk);
+    --bg-dark: var(--golden);
     --text-main: var(--verdansk);
     --text-dark: var(--white);
     --border-dark: var(--bg-main);
 
-    --btn-primary-bg: var(--verdansk);
+    --btn-primary-bg: var(--golden);
     --btn-primary-text: var(--ghost-white);
     --bg-inherit-button: var(--bg-main);
 

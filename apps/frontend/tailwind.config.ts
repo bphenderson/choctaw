@@ -9,6 +9,7 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     colors: {
+      golden: "#936b06",
       white: "#ffffff",
       "ghost-white": "#F8F8FC",
       "light-grey": "#D9D9D9",

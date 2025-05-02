@@ -91,7 +91,7 @@ export default function FinancialCalculatorClient() {
           onClick={handleSubmit}
           href="javascript:{}"
         >
-          <div class="btn__content">Calculate</div>
+          <div className="btn__content">Calculate</div>
         </a>
       </form>
       {result && (

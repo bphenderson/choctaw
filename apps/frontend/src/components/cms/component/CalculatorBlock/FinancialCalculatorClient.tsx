@@ -87,7 +87,7 @@ export default function FinancialCalculatorClient() {
           </div>
         ))}
         <a
-          class="btn--primary btn--cta  block w-fit  mx-auto"
+          className="btn--primary btn--cta block w-fit mx-auto"
           onClick={handleSubmit}
           href="javascript:{}"
         >

@@ -140,17 +140,6 @@ export const VideoMediaComponentDataFragmentDoc = gql`
   }
 }
     `;
-export const ContentRecsElementDataFragmentDoc = gql`
-    fragment ContentRecsElementData on ContentRecsElement {
-  ElementDeliveryApiKey
-  ElementRecommendationCount
-}
-    `;
-export const HeadingElementDataFragmentDoc = gql`
-    fragment HeadingElementData on HeadingElement {
-  headingText
-}
-    `;
 export const ButtonBlockPropertyDataFragmentDoc = gql`
     fragment ButtonBlockPropertyData on ButtonBlockProperty {
   children: ButtonText
@@ -160,6 +149,37 @@ export const ButtonBlockPropertyDataFragmentDoc = gql`
   className: ButtonClass
   buttonType: ButtonType
   buttonVariant: ButtonVariant
+}
+    `;
+export const ComparisonBlockDataFragmentDoc = gql`
+    fragment ComparisonBlockData on ComparisonBlock {
+  comparisonTitle: ComparisonTitle
+  products: Products {
+    productName: ProductName
+    productImage: ProductImage {
+      ...ReferenceData
+    }
+    features: Features {
+      featureLabel: FeatureLabel
+      featureDescription: FeatureDescription {
+        html
+      }
+    }
+    cta: CTA {
+      ...ButtonBlockPropertyData
+    }
+  }
+}
+    `;
+export const ContentRecsElementDataFragmentDoc = gql`
+    fragment ContentRecsElementData on ContentRecsElement {
+  ElementDeliveryApiKey
+  ElementRecommendationCount
+}
+    `;
+export const HeadingElementDataFragmentDoc = gql`
+    fragment HeadingElementData on HeadingElement {
+  headingText
 }
     `;
 export const HeroBlockDataFragmentDoc = gql`
@@ -405,6 +425,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -452,6 +473,7 @@ export const CompositionDataFragmentDoc = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
+      ...ComparisonBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -517,6 +539,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -564,6 +587,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -591,6 +615,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -1055,6 +1080,7 @@ export const getContentByIdDocument = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
+      ...ComparisonBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -1095,10 +1121,11 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${ComparisonBlockDataFragmentDoc}
+${ButtonBlockPropertyDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
-${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
@@ -1163,10 +1190,11 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${ComparisonBlockDataFragmentDoc}
+${ButtonBlockPropertyDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
-${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}

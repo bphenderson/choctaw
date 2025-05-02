@@ -9,7 +9,9 @@ export default function AccordionBlockClient({
 }: {
   data: AccordionBlockDataFragment;
 }) {
-  const initialOpenStates = data.items.map((item) => !!item.itemOpenByDefault);
+  const initialOpenStates = (data.items ?? []).map(
+    (item) => !!(item?.itemOpenByDefault ?? false),
+  );
   const [openStates, setOpenStates] = useState<boolean[]>(initialOpenStates);
 
   const toggleItem = (index: number) => {
@@ -34,7 +36,7 @@ export default function AccordionBlockClient({
               onClick={() => toggleItem(idx)}
               aria-expanded={openStates[idx]}
             >
-              <span className="text-lg">{item.itemTitle}</span>
+              <span className="text-lg">{item?.itemTitle}</span>
               <span className="w-8 h-8 flex items-center justify-center rounded-full bg-azure/10 dark:bg-verdansk/10 text-azure dark:text-verdansk font-semibold text-xl">
                 {openStates[idx] ? "−" : "+"}
               </span>
@@ -43,7 +45,7 @@ export default function AccordionBlockClient({
           {openStates[idx] && (
             <div className="accordion-content py-2 px-6 pb-6 prose dark:prose-invert max-w-none">
               <div
-                dangerouslySetInnerHTML={{ __html: item.itemContent.html }}
+                dangerouslySetInnerHTML={{ __html: item?.itemContent?.html }}
                 className="text-vulcan-85 dark:text-ghost-white"
               />
             </div>

@@ -45,7 +45,9 @@ export default function AccordionBlockClient({
           {openStates[idx] && (
             <div className="accordion-content py-2 px-6 pb-6 prose dark:prose-invert max-w-none">
               <div
-                dangerouslySetInnerHTML={{ __html: item?.itemContent?.html }}
+                dangerouslySetInnerHTML={{
+                  __html: item?.itemContent?.html ?? "",
+                }}
                 className="text-vulcan-85 dark:text-ghost-white"
               />
             </div>

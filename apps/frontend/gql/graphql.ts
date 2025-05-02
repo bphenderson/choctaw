@@ -192,198 +192,6 @@ export type AccordionItemBlockWhereInput = {
   _or?: InputMaybe<Array<InputMaybe<AccordionItemBlockWhereInput>>>;
 };
 
-export type AccordionBlock = IData & _IComponent & _IContent & {
-  __typename?: 'AccordionBlock';
-  AccordionBlockHeading?: Maybe<Scalars['String']['output']>;
-  AccordionBlockItems?: Maybe<Array<Maybe<AccordionItemBlockProperty>>>;
-  AccordionBlockMultipleOpenItems?: Maybe<Scalars['Boolean']['output']>;
-  /** @deprecated Use `_link` field instead */
-  _children?: Maybe<QueryRef>;
-  _deleted?: Maybe<Scalars['Bool']['output']>;
-  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<QueryRef>;
-  _metadata?: Maybe<IContentMetadata>;
-  _modified?: Maybe<Scalars['Date']['output']>;
-  _score?: Maybe<Scalars['Float']['output']>;
-  accordionItems?: Maybe<Array<Maybe<AccordionItemBlockProperty>>>;
-  allowMultipleOpen?: Maybe<Scalars['Boolean']['output']>;
-  blockHeading?: Maybe<Scalars['String']['output']>;
-  cssClass?: Maybe<Scalars['String']['output']>;
-  defaultOpenIndex?: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type AccordionBlock_fulltextArgs = {
-  highlight?: InputMaybe<HighlightOptions>;
-};
-
-
-export type AccordionBlock_linkArgs = {
-  type?: InputMaybe<LinkTypes>;
-};
-
-export type AccordionBlockAutocomplete = {
-  __typename?: 'AccordionBlockAutocomplete';
-  AccordionBlockItems?: Maybe<AccordionItemBlockPropertyAutocomplete>;
-  _metadata?: Maybe<IContentMetadataAutocomplete>;
-  accordionItems?: Maybe<AccordionItemBlockPropertyAutocomplete>;
-};
-
-export type AccordionBlockFacet = {
-  __typename?: 'AccordionBlockFacet';
-  AccordionBlockItems?: Maybe<AccordionItemBlockPropertyFacet>;
-  _metadata?: Maybe<IContentMetadataFacet>;
-  accordionItems?: Maybe<AccordionItemBlockPropertyFacet>;
-};
-
-export type AccordionBlockOrderByInput = {
-  AccordionBlockItems?: InputMaybe<AccordionItemBlockPropertyOrderByInput>;
-  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<OrderBy>;
-  _ranking?: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  accordionItems?: InputMaybe<AccordionItemBlockPropertyOrderByInput>;
-};
-
-export type AccordionBlockOutput = {
-  __typename?: 'AccordionBlockOutput';
-  autocomplete?: Maybe<AccordionBlockAutocomplete>;
-  cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<AccordionBlockFacet>;
-  item?: Maybe<AccordionBlock>;
-  items?: Maybe<Array<Maybe<AccordionBlock>>>;
-  total?: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type AccordionBlockOutputtotalArgs = {
-  all?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type AccordionBlockWhereInput = {
-  AccordionBlockItems?: InputMaybe<AccordionItemBlockPropertyWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<AccordionBlockWhereInput>>>;
-  _fulltext?: InputMaybe<SearchableStringFilterInput>;
-  _metadata?: InputMaybe<IContentMetadataWhereInput>;
-  _modified?: InputMaybe<DateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<AccordionBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<AccordionBlockWhereInput>>>;
-  accordionItems?: InputMaybe<AccordionItemBlockPropertyWhereInput>;
-};
-
-export type AccordionItemBlock = IData & _IComponent & _IContent & {
-  __typename?: 'AccordionItemBlock';
-  ItemContent?: Maybe<RichText>;
-  ItemOpenByDefault?: Maybe<Scalars['Boolean']['output']>;
-  ItemTitle?: Maybe<Scalars['String']['output']>;
-  /** @deprecated Use `_link` field instead */
-  _children?: Maybe<QueryRef>;
-  _deleted?: Maybe<Scalars['Bool']['output']>;
-  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<QueryRef>;
-  _metadata?: Maybe<IContentMetadata>;
-  _modified?: Maybe<Scalars['Date']['output']>;
-  _score?: Maybe<Scalars['Float']['output']>;
-  answer?: Maybe<RichText>;
-  question?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type AccordionItemBlock_fulltextArgs = {
-  highlight?: InputMaybe<HighlightOptions>;
-};
-
-
-export type AccordionItemBlock_linkArgs = {
-  type?: InputMaybe<LinkTypes>;
-};
-
-export type AccordionItemBlockAutocomplete = {
-  __typename?: 'AccordionItemBlockAutocomplete';
-  ItemContent?: Maybe<RichTextAutocomplete>;
-  _metadata?: Maybe<IContentMetadataAutocomplete>;
-  answer?: Maybe<RichTextAutocomplete>;
-};
-
-export type AccordionItemBlockFacet = {
-  __typename?: 'AccordionItemBlockFacet';
-  ItemContent?: Maybe<RichTextFacet>;
-  _metadata?: Maybe<IContentMetadataFacet>;
-  answer?: Maybe<RichTextFacet>;
-};
-
-export type AccordionItemBlockOrderByInput = {
-  ItemContent?: InputMaybe<RichTextOrderByInput>;
-  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<OrderBy>;
-  _ranking?: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  answer?: InputMaybe<RichTextOrderByInput>;
-};
-
-export type AccordionItemBlockOutput = {
-  __typename?: 'AccordionItemBlockOutput';
-  autocomplete?: Maybe<AccordionItemBlockAutocomplete>;
-  cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<AccordionItemBlockFacet>;
-  item?: Maybe<AccordionItemBlock>;
-  items?: Maybe<Array<Maybe<AccordionItemBlock>>>;
-  total?: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type AccordionItemBlockOutputtotalArgs = {
-  all?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type AccordionItemBlockProperty = {
-  __typename?: 'AccordionItemBlockProperty';
-  ItemContent?: Maybe<RichText>;
-  ItemOpenByDefault?: Maybe<Scalars['Boolean']['output']>;
-  ItemTitle?: Maybe<Scalars['String']['output']>;
-  answer?: Maybe<RichText>;
-  question?: Maybe<Scalars['String']['output']>;
-};
-
-export type AccordionItemBlockPropertyAutocomplete = {
-  __typename?: 'AccordionItemBlockPropertyAutocomplete';
-  ItemContent?: Maybe<RichTextAutocomplete>;
-  answer?: Maybe<RichTextAutocomplete>;
-};
-
-export type AccordionItemBlockPropertyFacet = {
-  __typename?: 'AccordionItemBlockPropertyFacet';
-  ItemContent?: Maybe<RichTextFacet>;
-  answer?: Maybe<RichTextFacet>;
-};
-
-export type AccordionItemBlockPropertyOrderByInput = {
-  ItemContent?: InputMaybe<RichTextOrderByInput>;
-  answer?: InputMaybe<RichTextOrderByInput>;
-};
-
-export type AccordionItemBlockPropertyWhereInput = {
-  ItemContent?: InputMaybe<RichTextWhereInput>;
-  answer?: InputMaybe<RichTextWhereInput>;
-};
-
-export type AccordionItemBlockWhereInput = {
-  ItemContent?: InputMaybe<RichTextWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<AccordionItemBlockWhereInput>>>;
-  _fulltext?: InputMaybe<SearchableStringFilterInput>;
-  _metadata?: InputMaybe<IContentMetadataWhereInput>;
-  _modified?: InputMaybe<DateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<AccordionItemBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<AccordionItemBlockWhereInput>>>;
-  answer?: InputMaybe<RichTextWhereInput>;
-};
-
 export type ArticleListElement = IData & _IComponent & _IContent & {
   __typename?: 'ArticleListElement';
   /** @deprecated Use `_link` field instead */
@@ -3550,8 +3358,6 @@ export type Query = {
   __typename?: 'Query';
   AccordionBlock?: Maybe<AccordionBlockOutput>;
   AccordionItemBlock?: Maybe<AccordionItemBlockOutput>;
-  AccordionBlock?: Maybe<AccordionBlockOutput>;
-  AccordionItemBlock?: Maybe<AccordionItemBlockOutput>;
   ArticleListElement?: Maybe<ArticleListElementOutput>;
   BlankExperience?: Maybe<BlankExperienceOutput>;
   BlankSection?: Maybe<BlankSectionOutput>;
@@ -3579,7 +3385,6 @@ export type Query = {
   RichTextElement?: Maybe<RichTextElementOutput>;
   SecondaryNavigationBlockComponent?: Maybe<SecondaryNavigationBlockComponentOutput>;
   StockPriceCard?: Maybe<StockPriceCardOutput>;
-  StockPriceCard?: Maybe<StockPriceCardOutput>;
   SysContentFolder?: Maybe<SysContentFolderOutput>;
   TestimonialElement?: Maybe<TestimonialElementOutput>;
   TextBlock?: Maybe<TextBlockOutput>;
@@ -3595,28 +3400,6 @@ export type Query = {
   _Page?: Maybe<_PageOutput>;
   _Section?: Maybe<_SectionOutput>;
   _Video?: Maybe<_VideoOutput>;
-};
-
-
-export type QueryAccordionBlockArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<AccordionBlockOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<AccordionBlockWhereInput>;
-};
-
-
-export type QueryAccordionItemBlockArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<AccordionItemBlockOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<AccordionItemBlockWhereInput>;
 };
 
 
@@ -3939,17 +3722,6 @@ export type QueryStockPriceCardArgs = {
 };
 
 
-export type QueryStockPriceCardArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<StockPriceCardOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<StockPriceCardWhereInput>;
-};
-
-
 export type QuerySysContentFolderArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -4118,8 +3890,6 @@ export type QueryRef = {
   __typename?: 'QueryRef';
   AccordionBlock?: Maybe<AccordionBlockOutput>;
   AccordionItemBlock?: Maybe<AccordionItemBlockOutput>;
-  AccordionBlock?: Maybe<AccordionBlockOutput>;
-  AccordionItemBlock?: Maybe<AccordionItemBlockOutput>;
   ArticleListElement?: Maybe<ArticleListElementOutput>;
   BlankExperience?: Maybe<BlankExperienceOutput>;
   BlankSection?: Maybe<BlankSectionOutput>;
@@ -4147,7 +3917,6 @@ export type QueryRef = {
   RichTextElement?: Maybe<RichTextElementOutput>;
   SecondaryNavigationBlockComponent?: Maybe<SecondaryNavigationBlockComponentOutput>;
   StockPriceCard?: Maybe<StockPriceCardOutput>;
-  StockPriceCard?: Maybe<StockPriceCardOutput>;
   SysContentFolder?: Maybe<SysContentFolderOutput>;
   TestimonialElement?: Maybe<TestimonialElementOutput>;
   TextBlock?: Maybe<TextBlockOutput>;
@@ -4163,28 +3932,6 @@ export type QueryRef = {
   _Page?: Maybe<_PageOutput>;
   _Section?: Maybe<_SectionOutput>;
   _Video?: Maybe<_VideoOutput>;
-};
-
-
-export type QueryRefAccordionBlockArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<AccordionBlockOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<AccordionBlockWhereInput>;
-};
-
-
-export type QueryRefAccordionItemBlockArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<AccordionItemBlockOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<AccordionItemBlockWhereInput>;
 };
 
 
@@ -4493,17 +4240,6 @@ export type QueryRefSecondaryNavigationBlockComponentArgs = {
   orderBy?: InputMaybe<SecondaryNavigationBlockComponentOrderByInput>;
   skip?: Scalars['Int']['input'];
   where?: InputMaybe<SecondaryNavigationBlockComponentWhereInput>;
-};
-
-
-export type QueryRefStockPriceCardArgs = {
-  cursor?: InputMaybe<Scalars['String']['input']>;
-  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy?: InputMaybe<StockPriceCardOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where?: InputMaybe<StockPriceCardWhereInput>;
 };
 
 
@@ -5008,76 +4744,6 @@ export type SecondaryNavigationBlockComponentWhereInput = {
   _modified?: InputMaybe<DateFilterInput>;
   _not?: InputMaybe<Array<InputMaybe<SecondaryNavigationBlockComponentWhereInput>>>;
   _or?: InputMaybe<Array<InputMaybe<SecondaryNavigationBlockComponentWhereInput>>>;
-};
-
-export type StockPriceCard = IData & _IComponent & _IContent & {
-  __typename?: 'StockPriceCard';
-  Frequency?: Maybe<Scalars['String']['output']>;
-  NetAssetValue?: Maybe<Scalars['Float']['output']>;
-  ReportingDate?: Maybe<Scalars['DateTime']['output']>;
-  TickerSymbol?: Maybe<Scalars['String']['output']>;
-  /** @deprecated Use `_link` field instead */
-  _children?: Maybe<QueryRef>;
-  _deleted?: Maybe<Scalars['Bool']['output']>;
-  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<QueryRef>;
-  _metadata?: Maybe<IContentMetadata>;
-  _modified?: Maybe<Scalars['Date']['output']>;
-  _score?: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type StockPriceCard_fulltextArgs = {
-  highlight?: InputMaybe<HighlightOptions>;
-};
-
-
-export type StockPriceCard_linkArgs = {
-  type?: InputMaybe<LinkTypes>;
-};
-
-export type StockPriceCardAutocomplete = {
-  __typename?: 'StockPriceCardAutocomplete';
-  _metadata?: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type StockPriceCardFacet = {
-  __typename?: 'StockPriceCardFacet';
-  _metadata?: Maybe<IContentMetadataFacet>;
-};
-
-export type StockPriceCardOrderByInput = {
-  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<OrderBy>;
-  _ranking?: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type StockPriceCardOutput = {
-  __typename?: 'StockPriceCardOutput';
-  autocomplete?: Maybe<StockPriceCardAutocomplete>;
-  cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<StockPriceCardFacet>;
-  item?: Maybe<StockPriceCard>;
-  items?: Maybe<Array<Maybe<StockPriceCard>>>;
-  total?: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type StockPriceCardOutputtotalArgs = {
-  all?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type StockPriceCardWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<StockPriceCardWhereInput>>>;
-  _fulltext?: InputMaybe<SearchableStringFilterInput>;
-  _metadata?: InputMaybe<IContentMetadataWhereInput>;
-  _modified?: InputMaybe<DateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<StockPriceCardWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<StockPriceCardWhereInput>>>;
 };
 
 export type StockPriceCard = IData & _IComponent & _IContent & {
@@ -6788,9 +6454,6 @@ export type CarouselBlockDataFragment = { __typename?: 'CarouselBlock', Carousel
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment;'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
   ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment;'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
-  ) | (
     { __typename?: 'SysContentFolder' }
     & { ' $fragmentRefs'?: { 'IContentListItem_SysContentFolder_Fragment': IContentListItem_SysContentFolder_Fragment } }
   ) | (
@@ -6861,12 +6524,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
     { __typename?: 'AccordionItemBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
   ) | (
-    { __typename?: 'AccordionBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionBlock_Fragment': IContentListItem_AccordionBlock_Fragment } }
-  ) | (
-    { __typename?: 'AccordionItemBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
-  ) | (
     { __typename?: 'ArticleListElement' }
     & { ' $fragmentRefs'?: { 'IContentListItem_ArticleListElement_Fragment': IContentListItem_ArticleListElement_Fragment } }
   ) | (
@@ -6941,9 +6598,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
   ) | (
     { __typename?: 'SecondaryNavigationBlockComponent' }
     & { ' $fragmentRefs'?: { 'IContentListItem_SecondaryNavigationBlockComponent_Fragment': IContentListItem_SecondaryNavigationBlockComponent_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
@@ -6999,12 +6653,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
     { __typename?: 'AccordionItemBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
   ) | (
-    { __typename?: 'AccordionBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionBlock_Fragment': IContentListItem_AccordionBlock_Fragment } }
-  ) | (
-    { __typename?: 'AccordionItemBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
-  ) | (
     { __typename?: 'ArticleListElement' }
     & { ' $fragmentRefs'?: { 'IContentListItem_ArticleListElement_Fragment': IContentListItem_ArticleListElement_Fragment } }
   ) | (
@@ -7079,9 +6727,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
   ) | (
     { __typename?: 'SecondaryNavigationBlockComponent' }
     & { ' $fragmentRefs'?: { 'IContentListItem_SecondaryNavigationBlockComponent_Fragment': IContentListItem_SecondaryNavigationBlockComponent_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
@@ -7137,12 +6782,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
     { __typename?: 'AccordionItemBlock' }
     & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
   ) | (
-    { __typename?: 'AccordionBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionBlock_Fragment': IContentListItem_AccordionBlock_Fragment } }
-  ) | (
-    { __typename?: 'AccordionItemBlock' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_AccordionItemBlock_Fragment': IContentListItem_AccordionItemBlock_Fragment } }
-  ) | (
     { __typename?: 'ArticleListElement' }
     & { ' $fragmentRefs'?: { 'IContentListItem_ArticleListElement_Fragment': IContentListItem_ArticleListElement_Fragment } }
   ) | (
@@ -7217,9 +6856,6 @@ export type LayoutSettingsBlockDataFragment = { __typename?: 'LayoutSettingsBloc
   ) | (
     { __typename?: 'SecondaryNavigationBlockComponent' }
     & { ' $fragmentRefs'?: { 'IContentListItem_SecondaryNavigationBlockComponent_Fragment': IContentListItem_SecondaryNavigationBlockComponent_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment } }
@@ -7277,12 +6913,6 @@ export type MegaMenuGroupBlockDataFragment = { __typename?: 'MegaMenuGroupBlock'
     { __typename?: 'ContentUrl' }
     & { ' $fragmentRefs'?: { 'LinkDataFragment': LinkDataFragment } }
   ) | null, MegaMenuContentArea?: Array<(
-    { __typename?: 'AccordionBlock' }
-    & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-  ) | (
-    { __typename?: 'AccordionItemBlock' }
-    & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-  ) | (
     { __typename?: 'AccordionBlock' }
     & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
   ) | (
@@ -7363,9 +6993,6 @@ export type MegaMenuGroupBlockDataFragment = { __typename?: 'MegaMenuGroupBlock'
   ) | (
     { __typename?: 'SecondaryNavigationBlockComponent' }
     & { ' $fragmentRefs'?: { 'IContentData_SecondaryNavigationBlockComponent_Fragment': IContentData_SecondaryNavigationBlockComponent_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
@@ -7657,9 +7284,6 @@ export type BlogPostPageDataFragment = { __typename?: 'BlogPostPage', blogTitle?
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment;'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
   ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'IContentListItem_StockPriceCard_Fragment': IContentListItem_StockPriceCard_Fragment;'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
-  ) | (
     { __typename?: 'SysContentFolder' }
     & { ' $fragmentRefs'?: { 'IContentListItem_SysContentFolder_Fragment': IContentListItem_SysContentFolder_Fragment } }
   ) | (
@@ -7789,9 +7413,6 @@ export type LandingPageDataFragment = { __typename?: 'LandingPage', TopContentAr
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
   ) | { __typename?: 'SysContentFolder' } | (
     { __typename?: 'TestimonialElement' }
     & { ' $fragmentRefs'?: { 'BlockData_TestimonialElement_Fragment': BlockData_TestimonialElement_Fragment;'TestimonialElementDataFragment': TestimonialElementDataFragment } }
@@ -7876,9 +7497,6 @@ export type LandingPageDataFragment = { __typename?: 'LandingPage', TopContentAr
   ) | (
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
-  ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment } }
   ) | { __typename?: 'SysContentFolder' } | (
     { __typename?: 'TestimonialElement' }
     & { ' $fragmentRefs'?: { 'BlockData_TestimonialElement_Fragment': BlockData_TestimonialElement_Fragment;'TestimonialElementDataFragment': TestimonialElementDataFragment } }
@@ -7908,12 +7526,6 @@ export type getFooterDataQueryVariables = Exact<{
 
 
 export type getFooterDataQuery = { __typename?: 'Query', appLayout?: { __typename?: 'LayoutSettingsBlockOutput', items?: Array<{ __typename?: 'LayoutSettingsBlock', copyright?: string | null, contactInfoHeading?: string | null, _metadata?: { __typename?: 'ContentMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, displayName?: string | null } | null, footerMenus?: Array<(
-        { __typename?: 'AccordionBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-      ) | (
-        { __typename?: 'AccordionItemBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-      ) | (
         { __typename?: 'AccordionBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
       ) | (
@@ -7998,9 +7610,6 @@ export type getFooterDataQuery = { __typename?: 'Query', appLayout?: { __typenam
         { __typename?: 'StockPriceCard' }
         & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
       ) | (
-        { __typename?: 'StockPriceCard' }
-        & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-      ) | (
         { __typename?: 'SysContentFolder' }
         & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment } }
       ) | (
@@ -8057,12 +7666,6 @@ export type getHeaderDataQueryVariables = Exact<{
 
 
 export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typename?: 'LayoutSettingsBlockOutput', items?: Array<{ __typename?: 'LayoutSettingsBlock', appIdentifiers?: string | null, _metadata?: { __typename?: 'ContentMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, displayName?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, displayName?: string | null } | null, mainMenu?: Array<(
-        { __typename?: 'AccordionBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-      ) | (
-        { __typename?: 'AccordionItemBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-      ) | (
         { __typename?: 'AccordionBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
       ) | (
@@ -8147,9 +7750,6 @@ export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typenam
         { __typename?: 'StockPriceCard' }
         & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
       ) | (
-        { __typename?: 'StockPriceCard' }
-        & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-      ) | (
         { __typename?: 'SysContentFolder' }
         & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment } }
       ) | (
@@ -8195,12 +7795,6 @@ export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typenam
         { __typename?: '_Video' }
         & { ' $fragmentRefs'?: { 'IContentData__Video_Fragment': IContentData__Video_Fragment } }
       ) | null> | null, serviceButtons?: Array<(
-        { __typename?: 'AccordionBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-      ) | (
-        { __typename?: 'AccordionItemBlock' }
-        & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-      ) | (
         { __typename?: 'AccordionBlock' }
         & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
       ) | (
@@ -8281,9 +7875,6 @@ export type getHeaderDataQuery = { __typename?: 'Query', appLayout?: { __typenam
       ) | (
         { __typename?: 'SecondaryNavigationBlockComponent' }
         & { ' $fragmentRefs'?: { 'IContentData_SecondaryNavigationBlockComponent_Fragment': IContentData_SecondaryNavigationBlockComponent_Fragment } }
-      ) | (
-        { __typename?: 'StockPriceCard' }
-        & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
       ) | (
         { __typename?: 'StockPriceCard' }
         & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
@@ -8386,16 +7977,6 @@ export type searchContentQuery = { __typename?: 'Query', Content?: { __typename?
       { __typename?: '_Page', _score?: number | null, preview?: Array<string | null> | null, _metadata?: { __typename?: 'ContentMetadata', published?: any | null } | { __typename?: 'InstanceMetadata', published?: any | null } | { __typename?: 'ItemMetadata', published?: any | null } | { __typename?: 'MediaMetadata', published?: any | null } | null }
       & { ' $fragmentRefs'?: { 'SearchData__Page_Fragment': SearchData__Page_Fragment } }
     ) | null> | null, facets?: { __typename?: '_PageFacet', _metadata?: { __typename?: 'IContentMetadataFacet', types?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null, locale?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null } | null };
-
-type SearchData_AccordionBlock_Fragment = (
-  { __typename?: 'AccordionBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-) & { ' $fragmentName'?: 'SearchData_AccordionBlock_Fragment' };
-
-type SearchData_AccordionItemBlock_Fragment = (
-  { __typename?: 'AccordionItemBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-) & { ' $fragmentName'?: 'SearchData_AccordionItemBlock_Fragment' };
 
 type SearchData_AccordionBlock_Fragment = (
   { __typename?: 'AccordionBlock' }
@@ -8537,11 +8118,6 @@ type SearchData_StockPriceCard_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
 ) & { ' $fragmentName'?: 'SearchData_StockPriceCard_Fragment' };
 
-type SearchData_StockPriceCard_Fragment = (
-  { __typename?: 'StockPriceCard' }
-  & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-) & { ' $fragmentName'?: 'SearchData_StockPriceCard_Fragment' };
-
 type SearchData_SysContentFolder_Fragment = (
   { __typename?: 'SysContentFolder' }
   & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment } }
@@ -8618,7 +8194,6 @@ type SearchData__Video_Fragment = (
 ) & { ' $fragmentName'?: 'SearchData__Video_Fragment' };
 
 export type SearchDataFragment = SearchData_AccordionBlock_Fragment | SearchData_AccordionItemBlock_Fragment | SearchData_ArticleListElement_Fragment | SearchData_BlankExperience_Fragment | SearchData_BlankSection_Fragment | SearchData_BlogPostPage_Fragment | SearchData_BlogSectionExperience_Fragment | SearchData_ButtonBlock_Fragment | SearchData_CTAElement_Fragment | SearchData_CalculatorBlock_Fragment | SearchData_CarouselBlock_Fragment | SearchData_ContentRecsElement_Fragment | SearchData_GenericMedia_Fragment | SearchData_HeadingElement_Fragment | SearchData_HeroBlock_Fragment | SearchData_ImageElement_Fragment | SearchData_ImageMedia_Fragment | SearchData_LandingPage_Fragment | SearchData_LayoutSettingsBlock_Fragment | SearchData_MegaMenuGroupBlock_Fragment | SearchData_MenuNavigationBlock_Fragment | SearchData_OdpEmbedBlock_Fragment | SearchData_PageSeoSettings_Fragment | SearchData_ParagraphElement_Fragment | SearchData_QuoteBlock_Fragment | SearchData_RichTextElement_Fragment | SearchData_SecondaryNavigationBlockComponent_Fragment | SearchData_StockPriceCard_Fragment | SearchData_SysContentFolder_Fragment | SearchData_TestimonialElement_Fragment | SearchData_TextBlock_Fragment | SearchData_UserProfileCardBlock_Fragment | SearchData_VideoElement_Fragment | SearchData_VideoMedia_Fragment | SearchData__Component_Fragment | SearchData__Content_Fragment | SearchData__Experience_Fragment | SearchData__Folder_Fragment | SearchData__Image_Fragment | SearchData__Media_Fragment | SearchData__Page_Fragment | SearchData__Section_Fragment | SearchData__Video_Fragment;
-export type SearchDataFragment = SearchData_AccordionBlock_Fragment | SearchData_AccordionItemBlock_Fragment | SearchData_ArticleListElement_Fragment | SearchData_BlankExperience_Fragment | SearchData_BlankSection_Fragment | SearchData_BlogPostPage_Fragment | SearchData_BlogSectionExperience_Fragment | SearchData_ButtonBlock_Fragment | SearchData_CTAElement_Fragment | SearchData_CarouselBlock_Fragment | SearchData_ContentRecsElement_Fragment | SearchData_GenericMedia_Fragment | SearchData_HeadingElement_Fragment | SearchData_HeroBlock_Fragment | SearchData_ImageElement_Fragment | SearchData_ImageMedia_Fragment | SearchData_LandingPage_Fragment | SearchData_LayoutSettingsBlock_Fragment | SearchData_MegaMenuGroupBlock_Fragment | SearchData_MenuNavigationBlock_Fragment | SearchData_OdpEmbedBlock_Fragment | SearchData_PageSeoSettings_Fragment | SearchData_ParagraphElement_Fragment | SearchData_QuoteBlock_Fragment | SearchData_RichTextElement_Fragment | SearchData_SecondaryNavigationBlockComponent_Fragment | SearchData_StockPriceCard_Fragment | SearchData_SysContentFolder_Fragment | SearchData_TestimonialElement_Fragment | SearchData_TextBlock_Fragment | SearchData_UserProfileCardBlock_Fragment | SearchData_VideoElement_Fragment | SearchData_VideoMedia_Fragment | SearchData__Component_Fragment | SearchData__Content_Fragment | SearchData__Experience_Fragment | SearchData__Folder_Fragment | SearchData__Image_Fragment | SearchData__Media_Fragment | SearchData__Page_Fragment | SearchData__Section_Fragment | SearchData__Video_Fragment;
 
 export type personalizedSearchContentQueryVariables = Exact<{
   term: Scalars['String']['input'];
@@ -8651,34 +8226,6 @@ export type personalizedSearchContentQuery = { __typename?: 'Query', Content?: {
       { __typename?: '_Page', _score?: number | null, preview?: Array<string | null> | null, _metadata?: { __typename?: 'ContentMetadata', published?: any | null } | { __typename?: 'InstanceMetadata', published?: any | null } | { __typename?: 'ItemMetadata', published?: any | null } | { __typename?: 'MediaMetadata', published?: any | null } | null }
       & { ' $fragmentRefs'?: { 'SearchData__Page_Fragment': SearchData__Page_Fragment } }
     ) | null> | null, facets?: { __typename?: '_PageFacet', _metadata?: { __typename?: 'IContentMetadataFacet', types?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null, locale?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null } | null };
-
-type IContentData_AccordionBlock_Fragment = { __typename?: 'AccordionBlock', _type: 'AccordionBlock', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IContentData_AccordionBlock_Fragment' };
-
-type IContentData_AccordionItemBlock_Fragment = { __typename?: 'AccordionItemBlock', _type: 'AccordionItemBlock', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IContentData_AccordionItemBlock_Fragment' };
 
 type IContentData_AccordionBlock_Fragment = { __typename?: 'AccordionBlock', _type: 'AccordionBlock', _metadata?: (
     { __typename?: 'ContentMetadata' }
@@ -9072,20 +8619,6 @@ type IContentData_StockPriceCard_Fragment = { __typename?: 'StockPriceCard', _ty
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IContentData_StockPriceCard_Fragment' };
 
-type IContentData_StockPriceCard_Fragment = { __typename?: 'StockPriceCard', _type: 'StockPriceCard', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IContentData_StockPriceCard_Fragment' };
-
 type IContentData_SysContentFolder_Fragment = { __typename?: 'SysContentFolder', _type: 'SysContentFolder', _metadata?: (
     { __typename?: 'ContentMetadata' }
     & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
@@ -9297,7 +8830,6 @@ type IContentData__Video_Fragment = { __typename?: '_Video', _type: '_Video', _m
   ) | null } & { ' $fragmentName'?: 'IContentData__Video_Fragment' };
 
 export type IContentDataFragment = IContentData_AccordionBlock_Fragment | IContentData_AccordionItemBlock_Fragment | IContentData_ArticleListElement_Fragment | IContentData_BlankExperience_Fragment | IContentData_BlankSection_Fragment | IContentData_BlogPostPage_Fragment | IContentData_BlogSectionExperience_Fragment | IContentData_ButtonBlock_Fragment | IContentData_CTAElement_Fragment | IContentData_CalculatorBlock_Fragment | IContentData_CarouselBlock_Fragment | IContentData_ContentRecsElement_Fragment | IContentData_GenericMedia_Fragment | IContentData_HeadingElement_Fragment | IContentData_HeroBlock_Fragment | IContentData_ImageElement_Fragment | IContentData_ImageMedia_Fragment | IContentData_LandingPage_Fragment | IContentData_LayoutSettingsBlock_Fragment | IContentData_MegaMenuGroupBlock_Fragment | IContentData_MenuNavigationBlock_Fragment | IContentData_OdpEmbedBlock_Fragment | IContentData_PageSeoSettings_Fragment | IContentData_ParagraphElement_Fragment | IContentData_QuoteBlock_Fragment | IContentData_RichTextElement_Fragment | IContentData_SecondaryNavigationBlockComponent_Fragment | IContentData_StockPriceCard_Fragment | IContentData_SysContentFolder_Fragment | IContentData_TestimonialElement_Fragment | IContentData_TextBlock_Fragment | IContentData_UserProfileCardBlock_Fragment | IContentData_VideoElement_Fragment | IContentData_VideoMedia_Fragment | IContentData__Component_Fragment | IContentData__Content_Fragment | IContentData__Experience_Fragment | IContentData__Folder_Fragment | IContentData__Image_Fragment | IContentData__Media_Fragment | IContentData__Page_Fragment | IContentData__Section_Fragment | IContentData__Video_Fragment;
-export type IContentDataFragment = IContentData_AccordionBlock_Fragment | IContentData_AccordionItemBlock_Fragment | IContentData_ArticleListElement_Fragment | IContentData_BlankExperience_Fragment | IContentData_BlankSection_Fragment | IContentData_BlogPostPage_Fragment | IContentData_BlogSectionExperience_Fragment | IContentData_ButtonBlock_Fragment | IContentData_CTAElement_Fragment | IContentData_CarouselBlock_Fragment | IContentData_ContentRecsElement_Fragment | IContentData_GenericMedia_Fragment | IContentData_HeadingElement_Fragment | IContentData_HeroBlock_Fragment | IContentData_ImageElement_Fragment | IContentData_ImageMedia_Fragment | IContentData_LandingPage_Fragment | IContentData_LayoutSettingsBlock_Fragment | IContentData_MegaMenuGroupBlock_Fragment | IContentData_MenuNavigationBlock_Fragment | IContentData_OdpEmbedBlock_Fragment | IContentData_PageSeoSettings_Fragment | IContentData_ParagraphElement_Fragment | IContentData_QuoteBlock_Fragment | IContentData_RichTextElement_Fragment | IContentData_SecondaryNavigationBlockComponent_Fragment | IContentData_StockPriceCard_Fragment | IContentData_SysContentFolder_Fragment | IContentData_TestimonialElement_Fragment | IContentData_TextBlock_Fragment | IContentData_UserProfileCardBlock_Fragment | IContentData_VideoElement_Fragment | IContentData_VideoMedia_Fragment | IContentData__Component_Fragment | IContentData__Content_Fragment | IContentData__Experience_Fragment | IContentData__Folder_Fragment | IContentData__Image_Fragment | IContentData__Media_Fragment | IContentData__Page_Fragment | IContentData__Section_Fragment | IContentData__Video_Fragment;
 
 type CompositionData_CompositionComponentNode_Fragment = { __typename?: 'CompositionComponentNode', type?: string | null, key?: string | null, name?: string | null, layoutType?: string | null, template?: string | null, component?: (
     { __typename?: 'AccordionBlock' }
@@ -9366,9 +8898,6 @@ type CompositionData_CompositionComponentNode_Fragment = { __typename?: 'Composi
     { __typename?: 'StockPriceCard' }
     & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment;'ElementData_StockPriceCard_Fragment': ElementData_StockPriceCard_Fragment } }
   ) | (
-    { __typename?: 'StockPriceCard' }
-    & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment;'ElementData_StockPriceCard_Fragment': ElementData_StockPriceCard_Fragment } }
-  ) | (
     { __typename?: 'TestimonialElement' }
     & { ' $fragmentRefs'?: { 'BlockData_TestimonialElement_Fragment': BlockData_TestimonialElement_Fragment;'ElementData_TestimonialElement_Fragment': ElementData_TestimonialElement_Fragment;'TestimonialElementDataFragment': TestimonialElementDataFragment } }
   ) | (
@@ -9393,34 +8922,6 @@ type CompositionData_CompositionNode_Fragment = { __typename?: 'CompositionNode'
 type CompositionData_CompositionStructureNode_Fragment = { __typename?: 'CompositionStructureNode', type?: string | null, key?: string | null, name?: string | null, layoutType?: string | null, template?: string | null, nodes?: Array<{ __typename?: 'CompositionComponentNode', name?: string | null } | { __typename?: 'CompositionNode', name?: string | null } | { __typename?: 'CompositionStructureNode', name?: string | null } | null> | null, settings?: Array<{ __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null } | null> | null } & { ' $fragmentName'?: 'CompositionData_CompositionStructureNode_Fragment' };
 
 export type CompositionDataFragment = CompositionData_CompositionComponentNode_Fragment | CompositionData_CompositionNode_Fragment | CompositionData_CompositionStructureNode_Fragment;
-
-type IElementData_AccordionBlock_Fragment = { __typename?: 'AccordionBlock', _type: 'AccordionBlock', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IElementData_AccordionBlock_Fragment' };
-
-type IElementData_AccordionItemBlock_Fragment = { __typename?: 'AccordionItemBlock', _type: 'AccordionItemBlock', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IElementData_AccordionItemBlock_Fragment' };
 
 type IElementData_AccordionBlock_Fragment = { __typename?: 'AccordionBlock', _type: 'AccordionBlock', _metadata?: (
     { __typename?: 'ContentMetadata' }
@@ -9730,20 +9231,6 @@ type IElementData_StockPriceCard_Fragment = { __typename?: 'StockPriceCard', _ty
     & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
   ) | null } & { ' $fragmentName'?: 'IElementData_StockPriceCard_Fragment' };
 
-type IElementData_StockPriceCard_Fragment = { __typename?: 'StockPriceCard', _type: 'StockPriceCard', _metadata?: (
-    { __typename?: 'ContentMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
-  ) | (
-    { __typename?: 'InstanceMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_InstanceMetadata_Fragment': IContentInfo_InstanceMetadata_Fragment } }
-  ) | (
-    { __typename?: 'ItemMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_ItemMetadata_Fragment': IContentInfo_ItemMetadata_Fragment } }
-  ) | (
-    { __typename?: 'MediaMetadata' }
-    & { ' $fragmentRefs'?: { 'IContentInfo_MediaMetadata_Fragment': IContentInfo_MediaMetadata_Fragment } }
-  ) | null } & { ' $fragmentName'?: 'IElementData_StockPriceCard_Fragment' };
-
 type IElementData_TestimonialElement_Fragment = { __typename?: 'TestimonialElement', _type: 'TestimonialElement', _metadata?: (
     { __typename?: 'ContentMetadata' }
     & { ' $fragmentRefs'?: { 'IContentInfo_ContentMetadata_Fragment': IContentInfo_ContentMetadata_Fragment } }
@@ -9829,17 +9316,6 @@ type IElementData__Section_Fragment = { __typename?: '_Section', _type: '_Sectio
   ) | null } & { ' $fragmentName'?: 'IElementData__Section_Fragment' };
 
 export type IElementDataFragment = IElementData_AccordionBlock_Fragment | IElementData_AccordionItemBlock_Fragment | IElementData_ArticleListElement_Fragment | IElementData_BlankSection_Fragment | IElementData_ButtonBlock_Fragment | IElementData_CTAElement_Fragment | IElementData_CalculatorBlock_Fragment | IElementData_CarouselBlock_Fragment | IElementData_ContentRecsElement_Fragment | IElementData_HeadingElement_Fragment | IElementData_HeroBlock_Fragment | IElementData_ImageElement_Fragment | IElementData_LayoutSettingsBlock_Fragment | IElementData_MegaMenuGroupBlock_Fragment | IElementData_MenuNavigationBlock_Fragment | IElementData_OdpEmbedBlock_Fragment | IElementData_PageSeoSettings_Fragment | IElementData_ParagraphElement_Fragment | IElementData_QuoteBlock_Fragment | IElementData_RichTextElement_Fragment | IElementData_SecondaryNavigationBlockComponent_Fragment | IElementData_StockPriceCard_Fragment | IElementData_TestimonialElement_Fragment | IElementData_TextBlock_Fragment | IElementData_UserProfileCardBlock_Fragment | IElementData_VideoElement_Fragment | IElementData__Component_Fragment | IElementData__Section_Fragment;
-
-type ElementData_AccordionBlock_Fragment = (
-  { __typename?: 'AccordionBlock' }
-  & { ' $fragmentRefs'?: { 'IElementData_AccordionBlock_Fragment': IElementData_AccordionBlock_Fragment } }
-) & { ' $fragmentName'?: 'ElementData_AccordionBlock_Fragment' };
-
-type ElementData_AccordionItemBlock_Fragment = (
-  { __typename?: 'AccordionItemBlock' }
-  & { ' $fragmentRefs'?: { 'IElementData_AccordionItemBlock_Fragment': IElementData_AccordionItemBlock_Fragment } }
-) & { ' $fragmentName'?: 'ElementData_AccordionItemBlock_Fragment' };
-export type IElementDataFragment = IElementData_AccordionBlock_Fragment | IElementData_AccordionItemBlock_Fragment | IElementData_ArticleListElement_Fragment | IElementData_BlankSection_Fragment | IElementData_ButtonBlock_Fragment | IElementData_CTAElement_Fragment | IElementData_CarouselBlock_Fragment | IElementData_ContentRecsElement_Fragment | IElementData_HeadingElement_Fragment | IElementData_HeroBlock_Fragment | IElementData_ImageElement_Fragment | IElementData_LayoutSettingsBlock_Fragment | IElementData_MegaMenuGroupBlock_Fragment | IElementData_MenuNavigationBlock_Fragment | IElementData_OdpEmbedBlock_Fragment | IElementData_PageSeoSettings_Fragment | IElementData_ParagraphElement_Fragment | IElementData_QuoteBlock_Fragment | IElementData_RichTextElement_Fragment | IElementData_SecondaryNavigationBlockComponent_Fragment | IElementData_StockPriceCard_Fragment | IElementData_TestimonialElement_Fragment | IElementData_TextBlock_Fragment | IElementData_UserProfileCardBlock_Fragment | IElementData_VideoElement_Fragment | IElementData__Component_Fragment | IElementData__Section_Fragment;
 
 type ElementData_AccordionBlock_Fragment = (
   { __typename?: 'AccordionBlock' }
@@ -9951,11 +9427,6 @@ type ElementData_StockPriceCard_Fragment = (
   & { ' $fragmentRefs'?: { 'IElementData_StockPriceCard_Fragment': IElementData_StockPriceCard_Fragment } }
 ) & { ' $fragmentName'?: 'ElementData_StockPriceCard_Fragment' };
 
-type ElementData_StockPriceCard_Fragment = (
-  { __typename?: 'StockPriceCard' }
-  & { ' $fragmentRefs'?: { 'IElementData_StockPriceCard_Fragment': IElementData_StockPriceCard_Fragment } }
-) & { ' $fragmentName'?: 'ElementData_StockPriceCard_Fragment' };
-
 type ElementData_TestimonialElement_Fragment = (
   { __typename?: 'TestimonialElement' }
   & { ' $fragmentRefs'?: { 'IElementData_TestimonialElement_Fragment': IElementData_TestimonialElement_Fragment } }
@@ -9987,17 +9458,6 @@ type ElementData__Section_Fragment = (
 ) & { ' $fragmentName'?: 'ElementData__Section_Fragment' };
 
 export type ElementDataFragment = ElementData_AccordionBlock_Fragment | ElementData_AccordionItemBlock_Fragment | ElementData_ArticleListElement_Fragment | ElementData_BlankSection_Fragment | ElementData_ButtonBlock_Fragment | ElementData_CTAElement_Fragment | ElementData_CalculatorBlock_Fragment | ElementData_CarouselBlock_Fragment | ElementData_ContentRecsElement_Fragment | ElementData_HeadingElement_Fragment | ElementData_HeroBlock_Fragment | ElementData_ImageElement_Fragment | ElementData_LayoutSettingsBlock_Fragment | ElementData_MegaMenuGroupBlock_Fragment | ElementData_MenuNavigationBlock_Fragment | ElementData_OdpEmbedBlock_Fragment | ElementData_PageSeoSettings_Fragment | ElementData_ParagraphElement_Fragment | ElementData_QuoteBlock_Fragment | ElementData_RichTextElement_Fragment | ElementData_SecondaryNavigationBlockComponent_Fragment | ElementData_StockPriceCard_Fragment | ElementData_TestimonialElement_Fragment | ElementData_TextBlock_Fragment | ElementData_UserProfileCardBlock_Fragment | ElementData_VideoElement_Fragment | ElementData__Component_Fragment | ElementData__Section_Fragment;
-
-type BlockData_AccordionBlock_Fragment = (
-  { __typename?: 'AccordionBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-) & { ' $fragmentName'?: 'BlockData_AccordionBlock_Fragment' };
-
-type BlockData_AccordionItemBlock_Fragment = (
-  { __typename?: 'AccordionItemBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-) & { ' $fragmentName'?: 'BlockData_AccordionItemBlock_Fragment' };
-export type ElementDataFragment = ElementData_AccordionBlock_Fragment | ElementData_AccordionItemBlock_Fragment | ElementData_ArticleListElement_Fragment | ElementData_BlankSection_Fragment | ElementData_ButtonBlock_Fragment | ElementData_CTAElement_Fragment | ElementData_CarouselBlock_Fragment | ElementData_ContentRecsElement_Fragment | ElementData_HeadingElement_Fragment | ElementData_HeroBlock_Fragment | ElementData_ImageElement_Fragment | ElementData_LayoutSettingsBlock_Fragment | ElementData_MegaMenuGroupBlock_Fragment | ElementData_MenuNavigationBlock_Fragment | ElementData_OdpEmbedBlock_Fragment | ElementData_PageSeoSettings_Fragment | ElementData_ParagraphElement_Fragment | ElementData_QuoteBlock_Fragment | ElementData_RichTextElement_Fragment | ElementData_SecondaryNavigationBlockComponent_Fragment | ElementData_StockPriceCard_Fragment | ElementData_TestimonialElement_Fragment | ElementData_TextBlock_Fragment | ElementData_UserProfileCardBlock_Fragment | ElementData_VideoElement_Fragment | ElementData__Component_Fragment | ElementData__Section_Fragment;
 
 type BlockData_AccordionBlock_Fragment = (
   { __typename?: 'AccordionBlock' }
@@ -10109,11 +9569,6 @@ type BlockData_StockPriceCard_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
 ) & { ' $fragmentName'?: 'BlockData_StockPriceCard_Fragment' };
 
-type BlockData_StockPriceCard_Fragment = (
-  { __typename?: 'StockPriceCard' }
-  & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-) & { ' $fragmentName'?: 'BlockData_StockPriceCard_Fragment' };
-
 type BlockData_TestimonialElement_Fragment = (
   { __typename?: 'TestimonialElement' }
   & { ' $fragmentRefs'?: { 'IContentData_TestimonialElement_Fragment': IContentData_TestimonialElement_Fragment } }
@@ -10145,17 +9600,6 @@ type BlockData__Section_Fragment = (
 ) & { ' $fragmentName'?: 'BlockData__Section_Fragment' };
 
 export type BlockDataFragment = BlockData_AccordionBlock_Fragment | BlockData_AccordionItemBlock_Fragment | BlockData_ArticleListElement_Fragment | BlockData_BlankSection_Fragment | BlockData_ButtonBlock_Fragment | BlockData_CTAElement_Fragment | BlockData_CalculatorBlock_Fragment | BlockData_CarouselBlock_Fragment | BlockData_ContentRecsElement_Fragment | BlockData_HeadingElement_Fragment | BlockData_HeroBlock_Fragment | BlockData_ImageElement_Fragment | BlockData_LayoutSettingsBlock_Fragment | BlockData_MegaMenuGroupBlock_Fragment | BlockData_MenuNavigationBlock_Fragment | BlockData_OdpEmbedBlock_Fragment | BlockData_PageSeoSettings_Fragment | BlockData_ParagraphElement_Fragment | BlockData_QuoteBlock_Fragment | BlockData_RichTextElement_Fragment | BlockData_SecondaryNavigationBlockComponent_Fragment | BlockData_StockPriceCard_Fragment | BlockData_TestimonialElement_Fragment | BlockData_TextBlock_Fragment | BlockData_UserProfileCardBlock_Fragment | BlockData_VideoElement_Fragment | BlockData__Component_Fragment | BlockData__Section_Fragment;
-
-type PageData_AccordionBlock_Fragment = (
-  { __typename?: 'AccordionBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-) & { ' $fragmentName'?: 'PageData_AccordionBlock_Fragment' };
-
-type PageData_AccordionItemBlock_Fragment = (
-  { __typename?: 'AccordionItemBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-) & { ' $fragmentName'?: 'PageData_AccordionItemBlock_Fragment' };
-export type BlockDataFragment = BlockData_AccordionBlock_Fragment | BlockData_AccordionItemBlock_Fragment | BlockData_ArticleListElement_Fragment | BlockData_BlankSection_Fragment | BlockData_ButtonBlock_Fragment | BlockData_CTAElement_Fragment | BlockData_CarouselBlock_Fragment | BlockData_ContentRecsElement_Fragment | BlockData_HeadingElement_Fragment | BlockData_HeroBlock_Fragment | BlockData_ImageElement_Fragment | BlockData_LayoutSettingsBlock_Fragment | BlockData_MegaMenuGroupBlock_Fragment | BlockData_MenuNavigationBlock_Fragment | BlockData_OdpEmbedBlock_Fragment | BlockData_PageSeoSettings_Fragment | BlockData_ParagraphElement_Fragment | BlockData_QuoteBlock_Fragment | BlockData_RichTextElement_Fragment | BlockData_SecondaryNavigationBlockComponent_Fragment | BlockData_StockPriceCard_Fragment | BlockData_TestimonialElement_Fragment | BlockData_TextBlock_Fragment | BlockData_UserProfileCardBlock_Fragment | BlockData_VideoElement_Fragment | BlockData__Component_Fragment | BlockData__Section_Fragment;
 
 type PageData_AccordionBlock_Fragment = (
   { __typename?: 'AccordionBlock' }
@@ -10297,11 +9741,6 @@ type PageData_StockPriceCard_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
 ) & { ' $fragmentName'?: 'PageData_StockPriceCard_Fragment' };
 
-type PageData_StockPriceCard_Fragment = (
-  { __typename?: 'StockPriceCard' }
-  & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-) & { ' $fragmentName'?: 'PageData_StockPriceCard_Fragment' };
-
 type PageData_SysContentFolder_Fragment = (
   { __typename?: 'SysContentFolder' }
   & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment } }
@@ -10378,7 +9817,6 @@ type PageData__Video_Fragment = (
 ) & { ' $fragmentName'?: 'PageData__Video_Fragment' };
 
 export type PageDataFragment = PageData_AccordionBlock_Fragment | PageData_AccordionItemBlock_Fragment | PageData_ArticleListElement_Fragment | PageData_BlankExperience_Fragment | PageData_BlankSection_Fragment | PageData_BlogPostPage_Fragment | PageData_BlogSectionExperience_Fragment | PageData_ButtonBlock_Fragment | PageData_CTAElement_Fragment | PageData_CalculatorBlock_Fragment | PageData_CarouselBlock_Fragment | PageData_ContentRecsElement_Fragment | PageData_GenericMedia_Fragment | PageData_HeadingElement_Fragment | PageData_HeroBlock_Fragment | PageData_ImageElement_Fragment | PageData_ImageMedia_Fragment | PageData_LandingPage_Fragment | PageData_LayoutSettingsBlock_Fragment | PageData_MegaMenuGroupBlock_Fragment | PageData_MenuNavigationBlock_Fragment | PageData_OdpEmbedBlock_Fragment | PageData_PageSeoSettings_Fragment | PageData_ParagraphElement_Fragment | PageData_QuoteBlock_Fragment | PageData_RichTextElement_Fragment | PageData_SecondaryNavigationBlockComponent_Fragment | PageData_StockPriceCard_Fragment | PageData_SysContentFolder_Fragment | PageData_TestimonialElement_Fragment | PageData_TextBlock_Fragment | PageData_UserProfileCardBlock_Fragment | PageData_VideoElement_Fragment | PageData_VideoMedia_Fragment | PageData__Component_Fragment | PageData__Content_Fragment | PageData__Experience_Fragment | PageData__Folder_Fragment | PageData__Image_Fragment | PageData__Media_Fragment | PageData__Page_Fragment | PageData__Section_Fragment | PageData__Video_Fragment;
-export type PageDataFragment = PageData_AccordionBlock_Fragment | PageData_AccordionItemBlock_Fragment | PageData_ArticleListElement_Fragment | PageData_BlankExperience_Fragment | PageData_BlankSection_Fragment | PageData_BlogPostPage_Fragment | PageData_BlogSectionExperience_Fragment | PageData_ButtonBlock_Fragment | PageData_CTAElement_Fragment | PageData_CarouselBlock_Fragment | PageData_ContentRecsElement_Fragment | PageData_GenericMedia_Fragment | PageData_HeadingElement_Fragment | PageData_HeroBlock_Fragment | PageData_ImageElement_Fragment | PageData_ImageMedia_Fragment | PageData_LandingPage_Fragment | PageData_LayoutSettingsBlock_Fragment | PageData_MegaMenuGroupBlock_Fragment | PageData_MenuNavigationBlock_Fragment | PageData_OdpEmbedBlock_Fragment | PageData_PageSeoSettings_Fragment | PageData_ParagraphElement_Fragment | PageData_QuoteBlock_Fragment | PageData_RichTextElement_Fragment | PageData_SecondaryNavigationBlockComponent_Fragment | PageData_StockPriceCard_Fragment | PageData_SysContentFolder_Fragment | PageData_TestimonialElement_Fragment | PageData_TextBlock_Fragment | PageData_UserProfileCardBlock_Fragment | PageData_VideoElement_Fragment | PageData_VideoMedia_Fragment | PageData__Component_Fragment | PageData__Content_Fragment | PageData__Experience_Fragment | PageData__Folder_Fragment | PageData__Image_Fragment | PageData__Media_Fragment | PageData__Page_Fragment | PageData__Section_Fragment | PageData__Video_Fragment;
 
 export type LinkDataFragment = { __typename?: 'ContentUrl', base?: string | null, hierarchical?: string | null, default?: string | null } & { ' $fragmentName'?: 'LinkDataFragment' };
 
@@ -10408,16 +9846,6 @@ type IContentInfo_MediaMetadata_Fragment = { __typename?: 'MediaMetadata', key?:
   ) | null } & { ' $fragmentName'?: 'IContentInfo_MediaMetadata_Fragment' };
 
 export type IContentInfoFragment = IContentInfo_ContentMetadata_Fragment | IContentInfo_InstanceMetadata_Fragment | IContentInfo_ItemMetadata_Fragment | IContentInfo_MediaMetadata_Fragment;
-
-type IContentListItem_AccordionBlock_Fragment = (
-  { __typename?: 'AccordionBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment } }
-) & { ' $fragmentName'?: 'IContentListItem_AccordionBlock_Fragment' };
-
-type IContentListItem_AccordionItemBlock_Fragment = (
-  { __typename?: 'AccordionItemBlock' }
-  & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment } }
-) & { ' $fragmentName'?: 'IContentListItem_AccordionItemBlock_Fragment' };
 
 type IContentListItem_AccordionBlock_Fragment = (
   { __typename?: 'AccordionBlock' }
@@ -10559,11 +9987,6 @@ type IContentListItem_StockPriceCard_Fragment = (
   & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
 ) & { ' $fragmentName'?: 'IContentListItem_StockPriceCard_Fragment' };
 
-type IContentListItem_StockPriceCard_Fragment = (
-  { __typename?: 'StockPriceCard' }
-  & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment } }
-) & { ' $fragmentName'?: 'IContentListItem_StockPriceCard_Fragment' };
-
 type IContentListItem_SysContentFolder_Fragment = (
   { __typename?: 'SysContentFolder' }
   & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment } }
@@ -10640,7 +10063,6 @@ type IContentListItem__Video_Fragment = (
 ) & { ' $fragmentName'?: 'IContentListItem__Video_Fragment' };
 
 export type IContentListItemFragment = IContentListItem_AccordionBlock_Fragment | IContentListItem_AccordionItemBlock_Fragment | IContentListItem_ArticleListElement_Fragment | IContentListItem_BlankExperience_Fragment | IContentListItem_BlankSection_Fragment | IContentListItem_BlogPostPage_Fragment | IContentListItem_BlogSectionExperience_Fragment | IContentListItem_ButtonBlock_Fragment | IContentListItem_CTAElement_Fragment | IContentListItem_CalculatorBlock_Fragment | IContentListItem_CarouselBlock_Fragment | IContentListItem_ContentRecsElement_Fragment | IContentListItem_GenericMedia_Fragment | IContentListItem_HeadingElement_Fragment | IContentListItem_HeroBlock_Fragment | IContentListItem_ImageElement_Fragment | IContentListItem_ImageMedia_Fragment | IContentListItem_LandingPage_Fragment | IContentListItem_LayoutSettingsBlock_Fragment | IContentListItem_MegaMenuGroupBlock_Fragment | IContentListItem_MenuNavigationBlock_Fragment | IContentListItem_OdpEmbedBlock_Fragment | IContentListItem_PageSeoSettings_Fragment | IContentListItem_ParagraphElement_Fragment | IContentListItem_QuoteBlock_Fragment | IContentListItem_RichTextElement_Fragment | IContentListItem_SecondaryNavigationBlockComponent_Fragment | IContentListItem_StockPriceCard_Fragment | IContentListItem_SysContentFolder_Fragment | IContentListItem_TestimonialElement_Fragment | IContentListItem_TextBlock_Fragment | IContentListItem_UserProfileCardBlock_Fragment | IContentListItem_VideoElement_Fragment | IContentListItem_VideoMedia_Fragment | IContentListItem__Component_Fragment | IContentListItem__Content_Fragment | IContentListItem__Experience_Fragment | IContentListItem__Folder_Fragment | IContentListItem__Image_Fragment | IContentListItem__Media_Fragment | IContentListItem__Page_Fragment | IContentListItem__Section_Fragment | IContentListItem__Video_Fragment;
-export type IContentListItemFragment = IContentListItem_AccordionBlock_Fragment | IContentListItem_AccordionItemBlock_Fragment | IContentListItem_ArticleListElement_Fragment | IContentListItem_BlankExperience_Fragment | IContentListItem_BlankSection_Fragment | IContentListItem_BlogPostPage_Fragment | IContentListItem_BlogSectionExperience_Fragment | IContentListItem_ButtonBlock_Fragment | IContentListItem_CTAElement_Fragment | IContentListItem_CarouselBlock_Fragment | IContentListItem_ContentRecsElement_Fragment | IContentListItem_GenericMedia_Fragment | IContentListItem_HeadingElement_Fragment | IContentListItem_HeroBlock_Fragment | IContentListItem_ImageElement_Fragment | IContentListItem_ImageMedia_Fragment | IContentListItem_LandingPage_Fragment | IContentListItem_LayoutSettingsBlock_Fragment | IContentListItem_MegaMenuGroupBlock_Fragment | IContentListItem_MenuNavigationBlock_Fragment | IContentListItem_OdpEmbedBlock_Fragment | IContentListItem_PageSeoSettings_Fragment | IContentListItem_ParagraphElement_Fragment | IContentListItem_QuoteBlock_Fragment | IContentListItem_RichTextElement_Fragment | IContentListItem_SecondaryNavigationBlockComponent_Fragment | IContentListItem_StockPriceCard_Fragment | IContentListItem_SysContentFolder_Fragment | IContentListItem_TestimonialElement_Fragment | IContentListItem_TextBlock_Fragment | IContentListItem_UserProfileCardBlock_Fragment | IContentListItem_VideoElement_Fragment | IContentListItem_VideoMedia_Fragment | IContentListItem__Component_Fragment | IContentListItem__Content_Fragment | IContentListItem__Experience_Fragment | IContentListItem__Folder_Fragment | IContentListItem__Image_Fragment | IContentListItem__Media_Fragment | IContentListItem__Page_Fragment | IContentListItem__Section_Fragment | IContentListItem__Video_Fragment;
 
 type ExperienceData_BlankExperience_Fragment = { __typename?: 'BlankExperience', composition?: (
     { __typename?: 'CompositionStructureNode' }
@@ -10758,9 +10180,6 @@ export type getContentByIdQuery = { __typename?: 'Query', content?: { __typename
       { __typename?: 'StockPriceCard' }
       & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment;'PageData_StockPriceCard_Fragment': PageData_StockPriceCard_Fragment } }
     ) | (
-      { __typename?: 'StockPriceCard' }
-      & { ' $fragmentRefs'?: { 'BlockData_StockPriceCard_Fragment': BlockData_StockPriceCard_Fragment;'PageData_StockPriceCard_Fragment': PageData_StockPriceCard_Fragment } }
-    ) | (
       { __typename?: 'SysContentFolder' }
       & { ' $fragmentRefs'?: { 'PageData_SysContentFolder_Fragment': PageData_SysContentFolder_Fragment } }
     ) | (
@@ -10815,12 +10234,6 @@ export type getContentByPathQueryVariables = Exact<{
 
 
 export type getContentByPathQuery = { __typename?: 'Query', content?: { __typename?: '_ContentOutput', total?: number | null, items?: Array<(
-      { __typename?: 'AccordionBlock' }
-      & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment;'PageData_AccordionBlock_Fragment': PageData_AccordionBlock_Fragment } }
-    ) | (
-      { __typename?: 'AccordionItemBlock' }
-      & { ' $fragmentRefs'?: { 'IContentData_AccordionItemBlock_Fragment': IContentData_AccordionItemBlock_Fragment;'PageData_AccordionItemBlock_Fragment': PageData_AccordionItemBlock_Fragment } }
-    ) | (
       { __typename?: 'AccordionBlock' }
       & { ' $fragmentRefs'?: { 'IContentData_AccordionBlock_Fragment': IContentData_AccordionBlock_Fragment;'PageData_AccordionBlock_Fragment': PageData_AccordionBlock_Fragment } }
     ) | (
@@ -10905,9 +10318,6 @@ export type getContentByPathQuery = { __typename?: 'Query', content?: { __typena
       { __typename?: 'StockPriceCard' }
       & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment;'PageData_StockPriceCard_Fragment': PageData_StockPriceCard_Fragment } }
     ) | (
-      { __typename?: 'StockPriceCard' }
-      & { ' $fragmentRefs'?: { 'IContentData_StockPriceCard_Fragment': IContentData_StockPriceCard_Fragment;'PageData_StockPriceCard_Fragment': PageData_StockPriceCard_Fragment } }
-    ) | (
       { __typename?: 'SysContentFolder' }
       & { ' $fragmentRefs'?: { 'IContentData_SysContentFolder_Fragment': IContentData_SysContentFolder_Fragment;'PageData_SysContentFolder_Fragment': PageData_SysContentFolder_Fragment } }
     ) | (
@@ -10964,7 +10374,6 @@ export type getContentTypeQueryVariables = Exact<{
 
 
 export type getContentTypeQuery = { __typename?: 'Query', content?: { __typename?: '_ContentOutput', total?: number | null, items?: Array<{ __typename?: 'AccordionBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'AccordionItemBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogSectionExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CalculatorBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutSettingsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'RichTextElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SecondaryNavigationBlockComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StockPriceCard', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'UserProfileCardBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
-export type getContentTypeQuery = { __typename?: 'Query', content?: { __typename?: '_ContentOutput', total?: number | null, items?: Array<{ __typename?: 'AccordionBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'AccordionItemBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogSectionExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutSettingsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'RichTextElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SecondaryNavigationBlockComponent', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StockPriceCard', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'UserProfileCardBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
 
 export const LinkDataFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LinkData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentUrl"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"base"}},{"kind":"Field","name":{"kind":"Name","value":"hierarchical"}},{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]} as unknown as DocumentNode<LinkDataFragment, unknown>;
 export const ReferenceDataFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentReference"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"LinkData"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"LinkData"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ContentUrl"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"base"}},{"kind":"Field","name":{"kind":"Name","value":"hierarchical"}},{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]} as unknown as DocumentNode<ReferenceDataFragment, unknown>;

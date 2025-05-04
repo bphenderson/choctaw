@@ -612,6 +612,64 @@ export const LandingPageDataFragmentDoc = gql`
   }
 }
     `;
+export const LocationSearchPageDataFragmentDoc = gql`
+    fragment LocationSearchPageData on LocationSearchPage {
+  TopContentArea {
+    ...BlockData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+  MainContentArea {
+    ...BlockData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
 export const SearchDataFragmentDoc = gql`
     fragment SearchData on _IContent {
   ...IContentData
@@ -812,6 +870,35 @@ ${LinkDataFragmentDoc}`;
 export const getLandingPageMetaDataDocument = gql`
     query getLandingPageMetaData($key: String!, $version: String, $locale: [Locales]) {
   LandingPage(
+    where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
+    locale: $locale
+  ) {
+    pages: items {
+      _metadata {
+        displayName
+        key
+        version
+        locale
+        url {
+          base
+        }
+      }
+      SeoSettings {
+        MetaTitle
+        MetaDescription
+        SharingImage {
+          ...ReferenceData
+        }
+        GraphType
+      }
+    }
+  }
+}
+    ${ReferenceDataFragmentDoc}
+${LinkDataFragmentDoc}`;
+export const getLocationSearchPageMetaDataDocument = gql`
+    query getLocationSearchPageMetaData($key: String!, $version: String, $locale: [Locales]) {
+  LocationSearchPage(
     where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
     locale: $locale
   ) {
@@ -1077,6 +1164,7 @@ export const getContentByIdDocument = gql`
       ...BlogSectionExperienceData
       ...BlogPostPageData
       ...LandingPageData
+      ...LocationSearchPageData
     }
   }
 }
@@ -1124,7 +1212,8 @@ ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
-${LandingPageDataFragmentDoc}`;
+${LandingPageDataFragmentDoc}
+${LocationSearchPageDataFragmentDoc}`;
 export const getContentByPathDocument = gql`
     query getContentByPath($path: [String!]!, $locale: [Locales!], $siteId: String) {
   content: _Content(
@@ -1139,6 +1228,7 @@ export const getContentByPathDocument = gql`
       ...BlogSectionExperienceData
       ...BlogPostPageData
       ...LandingPageData
+      ...LocationSearchPageData
     }
   }
 }
@@ -1186,7 +1276,8 @@ ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
-${LandingPageDataFragmentDoc}`;
+${LandingPageDataFragmentDoc}
+${LocationSearchPageDataFragmentDoc}`;
 export const getContentTypeDocument = gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
   content: _Content(
@@ -1230,6 +1321,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getLandingPageMetaData(variables: Schema.getLandingPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLandingPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLandingPageMetaDataQuery>(getLandingPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLandingPageMetaData', 'query', variables);
+    },
+    getLocationSearchPageMetaData(variables: Schema.getLocationSearchPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLocationSearchPageMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLocationSearchPageMetaDataQuery>(getLocationSearchPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLocationSearchPageMetaData', 'query', variables);
     },
     getFooterData(variables?: Schema.getFooterDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getFooterDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getFooterDataQuery>(getFooterDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getFooterData', 'query', variables);

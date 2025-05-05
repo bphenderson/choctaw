@@ -1,0 +1,8 @@
+fragment LocationSearchPageData on LocationSearchPage {
+  TopContentArea {
+    ...BlockData
+  }
+  MainContentArea {
+    ...BlockData
+  }
+}

@@ -494,6 +494,11 @@ export const BlogSectionExperienceDataFragmentDoc = gql`
   ...ExperienceData
 }
     `;
+export const LocationSectionExperienceDataFragmentDoc = gql`
+    fragment LocationSectionExperienceData on LocationSectionExperience {
+  ...ExperienceData
+}
+    `;
 export const BlogPostPageDataFragmentDoc = gql`
     fragment BlogPostPageData on BlogPostPage {
   blogTitle: Heading
@@ -609,6 +614,34 @@ export const LandingPageDataFragmentDoc = gql`
     ...UserProfileCardBlockData
     ...VideoElementData
     ...BlankSectionData
+  }
+}
+    `;
+export const LocationPageDataFragmentDoc = gql`
+    fragment LocationPageData on LocationPage {
+  blogTitle: Heading
+  blogSubtitle: ArticleSubHeading
+  blogImage: LocationPostPromoImage {
+    ...ReferenceData
+  }
+  blogBody: BlogPostBody {
+    json
+  }
+  blogTopics: Topic
+}
+    `;
+export const LocationPageSearchResultFragmentDoc = gql`
+    fragment LocationPageSearchResult on LocationPage {
+  title: Heading
+  image: LocationPostPromoImage {
+    ...ReferenceData
+  }
+  seodata: SeoSettings {
+    MetaTitle
+    MetaDescription
+  }
+  _metadata {
+    published
   }
 }
     `;
@@ -832,6 +865,81 @@ export const getBlogSectionExperienceMetaDataDocument = gql`
     ${PageSeoSettingsPropertyDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${LinkDataFragmentDoc}`;
+export const getChildLocationPostsDocument = gql`
+    query getChildLocationPosts($parentKey: String!, $locale: [Locales!]! = ALL, $topic: String! = "", $limit: Int! = 9, $skip: Int! = 0) {
+  result: _Page(where: {_metadata: {key: {eq: $parentKey}}}, locale: $locale) {
+    items {
+      container: _metadata {
+        key
+        displayName
+      }
+      items: _link(type: ITEMS) {
+        posts: LocationPage(skip: $skip, limit: $limit) {
+          total
+          items {
+            ...IContentData
+            metadata: _metadata {
+              key
+              url {
+                base
+                default
+              }
+              published
+            }
+            heading: Heading
+            subheading: ArticleSubHeading
+            topic: Topic
+            image: LocationPostPromoImage {
+              src: url {
+                base
+                default
+              }
+            }
+          }
+          facets {
+            topic: Topic(orderBy: ASC, filters: [$topic]) {
+              name
+              count
+            }
+            metadata: _metadata {
+              published(unit: DAY) {
+                name
+                count
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${IContentInfoFragmentDoc}
+${LinkDataFragmentDoc}`;
+export const getLocationSectionExperienceMetaDataDocument = gql`
+    query getLocationSectionExperienceMetaData($key: String!, $version: String, $locale: [Locales!]) {
+  page: LocationSectionExperience(
+    where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
+    locale: $locale
+  ) {
+    items {
+      _metadata {
+        displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      seo_data {
+        ...PageSeoSettingsPropertyData
+      }
+    }
+  }
+}
+    ${PageSeoSettingsPropertyDataFragmentDoc}
+${ReferenceDataFragmentDoc}
+${LinkDataFragmentDoc}`;
 export const getBlogPostPageMetaDataDocument = gql`
     query getBlogPostPageMetaData($key: String!, $version: String, $locale: [Locales!]) {
   BlogPostPage(
@@ -890,6 +998,40 @@ export const getLandingPageMetaDataDocument = gql`
           ...ReferenceData
         }
         GraphType
+      }
+    }
+  }
+}
+    ${ReferenceDataFragmentDoc}
+${LinkDataFragmentDoc}`;
+export const getLocationPageMetaDataDocument = gql`
+    query getLocationPageMetaData($key: String!, $version: String, $locale: [Locales!]) {
+  LocationPage(
+    where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
+    locale: $locale
+  ) {
+    pages: items {
+      cms: _metadata {
+        title: displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      title: Heading
+      image: LocationPostPromoImage {
+        ...ReferenceData
+      }
+      topics: Topic
+      seo: SeoSettings {
+        title: MetaTitle
+        description: MetaDescription
+        keywords: MetaKeywords
+        image: SharingImage {
+          ...ReferenceData
+        }
+        type: GraphType
       }
     }
   }
@@ -1064,6 +1206,7 @@ export const searchContentDocument = gql`
         highlight: {enabled: true, startToken: "<span>", endToken: "</span>"}
       )
       ...BlogPostPageSearchResult
+      ...LocationPageSearchResult
     }
     facets {
       _metadata {
@@ -1084,7 +1227,8 @@ ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${BlogPostPageSearchResultFragmentDoc}
-${ReferenceDataFragmentDoc}`;
+${ReferenceDataFragmentDoc}
+${LocationPageSearchResultFragmentDoc}`;
 export const personalizedSearchContentDocument = gql`
     query personalizedSearchContent($term: String!, $topInterest: String, $locale: [String!], $withinLocale: [Locales], $types: [String!], $pageSize: Int! = 25, $start: Int! = 0, $boost: Int! = 100) {
   Content: _Page(
@@ -1105,6 +1249,7 @@ export const personalizedSearchContentDocument = gql`
         highlight: {enabled: true, startToken: "<span>", endToken: "</span>"}
       )
       ...BlogPostPageSearchResult
+      ...LocationPageSearchResult
     }
     facets {
       _metadata {
@@ -1125,7 +1270,8 @@ ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${BlogPostPageSearchResultFragmentDoc}
-${ReferenceDataFragmentDoc}`;
+${ReferenceDataFragmentDoc}
+${LocationPageSearchResultFragmentDoc}`;
 export const getContentByIdDocument = gql`
     query getContentById($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
   content: _Content(
@@ -1162,8 +1308,10 @@ export const getContentByIdDocument = gql`
       ...BlankSectionData
       ...BlankExperienceData
       ...BlogSectionExperienceData
+      ...LocationSectionExperienceData
       ...BlogPostPageData
       ...LandingPageData
+      ...LocationPageData
       ...LocationSearchPageData
     }
   }
@@ -1211,8 +1359,10 @@ ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
+${LocationSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
 ${LandingPageDataFragmentDoc}
+${LocationPageDataFragmentDoc}
 ${LocationSearchPageDataFragmentDoc}`;
 export const getContentByPathDocument = gql`
     query getContentByPath($path: [String!]!, $locale: [Locales!], $siteId: String) {
@@ -1226,8 +1376,10 @@ export const getContentByPathDocument = gql`
       ...PageData
       ...BlankExperienceData
       ...BlogSectionExperienceData
+      ...LocationSectionExperienceData
       ...BlogPostPageData
       ...LandingPageData
+      ...LocationPageData
       ...LocationSearchPageData
     }
   }
@@ -1275,8 +1427,10 @@ ${UserProfileCardBlockDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
+${LocationSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
 ${LandingPageDataFragmentDoc}
+${LocationPageDataFragmentDoc}
 ${LocationSearchPageDataFragmentDoc}`;
 export const getContentTypeDocument = gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
@@ -1316,11 +1470,20 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getBlogSectionExperienceMetaData(variables: Schema.getBlogSectionExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlogSectionExperienceMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlogSectionExperienceMetaDataQuery>(getBlogSectionExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlogSectionExperienceMetaData', 'query', variables);
     },
+    getChildLocationPosts(variables: Schema.getChildLocationPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getChildLocationPostsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getChildLocationPostsQuery>(getChildLocationPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getChildLocationPosts', 'query', variables);
+    },
+    getLocationSectionExperienceMetaData(variables: Schema.getLocationSectionExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLocationSectionExperienceMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLocationSectionExperienceMetaDataQuery>(getLocationSectionExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLocationSectionExperienceMetaData', 'query', variables);
+    },
     getBlogPostPageMetaData(variables: Schema.getBlogPostPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlogPostPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlogPostPageMetaDataQuery>(getBlogPostPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlogPostPageMetaData', 'query', variables);
     },
     getLandingPageMetaData(variables: Schema.getLandingPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLandingPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLandingPageMetaDataQuery>(getLandingPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLandingPageMetaData', 'query', variables);
+    },
+    getLocationPageMetaData(variables: Schema.getLocationPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLocationPageMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLocationPageMetaDataQuery>(getLocationPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLocationPageMetaData', 'query', variables);
     },
     getLocationSearchPageMetaData(variables: Schema.getLocationSearchPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLocationSearchPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLocationSearchPageMetaDataQuery>(getLocationSearchPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLocationSearchPageMetaData', 'query', variables);

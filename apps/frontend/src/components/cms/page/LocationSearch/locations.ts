@@ -13,7 +13,8 @@ export const locations: Location[] = [
     address: "1234 Moonlight Drive, Silverton, CA 90210",
     latitude: 34.0901,
     longitude: -118.4065,
-    note: "Assumed Silverton as Beverly Hills, CA based on ZIP 90210",
+    type: "bank",
+    note: "",
   },
   {
     name: "Horizon Trust Bank",
@@ -69,6 +70,7 @@ export const locations: Location[] = [
     address: "4567 Twilight Lane, Dawnview, GA 30303",
     latitude: 33.755,
     longitude: -84.388,
+    type: "credit-union",
     note: "Assumed Dawnview as Atlanta, GA based on ZIP 30303",
   },
   {
@@ -83,6 +85,7 @@ export const locations: Location[] = [
     address: "3214 Crystal Road, Lakemont, NV 89109",
     latitude: 36.1268,
     longitude: -115.1718,
+    type: "financial-group",
     note: "Assumed Lakemont as Las Vegas, NV based on ZIP 89109",
   },
   {

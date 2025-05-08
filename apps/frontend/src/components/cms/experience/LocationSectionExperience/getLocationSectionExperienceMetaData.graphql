@@ -1,0 +1,24 @@
+query getLocationSectionExperienceMetaData(
+  $key: String!
+  $version: String
+  $locale: [Locales!]
+) {
+  page: LocationSectionExperience(
+    where: { _metadata: { key: { eq: $key }, version: { eq: $version } } }
+    locale: $locale
+  ) {
+    items {
+      _metadata {
+        displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      seo_data {
+        ...PageSeoSettingsPropertyData
+      }
+    }
+  }
+}

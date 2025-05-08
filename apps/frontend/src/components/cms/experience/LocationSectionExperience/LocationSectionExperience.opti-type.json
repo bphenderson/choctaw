@@ -1,0 +1,23 @@
+{
+  "key": "LocationSectionExperience",
+  "displayName": "Location Section",
+  "description": "Add a location section to your site",
+  "baseType": "experience",
+  "sortOrder": 0,
+  "mayContainTypes": ["LocationPage", "LocationSectionExperience"],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "seo_data": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SEO Settings",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SeoSettings",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

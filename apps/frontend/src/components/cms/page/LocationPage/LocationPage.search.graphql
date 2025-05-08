@@ -1,0 +1,13 @@
+fragment LocationPageSearchResult on LocationPage {
+  title: Heading
+  image: LocationPostPromoImage {
+    ...ReferenceData
+  }
+  seodata: SeoSettings {
+    MetaTitle
+    MetaDescription
+  }
+  _metadata {
+    published
+  }
+}

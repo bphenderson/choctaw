@@ -1,0 +1,35 @@
+query getLocationPageMetaData(
+  $key: String!
+  $version: String
+  $locale: [Locales!]
+) {
+  LocationPage(
+    where: { _metadata: { key: { eq: $key }, version: { eq: $version } } }
+    locale: $locale
+  ) {
+    pages: items {
+      cms: _metadata {
+        title: displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      title: Heading
+      image: LocationPostPromoImage {
+        ...ReferenceData
+      }
+      topics: Topic
+      seo: SeoSettings {
+        title: MetaTitle
+        description: MetaDescription
+        keywords: MetaKeywords
+        image: SharingImage {
+          ...ReferenceData
+        }
+        type: GraphType
+      }
+    }
+  }
+}

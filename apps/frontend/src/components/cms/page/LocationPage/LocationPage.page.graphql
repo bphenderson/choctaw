@@ -1,0 +1,11 @@
+fragment LocationPageData on LocationPage {
+  blogTitle: Heading
+  blogSubtitle: ArticleSubHeading
+  blogImage: LocationPostPromoImage {
+    ...ReferenceData
+  }
+  blogBody: BlogPostBody {
+    json
+  }
+  blogTopics: Topic
+}

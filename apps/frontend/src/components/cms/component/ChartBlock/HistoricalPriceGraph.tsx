@@ -332,7 +332,7 @@ export const HistoricalPriceGraph = () => {
     "3M": 90,
     "6M": 180,
     YTD: Math.floor(
-      (new Date() - new Date(new Date().getFullYear(), 0, 1)) /
+      (new Date().getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) /
         (1000 * 60 * 60 * 24),
     ),
     "1Y": 365,

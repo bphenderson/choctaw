@@ -36,6 +36,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "@vercel/stega": "^0.1.2",
     "autoprefixer": "10.4.20",
+    "chart.js": "^4.4.9",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
     "deepmerge": "^4.3.1",

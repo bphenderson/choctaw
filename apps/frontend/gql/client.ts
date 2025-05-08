@@ -140,6 +140,15 @@ export const VideoMediaComponentDataFragmentDoc = gql`
   }
 }
     `;
+export const ChartBlockDataFragmentDoc = gql`
+    fragment ChartBlockData on ChartBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}
+    `;
 export const ContentRecsElementDataFragmentDoc = gql`
     fragment ContentRecsElementData on ContentRecsElement {
   ElementDeliveryApiKey
@@ -405,6 +414,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -452,6 +462,7 @@ export const CompositionDataFragmentDoc = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
+      ...ChartBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -522,6 +533,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -569,6 +581,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -596,6 +609,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -655,6 +669,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -682,6 +697,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ChartBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -1288,6 +1304,7 @@ export const getContentByIdDocument = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
+      ...ChartBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -1331,6 +1348,7 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${ChartBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1405,6 +1423,7 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${ChartBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}

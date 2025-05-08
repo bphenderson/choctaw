@@ -2441,6 +2441,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kurkle/color@npm:^0.3.0":
+  version: 0.3.4
+  resolution: "@kurkle/color@npm:0.3.4"
+  checksum: 10/a15bfb55eec4ff92ee27cdacff54e85c7497ec1f9e8e0e8eaec3d39320cc90b82eb7f716d92792a8235fad1617003c6e0c0d2cd07f6a79b7b138ca17ec5eb6e7
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^2.0.0-rc.0":
   version: 2.0.0-rc.0
   resolution: "@mapbox/node-pre-gyp@npm:2.0.0-rc.0"
@@ -2981,8 +2988,12 @@ __metadata:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     "@remkoj/optimizely-graph-client": "npm:^4.3.1"
     "@remkoj/optimizely-graph-functions": "npm:^4.3.1"
+    "@types/chart.js": "npm:^2.9.41"
+    "@types/chartjs": "npm:^0"
     "@types/source-map-support": "npm:^0.5.10"
     "@yarnpkg/sdks": "npm:^3.2.0"
+    chart.js: "npm:^4.4.9"
+    chartjs: "npm:^0.3.24"
     eslint: "npm:8.57.1"
     graphql: "npm:^16.10.0"
     graphql-request: "npm:^6.1.0"
@@ -3456,6 +3467,22 @@ __metadata:
   dependencies:
     chalk: "npm:*"
   checksum: 10/e8a905a4688e9bb97fc83055ebfc041a0245449ea5174f9e637f26a940dc2e2f8d5cc2e2f192ef85e418a032b051fde3cf84c47945521a821a9d425cdd7332b6
+  languageName: node
+  linkType: hard
+
+"@types/chart.js@npm:^2.9.41":
+  version: 2.9.41
+  resolution: "@types/chart.js@npm:2.9.41"
+  dependencies:
+    moment: "npm:^2.10.2"
+  checksum: 10/302b251633bb469410c0a8bd3e9b30fdc08c14f9d92998095ae3849a1c3069f61e70df530e6598e6416b3abd13d15dd4eb4c45914300a679ce4c8dee21847301
+  languageName: node
+  linkType: hard
+
+"@types/chartjs@npm:^0":
+  version: 0.0.31
+  resolution: "@types/chartjs@npm:0.0.31"
+  checksum: 10/ec862b8c8227e1f2e07a0e8842a93e520c0cd12aa0b029f1649d2d91634632f46822a151704d4d3cb4ff64dd7d0b3d78833f4c128012fa56a2ae1fdb0790134f
   languageName: node
   linkType: hard
 
@@ -5041,6 +5068,22 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: 10/b0ec668fba5eeec575ed2559a0917ba41a6481f49063c8445400e476754e0957ee09e44dc032310f526182b8f1bf25e9d4ed371f74050af7be1383e06bc44952
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^4.4.9":
+  version: 4.4.9
+  resolution: "chart.js@npm:4.4.9"
+  dependencies:
+    "@kurkle/color": "npm:^0.3.0"
+  checksum: 10/b19adf26347589fccf8efa314d927284674c46d2a934869bc8dda1ee56e3cd2fffa627bd0b6c6e16e2cc876b2c3880e106e48f22737138f06293f8373c8ae9f9
+  languageName: node
+  linkType: hard
+
+"chartjs@npm:^0.3.24":
+  version: 0.3.24
+  resolution: "chartjs@npm:0.3.24"
+  checksum: 10/06aa448014c3b56a2e96db8d9b9d302f0b44385c01a0ca94202b7ac167281790452eb511ad09b7bcb96acab947ca2b3facf975941d3ba34ccc8b35a28669afff
   languageName: node
   linkType: hard
 
@@ -6764,6 +6807,7 @@ __metadata:
     "@vercel/stega": "npm:^0.1.2"
     autoprefixer: "npm:10.4.20"
     chalk: "npm:^5.4.1"
+    chart.js: "npm:^4.4.9"
     clsx: "npm:^2.1.1"
     crypto-js: "npm:^4.2.0"
     deepmerge: "npm:^4.3.1"
@@ -8601,6 +8645,13 @@ __metadata:
   bin:
     mkdirp: dist/cjs/src/bin.js
   checksum: 10/16fd79c28645759505914561e249b9a1f5fe3362279ad95487a4501e4467abeb714fd35b95307326b8fd03f3c7719065ef11a6f97b7285d7888306d1bd2232ba
+  languageName: node
+  linkType: hard
+
+"moment@npm:^2.10.2":
+  version: 2.30.1
+  resolution: "moment@npm:2.30.1"
+  checksum: 10/ae42d876d4ec831ef66110bdc302c0657c664991e45cf2afffc4b0f6cd6d251dde11375c982a5c0564ccc0fa593fc564576ddceb8c8845e87c15f58aa6baca69
   languageName: node
   linkType: hard
 

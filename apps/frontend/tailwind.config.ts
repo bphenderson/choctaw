@@ -23,6 +23,18 @@ const config: Config = {
       independence: "#484F61",
       mischka: "#CED2DC",
       "pale-sky": "#656C81",
+      blue: {
+        500: "#3B82F6",
+        600: "#2563EB",
+      },
+      gray: {
+        200: "#E5E7EB",
+        800: "#1F2937",
+      },
+      green: {
+        500: "#22C55E",
+        600: "#16A34A",
+      },
       currentColor: "currentColor",
       transparent: "transparent",
       inherit: "inherit",

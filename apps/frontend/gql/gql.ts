@@ -23,6 +23,7 @@ type Documents = {
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": typeof types.CTAElementDataFragmentDoc,
     "fragment CalculatorBlockData on CalculatorBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": typeof types.CalculatorBlockDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.CarouselBlockDataFragmentDoc,
+    "fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": typeof types.ChartBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": typeof types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": typeof types.HeroBlockDataFragmentDoc,
@@ -82,6 +83,7 @@ const documents: Documents = {
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
     "fragment CalculatorBlockData on CalculatorBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": types.CalculatorBlockDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.CarouselBlockDataFragmentDoc,
+    "fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": types.ChartBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": types.HeroBlockDataFragmentDoc,
@@ -182,6 +184,10 @@ export function gql(source: "fragment CalculatorBlockData on CalculatorBlock {\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}"): (typeof documents)["fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}"): (typeof documents)["fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

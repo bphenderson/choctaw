@@ -102,7 +102,7 @@ export default function LocationPostsSection({
   const page = Math.floor(skip / limit);
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-between gap-4 py-4">
+      <div className="flex flex-col lg:flex-row gap-4 py-4">
         <DropDown
           label="Topic"
           options={topicOptions}

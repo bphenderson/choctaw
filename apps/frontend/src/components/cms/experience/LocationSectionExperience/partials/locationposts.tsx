@@ -4,6 +4,7 @@ import { useMemo, useEffect, useState } from "react";
 import { DropDown, type DropDownOption } from "@/components/shared/drop_down";
 import LocationPostCard from "@/components/shared/location_card";
 import { Utils } from "@remkoj/optimizely-cms-react";
+import { type Location } from "@/components/cms/page/LocationSearch/locations";
 import {
   getLocationPosts,
   type GetLocationPostsResult,

@@ -10,7 +10,7 @@
       "localized": true
     },
     "Products": {
-      "type": "contentReference",
+      "type": "block",
       "displayName": "Products",
       "allowedTypes": ["comparisonItemBlock"],
       "editorSettings": {

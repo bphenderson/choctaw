@@ -140,17 +140,6 @@ export const VideoMediaComponentDataFragmentDoc = gql`
   }
 }
     `;
-export const ButtonBlockPropertyDataFragmentDoc = gql`
-    fragment ButtonBlockPropertyData on ButtonBlockProperty {
-  children: ButtonText
-  url: ButtonUrl {
-    ...LinkData
-  }
-  className: ButtonClass
-  buttonType: ButtonType
-  buttonVariant: ButtonVariant
-}
-    `;
 export const ComparisonBlockDataFragmentDoc = gql`
     fragment ComparisonBlockData on ComparisonBlock {
   comparisonTitle: ComparisonTitle
@@ -165,9 +154,6 @@ export const ComparisonBlockDataFragmentDoc = gql`
         html
       }
     }
-    cta: CTA {
-      ...ButtonBlockPropertyData
-    }
   }
 }
     `;
@@ -180,6 +166,17 @@ export const ContentRecsElementDataFragmentDoc = gql`
 export const HeadingElementDataFragmentDoc = gql`
     fragment HeadingElementData on HeadingElement {
   headingText
+}
+    `;
+export const ButtonBlockPropertyDataFragmentDoc = gql`
+    fragment ButtonBlockPropertyData on ButtonBlockProperty {
+  children: ButtonText
+  url: ButtonUrl {
+    ...LinkData
+  }
+  className: ButtonClass
+  buttonType: ButtonType
+  buttonVariant: ButtonVariant
 }
     `;
 export const HeroBlockDataFragmentDoc = gql`
@@ -647,6 +644,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -674,6 +672,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -1210,10 +1209,10 @@ ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
-${ButtonBlockPropertyDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
+${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
@@ -1281,10 +1280,10 @@ ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
-${ButtonBlockPropertyDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
+${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}

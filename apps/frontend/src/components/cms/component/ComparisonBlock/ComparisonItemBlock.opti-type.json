@@ -19,11 +19,6 @@
       "editorSettings": {
         "allowMultiple": true
       }
-    },
-    "CTA": {
-      "type": "component",
-      "contentType": "ButtonBlock",
-      "displayName": "Call-to-action button"
     }
   }
 }

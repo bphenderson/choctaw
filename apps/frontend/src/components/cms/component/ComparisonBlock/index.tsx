@@ -4,7 +4,7 @@ import { ComparisonBlockDataFragmentDoc, type ComparisonBlockDataFragment } from
 
 export const ComparisonBlockComponent: CmsComponent<ComparisonBlockDataFragment> = ({ data }) => {
   return (
-    <section className="comparison-block my-8">
+    <section className="vb:section vb:section:DefaultGrid relative container mx-auto px-8 flex flex-col py-4 md:py-8 lg:py-12">
       {data.comparisonTitle && (
         <CmsEditable content={data} field="ComparisonTitle" as="h2" className="text-3xl font-bold">
           {data.comparisonTitle}

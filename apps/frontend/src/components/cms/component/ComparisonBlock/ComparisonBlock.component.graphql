@@ -2,11 +2,14 @@ fragment ComparisonBlockData on ComparisonBlock {
   comparisonTitle: ComparisonTitle
   products: Products {
     productName: ProductName
-    productImage: ProductImage { ...ReferenceData }
-    features: Features {                     # ⬅─ add braces …
-      featureLabel: FeatureLabel             #    …and pick the sub-fields
-      featureDescription: FeatureDescription { html }
+    productImage: ProductImage {
+      ...ReferenceData
     }
-    cta: CTA { ...ButtonBlockPropertyData }
+    features: Features {
+      featureLabel: FeatureLabel
+      featureDescription: FeatureDescription {
+        html
+      }
+    }
   }
 }

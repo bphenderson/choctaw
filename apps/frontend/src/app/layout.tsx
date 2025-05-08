@@ -114,9 +114,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 (function initializeConsent() {
                   if (window.start && typeof window.start.init === 'function') {
                     window.start.init({
-                      Palette: "palette4",
+                      Palette: "palette6",
                       Mode: "floating left",
-                      Theme: "classic",
+                      Theme: "wire",
                       Time: "5",
                     });
                   } else {

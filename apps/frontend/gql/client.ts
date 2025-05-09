@@ -345,6 +345,7 @@ export const SecondaryNavigationBlockDataFragmentDoc = gql`
     }
   }
   ShowBorder
+  AutomaticallyAddSiblings
 }
     `;
 export const TestimonialElementDataFragmentDoc = gql`

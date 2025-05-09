@@ -8,14 +8,14 @@ import { getFragmentData } from "@gql/fragment-masking";
 import {
   ReferenceDataFragmentDoc,
   ButtonBlockPropertyDataFragmentDoc,
-  type ComparisonItemBlockDataFragment
+  type ComparisonBlockDataFragment
 } from "@/gql/graphql";
 
 export default function ComparisonClient({
   products,
   factory              /* ← receive it */
 }: {
-  products: ComparisonItemBlockDataFragment[];
+  products: ComparisonBlockDataFragment[];
   factory: any;         /* (type is internal) */
 }) {
   const blockRef = useRef(null);

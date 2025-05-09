@@ -140,12 +140,20 @@ export const VideoMediaComponentDataFragmentDoc = gql`
   }
 }
     `;
-export const ChartBlockDataFragmentDoc = gql`
-    fragment ChartBlockData on ChartBlock {
-  Name
-  Bio
-  ProfileImage {
-    ...ReferenceData
+export const ComparisonBlockDataFragmentDoc = gql`
+    fragment ComparisonBlockData on ComparisonBlock {
+  comparisonTitle: ComparisonTitle
+  products: Products {
+    productName: ProductName
+    productImage: ProductImage {
+      ...ReferenceData
+    }
+    features: Features {
+      featureLabel: FeatureLabel
+      featureDescription: FeatureDescription {
+        html
+      }
+    }
   }
 }
     `;
@@ -414,7 +422,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -462,7 +470,7 @@ export const CompositionDataFragmentDoc = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
-      ...ChartBlockData
+      ...ComparisonBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -533,7 +541,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -581,7 +589,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -609,7 +617,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -669,7 +677,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -697,7 +705,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CTAElementData
     ...CalculatorBlockData
     ...CarouselBlockData
-    ...ChartBlockData
+    ...ComparisonBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -1304,7 +1312,7 @@ export const getContentByIdDocument = gql`
       ...CTAElementData
       ...CalculatorBlockData
       ...CarouselBlockData
-      ...ChartBlockData
+      ...ComparisonBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -1348,7 +1356,7 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
-${ChartBlockDataFragmentDoc}
+${ComparisonBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1423,7 +1431,7 @@ ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
-${ChartBlockDataFragmentDoc}
+${ComparisonBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}

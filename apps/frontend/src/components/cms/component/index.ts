@@ -27,7 +27,8 @@ import UserProfileCardBlockComponent from "./UserProfileCardBlock";
 import SecondaryNavigationBlockComponent from "./SecondaryNavigationBlock";
 import AccordionBlockComponent from "./AccordionBlock";
 import CalculatorBlockComponent from "./CalculatorBlock";
-import ChartBlockComponent from "./ChartBlock";
+import ChartBlockComponent from "./ChartBlock";import ComparisonBlockComponent from "./ComparisonBlock";
+
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
 
@@ -134,6 +135,10 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "ChartBlock",
     component: ChartBlockComponent,
+  },
+  {
+    type: "ComparisonBlock",
+    component: ComparisonBlockComponent,
   },
   ...ComponentPageFactory,
 ];

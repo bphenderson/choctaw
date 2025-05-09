@@ -1,0 +1,7 @@
+fragment ChartBlockData on ChartBlock {
+  Name
+  Bio
+  ProfileImage {
+    ...ReferenceData
+  }
+}

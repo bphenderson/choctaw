@@ -13,16 +13,28 @@ const config: Config = {
       white: "#ffffff",
       "ghost-white": "#F8F8FC",
       "light-grey": "#D9D9D9",
-      azure: "#007EFC",
+      azure: "#a88b60", //barley corn
       verdansk: "#132F25",
-      "people-eater": "#9847FF",
-      paleruby: "#EB5A79",
-      tangy: "#FFAA47",
-      vulcan: "#10141D",
+      "people-eater": "#a88b60", //barley corn
+      paleruby: "#916a17", //hacienda
+      tangy: "#f3f2f1", //desert storm
+      vulcan: "#312f29", //dune
       "vulcan-85": "#2C313F",
       independence: "#484F61",
       mischka: "#CED2DC",
       "pale-sky": "#656C81",
+      blue: {
+        500: "#3B82F6",
+        600: "#2563EB",
+      },
+      gray: {
+        200: "#E5E7EB",
+        800: "#1F2937",
+      },
+      green: {
+        500: "#22C55E",
+        600: "#16A34A",
+      },
       currentColor: "currentColor",
       transparent: "transparent",
       inherit: "inherit",

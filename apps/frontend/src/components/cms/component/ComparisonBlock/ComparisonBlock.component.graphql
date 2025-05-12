@@ -1,0 +1,15 @@
+fragment ComparisonBlockData on ComparisonBlock {
+  comparisonTitle: ComparisonTitle
+  products: Products {
+    productName: ProductName
+    productImage: ProductImage {
+      ...ReferenceData
+    }
+    features: Features {
+      featureLabel: FeatureLabel
+      featureDescription: FeatureDescription {
+        html
+      }
+    }
+  }
+}

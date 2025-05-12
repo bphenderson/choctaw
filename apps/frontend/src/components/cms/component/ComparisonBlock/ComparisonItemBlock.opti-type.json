@@ -1,0 +1,24 @@
+{
+  "key": "comparisonItemBlock",
+  "baseType": "block",
+  "displayName": "Comparison Item",
+  "properties": {
+    "ProductName": {
+      "type": "string",
+      "displayName": "Product Name",
+      "localized": true
+    },
+    "ProductImage": {
+      "type": "contentReference",
+      "displayName": "Product Image"
+    },
+    "Features": {
+      "type": "contentReference",
+      "displayName": "Product Features",
+      "allowedTypes": ["featureItemBlock"],
+      "editorSettings": {
+        "allowMultiple": true
+      }
+    }
+  }
+}

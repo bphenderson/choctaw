@@ -44,5 +44,10 @@
   },
   "resolutions": {
     "@graphql-codegen/visitor-plugin-common": "file:./packages/graphql-codegen-visitor-plugin-common-v5.7.1-patched.tgz"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.6",
+    "chart.js": "^4.4.9",
+    "next": "^15.3.1"
   }
 }

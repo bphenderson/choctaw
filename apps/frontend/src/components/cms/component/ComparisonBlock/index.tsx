@@ -11,7 +11,18 @@ export const ComparisonBlockComponent: CmsComponent<ComparisonBlockDataFragment>
         </CmsEditable>
       )}
 
-      <ComparisonClient products={data.products} />
+      {/* ----------------------------------------------------------------
+          data.products: (ComparisonProduct | null | undefined)[] | null | undefined
+          ComparisonClient.products:            ComparisonProduct[]
+         ---------------------------------------------------------------- */}
+      <ComparisonClient
+        products={
+          (data?.products ?? []).filter(
+            (p): p is NonNullable<typeof p> => Boolean(p)
+          )
+        }
+        /* factory={factory} */
+      />
     </section>
   );
 };

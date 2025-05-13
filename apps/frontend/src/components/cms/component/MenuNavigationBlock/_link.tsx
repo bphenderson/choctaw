@@ -21,9 +21,11 @@ export type LinkProps = Omit<CloseButtonProps<typeof NextLink>, 'href' | 'as'> &
  */
 export const Link : FunctionComponent<LinkProps> = ({ href, children, ...otherProps }) => {
     const newHref = ((isLinkDataFragment(href) ? linkDataToPath(href) : typeof(href) == 'object' ? href.href : href) ?? "/") as string
-    const currentPath = usePathname()
+    // `usePathname()` returns `string | null`
+    const currentPath = usePathname() ?? ''
     
     const itemProps = { ...otherProps }
+    /* mark link as active when the current path matches */
     if (currentPath.startsWith(newHref)) {
         itemProps['data-link'] = 'active'
     }

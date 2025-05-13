@@ -44,6 +44,27 @@
       "group": "Appearance",
       "sortOrder": 30,
       "editorSettings": {}
+    },
+    "AutomaticallyAddSiblings": {
+      "type": "boolean",
+      "format": "checkbox",
+      "displayName": "Automatically Add Siblings",
+      "description": "Automatically add links to sibling pages (pages with the same parent)",
+      "localized": false,
+      "required": false,
+      "sortOrder": 40,
+      "editorSettings": {}
+    },
+    "DisplayVertically": {
+      "type": "boolean",
+      "format": "checkbox",
+      "displayName": "Display Vertically",
+      "description": "Display navigation as a vertically stacked link list",
+      "localized": false,
+      "required": false,
+      "group": "Appearance",
+      "sortOrder": 50,
+      "editorSettings": {}
     }
   }
 }

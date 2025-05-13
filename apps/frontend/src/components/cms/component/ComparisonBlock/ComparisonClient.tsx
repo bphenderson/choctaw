@@ -8,15 +8,22 @@ import { getFragmentData } from "@gql/fragment-masking";
 import {
   ReferenceDataFragmentDoc,
   ButtonBlockPropertyDataFragmentDoc,
-  type ComparisonBlockDataFragment
+  type ComparisonBlockDataFragment,
 } from "@/gql/graphql";
+
+// ❶  Describe the **single product** type that lives inside the fragment
+type ComparisonProduct =
+  NonNullable<
+    NonNullable<ComparisonBlockDataFragment["products"]>[number]
+  >;            // ⇡ remove array-nullability  ⇡ remove item-nullability
 
 export default function ComparisonClient({
   products,
-  factory              /* ← receive it */
+  factory              /* ← unused */
 }: {
-  products: ComparisonBlockDataFragment[];
-  factory: any;         /* (type is internal) */
+  // ❷  Use the correct type here
+  products: ComparisonProduct[];
+  factory?: any;        // optional, not used
 }) {
   const blockRef = useRef(null);
   
@@ -42,14 +49,20 @@ export default function ComparisonClient({
       });
       
       // Set equal heights for each row across blocks
-      Object.values(featureRowsByIndex).forEach(rowGroup => {
-        // Find tallest row
-        const maxHeight = Math.max(...Array.from(rowGroup).map(row => row.scrollHeight));
-        // Apply height to all rows in this group
-        rowGroup.forEach(row => {
-          row.style.minHeight = `${maxHeight}px`;
+      // `featureRowsByIndex` is Record<number, Set<HTMLDivElement>>
+      Object.values(featureRowsByIndex as Record<number, Set<HTMLDivElement>>)
+        .forEach((rowGroup) => {
+          // Convert the set to an array with a type the compiler understands
+          const rows = Array.from(rowGroup as Set<HTMLDivElement>);
+          
+          // Find the tallest row
+          const maxHeight = Math.max(...rows.map((row) => row.scrollHeight));
+          
+          // Apply that height to all rows in this group
+          rows.forEach((row) => {
+            row.style.minHeight = `${maxHeight}px`;
+          });
         });
-      });
     };
     
     // Run alignment after render and on window resize
@@ -65,15 +78,18 @@ export default function ComparisonClient({
     <div className="grid gap-6 lg:grid-cols-2" ref={blockRef}>
       {products.map((p, idx) => {
         const img   = getFragmentData(ReferenceDataFragmentDoc, p.productImage);
-        const cta   = getFragmentData(ButtonBlockPropertyDataFragmentDoc, p.cta);
-        const feats = p.features ?? [];
+        // Filter out any null feature items right away
+        const feats = (p.features ?? []).filter(
+          (f): f is NonNullable<typeof f> => Boolean(f)
+        );
 
         return (
           <div key={idx} className="border rounded-lg p-6 flex flex-col comparison-block">
             {img && (
               <Image
-                src={img.url?.default ?? ""}
-                alt={p.productName}
+                /* the generated type doesn't expose `default`, but the field exists at runtime */
+                src={(img.url as Record<string, string | undefined>)?.["default"] ?? ""}
+                alt={p.productName ?? ""}
                 width={400}
                 height={260}
                 className="rounded mb-4 object-contain"
@@ -89,10 +105,14 @@ export default function ComparisonClient({
                 
                   style={{borderBottom: "1px solid #ccc", padding: '0.5rem', marginBottom: '0.5rem', borderRadius: i % 2 === 1 ? '0.25rem' : '0'}}  
                 >
-                  <strong className="text-lg block mb-1">{f.featureLabel}</strong>
+                  <strong className="text-lg block mb-1">
+                    {f.featureLabel ?? ""}
+                  </strong>
                   <div
                     className="w-full"
-                    dangerouslySetInnerHTML={{ __html: f.featureDescription.html }}
+                    dangerouslySetInnerHTML={{
+                      __html: f.featureDescription?.html ?? "",
+                    }}
                   />
                 </div>
               ))}

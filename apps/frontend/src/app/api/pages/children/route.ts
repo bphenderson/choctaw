@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSdk } from '@/sdk';
 
 export async function GET(request: NextRequest) {
+  // make sure the variable is visible in both try and catch
+  let parentPath: string = '/';
+
   try {
     const { searchParams } = new URL(request.url);
-    const parentPath = searchParams.get('parentPath') || '/';
+    parentPath = searchParams.get('path') ?? '/';
     
     console.log("Fetching children for parent path:", parentPath);
     
@@ -14,11 +17,13 @@ export async function GET(request: NextRequest) {
       
       // Check if sdk has a method for fetching children
       // This depends on your existing GraphQL setup
-      let children = [];
+      let children: any[] = [];
       
-      if (typeof sdk.getChildren === 'function') {
-        const result = await sdk.getChildren({ path: parentPath });
-        children = result?.items || [];
+      // The generated SDK doesn't guarantee a `getChildren` function.
+      const sdkAny = sdk as any;            // ← cast once, use safely below
+      if (typeof sdkAny.getChildren === 'function') {
+        const result = await sdkAny.getChildren({ path: parentPath });
+        children = result?.items ?? [];
       } else {
         // Fallback to specific queries if the SDK doesn't have the method
         // (This will depend on your generated SDK methods)
@@ -40,6 +45,7 @@ export async function GET(request: NextRequest) {
     }
   } catch (error) {
     console.error('Error in children API:', error);
+    // still have access to the last value of parentPath
     return getFallbackData(parentPath);
   }
 }

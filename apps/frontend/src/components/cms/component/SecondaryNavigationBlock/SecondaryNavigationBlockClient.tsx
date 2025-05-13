@@ -1,6 +1,8 @@
 "use client";
 
-import { type CmsComponent } from "@remkoj/optimizely-cms-react";
+import { type FunctionComponent } from "react";
+import { type CmsComponentProps } from "@remkoj/optimizely-cms-react";
+
 import {
   LinkItemDataFragmentDoc,
   LinkDataFragmentDoc,
@@ -23,8 +25,8 @@ type SiblingLink = {
 /**
  * Client-side implementation of Secondary Navigation
  */
-export const SecondaryNavigationBlockClient: CmsComponent<
-  SecondaryNavigationBlockDataFragment
+export const SecondaryNavigationBlockClient: FunctionComponent<
+  CmsComponentProps<SecondaryNavigationBlockDataFragment>
 > = ({
   data: {
     NavigationHeading: heading,
@@ -34,17 +36,20 @@ export const SecondaryNavigationBlockClient: CmsComponent<
     DisplayVertically: displayVertically = false,
     _metadata: metadata,
   },
+  /* we receive other CmsComponentProps (contentLink, inEditMode, ...) but we
+     don't need them in this component */
 }) => {
   const pathname = usePathname();
   const [siblingLinks, setSiblingLinks] = useState<SiblingLink[]>([]);
   const groupLabel = heading ?? metadata?.displayName ?? "Secondary Navigation";
 
   useEffect(() => {
-    if (!autoAddSiblings) return;
+    // nothing to do when feature is off *or* we do not yet have the current path
+    if (!autoAddSiblings || !pathname) return;
 
-    const fetchSiblingPages = async () => {
+    const fetchSiblingPages = async (currentPath: string) => {
       try {
-        const pathSegments = pathname.split('/').filter(Boolean);
+        const pathSegments = currentPath.split("/").filter(Boolean);
         
         const parentPath = pathSegments.length <= 1 ? '/' : '/' + pathSegments.slice(0, pathSegments.length - 1).join('/');
         
@@ -72,7 +77,7 @@ export const SecondaryNavigationBlockClient: CmsComponent<
         console.error("Error fetching sibling pages:", error);
       }
     };
-    fetchSiblingPages();
+    fetchSiblingPages(pathname);
   }, [autoAddSiblings, pathname]);
 
   // Determine which links to display

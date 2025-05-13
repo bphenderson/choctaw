@@ -8,12 +8,13 @@ import {
     alignContentClasses,
     minWidthClasses,
     overFlowClasses,
-    showFromClasses
+    showFromClasses,
+    widthClasses
 } from "./_enums";
 
 export const DefaultColumn : CmsLayoutComponent<DefaultColumnProps> = ({ layoutProps, children }) => {
     const tpl = layoutProps?.template ?? "none"
-    const baseClasses : string[] = ['vb:column vb:column:'+tpl+' flex-1']
+    const baseClasses : string[] = ['vb:column vb:column:'+tpl]
     const cssClasses : string[] = ['flex flex-col']
     const { 
         contentSpacing = 'none', 
@@ -21,11 +22,15 @@ export const DefaultColumn : CmsLayoutComponent<DefaultColumnProps> = ({ layoutP
         alignContent = 'start', 
         showFrom = 'always', 
         minWidth = 'auto', 
-        overflow = 'full'
+        overflow = 'full',
+        width = 'full'
     } = extractSettings(layoutProps)
 
     // Basic visibility rules
     baseClasses.push(showFromClasses[showFrom])
+    
+    // Column width (new)
+    baseClasses.push(widthClasses[width])
 
     // Container styling
     cssClasses.push(contentSpacingClasses[contentSpacing])

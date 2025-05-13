@@ -15,4 +15,5 @@ fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {
   }
   ShowBorder
   AutomaticallyAddSiblings
+  DisplayVertically
 }

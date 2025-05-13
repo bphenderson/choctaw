@@ -363,6 +363,7 @@ export const SecondaryNavigationBlockDataFragmentDoc = gql`
   }
   ShowBorder
   AutomaticallyAddSiblings
+  DisplayVertically
 }
     `;
 export const TestimonialElementDataFragmentDoc = gql`

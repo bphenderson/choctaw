@@ -47,3 +47,11 @@ export const overFlowClasses : DefaultColumnLayoutDict<'overflow', string> = {
     clip: 'overflow-hidden',
     full: ''
 }
+
+export const widthClasses : DefaultColumnLayoutDict<'width', string> = {
+    full: 'w-full',
+    'three-quarters': 'w-full lg:w-3/4',
+    half: 'w-full lg:w-1/2',
+    third: 'w-full lg:w-1/3',
+    quarter: 'w-full lg:w-1/4'
+}

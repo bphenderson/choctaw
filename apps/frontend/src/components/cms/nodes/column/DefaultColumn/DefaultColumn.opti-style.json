@@ -4,6 +4,33 @@
   "nodeType": "column",
   "isDefault": true,
   "settings": {
+    "width": {
+      "displayName": "Column Width",
+      "editor": "",
+      "sortOrder": 70,
+      "choices": {
+        "full": {
+          "displayName": "Full Width",
+          "sortOrder": 10
+        },
+        "three-quarters": {
+          "displayName": "Three Quarters",
+          "sortOrder": 20
+        },
+        "half": {
+          "displayName": "Half",
+          "sortOrder": 30
+        },
+        "third": {
+          "displayName": "One Third",
+          "sortOrder": 40
+        },
+        "quarter": {
+          "displayName": "One Quarter",
+          "sortOrder": 50
+        }
+      }
+    },
     "overflow": {
       "displayName": "Overflow (if available width is less then minimum)",
       "editor": "",

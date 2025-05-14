@@ -5,15 +5,19 @@ import DefaultColumnComponent from "./DefaultColumn";
 import CardColumnComponent from "./CardColumn";
 
 // Build dictionary
-export const NodesColumnFactory : ComponentTypeDictionary = [
-    { 
-        type: "DefaultColumn", 
-        component: DefaultColumnComponent 
-    },
-    { 
-        type: "CardColumn", 
-        component: CardColumnComponent 
-    }
+export const NodesColumnFactory: ComponentTypeDictionary = [
+  {
+    type: "DefaultColumn2",
+    component: DefaultColumnComponent,
+  },
+  {
+    type: "DefaultColumn",
+    component: DefaultColumnComponent,
+  },
+  {
+    type: "CardColumn",
+    component: CardColumnComponent,
+  },
 ];
 
 // Export dictionary

@@ -26,7 +26,7 @@ export type DefaultColumnComponent<
   DT extends Record<string, any> = Record<string, any>,
 > = (props: DefaultColumnComponentProps<DT>) => ReactNode;
 
-export type ColumnLayoutProps = CardColumnProps | DefaultColumnProps;
+export type ColumnLayoutProps = CardColumnProps | DefaultColumnProps | DefaultColumn2Props;
 export type ColumnComponentProps<
   DT extends Record<string, any> = Record<string, any>,
   LP extends ColumnLayoutProps = ColumnLayoutProps,
@@ -56,4 +56,10 @@ export function isDefaultColumnProps(
   props?: ColumnLayoutProps | null,
 ): props is DefaultColumnProps {
   return props?.template == "DefaultColumn";
+}
+
+export function isDefaultColumn2Props(
+  props?: ColumnLayoutProps | null,
+): props is DefaultColumn2Props {
+  return props?.template == "DefaultColumn2";
 }

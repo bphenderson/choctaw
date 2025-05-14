@@ -1,0 +1,16 @@
+fragment FinancialFundPageData on FinancialFundPage {
+    blogTitle: Heading
+    blogSubtitle: ArticleSubHeading
+    blogImage: FinancialFundPromoImage {
+        ...ReferenceData
+    }
+    blogBody: FinancialFundBody {
+        json
+    }
+    blogAuthor: ArticleAuthor
+    blogTopics: Topic
+    continueReading {
+        ...IContentListItem
+        ...BlockData
+    }
+}

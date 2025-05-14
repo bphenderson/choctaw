@@ -1,0 +1,14 @@
+fragment FinancialFundPageSearchResult on FinancialFundPage {
+    title: Heading
+    image: FinancialFundPromoImage {
+        ...ReferenceData
+    }
+    author: ArticleAuthor
+    seodata: SeoSettings {
+        MetaTitle
+        MetaDescription
+    }
+    _metadata {
+        published
+    }
+}

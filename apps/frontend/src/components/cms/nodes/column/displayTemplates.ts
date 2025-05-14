@@ -2,7 +2,7 @@ import type { LayoutProps } from "@remkoj/optimizely-cms-react";
 import type { ReactNode } from "react";
 import type CardColumnStyles from "./CardColumn/CardColumn.opti-style.json";
 import type DefaultColumnStyles from "./DefaultColumn/DefaultColumn.opti-style.json";
-import type DefaultColumn2Styles from "./DefaultColumn2/DefaultColumn2.opti-style.json";
+
 export type CardColumnProps = LayoutProps<typeof CardColumnStyles>;
 export type CardColumnComponentProps<
   DT extends Record<string, any> = Record<string, any>,
@@ -14,7 +14,6 @@ export type CardColumnComponent<
   DT extends Record<string, any> = Record<string, any>,
 > = (props: CardColumnComponentProps<DT>) => ReactNode;
 
-export type DefaultColumn2Props = LayoutProps<typeof DefaultColumn2Styles>;
 export type DefaultColumnProps = LayoutProps<typeof DefaultColumnStyles>;
 export type DefaultColumnComponentProps<
   DT extends Record<string, any> = Record<string, any>,
@@ -26,7 +25,7 @@ export type DefaultColumnComponent<
   DT extends Record<string, any> = Record<string, any>,
 > = (props: DefaultColumnComponentProps<DT>) => ReactNode;
 
-export type ColumnLayoutProps = CardColumnProps | DefaultColumnProps | DefaultColumn2Props;
+export type ColumnLayoutProps = CardColumnProps | DefaultColumnProps;
 export type ColumnComponentProps<
   DT extends Record<string, any> = Record<string, any>,
   LP extends ColumnLayoutProps = ColumnLayoutProps,
@@ -56,10 +55,4 @@ export function isDefaultColumnProps(
   props?: ColumnLayoutProps | null,
 ): props is DefaultColumnProps {
   return props?.template == "DefaultColumn";
-}
-
-export function isDefaultColumn2Props(
-  props?: ColumnLayoutProps | null,
-): props is DefaultColumn2Props {
-  return props?.template == "DefaultColumn2";
 }

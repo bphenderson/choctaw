@@ -95,152 +95,168 @@ export default function FundPostsSection({
   const page = Math.floor(skip / limit);
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-between gap-4 py-4">
-        <DropDown
-          label="Topic"
-          options={topicOptions}
-          value={topicOptions.find((o) => o.value == topic) ?? topicOptions[0]}
-          unselectedLabel="Filter by topic"
-          onChange={(nv) => {
-            setLoading(true);
-            setTopic(nv.value);
-          }}
-        />
-        <DropDown
-          label="Author"
-          options={authorOptions}
-          value={
-            authorOptions.find((o) => o.value == author) ?? authorOptions[0]
-          }
-          unselectedLabel="Filter by author"
-          onChange={(nv) => {
-            setLoading(true);
-            setAuthor(nv.value);
-          }}
-        />
-        <DropDown
-          label="Items per page"
-          options={itemsPerPageOptions}
-          value={
-            itemsPerPageOptions.find((o) => o.value == pageSize) ??
-            itemsPerPageOptions[1]
-          }
-          unselectedLabel="Set page size"
-          onChange={(nv) => {
-            setLoading(true);
-            setPageSize(nv.value);
-          }}
-        />
-      </div>
-      <div>
-        <table className="table-auto min-w-full divide-y divide-gray-300">
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                Fund Name
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                Symbol
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                Inc. Date
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                NAV
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                1-MO%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                YTD%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                1-YR%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                3-YR%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                5-YR%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                10-YR%
-              </th>
-              <th
-                scope="col"
-                className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-              >
-                Since Inc.
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {isLoading ? (
-              <LoadingState count={limit} parentId={parentKey} />
-            ) : (
-              items.filter(Utils.isNotNullOrUndefined).map((item) => {
-                const key = item.metadata?.key;
-                if (!key) return null;
-                return (
-                  <FundPostCard
-                    key={key}
-                    blogPost={{
-                      category: Array.isArray(item.topic)
-                        ? item.topic.join(", ")
-                        : (item.topic ?? ""),
-                      id: item.metadata?.key ?? "",
-                      description: "",
-                      image: {
-                        src: new URL(
-                          item.image?.src?.default ?? "/",
-                          item.image?.src?.base ?? "https://example.com",
-                        ).href,
-                        alt: item.metadata?.key ?? "",
-                        width: 200,
-                        height: 200,
-                      },
-                      title: item.heading ?? "",
-                      url: item.metadata?.url?.default ?? "/",
-                      author: item.author ?? "",
-                      published: item?.metadata?.published,
-                      symbol: item?.symbol ?? "",
-                    }}
-                  />
-                );
-              })
-            )}
-          </tbody>
-        </table>
+      <div className="flex flex-row">
+        <div className="basis-1/6 text-align-center">
+          <DropDown
+            className="mb-2 w-[200px]"
+            label="Topic"
+            options={topicOptions}
+            value={
+              topicOptions.find((o) => o.value == topic) ?? topicOptions[0]
+            }
+            unselectedLabel="Filter by topic"
+            onChange={(nv) => {
+              setLoading(true);
+              setTopic(nv.value);
+            }}
+          />
+          <DropDown
+            className="mb-2 w-full"
+            label="Author"
+            options={authorOptions}
+            value={
+              authorOptions.find((o) => o.value == author) ?? authorOptions[0]
+            }
+            unselectedLabel="Filter by author"
+            onChange={(nv) => {
+              setLoading(true);
+              setAuthor(nv.value);
+            }}
+          />
+          <DropDown
+            className="mb-2 w-full"
+            label="Items per page"
+            options={itemsPerPageOptions}
+            value={
+              itemsPerPageOptions.find((o) => o.value == pageSize) ??
+              itemsPerPageOptions[1]
+            }
+            unselectedLabel="Set page size"
+            onChange={(nv) => {
+              setLoading(true);
+              setPageSize(nv.value);
+            }}
+          />
+        </div>
+        <div className="basis-5/6">
+          <table className="table-auto min-w-full divide-y divide-gray-300">
+            <thead>
+              <tr>
+                <th colSpan={4}></th>
+                <th className="border-b p-2" colSpan={2} scope="colgroup">
+                  04/30/2025
+                </th>
+                <th className="border-b m-2 p-2" colSpan={5} scope="colgroup">
+                  Annualized - 04/30/2025
+                </th>
+              </tr>
+              <tr>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  Fund Name
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  Symbol
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  Inc. Date
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  NAV
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  1-MO%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  YTD%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  1-YR%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  3-YR%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  5-YR%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  10-YR%
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                >
+                  Since Inc.
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <LoadingState count={limit} parentId={parentKey} />
+              ) : (
+                items.filter(Utils.isNotNullOrUndefined).map((item) => {
+                  const key = item.metadata?.key;
+                  if (!key) return null;
+                  return (
+                    <FundPostCard
+                      key={key}
+                      blogPost={{
+                        category: Array.isArray(item.topic)
+                          ? item.topic.join(", ")
+                          : (item.topic ?? ""),
+                        id: item.metadata?.key ?? "",
+                        description: "",
+                        image: {
+                          src: new URL(
+                            item.image?.src?.default ?? "/",
+                            item.image?.src?.base ?? "https://example.com",
+                          ).href,
+                          alt: item.metadata?.key ?? "",
+                          width: 200,
+                          height: 200,
+                        },
+                        title: item.heading ?? "",
+                        url: item.metadata?.url?.default ?? "/",
+                        author: item.author ?? "",
+                        published: item?.metadata?.published,
+                        symbol: item?.symbol ?? "",
+                      }}
+                    />
+                  );
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
       <Paging
         totalItems={total ?? 0}

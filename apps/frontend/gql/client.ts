@@ -526,6 +526,11 @@ export const BlogSectionExperienceDataFragmentDoc = gql`
   ...ExperienceData
 }
     `;
+export const FundSectionExperienceDataFragmentDoc = gql`
+    fragment FundSectionExperienceData on FundSectionExperience {
+  ...ExperienceData
+}
+    `;
 export const LocationSectionExperienceDataFragmentDoc = gql`
     fragment LocationSectionExperienceData on LocationSectionExperience {
   ...ExperienceData
@@ -581,6 +586,68 @@ export const BlogPostPageSearchResultFragmentDoc = gql`
     fragment BlogPostPageSearchResult on BlogPostPage {
   title: Heading
   image: BlogPostPromoImage {
+    ...ReferenceData
+  }
+  author: ArticleAuthor
+  seodata: SeoSettings {
+    MetaTitle
+    MetaDescription
+  }
+  _metadata {
+    published
+  }
+}
+    `;
+export const FundPostPageDataFragmentDoc = gql`
+    fragment FundPostPageData on FundPostPage {
+  blogTitle: Heading
+  blogSubtitle: ArticleSubHeading
+  blogImage: FundPostPromoImage {
+    ...ReferenceData
+  }
+  blogBody: FundPostBody {
+    json
+  }
+  blogAuthor: ArticleAuthor
+  blogTopics: Topic
+  continueReading {
+    ...IContentListItem
+    ...BlockData
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ChartBlockData
+    ...ComparisonBlockData
+    ...ContentRecsElementData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
+export const FundPostPageSearchResultFragmentDoc = gql`
+    fragment FundPostPageSearchResult on FundPostPage {
+  title: Heading
+  image: FundPostPromoImage {
     ...ReferenceData
   }
   author: ArticleAuthor
@@ -907,6 +974,87 @@ export const getBlogSectionExperienceMetaDataDocument = gql`
     ${PageSeoSettingsPropertyDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${LinkDataFragmentDoc}`;
+export const getChildFundPostsDocument = gql`
+    query getChildFundPosts($parentKey: String!, $locale: [Locales!]! = ALL, $author: String! = "", $topic: String! = "", $limit: Int! = 9, $skip: Int! = 0) {
+  result: _Page(where: {_metadata: {key: {eq: $parentKey}}}, locale: $locale) {
+    items {
+      container: _metadata {
+        key
+        displayName
+      }
+      items: _link(type: ITEMS) {
+        posts: FundPostPage(skip: $skip, limit: $limit) {
+          total
+          items {
+            ...IContentData
+            metadata: _metadata {
+              key
+              url {
+                base
+                default
+              }
+              published
+            }
+            heading: Heading
+            subheading: ArticleSubHeading
+            author: ArticleAuthor
+            topic: Topic
+            image: FundPostPromoImage {
+              src: url {
+                base
+                default
+              }
+            }
+            symbol: Symbol
+          }
+          facets {
+            author: ArticleAuthor(filters: [$author]) {
+              name
+              count
+            }
+            topic: Topic(orderBy: ASC, filters: [$topic]) {
+              name
+              count
+            }
+            metadata: _metadata {
+              published(unit: DAY) {
+                name
+                count
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${IContentInfoFragmentDoc}
+${LinkDataFragmentDoc}`;
+export const getFundSectionExperienceMetaDataDocument = gql`
+    query getFundSectionExperienceMetaData($key: String!, $version: String, $locale: [Locales!]) {
+  page: FundSectionExperience(
+    where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
+    locale: $locale
+  ) {
+    items {
+      _metadata {
+        displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      seo_data {
+        ...PageSeoSettingsPropertyData
+      }
+    }
+  }
+}
+    ${PageSeoSettingsPropertyDataFragmentDoc}
+${ReferenceDataFragmentDoc}
+${LinkDataFragmentDoc}`;
 export const getChildLocationPostsDocument = gql`
     query getChildLocationPosts($parentKey: String!, $locale: [Locales!]! = ALL, $topic: String! = "", $limit: Int! = 9, $skip: Int! = 0) {
   result: _Page(where: {_metadata: {key: {eq: $parentKey}}}, locale: $locale) {
@@ -1000,6 +1148,41 @@ export const getBlogPostPageMetaDataDocument = gql`
       title: Heading
       author: ArticleAuthor
       image: BlogPostPromoImage {
+        ...ReferenceData
+      }
+      topics: Topic
+      seo: SeoSettings {
+        title: MetaTitle
+        description: MetaDescription
+        keywords: MetaKeywords
+        image: SharingImage {
+          ...ReferenceData
+        }
+        type: GraphType
+      }
+    }
+  }
+}
+    ${ReferenceDataFragmentDoc}
+${LinkDataFragmentDoc}`;
+export const getFundPostPageMetaDataDocument = gql`
+    query getFundPostPageMetaData($key: String!, $version: String, $locale: [Locales!]) {
+  FundPostPage(
+    where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}
+    locale: $locale
+  ) {
+    pages: items {
+      cms: _metadata {
+        title: displayName
+        published
+        url {
+          base
+          default
+        }
+      }
+      title: Heading
+      author: ArticleAuthor
+      image: FundPostPromoImage {
         ...ReferenceData
       }
       topics: Topic
@@ -1248,6 +1431,7 @@ export const searchContentDocument = gql`
         highlight: {enabled: true, startToken: "<span>", endToken: "</span>"}
       )
       ...BlogPostPageSearchResult
+      ...FundPostPageSearchResult
       ...LocationPageSearchResult
     }
     facets {
@@ -1270,6 +1454,7 @@ ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${BlogPostPageSearchResultFragmentDoc}
 ${ReferenceDataFragmentDoc}
+${FundPostPageSearchResultFragmentDoc}
 ${LocationPageSearchResultFragmentDoc}`;
 export const personalizedSearchContentDocument = gql`
     query personalizedSearchContent($term: String!, $topInterest: String, $locale: [String!], $withinLocale: [Locales], $types: [String!], $pageSize: Int! = 25, $start: Int! = 0, $boost: Int! = 100) {
@@ -1291,6 +1476,7 @@ export const personalizedSearchContentDocument = gql`
         highlight: {enabled: true, startToken: "<span>", endToken: "</span>"}
       )
       ...BlogPostPageSearchResult
+      ...FundPostPageSearchResult
       ...LocationPageSearchResult
     }
     facets {
@@ -1313,6 +1499,7 @@ ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${BlogPostPageSearchResultFragmentDoc}
 ${ReferenceDataFragmentDoc}
+${FundPostPageSearchResultFragmentDoc}
 ${LocationPageSearchResultFragmentDoc}`;
 export const getContentByIdDocument = gql`
     query getContentById($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
@@ -1352,8 +1539,10 @@ export const getContentByIdDocument = gql`
       ...BlankSectionData
       ...BlankExperienceData
       ...BlogSectionExperienceData
+      ...FundSectionExperienceData
       ...LocationSectionExperienceData
       ...BlogPostPageData
+      ...FundPostPageData
       ...LandingPageData
       ...LocationPageData
       ...LocationSearchPageData
@@ -1405,8 +1594,10 @@ ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
+${FundSectionExperienceDataFragmentDoc}
 ${LocationSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
+${FundPostPageDataFragmentDoc}
 ${LandingPageDataFragmentDoc}
 ${LocationPageDataFragmentDoc}
 ${LocationSearchPageDataFragmentDoc}`;
@@ -1422,8 +1613,10 @@ export const getContentByPathDocument = gql`
       ...PageData
       ...BlankExperienceData
       ...BlogSectionExperienceData
+      ...FundSectionExperienceData
       ...LocationSectionExperienceData
       ...BlogPostPageData
+      ...FundPostPageData
       ...LandingPageData
       ...LocationPageData
       ...LocationSearchPageData
@@ -1475,8 +1668,10 @@ ${UserProfileCardBlockDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
+${FundSectionExperienceDataFragmentDoc}
 ${LocationSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
+${FundPostPageDataFragmentDoc}
 ${LandingPageDataFragmentDoc}
 ${LocationPageDataFragmentDoc}
 ${LocationSearchPageDataFragmentDoc}`;
@@ -1518,6 +1713,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getBlogSectionExperienceMetaData(variables: Schema.getBlogSectionExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlogSectionExperienceMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlogSectionExperienceMetaDataQuery>(getBlogSectionExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlogSectionExperienceMetaData', 'query', variables);
     },
+    getChildFundPosts(variables: Schema.getChildFundPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getChildFundPostsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getChildFundPostsQuery>(getChildFundPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getChildFundPosts', 'query', variables);
+    },
+    getFundSectionExperienceMetaData(variables: Schema.getFundSectionExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getFundSectionExperienceMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getFundSectionExperienceMetaDataQuery>(getFundSectionExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getFundSectionExperienceMetaData', 'query', variables);
+    },
     getChildLocationPosts(variables: Schema.getChildLocationPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getChildLocationPostsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getChildLocationPostsQuery>(getChildLocationPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getChildLocationPosts', 'query', variables);
     },
@@ -1526,6 +1727,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getBlogPostPageMetaData(variables: Schema.getBlogPostPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlogPostPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlogPostPageMetaDataQuery>(getBlogPostPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlogPostPageMetaData', 'query', variables);
+    },
+    getFundPostPageMetaData(variables: Schema.getFundPostPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getFundPostPageMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getFundPostPageMetaDataQuery>(getFundPostPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getFundPostPageMetaData', 'query', variables);
     },
     getLandingPageMetaData(variables: Schema.getLandingPageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getLandingPageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLandingPageMetaDataQuery>(getLandingPageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getLandingPageMetaData', 'query', variables);

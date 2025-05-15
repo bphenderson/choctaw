@@ -5,7 +5,7 @@ import LandingPageComponent from "./LandingPage";
 import BlogPostPageComponent from "./BlogPostPage";
 import LocationSearchPage from "./LocationSearch";
 import LocationPage from "./LocationPage";
-
+import FundPostPage from "./FundPostPage";
 // Build dictionary
 export const PageFactory: ComponentTypeDictionary = [
   {
@@ -23,6 +23,10 @@ export const PageFactory: ComponentTypeDictionary = [
   {
     type: "LocationPage",
     component: LocationPage,
+  },
+  {
+    type: "FundPostPage",
+    component: FundPostPage,
   },
 ];
 

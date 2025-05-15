@@ -1,0 +1,54 @@
+{
+  "TWOEX": {
+    "price": 8.89,
+    "date": "2000-03-31",
+    "performanceData": {
+      "ytd": 0.46,
+      "oneMonth": 3.56,
+      "threeMonth": 8.77,
+      "sixMonth": 1.68,
+      "oneYear": -0.53,
+      "threeYear": 1.59,
+      "fiveYear": 4.73
+    }
+  },
+  "MWTRX": {
+    "price": 12.45,
+    "date": "2000-03-31",
+    "performanceData": {
+      "ytd": 0.82,
+      "oneMonth": 2.95,
+      "threeMonth": 7.65,
+      "sixMonth": 2.14,
+      "oneYear": 1.23,
+      "threeYear": 2.45,
+      "fiveYear": 5.67
+    }
+  },
+  "MWLIX": {
+    "price": 12.45,
+    "date": "2000-03-31",
+    "performanceData": {
+      "ytd": 0.82,
+      "oneMonth": 2.95,
+      "threeMonth": 7.65,
+      "sixMonth": 2.14,
+      "oneYear": 1.23,
+      "threeYear": 2.45,
+      "fiveYear": 5.67
+    }
+  },
+    "TGCFX": {
+    "price": 12.45,
+    "date": "2000-03-31",
+    "performanceData": {
+      "ytd": 0.82,
+      "oneMonth": 2.95,
+      "threeMonth": 7.65,
+      "sixMonth": 2.14,
+      "oneYear": 1.23,
+      "threeYear": 2.45,
+      "fiveYear": 5.67
+    }
+  }
+}

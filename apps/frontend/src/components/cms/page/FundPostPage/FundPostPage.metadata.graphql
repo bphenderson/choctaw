@@ -1,5 +1,5 @@
-query getFinancialFundPageMetaData($key: String!, $version: String, $locale: [Locales!]) {
-  FinancialFundPage(
+query getFundPostPageMetaData($key: String!, $version: String, $locale: [Locales!]) {
+  FundPostPage(
     where: { _metadata: { key: { eq: $key }, version: { eq: $version } } }
     locale: $locale
   ) {
@@ -14,7 +14,7 @@ query getFinancialFundPageMetaData($key: String!, $version: String, $locale: [Lo
       }
       title: Heading
       author: ArticleAuthor
-      image: FinancialFundPromoImage {
+      image: FundPostPromoImage {
           ...ReferenceData
       }
       topics: Topic

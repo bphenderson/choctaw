@@ -1,10 +1,10 @@
-fragment FinancialFundPageData on FinancialFundPage {
+fragment FundPostPageData on FundPostPage {
     blogTitle: Heading
     blogSubtitle: ArticleSubHeading
-    blogImage: FinancialFundPromoImage {
+    blogImage: FundPostPromoImage {
         ...ReferenceData
     }
-    blogBody: FinancialFundBody {
+    blogBody: FundPostBody {
         json
     }
     blogAuthor: ArticleAuthor

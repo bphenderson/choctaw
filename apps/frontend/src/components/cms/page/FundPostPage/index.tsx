@@ -5,8 +5,8 @@ import { type Metadata } from "next";
 // Optimizely Graph types and SDK
 import {
   type Locales,
-  type BlogPostPageDataFragment,
-  BlogPostPageDataFragmentDoc,
+  type FundPostPageDataFragment,
+  FundPostPageDataFragmentDoc,
 } from "@gql/graphql";
 import { getSdk } from "@gql/client";
 
@@ -18,11 +18,15 @@ import { toValidOpenGraphType } from "@/lib/opengraph";
 
 // SDK Components
 import { type OptimizelyNextPage } from "@remkoj/optimizely-cms-nextjs";
-import { RichText, CmsEditable, CmsContentArea } from "@remkoj/optimizely-cms-react/rsc";
+import {
+  RichText,
+  CmsEditable,
+  CmsContentArea,
+} from "@remkoj/optimizely-cms-react/rsc";
 import { localeToGraphLocale } from "@remkoj/optimizely-graph-client";
 
-export const BlogPostPage: OptimizelyNextPage<
-  BlogPostPageDataFragment
+export const FundPostPage: OptimizelyNextPage<
+  FundPostPageDataFragment
 > = async ({
   contentLink,
   inEditMode,
@@ -42,7 +46,7 @@ export const BlogPostPage: OptimizelyNextPage<
         {image && (
           <div className="relative col-span-12 mt-8 md:mt-16 lg:mt-32 mb-8 lg:mb-24 mx-auto aspect-[1/1] md:aspect-[2/1] lg:aspect-[16/5] flex items-end">
             <CmsEditable
-              cmsFieldName="BlogPostPromoImage"
+              cmsFieldName="FundPostPromoImage"
               as={Image}
               className="top-0 left-0 rounded-[2rem] aspect-[1/1] md:aspect-[2/1] lg:aspect-[16/5] object-cover absolute -z-50"
               src={image}
@@ -93,7 +97,7 @@ export const BlogPostPage: OptimizelyNextPage<
             Topics: {topics?.filter((x) => x).join(", ")}
           </CmsEditable>
           <RichText
-            cmsFieldName="BlogPostBody"
+            cmsFieldName="FundPostBody"
             text={description?.json}
             className="prose max-w-none prose-img:rounded-[2rem] prose-img:p-4 prose-img:border-2"
           />
@@ -102,10 +106,23 @@ export const BlogPostPage: OptimizelyNextPage<
       </div>
 
       {continueReading && continueReading.length ? (
-        <CmsContentArea fieldName="continueReading" items={ continueReading } className="outer-padding flex flex-col items-center" itemWrapper={{ className: "data-[component=ContentRecsElement]:w-full"}}  />
+        <CmsContentArea
+          fieldName="continueReading"
+          items={continueReading}
+          className="outer-padding flex flex-col items-center"
+          itemWrapper={{
+            className: "data-[component=ContentRecsElement]:w-full",
+          }}
+        />
       ) : (
         <div className="outer-padding">
-          { inEditMode && <CmsContentArea fieldName="continueReading" items={ [] } className="outer-padding flex flex-col items-center"/> }
+          {inEditMode && (
+            <CmsContentArea
+              fieldName="continueReading"
+              items={[]}
+              className="outer-padding flex flex-col items-center"
+            />
+          )}
           <div className="w-full flex flex-col items-center gap-8 lg:gap-12 pb-8 lg:pb-12">
             <div className="uppercase">More picks just for you</div>
             <div className="text-6xl font-bold">Want to keep reading?</div>
@@ -126,18 +143,18 @@ export const BlogPostPage: OptimizelyNextPage<
   );
 };
 
-BlogPostPage.getDataFragment = () => [
-  "BlogPostPageData",
-  BlogPostPageDataFragmentDoc,
+FundPostPage.getDataFragment = () => [
+  "FundPostPageData",
+  FundPostPageDataFragmentDoc,
 ];
-BlogPostPage.getMetaData = async (contentLink, locale, client) => {
+FundPostPage.getMetaData = async (contentLink, locale, client) => {
   const sdk = getSdk(client);
-  const result = await sdk.getBlogPostPageMetaData({
+  const result = await sdk.getFundPostPageMetaData({
     key: contentLink.key,
     version: contentLink.version,
     locale: locale ? (localeToGraphLocale(locale) as Locales) : null,
   });
-  const blogPost = (result.BlogPostPage?.pages || [])
+  const blogPost = (result.FundPostPage?.pages || [])
     .filter(isNotNullOrUndefined)
     .at(0);
   if (!blogPost) return {};
@@ -147,7 +164,7 @@ BlogPostPage.getMetaData = async (contentLink, locale, client) => {
     blogPost?.cms?.url?.base ?? "http://localhost:3000",
   );
 
-  const topics = blogPost?.topics?.filter(isNotNullOrUndefined) || undefined
+  const topics = blogPost?.topics?.filter(isNotNullOrUndefined) || undefined;
 
   const meta: WithPropertySet<Metadata, "openGraph" | "other"> = {
     title: blogPost.seo?.title || blogPost.title || blogPost.cms?.title,
@@ -167,7 +184,7 @@ BlogPostPage.getMetaData = async (contentLink, locale, client) => {
     },
     authors: blogPost.author ? [{ name: blogPost.author }] : [],
     other: {
-      "idio:content-type": "Blog post"
+      "idio:content-type": "Fund post",
     },
   };
   const pageImage =
@@ -181,8 +198,8 @@ BlogPostPage.getMetaData = async (contentLink, locale, client) => {
     ];
   }
   if (topics) {
-    meta.other["article:tag"] = topics
-    meta.other["idio:topic"] = topics
+    meta.other["article:tag"] = topics;
+    meta.other["idio:topic"] = topics;
   }
   return meta;
 };
@@ -204,4 +221,4 @@ function tryToUrl(toConvert: string | null | undefined) {
   }
 }
 
-export default BlogPostPage;
+export default FundPostPage;

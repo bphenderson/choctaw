@@ -1,6 +1,6 @@
-fragment FinancialFundPageSearchResult on FinancialFundPage {
+fragment FundPostPageSearchResult on FundPostPage {
     title: Heading
-    image: FinancialFundPromoImage {
+    image: FundPostPromoImage {
         ...ReferenceData
     }
     author: ArticleAuthor

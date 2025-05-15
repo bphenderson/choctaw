@@ -1,12 +1,10 @@
 {
-  "key": "FinancialFundPage",
-  "displayName": "Blog post",
+  "key": "FundPostPage",
+  "displayName": "Fund post",
   "description": "Represents a single blog post",
   "baseType": "page",
   "sortOrder": 100,
-  "mayContainTypes": [
-    "*"
-  ],
+  "mayContainTypes": ["*"],
   "mediaFileExtensions": [],
   "compositionBehaviors": [],
   "properties": {
@@ -73,7 +71,7 @@
         }
       }
     },
-    "FinancialFundBody": {
+    "FundPostBody": {
       "type": "string",
       "format": "html",
       "displayName": "Body",
@@ -97,7 +95,7 @@
       "indexingType": "searchable",
       "editorSettings": {}
     },
-    "FinancialFundPromoImage": {
+    "FundPostPromoImage": {
       "type": "contentReference",
       "displayName": "Promo image",
       "description": "",
@@ -106,9 +104,7 @@
       "group": "Information",
       "sortOrder": 30,
       "editorSettings": {},
-      "allowedTypes": [
-        "Media"
-      ],
+      "allowedTypes": ["Media"],
       "restrictedTypes": []
     },
     "continueReading": {
@@ -122,9 +118,7 @@
       "editorSettings": {},
       "items": {
         "type": "content",
-        "allowedTypes": [
-          "component"
-        ],
+        "allowedTypes": ["component"],
         "restrictedTypes": []
       }
     },

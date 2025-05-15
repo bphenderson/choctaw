@@ -4,7 +4,7 @@ import { type ComponentTypeDictionary } from "@remkoj/optimizely-cms-react";
 import BlogSectionExperienceComponent from "./BlogSectionExperience";
 import BlankExperienceComponent from "./BlankExperience";
 import LocationSectionExperienceComponent from "./LocationSectionExperience";
-
+import FundSectionExperienceComponent from "./FundSectionExperience";
 // Build dictionary
 export const ExperienceFactory: ComponentTypeDictionary = [
   {
@@ -18,6 +18,10 @@ export const ExperienceFactory: ComponentTypeDictionary = [
   {
     type: "LocationSectionExperience",
     component: LocationSectionExperienceComponent,
+  },
+  {
+    type: "FundSectionExperience",
+    component: FundSectionExperienceComponent,
   },
 ];
 

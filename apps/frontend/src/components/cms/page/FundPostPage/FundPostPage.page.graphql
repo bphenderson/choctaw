@@ -1,0 +1,16 @@
+fragment FundPostPageData on FundPostPage {
+    blogTitle: Heading
+    blogSubtitle: ArticleSubHeading
+    blogImage: FundPostPromoImage {
+        ...ReferenceData
+    }
+    blogBody: FundPostBody {
+        json
+    }
+    blogAuthor: ArticleAuthor
+    blogTopics: Topic
+    continueReading {
+        ...IContentListItem
+        ...BlockData
+    }
+}

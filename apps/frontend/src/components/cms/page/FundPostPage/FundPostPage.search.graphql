@@ -1,0 +1,14 @@
+fragment FundPostPageSearchResult on FundPostPage {
+    title: Heading
+    image: FundPostPromoImage {
+        ...ReferenceData
+    }
+    author: ArticleAuthor
+    seodata: SeoSettings {
+        MetaTitle
+        MetaDescription
+    }
+    _metadata {
+        published
+    }
+}

@@ -34,7 +34,8 @@ export default function FundPostsSection({
   );
   const [skip, setSkip] = useState<number>(0);
   const [topic, setTopic] = useState<string>("");
-  const [author, setAuthor] = useState<string>("");
+  const [assetClass, setAssetClass] = useState<string>("");
+  const [shareClass, setShareClass] = useState<string>("");
   const [pageData, setPageData] = useState<GetFundPostsResult>(initialdata);
   const [isLoading, setLoading] = useState<boolean>(
     (initialdata?.total ?? 0) == 0,
@@ -42,30 +43,44 @@ export default function FundPostsSection({
   const limit = useMemo(() => tryParseNumber(pageSize, 10) ?? 9, [pageSize]);
 
   // Get the rendering properties from the pageData, but only when it changes
-  const { topicOptions, authorOptions, total, items } = useMemo(() => {
-    const facets = pageData?.facets;
-    const total = pageData?.total ?? 0;
-    const items = pageData?.items ?? [];
+  const { topicOptions, assetClassOptions, shareClassOptions, total, items } =
+    useMemo(() => {
+      const facets = pageData?.facets;
+      const total = pageData?.total ?? 0;
+      const items = pageData?.items ?? [];
 
-    const topicOptions: Array<DropDownOption> =
-      facets?.topic?.filter(Utils.isNotNullOrUndefined).map((t) => {
-        return {
-          value: t.name ?? "",
-          label: `${t.name} (${t.count})`,
-        };
-      }) ?? [];
-    topicOptions.unshift({ label: "Show all", value: "" });
-    const authorOptions: Array<DropDownOption> =
-      facets?.author?.filter(Utils.isNotNullOrUndefined).map((t) => {
-        return {
-          value: t.name ?? "",
-          label: `${t.name} (${t.count})`,
-        };
-      }) ?? [];
-    authorOptions.unshift({ label: "Show all", value: "" });
-
-    return { topicOptions, authorOptions, total, items };
-  }, [pageData]);
+      const topicOptions: Array<DropDownOption> =
+        facets?.topic?.filter(Utils.isNotNullOrUndefined).map((t) => {
+          return {
+            value: t.name ?? "",
+            label: `${t.name} (${t.count})`,
+          };
+        }) ?? [];
+      topicOptions.unshift({ label: "Show all", value: "" });
+      const assetClassOptions: Array<DropDownOption> =
+        facets?.assetClass?.filter(Utils.isNotNullOrUndefined).map((t) => {
+          return {
+            value: t.name ?? "",
+            label: `${t.name} (${t.count})`,
+          };
+        }) ?? [];
+      assetClassOptions.unshift({ label: "Show all", value: "" });
+      const shareClassOptions: Array<DropDownOption> =
+        facets?.shareClass?.filter(Utils.isNotNullOrUndefined).map((t) => {
+          return {
+            value: t.name ?? "",
+            label: `${t.name} (${t.count})`,
+          };
+        }) ?? [];
+      shareClassOptions.unshift({ label: "Show all", value: "" });
+      return {
+        topicOptions,
+        assetClassOptions,
+        shareClassOptions,
+        total,
+        items,
+      };
+    }, [pageData]);
 
   // Use a server action to actually load the data, when the request properties change
   useEffect(() => {
@@ -76,7 +91,8 @@ export default function FundPostsSection({
       limit: tryParseNumber(pageSize) ?? 9,
       skip,
       topic,
-      author,
+      assetClass,
+      shareClass,
     };
     console.log("Fund post fetching params", params);
     const updateData = async () => {
@@ -89,7 +105,7 @@ export default function FundPostsSection({
     return () => {
       cancelled = true;
     };
-  }, [parentKey, locale, pageSize, skip, topic, author]);
+  }, [parentKey, locale, pageSize, skip, topic, assetClass, shareClass]);
 
   const count = Math.ceil((total || 0) / limit);
   const page = Math.floor(skip / limit);
@@ -97,8 +113,39 @@ export default function FundPostsSection({
     <>
       <div className="flex flex-row">
         <div className="basis-1/6 text-align-center">
+          <div>
+            <p>Search Filters:</p>
+          </div>
           <DropDown
-            className="mb-2 w-[200px]"
+            className="mb-2 w-full"
+            label="Share Class"
+            options={shareClassOptions}
+            value={
+              shareClassOptions.find((o) => o.value == shareClass) ??
+              shareClassOptions[0]
+            }
+            unselectedLabel="Filter by share class"
+            onChange={(nv) => {
+              setLoading(true);
+              setShareClass(nv.value);
+            }}
+          />
+          <DropDown
+            className="mb-2 w-full"
+            label="Asset Class"
+            options={assetClassOptions}
+            value={
+              assetClassOptions.find((o) => o.value == assetClass) ??
+              assetClassOptions[0]
+            }
+            unselectedLabel="Filter by asset class"
+            onChange={(nv) => {
+              setLoading(true);
+              setAssetClass(nv.value);
+            }}
+          />
+          <DropDown
+            className="mt-5 mb-2 w-[200px]"
             label="Topic"
             options={topicOptions}
             value={
@@ -108,19 +155,6 @@ export default function FundPostsSection({
             onChange={(nv) => {
               setLoading(true);
               setTopic(nv.value);
-            }}
-          />
-          <DropDown
-            className="mb-2 w-full"
-            label="Author"
-            options={authorOptions}
-            value={
-              authorOptions.find((o) => o.value == author) ?? authorOptions[0]
-            }
-            unselectedLabel="Filter by author"
-            onChange={(nv) => {
-              setLoading(true);
-              setAuthor(nv.value);
             }}
           />
           <DropDown
@@ -282,12 +316,22 @@ function LoadingState({
   const cards: JSX.Element[] = [];
   for (let seqId = 0; seqId < count; seqId++) {
     cards.push(
-      <div
+      <tr
         key={`${parentId}-loader-${seqId}`}
-        className="w-full mb-2 lg:mb-4 xl:mb-8 break-inside-avoid"
+        className="bg-light-grey rounded-xl w-full aspect-[5/6] animate-pulse"
       >
-        <div className="bg-light-grey rounded-xl w-full aspect-[5/6] animate-pulse"></div>
-      </div>,
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+      </tr>,
     );
   }
   return <>{cards}</>;

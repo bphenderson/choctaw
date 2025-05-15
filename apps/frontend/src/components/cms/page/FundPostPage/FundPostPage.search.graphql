@@ -1,14 +1,15 @@
 fragment FundPostPageSearchResult on FundPostPage {
-    title: Heading
-    image: FundPostPromoImage {
-        ...ReferenceData
-    }
-    author: ArticleAuthor
-    seodata: SeoSettings {
-        MetaTitle
-        MetaDescription
-    }
-    _metadata {
-        published
-    }
+  title: Heading
+  image: FundPostPromoImage {
+    ...ReferenceData
+  }
+  assetClass: AssetClass
+  shareClass: ShareClass
+  seodata: SeoSettings {
+    MetaTitle
+    MetaDescription
+  }
+  _metadata {
+    published
+  }
 }

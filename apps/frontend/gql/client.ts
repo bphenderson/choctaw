@@ -650,7 +650,8 @@ export const FundPostPageSearchResultFragmentDoc = gql`
   image: FundPostPromoImage {
     ...ReferenceData
   }
-  author: ArticleAuthor
+  assetClass: AssetClass
+  shareClass: ShareClass
   seodata: SeoSettings {
     MetaTitle
     MetaDescription
@@ -975,7 +976,7 @@ export const getBlogSectionExperienceMetaDataDocument = gql`
 ${ReferenceDataFragmentDoc}
 ${LinkDataFragmentDoc}`;
 export const getChildFundPostsDocument = gql`
-    query getChildFundPosts($parentKey: String!, $locale: [Locales!]! = ALL, $author: String! = "", $topic: String! = "", $limit: Int! = 9, $skip: Int! = 0) {
+    query getChildFundPosts($parentKey: String!, $locale: [Locales!]! = ALL, $assetClass: String! = "", $shareClass: String! = "", $topic: String! = "", $limit: Int! = 9, $skip: Int! = 0) {
   result: _Page(where: {_metadata: {key: {eq: $parentKey}}}, locale: $locale) {
     items {
       container: _metadata {
@@ -999,6 +1000,8 @@ export const getChildFundPostsDocument = gql`
             subheading: ArticleSubHeading
             author: ArticleAuthor
             topic: Topic
+            assetClass: AssetClass
+            shareClass: ShareClass
             image: FundPostPromoImage {
               src: url {
                 base
@@ -1008,7 +1011,11 @@ export const getChildFundPostsDocument = gql`
             symbol: Symbol
           }
           facets {
-            author: ArticleAuthor(filters: [$author]) {
+            assetClass: AssetClass(filters: [$assetClass]) {
+              name
+              count
+            }
+            shareClass: ShareClass(filters: [$shareClass]) {
               name
               count
             }

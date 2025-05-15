@@ -67,9 +67,9 @@ const FundPostCard: React.FC<FundPostCardProps> = ({ blogPost }) => {
     fundPerformanceData[symbol as keyof typeof fundPerformanceData];
 
   const article = (
-    <tr className="even:bg-light-grey">
+    <tr className="even:bg-azure/10">
       {title ? (
-        <td>
+        <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
           <Link
             href={relativeUrl}
             className="relative w-full text-indigo-600 hover:text-indigo-900"

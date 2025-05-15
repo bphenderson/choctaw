@@ -1,7 +1,8 @@
 query getChildFundPosts(
   $parentKey: String!
   $locale: [Locales!]! = ALL
-  $author: String! = ""
+  $assetClass: String! = ""
+  $shareClass: String! = ""
   $topic: String! = ""
   $limit: Int! = 9
   $skip: Int! = 0
@@ -32,6 +33,8 @@ query getChildFundPosts(
             subheading: ArticleSubHeading
             author: ArticleAuthor
             topic: Topic
+            assetClass: AssetClass
+            shareClass: ShareClass
             image: FundPostPromoImage {
               src: url {
                 base
@@ -41,7 +44,11 @@ query getChildFundPosts(
             symbol: Symbol
           }
           facets {
-            author: ArticleAuthor(filters: [$author]) {
+            assetClass: AssetClass(filters: [$assetClass]) {
+              name
+              count
+            }
+            shareClass: ShareClass(filters: [$shareClass]) {
               name
               count
             }

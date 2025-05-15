@@ -10,7 +10,8 @@ export type GetFundPostsParams = {
   limit?: number;
   skip?: number;
   topic?: string;
-  author?: string;
+  assetClass?: string;
+  shareClass?: string;
 };
 
 export type GetFundPostsResult = Awaited<ReturnType<typeof getFundPosts>>;

@@ -166,6 +166,11 @@ export const ComparisonBlockDataFragmentDoc = gql`
   }
 }
     `;
+export const ContactUsFormBlockDataFragmentDoc = gql`
+    fragment ContactUsFormBlockData on ContactUsFormBlock {
+  email: Email
+}
+    `;
 export const ContentRecsElementDataFragmentDoc = gql`
     fragment ContentRecsElementData on ContentRecsElement {
   ElementDeliveryApiKey
@@ -435,6 +440,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -484,6 +490,7 @@ export const CompositionDataFragmentDoc = gql`
       ...CarouselBlockData
       ...ChartBlockData
       ...ComparisonBlockData
+      ...ContactUsFormBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -561,6 +568,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -623,6 +631,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -673,6 +682,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -702,6 +712,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -763,6 +774,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -792,6 +804,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...CarouselBlockData
     ...ChartBlockData
     ...ComparisonBlockData
+    ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...HeadingElementData
     ...HeroBlockData
@@ -1526,6 +1539,7 @@ export const getContentByIdDocument = gql`
       ...CarouselBlockData
       ...ChartBlockData
       ...ComparisonBlockData
+      ...ContactUsFormBlockData
       ...ContentRecsElementData
       ...HeadingElementData
       ...HeroBlockData
@@ -1573,6 +1587,7 @@ ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
 ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
+${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1653,6 +1668,7 @@ ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
 ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
+${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}

@@ -1,0 +1,11 @@
+{
+  "key": "ContactUsFormBlock",
+  "displayName": "Contact Us Form block",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {}
+}

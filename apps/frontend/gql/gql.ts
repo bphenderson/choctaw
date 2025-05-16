@@ -25,6 +25,7 @@ type Documents = {
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.CarouselBlockDataFragmentDoc,
     "fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": typeof types.ChartBlockDataFragmentDoc,
     "fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}": typeof types.ComparisonBlockDataFragmentDoc,
+    "fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}": typeof types.ContactUsFormBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": typeof types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": typeof types.HeroBlockDataFragmentDoc,
@@ -92,6 +93,7 @@ const documents: Documents = {
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.CarouselBlockDataFragmentDoc,
     "fragment ChartBlockData on ChartBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": types.ChartBlockDataFragmentDoc,
     "fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}": types.ComparisonBlockDataFragmentDoc,
+    "fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}": types.ContactUsFormBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": types.HeroBlockDataFragmentDoc,
@@ -206,6 +208,10 @@ export function gql(source: "fragment ChartBlockData on ChartBlock {\n  Name\n  
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}"): (typeof documents)["fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}"): (typeof documents)["fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

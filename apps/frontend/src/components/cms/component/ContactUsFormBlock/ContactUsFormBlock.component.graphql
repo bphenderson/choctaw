@@ -1,0 +1,3 @@
+fragment ContactUsFormBlockData on ContactUsFormBlock {
+  email: Email
+}

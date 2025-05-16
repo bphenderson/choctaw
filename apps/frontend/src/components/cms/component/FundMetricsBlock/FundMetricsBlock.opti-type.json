@@ -1,0 +1,11 @@
+{
+  "key": "FundMetricsFormBlock",
+  "displayName": "Fund Metrics block",
+  "description": "",
+  "baseType": "component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {}
+}

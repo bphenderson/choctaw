@@ -30,6 +30,7 @@ import CalculatorBlockComponent from "./CalculatorBlock";
 import ChartBlockComponent from "./ChartBlock";
 import ComparisonBlockComponent from "./ComparisonBlock";
 import ContactUsFormBlockComponent from "./ContactUsFormBlock";
+import FormMetricsBlockComponent from "./FundMetricsBlock";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -145,6 +146,10 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "ContactUsFormBlock",
     component: ContactUsFormBlockComponent,
+  },
+  {
+    type: "FundMetricsBlock",
+    component: FormMetricsBlockComponent,
   },
   ...ComponentPageFactory,
 ];

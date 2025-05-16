@@ -1,6 +1,7 @@
 import "server-only";
 // Next.JS
 import { type Metadata } from "next";
+import { Download } from "lucide-react"; // Optional: Lucide for icons
 
 // Optimizely Graph types and SDK
 import {
@@ -44,7 +45,7 @@ export const FundPostPage: OptimizelyNextPage<
     <>
       <div className="outer-padding">
         {image && (
-          <div className="relative col-span-12 mt-8 md:mt-16 lg:mt-32 mb-8 lg:mb-24 mx-auto aspect-[1/1] md:aspect-[2/1] lg:aspect-[16/5] flex items-end">
+          <div className="relative  max-w-3xl col-span-12 mx-auto aspect-[1/1] md:aspect-[2/1] lg:aspect-[16/5] flex items-end">
             <CmsEditable
               cmsFieldName="FundPostPromoImage"
               as={Image}
@@ -92,10 +93,98 @@ export const FundPostPage: OptimizelyNextPage<
           <CmsEditable
             cmsFieldName="Topic"
             as="p"
-            className="text-xs text-independence mb-8 lg:mb-20"
+            className="text-xs text-independence mb-8 lg:mb-10"
           >
             Topics: {topics?.filter((x) => x).join(", ")}
           </CmsEditable>
+          <div className="border-t border-b border-gray-300 py-6 px-4">
+            <div className="flex flex-wrap justify-between items-start w-full">
+              {/* Stat Blocks */}
+              <div className="flex flex-1 justify-around text-center divide-x divide-gray-300">
+                <div className="px-6">
+                  <div className="text-xs font-semibold tracking-wide text-verdansk">
+                    DAILY NAV (USD)
+                  </div>
+                  <div className="text-2xl text-golden font-light mt-1">
+                    $8.94
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    as of 05/15/2025
+                  </div>
+                </div>
+
+                <div className="px-6">
+                  <div className="text-xs font-semibold tracking-wide text-gray-700">
+                    DAILY RETURN
+                  </div>
+                  <div className="text-2xl text-golden font-light mt-1">
+                    0.57%
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    as of 05/15/2025
+                  </div>
+                </div>
+
+                <div className="px-6">
+                  <div className="text-xs font-semibold tracking-wide text-gray-700">
+                    TOTAL NET ASSETS (USD)
+                  </div>
+                  <div className="text-2xl text-golden font-light mt-1">
+                    $32,838.62M
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    as of 05/15/2025
+                  </div>
+                </div>
+              </div>
+
+              {/* Downloads */}
+              <div className="flex flex-col justify-center gap-2 text-sm text-verdansk ml-6 mt-4 md:mt-0 md:border-l md:pl-6 border-gray-300">
+                <a href="#" className="flex items-center gap-2">
+                  <Download size={14} /> FACT SHEET
+                </a>
+                <a href="#" className="flex items-center gap-2">
+                  <Download size={14} /> COMMENTARY
+                </a>
+                <a href="#" className="flex items-center gap-2">
+                  <Download size={14} /> PROSPECTUS
+                </a>
+              </div>
+            </div>
+          </div>
+          {continueReading && continueReading.length ? (
+            <CmsContentArea
+              fieldName="continueReading"
+              items={continueReading}
+              className="items-center"
+              itemWrapper={{
+                className: "data-[component=ContentRecsElement]:w-full",
+              }}
+            />
+          ) : (
+            <div className="">
+              {inEditMode && (
+                <CmsContentArea
+                  fieldName="continueReading"
+                  items={[]}
+                  className="outer-padding flex flex-col items-center"
+                />
+              )}
+              <div className="w-full flex flex-col items-center gap-8 lg:gap-12 pb-8 lg:pb-12">
+                <div className="uppercase">More picks just for you</div>
+                <div className="text-6xl font-bold">Want to keep reading?</div>
+              </div>
+              <ArticleListElementElement
+                contentLink={{ key: null }}
+                inEditMode={false}
+                data={{
+                  articleListCount: 3,
+                  topics,
+                  excludeKeys: contentLink.key ? [contentLink.key] : [],
+                }}
+              />
+            </div>
+          )}
           <RichText
             cmsFieldName="FundPostBody"
             text={description?.json}
@@ -105,39 +194,6 @@ export const FundPostPage: OptimizelyNextPage<
         </section>
       </div>
 
-      {continueReading && continueReading.length ? (
-        <CmsContentArea
-          fieldName="continueReading"
-          items={continueReading}
-          className="outer-padding flex flex-col items-center"
-          itemWrapper={{
-            className: "data-[component=ContentRecsElement]:w-full",
-          }}
-        />
-      ) : (
-        <div className="outer-padding">
-          {inEditMode && (
-            <CmsContentArea
-              fieldName="continueReading"
-              items={[]}
-              className="outer-padding flex flex-col items-center"
-            />
-          )}
-          <div className="w-full flex flex-col items-center gap-8 lg:gap-12 pb-8 lg:pb-12">
-            <div className="uppercase">More picks just for you</div>
-            <div className="text-6xl font-bold">Want to keep reading?</div>
-          </div>
-          <ArticleListElementElement
-            contentLink={{ key: null }}
-            inEditMode={false}
-            data={{
-              articleListCount: 3,
-              topics,
-              excludeKeys: contentLink.key ? [contentLink.key] : [],
-            }}
-          />
-        </div>
-      )}
       <div className="col-span-12 lg:col-span-10 lg:col-start-2 mx-auto mt-8"></div>
     </>
   );

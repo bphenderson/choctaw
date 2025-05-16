@@ -332,7 +332,8 @@ export const HistoricalPriceGraph = () => {
     "3M": 90,
     "6M": 180,
     YTD: Math.floor(
-      (new Date().getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) /
+      (new Date().getTime() -
+        new Date(new Date().getFullYear(), 0, 1).getTime()) /
         (1000 * 60 * 60 * 24),
     ),
     "1Y": 365,
@@ -465,7 +466,7 @@ export const HistoricalPriceGraph = () => {
             onClick={() => setRange(r)}
             className={`px-3 py-1 rounded ${
               range === r
-                ? "bg-blue-600 text-white"
+                ? "bg-verdansk text-white"
                 : "bg-gray-200 text-gray-800"
             } hover:bg-blue-500 hover:text-white transition`}
           >

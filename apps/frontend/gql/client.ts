@@ -177,6 +177,11 @@ export const ContentRecsElementDataFragmentDoc = gql`
   ElementRecommendationCount
 }
     `;
+export const FundMetricsBlockDataFragmentDoc = gql`
+    fragment FundMetricsBlockData on FundMetricsBlock {
+  symbol: Symbol
+}
+    `;
 export const HeadingElementDataFragmentDoc = gql`
     fragment HeadingElementData on HeadingElement {
   headingText
@@ -442,6 +447,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -492,6 +498,7 @@ export const CompositionDataFragmentDoc = gql`
       ...ComparisonBlockData
       ...ContactUsFormBlockData
       ...ContentRecsElementData
+      ...FundMetricsBlockData
       ...HeadingElementData
       ...HeroBlockData
       ...ImageElementData
@@ -570,6 +577,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -633,6 +641,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -684,6 +693,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -714,6 +724,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -776,6 +787,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -806,6 +818,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
     ...ImageElementData
@@ -1541,6 +1554,7 @@ export const getContentByIdDocument = gql`
       ...ComparisonBlockData
       ...ContactUsFormBlockData
       ...ContentRecsElementData
+      ...FundMetricsBlockData
       ...HeadingElementData
       ...HeroBlockData
       ...ImageElementData
@@ -1589,6 +1603,7 @@ ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
@@ -1670,6 +1685,7 @@ ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}

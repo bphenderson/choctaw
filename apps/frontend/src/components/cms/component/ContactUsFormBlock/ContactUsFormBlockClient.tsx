@@ -31,7 +31,7 @@ export default function ContactUsFormBlockClient() {
     <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-md mt-10">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Contact Us</h2>
       {submitted ? (
-        <p className="text-green-600 font-semibold">
+        <p className="font-semibold">
           Thank you! We&apos;ll be in touch soon.
         </p>
       ) : (

@@ -145,7 +145,7 @@ export default function FundPostsSection({
             }}
           />
           <DropDown
-            className="mt-5 mb-2 w-[200px]"
+            className="mb-2 w-[200px]"
             label="Topic"
             options={topicOptions}
             value={

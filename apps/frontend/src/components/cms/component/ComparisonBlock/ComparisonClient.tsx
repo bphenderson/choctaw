@@ -27,6 +27,20 @@ export default function ComparisonClient({
 }) {
   const blockRef = useRef(null);
   
+  // Determine the grid column count based on the number of products
+  const getGridClass = () => {
+    const count = products.length;
+    
+    // Keep 2 columns for 1-2 products
+    if (count <= 2) return "lg:grid-cols-2";
+    
+    // Use 3 columns for 3 products
+    if (count === 3) return "lg:grid-cols-3";
+    
+    // Use 4 columns for 4 or more products
+    return "lg:grid-cols-4";
+  };
+  
   // Align feature rows across all comparison blocks on the page
   useEffect(() => {
     if (!blockRef.current) return;
@@ -75,7 +89,7 @@ export default function ComparisonClient({
   }, [products]);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2" ref={blockRef}>
+    <div className={`grid gap-6 ${getGridClass()}`} ref={blockRef}>
       {products.map((p, idx) => {
         const img   = getFragmentData(ReferenceDataFragmentDoc, p.productImage);
         // Filter out any null feature items right away
@@ -102,7 +116,7 @@ export default function ComparisonClient({
               {feats.map((f, i) => (
                 <div 
                   key={i} 
-                
+                  className="feature-row"
                   style={{borderBottom: "1px solid #ccc", padding: '0.5rem', marginBottom: '0.5rem', borderRadius: i % 2 === 1 ? '0.25rem' : '0'}}  
                 >
                   <strong className="text-lg block mb-1">

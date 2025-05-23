@@ -973,6 +973,7 @@ export type CarouselBlockWhereInput = {
 export type ChartBlock = IData & _IComponent & _IContent & {
   __typename?: 'ChartBlock';
   Bio?: Maybe<Scalars['String']['output']>;
+  ChartType?: Maybe<Scalars['String']['output']>;
   Data?: Maybe<Scalars['String']['output']>;
   ExternalDataUrl?: Maybe<Scalars['String']['output']>;
   Name?: Maybe<Scalars['String']['output']>;

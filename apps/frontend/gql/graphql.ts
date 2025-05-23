@@ -978,6 +978,7 @@ export type ChartBlock = IData & _IComponent & _IContent & {
   ExternalDataUrl?: Maybe<Scalars['String']['output']>;
   Name?: Maybe<Scalars['String']['output']>;
   ProfileImage?: Maybe<ContentReference>;
+  Type?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;

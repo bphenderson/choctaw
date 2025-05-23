@@ -26,6 +26,22 @@ export type LocationPostsSectionProps = {
   initialdata?: GetLocationPostsResult;
 };
 
+const atmOptions: Array<DropDownOption> = [
+  { value: "ATM" },
+  { value: "Deposit ATM" },
+  { value: "Drive-Up ATM" },
+  { value: "Walk-Up ATM" },
+];
+
+const serviceOptions: Array<DropDownOption> = [
+  { value: "Open Sundays" },
+  { value: "Drive-Thru Teller" },
+  { value: "Financial Advisors" },
+  { value: "Home Loan Specialists" },
+  { value: "Notary" },
+  { value: "Night Deposits" },
+];
+
 const itemsPerPageOptions: Array<DropDownOption> = [
   { value: "6" },
   { value: "9" },
@@ -101,13 +117,36 @@ export default function LocationPostsSection({
 
   const count = Math.ceil((total || 0) / limit);
   const page = Math.floor(skip / limit);
-   const query = undefined
-    const results = undefined
+  const query = undefined;
+  const results = undefined;
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-4 py-4">
-        <SearchBox initialQuery={ query } />
+        <SearchBox initialQuery={query} />
         <DropDown
+          label="Atm Type"
+          options={atmOptions}
+          value={atmOptions.find((o) => o.value == topic) ?? atmOptions[0]}
+          unselectedLabel="Filter by Atm Type"
+          onChange={(nv) => {
+            setLoading(true);
+            setTopic(nv.value);
+          }}
+        />
+
+        <DropDown
+          label="Services"
+          options={serviceOptions}
+          value={
+            serviceOptions.find((o) => o.value == topic) ?? serviceOptions[0]
+          }
+          unselectedLabel="Filter by Service"
+          onChange={(nv) => {
+            setLoading(true);
+            setTopic(nv.value);
+          }}
+        />
+        {/* <DropDown
           label="Topic"
           options={topicOptions}
           value={topicOptions.find((o) => o.value == topic) ?? topicOptions[0]}
@@ -116,9 +155,9 @@ export default function LocationPostsSection({
             setLoading(true);
             setTopic(nv.value);
           }}
-        />
+        /> */}
 
-        <DropDown
+        {/* <DropDown
           label="Items per page"
           options={itemsPerPageOptions}
           value={
@@ -130,7 +169,7 @@ export default function LocationPostsSection({
             setLoading(true);
             setPageSize(nv.value);
           }}
-        />
+        /> */}
       </div>
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Left column - 1/4 width */}

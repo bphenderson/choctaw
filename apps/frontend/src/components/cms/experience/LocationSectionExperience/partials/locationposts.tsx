@@ -10,6 +10,7 @@ import {
   type GetLocationPostsResult,
 } from "../actions/getLocationPosts";
 import { Paging } from "./paging";
+import SearchBox from "@/app/search/_searchbox";
 
 const MapComponent = dynamic(
   () =>
@@ -100,9 +101,12 @@ export default function LocationPostsSection({
 
   const count = Math.ceil((total || 0) / limit);
   const page = Math.floor(skip / limit);
+   const query = undefined
+    const results = undefined
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-4 py-4">
+        <SearchBox initialQuery={ query } />
         <DropDown
           label="Topic"
           options={topicOptions}

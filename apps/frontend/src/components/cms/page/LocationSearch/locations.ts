@@ -4,7 +4,10 @@ export interface Location {
   latitude: number;
   longitude: number;
   note?: string;
+  url?: string;
   type?: "bank" | "credit-union" | "financial-group";
+  atmType?: string[];
+  services?: string[];
 }
 
 export const locations: Location[] = [
@@ -15,6 +18,16 @@ export const locations: Location[] = [
     longitude: -118.4065,
     type: "bank",
     note: "",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM", "Deposit ATM", "Drive-Up ATM", "Walk-Up ATM"],
+    services: [
+      "Open Sundays",
+      "Drive-Thru Teller",
+      "Financial Advisors",
+      "Home Loan Specialists",
+      "Notary",
+      "Night Deposits",
+    ],
   },
   {
     name: "Horizon Trust Bank",
@@ -22,6 +35,9 @@ export const locations: Location[] = [
     latitude: 32.9476,
     longitude: -96.8035,
     note: "Assumed Bluemont as Addison, TX based on ZIP 75001",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM", "Walk-Up ATM"],
+    services: ["Open Sundays", "Notary", "Night Deposits"],
   },
   {
     name: "Oakwood Financial",
@@ -29,6 +45,9 @@ export const locations: Location[] = [
     latitude: 40.7267,
     longitude: -73.9981,
     note: "Assumed Greenhaven as New York, NY (Greenwich Village) based on ZIP 10012",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM", "Deposit ATM"],
+    services: ["Home Loan Specialists", "Notary", "Night Deposits"],
   },
   {
     name: "Pinnacle Savings Bank",
@@ -36,6 +55,9 @@ export const locations: Location[] = [
     latitude: 25.7615,
     longitude: -80.2939,
     note: "Assumed Clearview as Miami, FL based on ZIP 33101",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM", "Walk-Up ATM"],
+    services: ["Open Sundays", "Night Deposits"],
   },
   {
     name: "Summit Commerce Bank",
@@ -43,6 +65,14 @@ export const locations: Location[] = [
     latitude: 41.9211,
     longitude: -87.6486,
     note: "Assumed Hilldale as Chicago, IL (Lincoln Park) based on ZIP 60614",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM","Drive-Up ATM", "Walk-Up ATM"],
+    services: [
+      
+      "Home Loan Specialists",
+      "Notary",
+      "Night Deposits",
+    ],
   },
   {
     name: "Blue Harbor Bank",
@@ -50,6 +80,12 @@ export const locations: Location[] = [
     latitude: 47.6101,
     longitude: -122.3344,
     note: "Assumed Coralton as Seattle, WA based on ZIP 98101",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
+    atmType: ["ATM", "Deposit ATM", "Drive-Up ATM", "Walk-Up ATM"],
+    services: [
+      "Open Sundays",
+      "Drive-Thru Teller"
+    ],
   },
   {
     name: "Golden Anchor Bank",
@@ -57,6 +93,7 @@ export const locations: Location[] = [
     latitude: 33.4486,
     longitude: -112.074,
     note: "Assumed Amberfield as Phoenix, AZ based on ZIP 85004",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
   {
     name: "Evergreen Community Bank",
@@ -64,6 +101,7 @@ export const locations: Location[] = [
     latitude: 39.7358,
     longitude: -104.9788,
     note: "Assumed Forestville as Denver, CO based on ZIP 80203",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
   {
     name: "Starlight Credit Union",
@@ -72,6 +110,7 @@ export const locations: Location[] = [
     longitude: -84.388,
     type: "credit-union",
     note: "Assumed Dawnview as Atlanta, GA based on ZIP 30303",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
   {
     name: "Unity National Bank",
@@ -79,6 +118,7 @@ export const locations: Location[] = [
     latitude: 41.5055,
     longitude: -81.6858,
     note: "Assumed Bridgeport as Cleveland, OH based on ZIP 44114",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
   {
     name: "Sapphire Financial Group",
@@ -87,6 +127,7 @@ export const locations: Location[] = [
     longitude: -115.1718,
     type: "financial-group",
     note: "Assumed Lakemont as Las Vegas, NV based on ZIP 89109",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
   {
     name: "Liberty Heritage Bank",
@@ -94,5 +135,6 @@ export const locations: Location[] = [
     latitude: 42.3588,
     longitude: -71.0578,
     note: "Assumed Patriotville as Boston, MA based on ZIP 02108",
+    url: "https://xc-opti-finserv.vercel.app/locations/new-page",
   },
 ];

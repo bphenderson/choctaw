@@ -973,6 +973,9 @@ export type CarouselBlockWhereInput = {
 export type ChartBlock = IData & _IComponent & _IContent & {
   __typename?: 'ChartBlock';
   Bio?: Maybe<Scalars['String']['output']>;
+  ChartType?: Maybe<Scalars['String']['output']>;
+  Data?: Maybe<Scalars['String']['output']>;
+  ExternalDataUrl?: Maybe<Scalars['String']['output']>;
   Name?: Maybe<Scalars['String']['output']>;
   ProfileImage?: Maybe<ContentReference>;
   /** @deprecated Use `_link` field instead */
@@ -2089,6 +2092,11 @@ export type FundMetricsBlockOutputtotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type FundMetricsBlockProperty = {
+  __typename?: 'FundMetricsBlockProperty';
+  Symbol?: Maybe<Scalars['String']['output']>;
+};
+
 export type FundMetricsBlockWhereInput = {
   _and?: InputMaybe<Array<InputMaybe<FundMetricsBlockWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;
@@ -2106,6 +2114,7 @@ export type FundPostPage = IData & _IContent & _IPage & {
   FundPostBody?: Maybe<SearchableRichText>;
   FundPostPromoImage?: Maybe<ContentReference>;
   Heading?: Maybe<Scalars['String']['output']>;
+  Metrics?: Maybe<FundMetricsBlockProperty>;
   SeoSettings?: Maybe<PageSeoSettingsProperty>;
   ShareClass?: Maybe<Scalars['String']['output']>;
   Symbol?: Maybe<Scalars['String']['output']>;
@@ -2178,6 +2187,7 @@ export type FundPostPageFacet = {
   FundPostBody?: Maybe<SearchableRichTextFacet>;
   FundPostPromoImage?: Maybe<ContentReferenceFacet>;
   Heading?: Maybe<Array<Maybe<StringFacet>>>;
+  Metrics?: Maybe<Array<Maybe<StringFacet>>>;
   SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
   ShareClass?: Maybe<Array<Maybe<StringFacet>>>;
   Topic?: Maybe<Array<Maybe<StringFacet>>>;
@@ -2218,6 +2228,14 @@ export type FundPostPageFacetHeadingArgs = {
 };
 
 
+export type FundPostPageFacetMetricsArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
 export type FundPostPageFacetShareClassArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
@@ -2240,6 +2258,7 @@ export type FundPostPageOrderByInput = {
   FundPostBody?: InputMaybe<SearchableRichTextOrderByInput>;
   FundPostPromoImage?: InputMaybe<ContentReferenceOrderByInput>;
   Heading?: InputMaybe<OrderBy>;
+  Metrics?: InputMaybe<OrderBy>;
   SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
   ShareClass?: InputMaybe<OrderBy>;
   Topic?: InputMaybe<OrderBy>;
@@ -2274,6 +2293,7 @@ export type FundPostPageWhereInput = {
   FundPostBody?: InputMaybe<SearchableRichTextWhereInput>;
   FundPostPromoImage?: InputMaybe<ContentReferenceWhereInput>;
   Heading?: InputMaybe<SearchableStringFilterInput>;
+  Metrics?: InputMaybe<StringFilterInput>;
   SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
   ShareClass?: InputMaybe<SearchableStringFilterInput>;
   Topic?: InputMaybe<SearchableStringFilterInput>;
@@ -3603,6 +3623,7 @@ export type LocationPage = IData & _IContent & _IPage & {
   __typename?: 'LocationPage';
   Address?: Maybe<Scalars['String']['output']>;
   ArticleSubHeading?: Maybe<Scalars['String']['output']>;
+  AtmType?: Maybe<Scalars['String']['output']>;
   BlogPostBody?: Maybe<SearchableRichText>;
   Heading?: Maybe<Scalars['String']['output']>;
   Hours?: Maybe<Array<Maybe<_IContent>>>;
@@ -3610,6 +3631,7 @@ export type LocationPage = IData & _IContent & _IPage & {
   LocationPostPromoImage?: Maybe<ContentReference>;
   Longitude?: Maybe<Scalars['Float']['output']>;
   SeoSettings?: Maybe<PageSeoSettingsProperty>;
+  Services?: Maybe<Scalars['String']['output']>;
   Topic?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
@@ -3628,7 +3650,17 @@ export type LocationPageArticleSubHeadingArgs = {
 };
 
 
+export type LocationPageAtmTypeArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
 export type LocationPageHeadingArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type LocationPageServicesArgs = {
   highlight?: InputMaybe<HighlightOptions>;
 };
 
@@ -3658,11 +3690,13 @@ export type LocationPageAutocomplete = {
 export type LocationPageFacet = {
   __typename?: 'LocationPageFacet';
   ArticleSubHeading?: Maybe<Array<Maybe<StringFacet>>>;
+  AtmType?: Maybe<Array<Maybe<StringFacet>>>;
   BlogPostBody?: Maybe<SearchableRichTextFacet>;
   Heading?: Maybe<Array<Maybe<StringFacet>>>;
   Hours?: Maybe<_IContentFacet>;
   LocationPostPromoImage?: Maybe<ContentReferenceFacet>;
   SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  Services?: Maybe<Array<Maybe<StringFacet>>>;
   Topic?: Maybe<Array<Maybe<StringFacet>>>;
   _metadata?: Maybe<IContentMetadataFacet>;
 };
@@ -3676,7 +3710,23 @@ export type LocationPageFacetArticleSubHeadingArgs = {
 };
 
 
+export type LocationPageFacetAtmTypeArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
 export type LocationPageFacetHeadingArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LocationPageFacetServicesArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -3693,11 +3743,13 @@ export type LocationPageFacetTopicArgs = {
 
 export type LocationPageOrderByInput = {
   ArticleSubHeading?: InputMaybe<OrderBy>;
+  AtmType?: InputMaybe<OrderBy>;
   BlogPostBody?: InputMaybe<SearchableRichTextOrderByInput>;
   Heading?: InputMaybe<OrderBy>;
   Hours?: InputMaybe<_IContentOrderByInput>;
   LocationPostPromoImage?: InputMaybe<ContentReferenceOrderByInput>;
   SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  Services?: InputMaybe<OrderBy>;
   Topic?: InputMaybe<OrderBy>;
   _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
@@ -3724,11 +3776,13 @@ export type LocationPageOutputtotalArgs = {
 
 export type LocationPageWhereInput = {
   ArticleSubHeading?: InputMaybe<SearchableStringFilterInput>;
+  AtmType?: InputMaybe<SearchableStringFilterInput>;
   BlogPostBody?: InputMaybe<SearchableRichTextWhereInput>;
   Heading?: InputMaybe<SearchableStringFilterInput>;
   Hours?: InputMaybe<_IContentWhereInput>;
   LocationPostPromoImage?: InputMaybe<ContentReferenceWhereInput>;
   SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  Services?: InputMaybe<SearchableStringFilterInput>;
   Topic?: InputMaybe<SearchableStringFilterInput>;
   _and?: InputMaybe<Array<InputMaybe<LocationPageWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;

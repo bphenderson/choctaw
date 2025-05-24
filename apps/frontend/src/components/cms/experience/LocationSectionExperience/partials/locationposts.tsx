@@ -11,6 +11,7 @@ import {
 } from "../actions/getLocationPosts";
 import { Paging } from "./paging";
 import SearchBox from "@/app/search/_searchbox";
+import MultiSelectDropdown from "@/components/shared/multi_select_dropdown";
 
 const MapComponent = dynamic(
   () =>
@@ -133,7 +134,12 @@ export default function LocationPostsSection({
             setTopic(nv.value);
           }}
         />
-
+        <MultiSelectDropdown
+          label="Services"
+          options={serviceOptions}
+          values={[]}
+          onChange={(selected) => console.log(selected)}
+        />
         <DropDown
           label="Services"
           options={serviceOptions}

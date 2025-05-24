@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.0",
-    "@headlessui/react": "^2.2.0",
+    "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
     "@optimizely/optimizely-sdk": "^5.3.5",
     "@react-google-maps/api": "^2.20.6",

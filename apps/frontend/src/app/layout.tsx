@@ -98,6 +98,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {enableDemoTools && (
           <link key="dynamic-styles" rel="stylesheet" href="/main.css"></link>
         )}
+
+        {/* Cookie Consent - Script to load opti web experimentation */}
+        <Script
+          id="optimizely-one"
+          src="https://cdn.optimizely.com/js/49716845.js"
+          strategy="afterInteractive"
+        />
+
         {/* Cookie Consent - Script to load popper.js */}
         <Script
           id="cookie-consent-loader"

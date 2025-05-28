@@ -102,7 +102,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Cookie Consent - Script to load opti web experimentation */}
         <Script
           id="optimizely-one"
-          src="https://cdn.optimizely.com/js/49716845.js"
+          src="https://cdn.optimizely.com/js/5663395660169216.js"
           strategy="afterInteractive"
         />
 

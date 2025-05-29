@@ -31,6 +31,9 @@ import ChartBlockComponent from "./ChartBlock";
 import ComparisonBlockComponent from "./ComparisonBlock";
 import ContactUsFormBlockComponent from "./ContactUsFormBlock";
 import FormMetricsBlockComponent from "./FundMetricsBlock";
+import FundTabsComponent from "./FundTabs";
+import TabItemComponent from "./TabItem";
+
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -151,6 +154,14 @@ export const ComponentFactory: ComponentTypeDictionary = [
     type: "FundMetricsBlock",
     component: FormMetricsBlockComponent,
   },
+  {
+    type: "FundTabs",
+    component: FundTabsComponent,
+  },
+  {
+    type: "TabItem", 
+    component: TabItemComponent,
+  },  
   ...ComponentPageFactory,
 ];
 

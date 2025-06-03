@@ -94,6 +94,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang={locale}>
       <head>
+        {/* Microsoft Verification - Bing Webmaster Tools */}
+        <meta name="msvalidate.01" content="A55B465610E9BE87BE6C4FD0F0BC1533" />
+
         <Scripts.Header experimentationAllowOverride={!forceDisableOverride} />
         {enableDemoTools && (
           <link key="dynamic-styles" rel="stylesheet" href="/main.css"></link>

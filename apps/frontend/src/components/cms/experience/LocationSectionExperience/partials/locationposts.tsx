@@ -11,6 +11,9 @@ import {
 } from "../actions/getLocationPosts";
 import { Paging } from "./paging";
 import SearchBox from "@/app/search/_searchbox";
+import SearchHeader from "@/app/search/_searchheader";
+import Search from "@/app/search/_search";
+import { Suspense } from "react";
 import MultiSelectDropdown from "@/components/shared/multi_select_dropdown";
 
 const MapComponent = dynamic(
@@ -123,7 +126,13 @@ export default function LocationPostsSection({
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-4 py-4">
-        <SearchBox initialQuery={query} />
+        <div className="container mx-auto py-[40px]">
+          <Suspense>
+            <SearchBox initialQuery={query} />
+            <SearchHeader initialQuery={query} />
+            <Search initialQuery={query} initialResults={results} />
+          </Suspense>
+        </div>
         <DropDown
           label="Atm Type"
           options={atmOptions}

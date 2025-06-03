@@ -71,12 +71,12 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
         </div>
         <div className="mx-auto w-fit py-6 xl:py-12">
           <Image
-            src={"/assets/bandhbank.svg"}
+            src={"/assets/XC-Innovations13x.webp"}
             width={200}
             height={35}
             alt="Moseybank Logo"
             unoptimized
-            style={{ WebkitFilter: "invert(100%);", filter: "invert(100%);" }}
+            // style={{ WebkitFilter: "invert(100%);", filter: "invert(100%);" }}
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 text-sm items-center justify-center">

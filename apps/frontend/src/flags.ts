@@ -56,7 +56,7 @@ export const layout_configuration = flag<OptimizelyFlag<{ logo: string, theme_sw
     key: 'layout_configuration',
     origin: 'https://app.optimizely.com/v2/projects/' + projectId + '/flags/manage/layout_configuration/variations',
     description: 'Test various layout configurations to determine the best possible layout',
-    defaultValue: { "_enabled": false, "logo": "/assets/bandhbank.svg", "theme_switcher": false },
+    defaultValue: { "_enabled": false, "logo": "/assets/XC-Innovations13x.webp", "theme_switcher": false },
     async decide() {
         const ctx = await getUserContext()
         const decision = ctx?.decide('layout_configuration') as TypedOptimizelyDecision<{ logo: string, theme_switcher: boolean }>
@@ -73,15 +73,15 @@ export const layout_configuration = flag<OptimizelyFlag<{ logo: string, theme_sw
     options: [
         {
             label: "No theme picker",
-            value: { "_enabled": true, "theme_switcher": false, "logo": "/assets/bandhbank.svg" }
+            value: { "_enabled": true, "theme_switcher": false, "logo": "/assets/XC-Innovations13x.webp" }
         },
         {
             label: "On",
-            value: { "_enabled": true, "logo": "/assets/bandhbank.svg", "theme_switcher": true }
+            value: { "_enabled": true, "logo": "/assets/XC-Innovations13x.webp", "theme_switcher": true }
         },
         {
             label: "Off",
-            value: { "_enabled": false, "logo": "/assets/bandhbank.svg", "theme_switcher": true }
+            value: { "_enabled": false, "logo": "/assets/XC-Innovations13x.webp", "theme_switcher": true }
         }
     ]
 })

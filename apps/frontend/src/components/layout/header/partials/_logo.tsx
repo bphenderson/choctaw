@@ -9,7 +9,7 @@ type LogoProps = JSX.IntrinsicElements["a"] & {
 };
 
 export const Logo: FunctionComponent<LogoProps> = ({
-  logo = "/assets/bandhbank.svg",
+  logo = "/assets/XC-Innovations13x.webp",
   ...divProps
 }) => {
   const { logo: logoUrl } = useFlag("layout_configuration", {
@@ -24,7 +24,7 @@ export const Logo: FunctionComponent<LogoProps> = ({
         fill
         unoptimized
         priority
-        className="dark:brightness-0	dark:invert !w-auto !h-12 !relative logo-golden"
+        className="dark:brightness-0	dark:invert !w-auto !h-12 !relative"
       />
     </Link>
   );

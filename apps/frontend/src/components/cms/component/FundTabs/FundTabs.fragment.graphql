@@ -1,0 +1,9 @@
+fragment FundTabsData on FundTabs {
+  TabItems {
+    TabId
+    TabLabel
+    TabTitle
+    AsOfDate
+    ChartType  # Make sure this matches the actual GraphQL field name
+  }
+}

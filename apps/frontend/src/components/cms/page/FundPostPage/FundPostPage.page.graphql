@@ -9,6 +9,11 @@ fragment FundPostPageData on FundPostPage {
     }
     blogAuthor: ArticleAuthor
     blogTopics: Topic
+    performanceTabs {
+        ...IContentListItem
+        ...BlockData
+        ...FundTabsData
+    }
     continueReading {
         ...IContentListItem
         ...BlockData

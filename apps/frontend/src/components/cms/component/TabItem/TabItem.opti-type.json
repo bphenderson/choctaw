@@ -1,0 +1,84 @@
+{
+  "key": "TabItem",
+  "displayName": "Tab Item",
+  "description": "Individual tab configuration for fund performance tabs",
+  "baseType": "component",
+  "sortOrder": 101,
+  "properties": {
+    "TabId": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Tab ID",
+      "description": "Unique identifier for the tab",
+      "localized": false,
+      "required": true,
+      "group": "Content",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "TabLabel": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Tab Label",
+      "description": "Text to display on the tab",
+      "localized": true,
+      "required": true,
+      "group": "Content",
+      "sortOrder": 1,
+      "editorSettings": {}
+    },
+    "TabTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Content Title",
+      "description": "Title to display in the content area",
+      "localized": true,
+      "required": false,
+      "group": "Content",
+      "sortOrder": 2,
+      "editorSettings": {}
+    },
+    "AsOfDate": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "As Of Date",
+      "description": "Date to display (e.g. 04/30/2025)",
+      "localized": false,
+      "required": false,
+      "group": "Content",
+      "sortOrder": 3,
+      "editorSettings": {}
+    },
+    "ChartType": {
+      "type": "string",
+      "format": "select",
+      "displayName": "Chart Type",
+      "description": "Type of chart to display",
+      "localized": false,
+      "required": true,
+      "group": "Content",
+      "sortOrder": 4,
+      "editorSettings": {},
+      "enum": {
+        "values": [
+          {
+            "displayName": "Bar Chart",
+            "value": "BarChart"
+          },
+          {
+            "displayName": "Bar Chart 2",
+            "value": "BarChart2"
+          },
+          {
+            "displayName": "Historical Price Graph",
+            "value": "HistoricalPriceGraph"
+          },
+          {
+            "displayName": "Historical Price Graph 2",
+            "value": "HistoricalPriceGraph2"
+          }
+        ]
+      }
+    }
+  }
+}

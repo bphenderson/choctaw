@@ -122,6 +122,21 @@
         "restrictedTypes": []
       }
     },
+    "performanceTabs": {
+      "type": "array",
+      "displayName": "Performance Tabs",
+      "description": "Configure performance tabs component",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 55,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": ["FundTabs"],
+        "restrictedTypes": []
+      }
+    },
     "SeoSettings": {
       "type": "component",
       "contentType": "PageSeoSettings",

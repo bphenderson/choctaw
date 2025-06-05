@@ -2,7 +2,7 @@ import "server-only";
 // Next.JS
 import { type Metadata } from "next";
 import { Download } from "lucide-react"; // Optional: Lucide for icons
-import { Tabs } from "./Tabs"; // Optional: Tabs component for navigation
+import { Tabs } from "./Tabs"; // Direct import of Tabs component
 // Optimizely Graph types and SDK
 import {
   type Locales,
@@ -39,6 +39,7 @@ export const FundPostPage: OptimizelyNextPage<
     blogSubtitle: subtitle,
     blogTopics: topics,
     continueReading,
+    performanceTabs, // Add this back
   },
 }) => {
   return (
@@ -97,7 +98,14 @@ export const FundPostPage: OptimizelyNextPage<
           >
             Topics: {topics?.filter((x) => x).join(", ")}
           </CmsEditable>
-          <Tabs />
+          
+          {/* Replace static <Tabs /> with CMS content area */}
+          <CmsContentArea
+            fieldName="performanceTabs"
+            items={performanceTabs || []}
+            fallback={<Tabs />}
+          />
+          
           <div className="border-t border-b border-gray-300 py-6 px-4">
             <div className="flex flex-wrap justify-between items-start w-full">
               {/* Stat Blocks */}
@@ -153,6 +161,7 @@ export const FundPostPage: OptimizelyNextPage<
               </div>
             </div>
           </div>
+          
           {continueReading && continueReading.length ? (
             <CmsContentArea
               fieldName="continueReading"

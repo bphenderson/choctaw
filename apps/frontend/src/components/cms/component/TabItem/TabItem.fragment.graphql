@@ -1,0 +1,8 @@
+# Completely commented out until we determine the correct schema structure
+# fragment TabItemData on TabItem {
+#   TabId
+#   TabLabel
+#   TabTitle
+#   AsOfDate
+#   ChartType
+# }

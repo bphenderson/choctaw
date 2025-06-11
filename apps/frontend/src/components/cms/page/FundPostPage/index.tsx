@@ -98,14 +98,7 @@ export const FundPostPage: OptimizelyNextPage<
           >
             Topics: {topics?.filter((x) => x).join(", ")}
           </CmsEditable>
-          
-          {/* Replace static <Tabs /> with CMS content area */}
-          <CmsContentArea
-            fieldName="performanceTabs"
-            items={performanceTabs || []}
-            fallback={<Tabs />}
-          />
-          
+
           <div className="border-t border-b border-gray-300 py-6 px-4">
             <div className="flex flex-wrap justify-between items-start w-full">
               {/* Stat Blocks */}
@@ -149,19 +142,37 @@ export const FundPostPage: OptimizelyNextPage<
 
               {/* Downloads */}
               <div className="flex flex-col justify-center gap-2 text-sm text-verdansk ml-6 mt-4 md:mt-0 md:border-l md:pl-6 border-gray-300">
-                <a href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf" className="flex items-center gap-2">
+                <a
+                  href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf"
+                  className="flex items-center gap-2"
+                >
                   <Download size={14} /> FACT SHEET
                 </a>
-                <a href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf" className="flex items-center gap-2">
+                <a
+                  href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf"
+                  className="flex items-center gap-2"
+                >
                   <Download size={14} /> COMMENTARY
                 </a>
-                <a href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf" className="flex items-center gap-2">
+                <a
+                  href="https://app-xcen01saascc139p001.cms.optimizely.com/globalassets/pdf/dummy.pdf"
+                  className="flex items-center gap-2"
+                >
                   <Download size={14} /> PROSPECTUS
                 </a>
               </div>
             </div>
           </div>
-          
+
+          <p className="text-2xl text-people-eater my-6">
+            Performance and Pricing
+          </p>
+          {/* Replace static <Tabs /> with CMS content area */}
+          <CmsContentArea
+            fieldName="performanceTabs"
+            items={performanceTabs || []}
+            fallback={<Tabs />}
+          />
           {continueReading && continueReading.length ? (
             <CmsContentArea
               fieldName="continueReading"

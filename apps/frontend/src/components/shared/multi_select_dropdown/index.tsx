@@ -61,7 +61,7 @@ export const MultiSelectDropdown: FunctionComponent<
   };
 
   const valueLabels =
-    selectedValues.map((v) => v.label ?? v.value).join(", ") || "None selected";
+    selectedValues.length > 0 ? "Filters Applied" : "None selected";
 
   const button = compact ? (
     <ListboxButton className="min-w-40 flex items-center gap-2 pl-2 border-azure border-2 rounded-lg">
@@ -70,7 +70,6 @@ export const MultiSelectDropdown: FunctionComponent<
       <ChevronDownIcon className="w-5 h-5 text-azure ml-auto" />
     </ListboxButton>
   ) : (
-
     <ListboxButton className="border-azure border-solid border-2 outline-none focus:outline-dashed focus:outline-offset-2 focus:outline-2 focus:outline-azure focus:dark:outline-verdansk rounded-xl min-w-48 flex flex-row justify-between items-stretch dark:border-verdansk overflow-hidden">
       <div className="flex flex-col justify-between gap-2 m-2 flex-auto">
         <Label className="text-start italic">{label}</Label>

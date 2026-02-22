@@ -14,6 +14,7 @@ import {
 } from "@/gql/graphql";
 import { getFragmentData } from "@gql/fragment-masking";
 import ButtonBlock from "../ButtonBlock";
+import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 const ColorClasses = {
   "dark-blue": "on-vulcan",
@@ -39,6 +40,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
   },
   inEditMode,
   contentLink,
+  ctx,
 }) => {
   const heroImage = getFragmentData(ReferenceDataFragmentDoc, image);
   const heroImageLink = getFragmentData(LinkDataFragmentDoc, heroImage?.url);
@@ -57,6 +59,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
       as="section"
       className={`py-8 lg:py-16 ${ColorClasses[color || "blue"]}`}
       cmsId={contentLink.key}
+      ctx={ctx}
     >
       <div className={`w-full @container/card container px-8 mx-auto`}>
         <div
@@ -70,20 +73,22 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
             className={`prose lg:prose-h1:text-7xl lg:prose-h1:my-12 prose-h1:font-bold prose-p:text-2xl prose-p:leading-10 prose-img:my-4 ${hasImage ? "" : "max-w-[900px] mx-auto"}`}
           >
             {(inEditMode || eyebrow) && (
-              <CmsEditable as="p" cmsFieldName="Eyebrow" className="eyebrow">
+              <CmsEditable as="p" cmsFieldName="Eyebrow" className="eyebrow" ctx={ctx}>
                 {eyebrow || "+ Add Eyebrow"}
               </CmsEditable>
             )}
             {(inEditMode || heading) && (
-              <CmsEditable as="h1" cmsFieldName="Heading">
+              <CmsEditable as="h1" cmsFieldName="Heading" ctx={ctx}>
                 {heading || "+ Add Heading"}
               </CmsEditable>
             )}
             {description?.json ? (
               <CmsEditable
                 as={RichText}
-                text={description.json}
+                text={sanitizeRichText(description.json)}
                 cmsFieldName="Description"
+                ctx={ctx}
+                forwardCtx={true}
               />
             ) : (
               inEditMode &&
@@ -100,6 +105,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
                 data={button}
                 inEditMode={false}
                 contentLink={{ key: null }}
+                ctx={ctx}
               />
             ) : (
               inEditMode &&

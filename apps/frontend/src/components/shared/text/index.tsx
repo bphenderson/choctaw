@@ -1,6 +1,7 @@
 'use client'
 import { type FunctionComponent, type DetailedHTMLProps, type HTMLAttributes } from "react"
 import { RichText, DefaultComponentFactory, RichTextComponentDictionary as DefaultComponents, type TypedNode, type NodeInput, Utils, isNodeInput, isNonEmptyString, } from "@remkoj/optimizely-cms-react"
+import { sanitizeRichText } from "@/lib/sanitize-rich-text"
 
 const richTextFactory = new DefaultComponentFactory(DefaultComponents)
 
@@ -10,7 +11,7 @@ export type ItemTextProps = {
 
 export const ItemTextComponent : FunctionComponent<ItemTextProps> = ({ text, ...divProps }) => {
     return Utils.isNodeInput(text) ? 
-        <RichText text={ text } factory={ richTextFactory } {...divProps } /> : 
+        <RichText text={ sanitizeRichText(text) } factory={ richTextFactory } {...divProps } /> : 
         <div { ...divProps }>{ Utils.isNonEmptyString(text) ? text : ''}</div>
 }
 

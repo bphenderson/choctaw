@@ -1,5 +1,6 @@
 import { type FunctionComponent, type ComponentProps, Suspense } from "react";
-import { CmsContentArea } from "@remkoj/optimizely-cms-react/rsc";
+import { CmsContentArea, ServerContext } from "@remkoj/optimizely-cms-react/rsc";
+import setupFactory from '@/components/factory';
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
@@ -13,6 +14,7 @@ export type MobileMenuProps = {
 
 export const MobileMenu : FunctionComponent<MobileMenuProps> = ({ menuItems, serviceItems }) =>
 {
+    const ctx = new ServerContext({ factory: setupFactory() })
     return <Popover className="grow-0 shrink-0 lg:hidden">
         <PopoverButton className="h-full flex items-center">
             <Bars3Icon className="inline-block w-12" />
@@ -23,10 +25,10 @@ export const MobileMenu : FunctionComponent<MobileMenuProps> = ({ menuItems, ser
                     <Suspense><SiteSearch asSearchBox /></Suspense>
                 </div>
                 <hr />
-                <CmsContentArea items={ menuItems } variant="mobile" />
+                <CmsContentArea items={ menuItems } variant="mobile" ctx={ctx} />
                 <hr />
                 <div className="py-4 gap-4 flex flex-row flex-wrap justify-between">
-                    <CmsContentArea items={ serviceItems } noWrapper variant="mobile" />
+                    <CmsContentArea items={ serviceItems } noWrapper variant="mobile" ctx={ctx} />
                     <div className="min-w-20"><ThemePicker /></div>
                 </div>
             </div>

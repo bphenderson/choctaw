@@ -1,6 +1,6 @@
 // Auto generated flags.ts from Optimizely Feature Experimentation
 import { flag } from '@vercel/flags/next';
-import { type OptimizelyDecision } from '@optimizely/optimizely-sdk/lite';
+import { type OptimizelyDecision } from '@optimizely/optimizely-sdk';
 import { getUserContext, readConfigFromEnv } from './opti';
 
 type OptimizelyFlag<T extends { [variableKey: string]: unknown }> = {

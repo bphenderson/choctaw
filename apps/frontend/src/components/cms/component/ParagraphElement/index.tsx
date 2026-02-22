@@ -1,9 +1,10 @@
 import { CmsComponent } from "@remkoj/optimizely-cms-react";
 import { ParagraphElementDataFragmentDoc, type ParagraphElementDataFragment } from "@/gql/graphql";
-import { getServerContext, CmsEditable } from "@remkoj/optimizely-cms-react/rsc";
+import { CmsEditable } from "@remkoj/optimizely-cms-react/rsc";
 import { RichText, extractSettings } from "@remkoj/optimizely-cms-react/rsc";
 import getFactory from "@/components/factory";
 import { DefaultParagraphProps } from "./displayTemplates";
+import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 enum AlignClasses {
     left = " mr-auto ml-0",
@@ -15,8 +16,8 @@ enum AlignClasses {
  * Paragraph
  * 
  */
-export const ParagraphElementElement : CmsComponent<ParagraphElementDataFragment, DefaultParagraphProps> = ({ data: { text }, contentLink, layoutProps }) => {
-    const { factory } = getServerContext()
+export const ParagraphElementElement : CmsComponent<ParagraphElementDataFragment, DefaultParagraphProps> = ({ data: { text }, contentLink, layoutProps, ctx }) => {
+    const factory = ctx?.factory
     const {
         placement = "left",
         transform = "default"
@@ -27,7 +28,7 @@ export const ParagraphElementElement : CmsComponent<ParagraphElementDataFragment
 
     
 
-    return <CmsEditable as={RichText} factory={ factory ?? getFactory() } text={ text?.json } cmsId={ contentLink.key } className={`rich-text prose${ width }${ align }`}/>
+    return <CmsEditable as={RichText} factory={ factory ?? getFactory() } text={ sanitizeRichText(text?.json) } cmsId={ contentLink.key } className={`rich-text prose${ width }${ align }`} ctx={ctx} forwardCtx={true} />
 }
 ParagraphElementElement.displayName = "Paragraph (Element/ParagraphElement)"
 ParagraphElementElement.getDataFragment = () => ['ParagraphElementData', ParagraphElementDataFragmentDoc]

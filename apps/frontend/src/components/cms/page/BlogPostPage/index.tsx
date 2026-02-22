@@ -20,12 +20,14 @@ import { toValidOpenGraphType } from "@/lib/opengraph";
 import { type OptimizelyNextPage } from "@remkoj/optimizely-cms-nextjs";
 import { RichText, CmsEditable, CmsContentArea } from "@remkoj/optimizely-cms-react/rsc";
 import { localeToGraphLocale } from "@remkoj/optimizely-graph-client";
+import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 export const BlogPostPage: OptimizelyNextPage<
   BlogPostPageDataFragment
 > = async ({
   contentLink,
   inEditMode,
+  ctx,
   data: {
     blogTitle: title,
     blogImage: image,
@@ -49,12 +51,14 @@ export const BlogPostPage: OptimizelyNextPage<
               alt=""
               width={1920}
               height={1080}
+              ctx={ctx}
             />
             <div className="container px-6 mx-auto bg-[rgba(248,248,252,0.75)] dark:bg-[rgba(16,20,29,0.75)] rounded-t-[2rem]">
               <CmsEditable
                 cmsFieldName="Heading"
                 as="h1"
                 className="mt-6 mb-6 text-4xl font-extrabold"
+                ctx={ctx}
               >
                 {title ?? ""}
               </CmsEditable>
@@ -67,6 +71,7 @@ export const BlogPostPage: OptimizelyNextPage<
               cmsFieldName="Heading"
               as="h1"
               className="mb-6 text-3xl"
+              ctx={ctx}
             >
               {title ?? ""}
             </CmsEditable>
@@ -75,6 +80,7 @@ export const BlogPostPage: OptimizelyNextPage<
             cmsFieldName="ArticleAuthor"
             as="p"
             className="text-2xl text-people-eater my-6"
+            ctx={ctx}
           >
             {author ?? ""}
           </CmsEditable>
@@ -82,6 +88,7 @@ export const BlogPostPage: OptimizelyNextPage<
             cmsFieldName="ArticleSubHeading"
             as="p"
             className="text-3xl leading-7 mt-6 mb-2"
+            ctx={ctx}
           >
             {subtitle ?? ""}
           </CmsEditable>
@@ -89,23 +96,25 @@ export const BlogPostPage: OptimizelyNextPage<
             cmsFieldName="Topic"
             as="p"
             className="text-xs text-independence mb-8 lg:mb-20"
+            ctx={ctx}
           >
             Topics: {topics?.filter((x) => x).join(", ")}
           </CmsEditable>
           <RichText
             cmsFieldName="BlogPostBody"
-            text={description?.json}
+            text={sanitizeRichText(description?.json)}
             className="prose max-w-none prose-img:rounded-[2rem] prose-img:p-4 prose-img:border-2"
+            ctx={ctx}
           />
           <div className="col-span-12 lg:col-span-10 lg:col-start-2 mx-auto border-t-2 mt-32 mb-20"></div>
         </section>
       </div>
 
       {continueReading && continueReading.length ? (
-        <CmsContentArea fieldName="continueReading" items={ continueReading } className="outer-padding flex flex-col items-center" itemWrapper={{ className: "data-[component=ContentRecsElement]:w-full"}}  />
+        <CmsContentArea fieldName="continueReading" items={ continueReading } className="outer-padding flex flex-col items-center" itemWrapper={{ className: "data-[component=ContentRecsElement]:w-full"}} ctx={ctx} />
       ) : (
         <div className="outer-padding">
-          { inEditMode && <CmsContentArea fieldName="continueReading" items={ [] } className="outer-padding flex flex-col items-center"/> }
+          { inEditMode && <CmsContentArea fieldName="continueReading" items={ [] } className="outer-padding flex flex-col items-center" ctx={ctx} /> }
           <div className="w-full flex flex-col items-center gap-8 lg:gap-12 pb-8 lg:pb-12">
             <div className="uppercase">More picks just for you</div>
             <div className="text-6xl font-bold">Want to keep reading?</div>
@@ -113,6 +122,7 @@ export const BlogPostPage: OptimizelyNextPage<
           <ArticleListElementElement
             contentLink={{ key: null }}
             inEditMode={false}
+            ctx={ctx}
             data={{
               articleListCount: 3,
               topics,

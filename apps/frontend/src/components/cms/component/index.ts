@@ -77,11 +77,23 @@ export const ComponentFactory: ComponentTypeDictionary = [
     component: MenuNavigationBlockComponent,
   },
   {
+    type: "MenuNavigationBlock/default",
+    component: MenuNavigationBlockComponent,
+  },
+  {
+    type: "MenuNavigationBlock/footer",
+    component: MenuNavigationBlockComponent,
+  },
+  {
     type: "MegaMenuGroupBlock/mobile",
     component: MegaMenuGroupBlockMobileComponent,
   },
   {
     type: "MegaMenuGroupBlock",
+    component: MegaMenuGroupBlockComponent,
+  },
+  {
+    type: "MegaMenuGroupBlock/default",
     component: MegaMenuGroupBlockComponent,
   },
   {
@@ -117,10 +129,18 @@ export const ComponentFactory: ComponentTypeDictionary = [
     component: ButtonBlockComponent,
   },
   {
+    type: "ButtonBlock/default",
+    component: ButtonBlockComponent,
+  },
+  {
     type: "ArticleListElement",
     component: ArticleListElementComponent,
     useSuspense: true,
     loader: ArticleListElementLoader,
+  },
+  {
+    type: "SecondaryNavigationBlock",
+    component: SecondaryNavigationBlockComponent,
   },
   {
     type: "SecondaryNavigationBlockComponent",

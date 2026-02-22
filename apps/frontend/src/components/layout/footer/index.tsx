@@ -1,14 +1,16 @@
 import { getSdk } from "@/sdk";
 import { Locales } from "@gql/graphql";
 import {
-  getServerContext,
+  ServerContext,
   CmsContentArea,
   RichText,
 } from "@remkoj/optimizely-cms-react/rsc";
 import { localeToGraphLocale } from "@remkoj/optimizely-graph-client";
 import Image from "next/image";
+import setupFactory from '@/components/factory';
 import CmsLink, { createListKey } from "@shared/cms_link";
 import LanguageSwitcher from "@shared/language_switcher";
+import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 export type SiteFooterProps = {
   locale?: string;
@@ -16,7 +18,9 @@ export type SiteFooterProps = {
 
 export async function SiteFooter({ locale }: SiteFooterProps) {
   const sdk = getSdk();
-  const { locale: contextLocale, factory } = getServerContext();
+  const factory = setupFactory();
+  const ctx = new ServerContext({ factory });
+  const { locale: contextLocale } = ctx;
   const footerLocale = locale ?? contextLocale;
   const footerData = (
     await sdk
@@ -54,8 +58,9 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
             </div>
             <RichText
               className="prose prose-a:text-white prose-a:hover:text-azure"
-              text={footerData?.contactInfo?.json}
+              text={sanitizeRichText(footerData?.contactInfo?.json)}
               factory={factory}
+              ctx={ctx}
             />
           </section>
           <CmsContentArea
@@ -66,6 +71,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
               as: "nav",
               className: "",
             }}
+            ctx={ctx}
           />
           <LanguageSwitcher />
         </div>

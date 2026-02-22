@@ -3,10 +3,10 @@ import { CmsComponent, CmsEditable } from '@remkoj/optimizely-cms-react/rsc';
 import AccordionBlockClient from './AccordionBlockClient';
 import { AccordionBlockDataFragmentDoc, type AccordionBlockDataFragment } from '@/gql/graphql';
 
-export const AccordionBlockComponent: CmsComponent<AccordionBlockDataFragment> = ({ data, contentLink }) => (
+export const AccordionBlockComponent: CmsComponent<AccordionBlockDataFragment> = ({ data, contentLink, ctx }) => (
   <section className="vb:section vb:section:AccordionBlock relative container mx-auto px-8 flex flex-col my-8">
     {data.heading && (
-      <CmsEditable content={data} field="AccordionBlockHeading" as="h2" className="text-3xl font-bold mb-6">
+      <CmsEditable as="h2" cmsFieldName="AccordionBlockHeading" className="text-3xl font-bold mb-6" ctx={ctx}>
         {data.heading}
       </CmsEditable>
     )}

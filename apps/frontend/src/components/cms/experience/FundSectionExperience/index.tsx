@@ -27,7 +27,7 @@ import { Suspense } from "react";
  */
 export const FundSectionExperienceExperience: CmsComponent<
   FundSectionExperienceDataFragment
-> = async ({ data, contentLink }) => {
+> = async ({ data, contentLink, ctx }) => {
   const composition = getFragmentData(
     CompositionDataFragmentDoc,
     getFragmentData(ExperienceDataFragmentDoc, data)?.composition,
@@ -38,9 +38,9 @@ export const FundSectionExperienceExperience: CmsComponent<
   });
   return (
     <div className="" data-component="FundSectionExperience">
-      <CmsEditable as="div" className="py-8" cmsFieldName="unstructuredData">
+      <CmsEditable as="div" className="py-8" cmsFieldName="unstructuredData" ctx={ctx}>
         {composition && isNode(composition) && (
-          <OptimizelyComposition node={composition} />
+          <OptimizelyComposition node={composition} ctx={ctx} />
         )}
       </CmsEditable>
       {contentLink.key && contentLink.locale && (

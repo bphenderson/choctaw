@@ -15,13 +15,14 @@ import { getSdk } from "@gql";
 
 export const LocationSearchPage: OptimizelyNextPage<
   LocationSearchPageDataFragment
-> = ({ data: { TopContentArea } }) => {
+> = ({ data: { TopContentArea }, ctx }) => {
   return (
     <div className="locationsearch-page">
       <CmsContentArea
         fieldName="TopContentArea"
         items={TopContentArea}
         className="w-full"
+        ctx={ctx}
       />
       <LocationSearchInteractive />
     </div>

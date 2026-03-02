@@ -33,6 +33,7 @@ import ContactUsFormBlockComponent from "./ContactUsFormBlock";
 import FormMetricsBlockComponent from "./FundMetricsBlock";
 import FundTabsComponent from "./FundTabs";
 import TabItemComponent from "./TabItem";
+import DisclosureBlockComponent from "./DisclosureBlock";
 
 
 // Prefix entries - if needed
@@ -181,7 +182,11 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "TabItem", 
     component: TabItemComponent,
-  },  
+  },
+  {
+    type: "DisclosureBlock",
+    component: DisclosureBlockComponent,
+  },
   ...ComponentPageFactory,
 ];
 

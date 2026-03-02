@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { RichText } from "@remkoj/optimizely-cms-react";
+import { sanitizeHtml } from "@/lib/sanitize-rich-text";
 import ButtonBlock from "../ButtonBlock";
 import { getFragmentData } from "@gql/fragment-masking";
 import {
@@ -125,7 +126,7 @@ export default function ComparisonClient({
                   <div
                     className="w-full"
                     dangerouslySetInnerHTML={{
-                      __html: f.featureDescription?.html ?? "",
+                      __html: sanitizeHtml(f.featureDescription?.html),
                     }}
                   />
                 </div>

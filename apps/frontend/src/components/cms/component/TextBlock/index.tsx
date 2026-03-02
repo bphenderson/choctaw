@@ -1,5 +1,6 @@
 import { type TextBlockDataFragment, TextBlockDataFragmentDoc } from "@gql/graphql";
 import { CmsComponent } from "@remkoj/optimizely-cms-react";
+import { sanitizeHtml } from "@/lib/sanitize-rich-text";
 
 const TextBlock: CmsComponent<Partial<TextBlockDataFragment>> = ({
   data,
@@ -81,7 +82,7 @@ const TextBlock: CmsComponent<Partial<TextBlockDataFragment>> = ({
         {description && description.html && (
           <span
             data-epi-edit={inEditMode ? "TextBlockDescription" : undefined}
-            dangerouslySetInnerHTML={{ __html: description.html }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(description.html) }}
           ></span>
         )}
       </div>

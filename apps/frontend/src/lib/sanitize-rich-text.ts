@@ -97,3 +97,19 @@ export function sanitizeRichText<T>(input: T): T {
 }
 
 export default sanitizeRichText;
+
+/**
+ * Sanitize an HTML string by ensuring void elements like <br>, <hr>, etc.
+ * are self-closing and have no children content between opening/closing tags.
+ * Use this when rendering CMS HTML via dangerouslySetInnerHTML.
+ */
+export function sanitizeHtml(html: string | null | undefined): string {
+  if (!html) return "";
+  // Replace patterns like <br>...</br> or <br ...>...</br> with just <br />
+  const voidPattern = Array.from(VOID_ELEMENTS).join("|");
+  const regex = new RegExp(
+    `<(${voidPattern})(\\s[^>]*)?>([\\s\\S]*?)<\\/\\1>`,
+    "gi"
+  );
+  return html.replace(regex, "<$1$2 />");
+}

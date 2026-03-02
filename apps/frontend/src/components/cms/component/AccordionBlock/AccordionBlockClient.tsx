@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { RichText } from "@remkoj/optimizely-cms-react"; // <-- Client-safe import
 import type { AccordionBlockDataFragment } from "@/gql/graphql";
+import { sanitizeHtml } from "@/lib/sanitize-rich-text";
 
 export default function AccordionBlockClient({
   data,
@@ -46,7 +47,7 @@ export default function AccordionBlockClient({
             <div className="accordion-content py-2 px-6 pb-6 prose dark:prose-invert max-w-none">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: item?.itemContent?.html ?? "",
+                  __html: sanitizeHtml(item?.itemContent?.html),
                 }}
                 className="text-vulcan-85 dark:text-ghost-white"
               />

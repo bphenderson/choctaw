@@ -1,22 +1,25 @@
-import React from "react";
-import { CmsImage } from "@/components/shared/cms_image";
 import {
   CmsEditable,
-  type CmsComponent,
   RichText,
+  type CmsComponent,
 } from "@remkoj/optimizely-cms-react/rsc";
-import { DisclosureBlock } from "@gql/graphql";
 import {
-  DisclosureBlockDataFragment,
+  type DisclosureBlockDataFragment,
   DisclosureBlockDataFragmentDoc,
 } from "@/gql/graphql";
+import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 export const DisclosureBlockComponent: CmsComponent<
   DisclosureBlockDataFragment
-> = ({ data: { body } }) => {
+> = ({ data: { body }, contentLink, ctx }) => {
   return (
     <div className="disclosure-block">
-      <CmsEditable content={body} />
+      <CmsEditable as={RichText}
+        cmsId={contentLink.key}
+        text={sanitizeRichText(body?.json)}
+        className="prose max-w-none"
+        ctx={ctx}
+      />
     </div>
   );
 };

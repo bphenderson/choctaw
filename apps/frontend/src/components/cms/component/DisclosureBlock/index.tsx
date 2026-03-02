@@ -13,10 +13,10 @@ import {
 
 export const DisclosureBlockComponent: CmsComponent<
   DisclosureBlockDataFragment
-> = ({ data: { Body } }) => {
+> = ({ data: { body } }) => {
   return (
     <div className="disclosure-block">
-      <CmsEditable content={Body} />
+      <CmsEditable content={body} />
     </div>
   );
 };

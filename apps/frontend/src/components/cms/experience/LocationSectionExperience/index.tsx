@@ -2,7 +2,7 @@ import { type OptimizelyNextPage as CmsComponent } from "@remkoj/optimizely-cms-
 import { getFragmentData } from "@/gql/fragment-masking";
 import {
   ExperienceDataFragmentDoc,
-  CompositionDataFragmentDoc,
+  CompositionNodeDataFragmentDoc,
   LocationSectionExperienceDataFragmentDoc,
   type LocationSectionExperienceDataFragment,
   PageSeoSettingsPropertyDataFragmentDoc,
@@ -29,7 +29,7 @@ export const LocationSectionExperienceExperience: CmsComponent<
   LocationSectionExperienceDataFragment
 > = async ({ data, contentLink, ctx }) => {
   const composition = getFragmentData(
-    CompositionDataFragmentDoc,
+    CompositionNodeDataFragmentDoc,
     getFragmentData(ExperienceDataFragmentDoc, data)?.composition,
   );
   const initialData = await getLocationPosts({

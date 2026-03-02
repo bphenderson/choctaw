@@ -7,7 +7,10 @@ import { extractSettings } from '@remkoj/optimizely-cms-react/rsc'
 import Image from '@/components/shared/cms_image'
 import { type IconImageElementComponent, ImageElementLayoutProps, IconImageElementProps } from './displayTemplates'
 
-export const IconImageElement : IconImageElementComponent<ImageElementDataFragment> = ({ data: { altText, imageLink }, layoutProps, ...props }) => {
+export const IconImageElement : IconImageElementComponent<ImageElementDataFragment> = (allProps) => {
+    const { data: { altText, imageLink }, layoutProps, ...props } = allProps
+    // Strip CMS framework props (ctx, editProps, etc.) that would leak to DOM elements
+    const { ctx: _ctx, editProps: _editProps, contentLink: _contentLink, inEditMode: _inEditMode, ...cleanProps } = props as any
     const { 
         roundedCorners="none",
         size="small"
@@ -42,7 +45,7 @@ export const IconImageElement : IconImageElementComponent<ImageElementDataFragme
             break
     }
 
-    return <div className={ cssClasses.join(' ')} { ...props }>
+    return <div className={ cssClasses.join(' ')} { ...cleanProps }>
         <Image alt={altText ?? ""} src={ imageLink } fill className="object-cover" />
     </div>
 }

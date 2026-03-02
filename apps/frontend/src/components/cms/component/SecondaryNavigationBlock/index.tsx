@@ -18,7 +18,7 @@ type CmsBlockComponent<T> = CmsComponent<T> & {
  */
 export const SecondaryNavigationBlockComponent: CmsBlockComponent<
   SecondaryNavigationBlockDataFragment
-> = (props) => {
+> = ({ ctx: _ctx, editProps: _editProps, ...props }) => {
   return <SecondaryNavigationBlockClient {...props} />;
 };
 

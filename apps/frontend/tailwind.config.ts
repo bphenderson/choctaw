@@ -9,16 +9,17 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     colors: {
-      golden: "#936b06",
+      pelorous: "#2b7e8f",
+      golden: "#33A2B2",
       white: "#ffffff",
       "ghost-white": "#F8F8FC",
       "light-grey": "#D9D9D9",
-      azure: "#a88b60", //barley corn
-      verdansk: "#132F25",
-      "people-eater": "#a88b60", //barley corn
-      paleruby: "#916a17", //hacienda
+      azure: "#264853", //barley corn
+      verdansk: "#142f38",
+      "people-eater": "#4cb6c4", //barley corn
+      paleruby: "#33a2b2", //hacienda
       tangy: "#f3f2f1", //desert storm
-      vulcan: "#312f29", //dune
+      vulcan: "#0F172A", //dune
       "vulcan-85": "#2C313F",
       independence: "#484F61",
       mischka: "#CED2DC",

@@ -36,6 +36,10 @@ export const ButtonBlockComponent : ButtonBlockComponent = ({
     // Allow to be used as a Next.JS Link
     href,
     children,
+
+    // Prevent CmsContent-injected props from leaking to client components
+    ctx: _ctx,
+    editProps: _editProps,
     ...props 
 }) => {
 

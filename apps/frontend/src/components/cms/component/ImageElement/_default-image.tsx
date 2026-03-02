@@ -46,7 +46,10 @@ type ImageElementProps = ComponentProps<DefaultImageElementComponent<ImageElemen
     withReducedMotion?: boolean
 }
 
-export const ImageElement : FunctionComponent<ImageElementProps>  = ({ data: { altText, imageLink }, layoutProps, children, withReducedMotion = false, ...props }) => {
+export const ImageElement : FunctionComponent<ImageElementProps>  = (allProps) => {
+    const { data: { altText, imageLink }, layoutProps, children, withReducedMotion = false, ...props } = allProps
+    // Strip CMS framework props (ctx, editProps, etc.) that would leak to client components
+    const { ctx: _ctx, editProps: _editProps, contentLink: _contentLink, inEditMode: _inEditMode, ...cleanProps } = props as any
     const { 
         roundedCorners="none", 
         appear="none", 
@@ -75,12 +78,12 @@ export const ImageElement : FunctionComponent<ImageElementProps>  = ({ data: { a
             initial={{ opacity: 0, clipPath: initialClip }}
             animate={{ opacity: 1, clipPath: targetClip }}
             transition={{ duration: fadeInDuration, delay: fadeInDelay }}
-            { ...(props as MotionProps) }
+            { ...(cleanProps as MotionProps) }
         >
             <Image alt={altText ?? ""} src={ imageLink } fill className="object-cover" />
         </Animation>
     }
-    return <div className={ cssClasses.filter(x=>x && x.length > 0).join(' ')} { ...props }>
+    return <div className={ cssClasses.filter(x=>x && x.length > 0).join(' ')} { ...cleanProps }>
         <Image alt={altText ?? ""} src={ imageLink } fill className="object-cover" />
     </div>
 }

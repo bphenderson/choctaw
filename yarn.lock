@@ -3343,14 +3343,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remkoj/optimizely-cms-api@npm:^5.1.6":
+"@remkoj/optimizely-cms-api@npm:^5.2.0":
   version: 5.2.0
   resolution: "@remkoj/optimizely-cms-api@npm:5.2.0"
   checksum: 10/d0822222e04db4588c13e25a27b359dc7c685475ce5c0eb38cebdd8b9a603168af5b8a7dd6ff9b2a35a4f5b60b42c591a73ce2b022d115fb76b2a81806aac069
   languageName: node
   linkType: hard
 
-"@remkoj/optimizely-cms-cli@npm:^5.1.6":
+"@remkoj/optimizely-cms-cli@npm:^5.2.0":
   version: 5.2.0
   resolution: "@remkoj/optimizely-cms-cli@npm:5.2.0"
   dependencies:
@@ -7361,8 +7361,8 @@ __metadata:
     "@parcel/watcher": "npm:^2.5.1"
     "@react-google-maps/api": "npm:^2.20.6"
     "@react-hook/window-size": "npm:^3.1.1"
-    "@remkoj/optimizely-cms-api": "npm:^5.1.6"
-    "@remkoj/optimizely-cms-cli": "npm:^5.1.6"
+    "@remkoj/optimizely-cms-api": "npm:^5.2.0"
+    "@remkoj/optimizely-cms-cli": "npm:^5.2.0"
     "@remkoj/optimizely-cms-nextjs": "npm:^5.1.6"
     "@remkoj/optimizely-cms-react": "npm:^5.1.6"
     "@remkoj/optimizely-fx-nextjs-cli": "workspace:^"

@@ -190,6 +190,14 @@ export const ContentRecsElementDataFragmentDoc = gql`
   ElementRecommendationCount
 }
     `;
+export const DisclosureBlockDataFragmentDoc = gql`
+    fragment DisclosureBlockData on DisclosureBlock {
+  body {
+    json
+    html
+  }
+}
+    `;
 export const FundMetricsBlockDataFragmentDoc = gql`
     fragment FundMetricsBlockData on FundMetricsBlock {
   symbol: Symbol
@@ -460,6 +468,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -496,6 +505,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -600,6 +610,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -676,6 +687,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -710,6 +722,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -762,6 +775,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -793,6 +807,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -856,6 +871,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -887,6 +903,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ComparisonBlockData
     ...ContactUsFormBlockData
     ...ContentRecsElementData
+    ...DisclosureBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -1625,6 +1642,7 @@ export const getContentByIdDocument = gql`
       ...ComparisonBlockData
       ...ContactUsFormBlockData
       ...ContentRecsElementData
+      ...DisclosureBlockData
       ...FundMetricsBlockData
       ...HeadingElementData
       ...HeroBlockData
@@ -1674,6 +1692,7 @@ ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${DisclosureBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1759,6 +1778,7 @@ ${ChartBlockDataFragmentDoc}
 ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${DisclosureBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}

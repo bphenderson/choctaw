@@ -1,3 +1,6 @@
 fragment DisclosureBlockData on DisclosureBlock {
-  Body
+  body {
+    json
+    html
+  }
 }

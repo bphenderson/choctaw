@@ -1,0 +1,7 @@
+fragment DisclosureListBlockData on DisclosureListBlock {
+  heading
+  DisclosureListBlockItems {
+    ...IContentListItem
+    ...BlockData
+  }
+}

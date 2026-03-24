@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/repos/opti-finserv -name index.d.ts -path *optimizely-cms-react*rsc*)",
+      "Bash(find /c/repos/opti-finserv -name *.js -path *optimizely-cms-react*)",
+      "Bash(find /c/repos/opti-finserv -name *.tgz -path *optimizely-cms-react*)",
+      "Bash(tar -tzf /c/repos/opti-finserv/packages/dist/@remkoj-optimizely-cms-react-dev.tgz)"
+    ]
+  }
+}

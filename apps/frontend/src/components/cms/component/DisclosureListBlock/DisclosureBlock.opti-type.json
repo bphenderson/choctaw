@@ -1,0 +1,24 @@
+{
+  "key": "DisclosureListBlock",
+  "displayName": "Disclosure List Block",
+  "description": "A disclosure listblock",
+  "baseType": "component",
+  "sortOrder": 0,
+  "compositionBehaviors": ["sectionEnabled"],
+  "properties": {
+    "heading": {
+      "type": "string",
+      "displayName": "Heading",
+      "sortOrder": 10
+    },
+    "DisclosureListBlockItems": {
+      "type": "array",
+      "displayName": "Disclosure Items",
+      "sortOrder": 20,
+      "items": {
+        "type": "content",
+        "allowedTypes": ["DisclosureBlock"]
+      }
+    }
+  }
+}

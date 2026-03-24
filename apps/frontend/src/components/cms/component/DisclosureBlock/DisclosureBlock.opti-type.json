@@ -1,25 +1,95 @@
 {
-    "key": "DisclosureBlock",
-    "displayName": "Disclosure Block",
-    "description": "A disclosure block",
-    "baseType": "component",
-    "sortOrder": 0,
-    "mayContainTypes": [],
-    "mediaFileExtensions": [],
-    "compositionBehaviors": [
-      "elementEnabled"
-    ],
-    "properties": {
-      "body": {
-        "type": "string",
-        "format": "html",
-        "displayName": "Body",
-        "description": "",
-        "localized": true,
-        "required": true,
-        "group": "Information",
-        "sortOrder": 50,
-        "editorSettings": {}
-      }
+  "key": "DisclosureBlock",
+  "displayName": "Disclosure Block",
+  "description": "A disclosure block",
+  "baseType": "component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": ["elementEnabled"],
+  "properties": {
+    "body": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Body",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 50,
+      "editorSettings": {}
+    },
+    "lastLegalReview": {
+      "type": "dateTime",
+      "displayName": "Last Reviewed Date",
+      "description": "When this content was last reviewed by a member of the legal team",
+      "required": false,
+      "sortOrder": 20,
+      "group": "Information"
+    },
+    "nextReviewDate": {
+      "type": "dateTime",
+      "displayName": "Next Review Date",
+      "description": "When this content is due for review by a member of the legal team",
+      "required": false,
+      "sortOrder": 30,
+      "group": "Information"
+    },
+    "approvalDate": {
+      "type": "dateTime",
+      "displayName": "Approval Date",
+      "description": "When this content was approved by a member of the legal team",
+      "required": false,
+      "sortOrder": 40,
+      "group": "Information"
+    },
+    "approver": {
+      "type": "string",
+      "displayName": "Approver",
+      "description": "The name of the legal team member who approved this content",
+      "required": false,
+      "sortOrder": 70,
+      "group": "Information"
+    },
+    "effectiveDate": {
+      "type": "dateTime",
+      "displayName": "Effective Date",
+      "description": "When this content goes into effect",
+      "required": false,
+      "sortOrder": 50,
+      "group": "Information"
+    },
+    "expirationDate": {
+      "type": "dateTime",
+      "displayName": "Expiration Date",
+      "description": "When this content expires",
+      "required": false,
+      "sortOrder": 60,
+      "group": "Information"
+    },
+    "jurisdiction": {
+      "type": "string",
+      "displayName": "Jurisdiction",
+      "description": "The jurisdiction(s) to which this content applies (e.g. US, CA, EU)",
+      "required": false,
+      "sortOrder": 80,
+      "group": "Information"
+    },
+    "disclosureId": {
+      "type": "string",
+      "displayName": "Disclosure ID",
+      "description": "An optional unique identifier for this disclosure block, which can be used for tracking and reference purposes",
+      "required": false,
+      "sortOrder": 90,
+      "group": "Information"
+    },
+    "type": {
+      "type": "string",
+      "displayName": "Type",
+      "description": "The type of disclosure (e.g. 'performance', 'fee', 'risk', etc.)",
+      "required": false,
+      "sortOrder": 100,
+      "group": "Information"
     }
   }
+}

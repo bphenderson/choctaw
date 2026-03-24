@@ -27,7 +27,8 @@ type Documents = {
     "fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}": typeof types.ComparisonBlockDataFragmentDoc,
     "fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}": typeof types.ContactUsFormBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
-    "fragment DisclosureBlockData on DisclosureBlock {\n  body {\n    json\n    html\n  }\n}": typeof types.DisclosureBlockDataFragmentDoc,
+    "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": typeof types.DisclosureBlockDataFragmentDoc,
+    "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.DisclosureListBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": typeof types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": typeof types.FundTabsDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": typeof types.HeadingElementDataFragmentDoc,
@@ -98,7 +99,8 @@ const documents: Documents = {
     "fragment ComparisonBlockData on ComparisonBlock {\n  comparisonTitle: ComparisonTitle\n  products: Products {\n    productName: ProductName\n    productImage: ProductImage {\n      ...ReferenceData\n    }\n    features: Features {\n      featureLabel: FeatureLabel\n      featureDescription: FeatureDescription {\n        html\n      }\n    }\n  }\n}": types.ComparisonBlockDataFragmentDoc,
     "fragment ContactUsFormBlockData on ContactUsFormBlock {\n  email: Email\n}": types.ContactUsFormBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
-    "fragment DisclosureBlockData on DisclosureBlock {\n  body {\n    json\n    html\n  }\n}": types.DisclosureBlockDataFragmentDoc,
+    "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": types.DisclosureBlockDataFragmentDoc,
+    "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.DisclosureListBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": types.FundTabsDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
@@ -225,7 +227,11 @@ export function gql(source: "fragment ContentRecsElementData on ContentRecsEleme
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment DisclosureBlockData on DisclosureBlock {\n  body {\n    json\n    html\n  }\n}"): (typeof documents)["fragment DisclosureBlockData on DisclosureBlock {\n  body {\n    json\n    html\n  }\n}"];
+export function gql(source: "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}"): (typeof documents)["fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"): (typeof documents)["fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

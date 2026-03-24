@@ -192,6 +192,7 @@ export const ContentRecsElementDataFragmentDoc = gql`
     `;
 export const DisclosureBlockDataFragmentDoc = gql`
     fragment DisclosureBlockData on DisclosureBlock {
+  disclosureId
   body {
     json
     html
@@ -451,6 +452,47 @@ export const BlankSectionDataFragmentDoc = gql`
   }
 }
     `;
+export const DisclosureListBlockDataFragmentDoc = gql`
+    fragment DisclosureListBlockData on DisclosureListBlock {
+  heading
+  DisclosureListBlockItems {
+    ...IContentListItem
+    ...BlockData
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ChartBlockData
+    ...ComparisonBlockData
+    ...ContactUsFormBlockData
+    ...ContentRecsElementData
+    ...DisclosureBlockData
+    ...DisclosureListBlockData
+    ...FundMetricsBlockData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
 export const CarouselBlockDataFragmentDoc = gql`
     fragment CarouselBlockData on CarouselBlock {
   CarouselItemsContentArea {
@@ -469,6 +511,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -506,6 +549,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -611,6 +655,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -688,6 +733,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -723,6 +769,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -776,6 +823,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -808,6 +856,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -872,6 +921,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -904,6 +954,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContactUsFormBlockData
     ...ContentRecsElementData
     ...DisclosureBlockData
+    ...DisclosureListBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -1643,6 +1694,7 @@ export const getContentByIdDocument = gql`
       ...ContactUsFormBlockData
       ...ContentRecsElementData
       ...DisclosureBlockData
+      ...DisclosureListBlockData
       ...FundMetricsBlockData
       ...HeadingElementData
       ...HeroBlockData
@@ -1693,6 +1745,7 @@ ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
+${DisclosureListBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1779,6 +1832,7 @@ ${ComparisonBlockDataFragmentDoc}
 ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
+${DisclosureListBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}

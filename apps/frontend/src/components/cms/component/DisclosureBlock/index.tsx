@@ -11,9 +11,9 @@ import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 
 export const DisclosureBlockComponent: CmsComponent<
   DisclosureBlockDataFragment
-> = ({ data: { body }, contentLink, ctx }) => {
+> = ({ data: { disclosureId, body }, contentLink, ctx }) => {
   return (
-    <div className="disclosure-block">
+    <div id={disclosureId ?? undefined} className="disclosure-block">
       <CmsEditable as={RichText}
         cmsId={contentLink.key}
         text={sanitizeRichText(body?.json)}

@@ -34,7 +34,7 @@ import FormMetricsBlockComponent from "./FundMetricsBlock";
 import FundTabsComponent from "./FundTabs";
 import TabItemComponent from "./TabItem";
 import DisclosureBlockComponent from "./DisclosureBlock";
-
+import DisclosureListBlockComponent from "./DisclosureListBlock";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -186,6 +186,10 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "DisclosureBlock",
     component: DisclosureBlockComponent,
+  },
+  {
+    type: "DisclosureListBlock",
+    component: DisclosureListBlockComponent,
   },
   ...ComponentPageFactory,
 ];

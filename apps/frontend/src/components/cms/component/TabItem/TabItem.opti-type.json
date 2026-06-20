@@ -2,7 +2,7 @@
   "key": "TabItem",
   "displayName": "Tab Item",
   "description": "Individual tab configuration for fund performance tabs",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 101,
   "properties": {
     "TabId": {
@@ -10,75 +10,68 @@
       "format": "shortString",
       "displayName": "Tab ID",
       "description": "Unique identifier for the tab",
-      "localized": false,
-      "required": true,
+      "isLocalized": false,
+      "isRequired": true,
       "group": "Content",
-      "sortOrder": 0,
-      "editorSettings": {}
+      "sortOrder": 0
     },
     "TabLabel": {
       "type": "string",
       "format": "shortString",
       "displayName": "Tab Label",
       "description": "Text to display on the tab",
-      "localized": true,
-      "required": true,
+      "isLocalized": true,
+      "isRequired": true,
       "group": "Content",
-      "sortOrder": 1,
-      "editorSettings": {}
+      "sortOrder": 1
     },
     "TabTitle": {
       "type": "string",
       "format": "shortString",
       "displayName": "Content Title",
       "description": "Title to display in the content area",
-      "localized": true,
-      "required": false,
+      "isLocalized": true,
+      "isRequired": false,
       "group": "Content",
-      "sortOrder": 2,
-      "editorSettings": {}
+      "sortOrder": 2
     },
     "AsOfDate": {
       "type": "string",
       "format": "shortString",
       "displayName": "As Of Date",
       "description": "Date to display (e.g. 04/30/2025)",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "Content",
-      "sortOrder": 3,
-      "editorSettings": {}
+      "sortOrder": 3
     },
     "ChartType": {
       "type": "string",
-      "format": "select",
+      "format": "selectOne",
       "displayName": "Chart Type",
       "description": "Type of chart to display",
-      "localized": false,
-      "required": true,
+      "isLocalized": false,
+      "isRequired": true,
       "group": "Content",
       "sortOrder": 4,
-      "editorSettings": {},
-      "enum": {
-        "values": [
-          {
-            "displayName": "Bar Chart",
-            "value": "BarChart"
-          },
-          {
-            "displayName": "Bar Chart 2",
-            "value": "BarChart2"
-          },
-          {
-            "displayName": "Historical Price Graph",
-            "value": "HistoricalPriceGraph"
-          },
-          {
-            "displayName": "Historical Price Graph 2",
-            "value": "HistoricalPriceGraph2"
-          }
-        ]
-      }
+      "enum": [
+        {
+          "displayName": "Bar Chart",
+          "value": "BarChart"
+        },
+        {
+          "displayName": "Bar Chart 2",
+          "value": "BarChart2"
+        },
+        {
+          "displayName": "Historical Price Graph",
+          "value": "HistoricalPriceGraph"
+        },
+        {
+          "displayName": "Historical Price Graph 2",
+          "value": "HistoricalPriceGraph2"
+        }
+      ]
     }
   }
 }

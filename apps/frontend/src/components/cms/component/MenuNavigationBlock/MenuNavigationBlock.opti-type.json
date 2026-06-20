@@ -2,7 +2,7 @@
   "key": "MenuNavigationBlock",
   "displayName": "Menu navigation",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -13,22 +13,20 @@
       "format": "shortString",
       "displayName": "Heading",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
     },
     "NavigationLinks": {
       "type": "array",
       "format": "LinkCollection",
       "displayName": "Links",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 20,
-      "editorSettings": {},
       "items": {
         "type": "component",
         "contentType": "link"

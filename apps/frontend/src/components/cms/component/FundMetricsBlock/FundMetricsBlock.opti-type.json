@@ -1,8 +1,8 @@
 {
-  "key": "FundMetricsFormBlock",
+  "key": "FundMetricsBlock",
   "displayName": "Fund Metrics block",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],

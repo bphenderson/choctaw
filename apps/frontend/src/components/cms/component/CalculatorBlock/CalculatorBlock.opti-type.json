@@ -2,44 +2,44 @@
   "key": "CalculatorBlock",
   "displayName": "Calculator Block",
   "description": "Various calculators for different purposes",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
-  "compositionBehaviors": ["elementEnabled"],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
   "properties": {
     "name": {
       "type": "string",
       "displayName": "name",
       "description": "",
-      "localized": false,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 10
     },
     "profileImage": {
       "type": "contentReference",
       "displayName": "User Photo",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 30,
-      "editorSettings": {},
-      "allowedTypes": ["Image"],
+      "allowedTypes": [
+        "Image"
+      ],
       "restrictedTypes": []
     },
     "bio": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Bio",
       "description": "",
-      "localized": true,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 50,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 50
     }
   }
 }

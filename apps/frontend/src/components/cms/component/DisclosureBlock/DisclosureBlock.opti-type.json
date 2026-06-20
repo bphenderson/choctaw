@@ -2,94 +2,94 @@
   "key": "DisclosureBlock",
   "displayName": "Disclosure Block",
   "description": "A disclosure block",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
-  "compositionBehaviors": ["elementEnabled"],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
   "properties": {
     "body": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Body",
       "description": "",
-      "localized": true,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 50,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 50
     },
     "lastLegalReview": {
       "type": "dateTime",
       "displayName": "Last Reviewed Date",
       "description": "When this content was last reviewed by a member of the legal team",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 20,
-      "group": "Information"
+      "group": "Content"
     },
     "nextReviewDate": {
       "type": "dateTime",
       "displayName": "Next Review Date",
       "description": "When this content is due for review by a member of the legal team",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 30,
-      "group": "Information"
+      "group": "Content"
     },
     "approvalDate": {
       "type": "dateTime",
       "displayName": "Approval Date",
       "description": "When this content was approved by a member of the legal team",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 40,
-      "group": "Information"
+      "group": "Content"
     },
     "approver": {
       "type": "string",
       "displayName": "Approver",
       "description": "The name of the legal team member who approved this content",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 70,
-      "group": "Information"
+      "group": "Content"
     },
     "effectiveDate": {
       "type": "dateTime",
       "displayName": "Effective Date",
       "description": "When this content goes into effect",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 50,
-      "group": "Information"
+      "group": "Content"
     },
     "expirationDate": {
       "type": "dateTime",
       "displayName": "Expiration Date",
       "description": "When this content expires",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 60,
-      "group": "Information"
+      "group": "Content"
     },
     "jurisdiction": {
       "type": "string",
       "displayName": "Jurisdiction",
       "description": "The jurisdiction(s) to which this content applies (e.g. US, CA, EU)",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 80,
-      "group": "Information"
+      "group": "Content"
     },
     "disclosureId": {
       "type": "string",
       "displayName": "Disclosure ID",
       "description": "An optional unique identifier for this disclosure block, which can be used for tracking and reference purposes",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 90,
-      "group": "Information"
+      "group": "Content"
     },
     "type": {
       "type": "string",
       "displayName": "Type",
       "description": "The type of disclosure (e.g. 'performance', 'fee', 'risk', etc.)",
-      "required": false,
+      "isRequired": false,
       "sortOrder": 100,
-      "group": "Information"
+      "group": "Content"
     }
   }
 }

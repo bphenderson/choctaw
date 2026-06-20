@@ -2,7 +2,7 @@
   "key": "ContactUsFormBlock",
   "displayName": "Contact Us Form block",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],

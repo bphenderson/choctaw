@@ -2,7 +2,7 @@
   "key": "MegaMenuGroupBlock",
   "displayName": "Header menu item",
   "description": "A menu item for the Header Menu",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 15100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -13,31 +13,28 @@
       "format": "shortString",
       "displayName": "Heading",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
     },
     "MegaMenuUrl": {
       "type": "url",
       "displayName": "Menu item link",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 20,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
     },
     "MegaMenuContentArea": {
       "type": "array",
       "displayName": "Navigation content",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 30,
-      "editorSettings": {},
       "items": {
         "type": "content",
         "allowedTypes": [

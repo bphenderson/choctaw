@@ -1,18 +1,20 @@
 {
   "key": "comparisonBlock",
-  "baseType": "component",
+  "baseType": "_component",
   "displayName": "Product Comparison",
   "description": "Component for comparing multiple products side by side",
   "properties": {
     "ComparisonTitle": {
       "type": "string",
       "displayName": "Comparison Title",
-      "localized": true
+      "isLocalized": true
     },
     "Products": {
-      "type": "block",
+      "type": "component",
       "displayName": "Products",
-      "allowedTypes": ["comparisonItemBlock"],
+      "allowedTypes": [
+        "comparisonItemBlock"
+      ],
       "editorSettings": {
         "allowMultiple": true
       }

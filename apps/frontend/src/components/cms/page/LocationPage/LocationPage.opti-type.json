@@ -2,9 +2,11 @@
   "key": "LocationPage",
   "displayName": "Location",
   "description": "Represents a single location",
-  "baseType": "page",
+  "baseType": "_page",
   "sortOrder": 100,
-  "mayContainTypes": ["*"],
+  "mayContainTypes": [
+    "*"
+  ],
   "mediaFileExtensions": [],
   "compositionBehaviors": [],
   "properties": {
@@ -13,36 +15,33 @@
       "format": "shortString",
       "displayName": "Heading",
       "description": "The heading for this blog post",
-      "localized": true,
-      "required": true,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
       "sortOrder": -100,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     },
     "ArticleSubHeading": {
       "type": "string",
       "format": "shortString",
       "displayName": "Subhead",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 0,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     },
     "Topic": {
       "type": "array",
       "format": "selectMany",
       "displayName": "Topic",
       "description": "",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "Categories",
       "sortOrder": 0,
       "indexingType": "searchable",
-      "editorSettings": {},
       "items": {
         "type": "string",
         "enum": {
@@ -72,27 +71,26 @@
       }
     },
     "BlogPostBody": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Body",
       "description": "The main body for this blog post",
-      "localized": true,
-      "required": false,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 20,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     },
     "LocationPostPromoImage": {
       "type": "contentReference",
       "displayName": "Promo image",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 30,
-      "editorSettings": {},
-      "allowedTypes": ["Media"],
+      "allowedTypes": [
+        "Media"
+      ],
       "restrictedTypes": []
     },
     "SeoSettings": {
@@ -100,11 +98,10 @@
       "contentType": "PageSeoSettings",
       "displayName": "SEO settings",
       "description": "Configure the common properties to improve the indexing of the page by search engines",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "SeoSettings",
-      "sortOrder": 200,
-      "editorSettings": {}
+      "sortOrder": 200
     }
   }
 }

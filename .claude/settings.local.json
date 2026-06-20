@@ -4,7 +4,29 @@
       "Bash(find /c/repos/opti-finserv -name index.d.ts -path *optimizely-cms-react*rsc*)",
       "Bash(find /c/repos/opti-finserv -name *.js -path *optimizely-cms-react*)",
       "Bash(find /c/repos/opti-finserv -name *.tgz -path *optimizely-cms-react*)",
-      "Bash(tar -tzf /c/repos/opti-finserv/packages/dist/@remkoj-optimizely-cms-react-dev.tgz)"
+      "Bash(tar -tzf /c/repos/opti-finserv/packages/dist/@remkoj-optimizely-cms-react-dev.tgz)",
+      "Bash(yarn opti-cms *)",
+      "Bash(echo \"=== exit:$? ===\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w 'HTTP %{http_code}\\\\n' -X POST https://api.cms.optimizely.com/oauth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode grant_type=client_credentials --data-urlencode client_id=f55685276e2046a8be8315b5e94efaa0 --data-urlencode client_secret=SfsZ5hV4DYZKmjxyog5LZFYXMzfiioQfbZYMgPalTtHSmeXF)",
+      "Bash(curl -s -X POST https://api.cms.optimizely.com/oauth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode grant_type=client_credentials --data-urlencode client_id=f55685276e2046a8be8315b5e94efaa0 --data-urlencode client_secret=SfsZ5hV4DYZKmjxyog5LZFYXMzfiioQfbZYMgPalTtHSmeXF)",
+      "Bash(curl -s -o /dev/null -w 'HTTP %{http_code}\\\\n' -X POST https://api.cms.optimizely.com/oauth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode grant_type=client_credentials --data-urlencode client_id=IV0OVWIVGlPTBoFMgkevkbIOMOCUyL3IznBRMxLXafpgOtER --data-urlencode client_secret=dAsNrA4BNmREwIBB5RqKIGP0ISABbDqv0DU6wuwN4p6hSdMc9I76rWI6jY01Dkxz)",
+      "Bash(curl -s -X POST https://api.cms.optimizely.com/oauth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode grant_type=client_credentials --data-urlencode client_id=IV0OVWIVGlPTBoFMgkevkbIOMOCUyL3IznBRMxLXafpgOtER --data-urlencode client_secret=dAsNrA4BNmREwIBB5RqKIGP0ISABbDqv0DU6wuwN4p6hSdMc9I76rWI6jY01Dkxz)",
+      "Bash(curl -s -X POST \"https://api.cms.optimizely.com/oauth/token\" -H \"Content-Type: application/x-www-form-urlencoded\" --data-urlencode \"grant_type=client_credentials\" --data-urlencode \"client_id=f55685276e2046a8be8315b5e94efaa0\" --data-urlencode \"client_secret=SfsZ5hV4DYZKmjxyog5LZFYXMzfiioQfbZYMgPalTtHSmeXF\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); items=d.get\\('items',d if isinstance\\(d,list\\) else []\\); print\\('total',d.get\\('totalItemCount'\\)\\); [print\\(i.get\\('key'\\),'|',i.get\\('baseType'\\)\\) for i in items]\")",
+      "Bash(grep -iA4 '\"TextBlockDescription\"\\\\|\"description\"' component/TextBlock/TextBlock.opti-type.json)",
+      "Bash(python -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\('baseType',d['baseType'],'compBeh',d.get\\('compositionBehaviors'\\)\\);import json as j;[print\\(k,j.dumps\\(v\\)\\) for k,v in d['properties'].items\\(\\)]\")",
+      "Bash(yarn up *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(env)",
+      "Bash(npm config *)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code} via %{remote_ip}\\\\n\" \"https://api.cms.optimizely.com/oauth/token\" -X POST -d \"grant_type=client_credentials&client_id=x&client_secret=y\")",
+      "Bash(node -e ' *)",
+      "Bash(python -c \"import sys,json;d=json.load\\(sys.stdin\\);items=d.get\\('items',[]\\);[print\\(i.get\\('key'\\),'| source=',i.get\\('source'\\),'| reserved=',i.get\\('isSystem',i.get\\('reserved'\\)\\)\\) for i in items]\")",
+      "Bash(python -)",
+      "Bash(python -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\(sorted\\(i.get\\('key'\\) for i in d.get\\('items',[]\\)\\)\\)\")",
+      "Bash(python -c \"import sys,json;p=json.load\\(sys.stdin\\)['properties']['disclosureId'];print\\('disclosureId keys:',list\\(p.keys\\(\\)\\),'| description=',p.get\\('description'\\)\\)\")",
+      "Bash(yarn push:types --dry-run)"
     ]
   }
 }

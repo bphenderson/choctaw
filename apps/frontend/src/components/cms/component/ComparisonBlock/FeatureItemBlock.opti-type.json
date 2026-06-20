@@ -1,19 +1,18 @@
 {
   "key": "featureItemBlock",
-  "baseType": "block",
+  "baseType": "_component",
   "displayName": "Feature Item",
   "description": "Individual feature with label and description",
   "properties": {
     "FeatureLabel": {
       "type": "string",
       "displayName": "Feature Label",
-      "localized": true
+      "isLocalized": true
     },
     "FeatureDescription": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Feature Description",
-      "localized": true
+      "isLocalized": true
     }
   }
 }

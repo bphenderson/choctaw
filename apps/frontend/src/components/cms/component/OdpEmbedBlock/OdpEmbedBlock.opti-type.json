@@ -2,7 +2,7 @@
   "key": "OdpEmbedBlock",
   "displayName": "Optimizely Data Platform Embed",
   "description": "Place an embed from the Optimizely Data Platform into your site",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -15,11 +15,10 @@
       "format": "shortString",
       "displayName": "Content ID",
       "description": "The Content ID shown on the Web Embed content you want to show",
-      "localized": false,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 0,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 0
     }
   }
 }

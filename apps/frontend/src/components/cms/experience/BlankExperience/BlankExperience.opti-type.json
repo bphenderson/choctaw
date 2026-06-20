@@ -2,7 +2,7 @@
   "key": "BlankExperience",
   "displayName": "Blank Experience",
   "description": "An experience without a predefined layout.",
-  "baseType": "experience",
+  "baseType": "_experience",
   "sortOrder": 0,
   "mayContainTypes": [
     "*"
@@ -15,11 +15,10 @@
       "contentType": "PageSeoSettings",
       "displayName": "SEO settings",
       "description": "",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "SeoSettings",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "sortOrder": 10
     }
   }
 }

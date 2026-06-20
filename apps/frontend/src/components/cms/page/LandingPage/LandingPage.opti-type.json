@@ -2,7 +2,7 @@
   "key": "LandingPage",
   "displayName": "Landing Page",
   "description": "A page entirely built out of blocks.",
-  "baseType": "page",
+  "baseType": "_page",
   "sortOrder": 100,
   "mayContainTypes": [
     "*"
@@ -14,11 +14,10 @@
       "type": "array",
       "displayName": "Hero Content",
       "description": "Content shown in a full-width container at the top of the page",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 0,
-      "editorSettings": {},
       "items": {
         "type": "content",
         "allowedTypes": [],
@@ -29,11 +28,10 @@
       "type": "array",
       "displayName": "Page Contents",
       "description": "Add blocks here to create the page",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 0,
-      "editorSettings": {},
       "items": {
         "type": "content",
         "allowedTypes": [],
@@ -45,11 +43,10 @@
       "contentType": "PageSeoSettings",
       "displayName": "Seo Settings",
       "description": "",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "SeoSettings",
-      "sortOrder": 0,
-      "editorSettings": {}
+      "sortOrder": 0
     }
   }
 }

@@ -2,7 +2,7 @@
   "key": "TextBlock",
   "displayName": "Text block",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -13,116 +13,104 @@
       "format": "shortString",
       "displayName": "Overline",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
     },
     "TextBlockHeading": {
       "type": "string",
       "format": "shortString",
       "displayName": "Heading",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 20,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
     },
     "TextBlockHeadingSize": {
       "type": "string",
       "format": "selectOne",
       "displayName": "Heading size",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 30,
-      "editorSettings": {},
-      "enum": {
-        "values": [
-          {
-            "displayName": "Small",
-            "value": "small"
-          },
-          {
-            "displayName": "Medium",
-            "value": "medium"
-          },
-          {
-            "displayName": "Large",
-            "value": "large"
-          },
-          {
-            "displayName": "Extra Large",
-            "value": "extralarge"
-          }
-        ]
-      }
+      "enum": [
+        {
+          "displayName": "Small",
+          "value": "small"
+        },
+        {
+          "displayName": "Medium",
+          "value": "medium"
+        },
+        {
+          "displayName": "Large",
+          "value": "large"
+        },
+        {
+          "displayName": "Extra Large",
+          "value": "extralarge"
+        }
+      ]
     },
     "TextBlockDescription": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Description",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 40,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 40
     },
     "TextBlockWidth": {
       "type": "string",
       "format": "selectOne",
       "displayName": "Width",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 80,
-      "editorSettings": {},
-      "enum": {
-        "values": [
-          {
-            "displayName": "Full",
-            "value": "full"
-          },
-          {
-            "displayName": "Small",
-            "value": "small"
-          },
-          {
-            "displayName": "Medium",
-            "value": "medium"
-          },
-          {
-            "displayName": "Large",
-            "value": "large"
-          }
-        ]
-      }
+      "enum": [
+        {
+          "displayName": "Full",
+          "value": "full"
+        },
+        {
+          "displayName": "Small",
+          "value": "small"
+        },
+        {
+          "displayName": "Medium",
+          "value": "medium"
+        },
+        {
+          "displayName": "Large",
+          "value": "large"
+        }
+      ]
     },
     "TextCenter": {
       "type": "boolean",
       "displayName": "Center text?",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 90,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 90
     },
     "TextClassName": {
       "type": "string",
       "format": "shortString",
       "displayName": "Class name",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 100,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 100
     }
   }
 }

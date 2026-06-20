@@ -2,7 +2,7 @@
   "key": "PageSeoSettings",
   "displayName": "Page SEO Settings",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -13,34 +13,31 @@
       "format": "shortString",
       "displayName": "Meta title",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 0,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     },
     "MetaDescription": {
       "type": "string",
       "displayName": "Meta description",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 0,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     },
     "MetaKeywords": {
       "type": "array",
       "displayName": "Meta Keywords",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 25,
       "indexingType": "searchable",
-      "editorSettings": {},
       "items": {
         "type": "string",
         "format": "shortString"
@@ -50,11 +47,10 @@
       "type": "contentReference",
       "displayName": "Sharing image",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 100,
-      "editorSettings": {},
       "allowedTypes": [],
       "restrictedTypes": []
     },
@@ -63,24 +59,21 @@
       "format": "selectOne",
       "displayName": "OpenGraph Type",
       "description": "",
-      "localized": false,
-      "required": true,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
       "sortOrder": 200,
       "indexingType": "searchable",
-      "editorSettings": {},
-      "enum": {
-        "values": [
-          {
-            "displayName": "Undefined",
-            "value": "-"
-          },
-          {
-            "displayName": "Article",
-            "value": "article"
-          }
-        ]
-      }
+      "enum": [
+        {
+          "displayName": "Undefined",
+          "value": "-"
+        },
+        {
+          "displayName": "Article",
+          "value": "article"
+        }
+      ]
     }
   }
 }

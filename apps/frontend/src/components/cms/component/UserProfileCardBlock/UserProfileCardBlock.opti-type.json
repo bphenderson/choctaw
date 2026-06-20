@@ -1,49 +1,45 @@
 {
-    "key": "UserProfileCardBlock",
-    "displayName": "User Profile Card",
-    "description": "A user profile card",
-    "baseType": "component",
-    "sortOrder": 0,
-    "mayContainTypes": [],
-    "mediaFileExtensions": [],
-    "compositionBehaviors": [
-      "elementEnabled"
-    ],
-    "properties": {
-      "name": {
-        "type": "string",
-        "displayName": "name",
-        "description": "",
-        "localized": false,
-        "required": true,
-        "group": "Information",
-        "sortOrder": 10,
-        "editorSettings": {}
-      },
-      "profileImage": {
-        "type": "contentReference",
-        "displayName": "User Photo",
-        "description": "",
-        "localized": false,
-        "required": false,
-        "group": "Information",
-        "sortOrder": 30,
-        "editorSettings": {},
-        "allowedTypes": [
-          "Image"
-        ],
-        "restrictedTypes": []
-      },
-      "bio": {
-        "type": "string",
-        "format": "html",
-        "displayName": "Bio",
-        "description": "",
-        "localized": true,
-        "required": true,
-        "group": "Information",
-        "sortOrder": 50,
-        "editorSettings": {}
-      }
+  "key": "UserProfileCardBlock",
+  "displayName": "User Profile Card",
+  "description": "A user profile card",
+  "baseType": "_component",
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "displayName": "name",
+      "description": "",
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "profileImage": {
+      "type": "contentReference",
+      "displayName": "User Photo",
+      "description": "",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30,
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "bio": {
+      "type": "richText",
+      "displayName": "Bio",
+      "description": "",
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 50
     }
   }
+}

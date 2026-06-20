@@ -2,7 +2,7 @@
   "key": "ImageElement",
   "displayName": "Image",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -15,21 +15,19 @@
       "format": "shortString",
       "displayName": "Description",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
     },
     "imageLink": {
       "type": "contentReference",
       "displayName": "Image",
       "description": "",
-      "localized": false,
-      "required": true,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
       "sortOrder": 20,
-      "editorSettings": {},
       "allowedTypes": [
         "Image"
       ],

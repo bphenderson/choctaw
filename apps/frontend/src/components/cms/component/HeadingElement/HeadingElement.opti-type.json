@@ -2,7 +2,7 @@
   "key": "HeadingElement",
   "displayName": "Heading",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -15,12 +15,11 @@
       "type": "string",
       "displayName": "Heading text",
       "description": "",
-      "localized": false,
-      "required": true,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
       "sortOrder": 0,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     }
   }
 }

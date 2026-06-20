@@ -2,7 +2,7 @@
   "key": "ParagraphElement",
   "displayName": "Paragraph",
   "description": "",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -11,16 +11,14 @@
   ],
   "properties": {
     "text": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Text",
       "description": "",
-      "localized": true,
-      "required": true,
-      "group": "Information",
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
       "sortOrder": 10,
-      "indexingType": "searchable",
-      "editorSettings": {}
+      "indexingType": "searchable"
     }
   }
 }

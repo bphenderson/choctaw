@@ -2,21 +2,22 @@
   "key": "FundTabs",
   "displayName": "Fund Performance Tabs",
   "description": "Tabbed component for displaying fund performance data",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 100,
   "properties": {
     "TabItems": {
       "type": "array",
       "displayName": "Tab Items",
       "description": "Configure the tabs to display",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "Content",
       "sortOrder": 0,
-      "editorSettings": {},
       "items": {
         "type": "content",
-        "allowedTypes": ["TabItem"],
+        "allowedTypes": [
+          "TabItem"
+        ],
         "restrictedTypes": []
       }
     }

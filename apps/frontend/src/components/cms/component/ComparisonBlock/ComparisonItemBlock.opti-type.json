@@ -1,12 +1,12 @@
 {
   "key": "comparisonItemBlock",
-  "baseType": "block",
+  "baseType": "_component",
   "displayName": "Comparison Item",
   "properties": {
     "ProductName": {
       "type": "string",
       "displayName": "Product Name",
-      "localized": true
+      "isLocalized": true
     },
     "ProductImage": {
       "type": "contentReference",
@@ -15,7 +15,9 @@
     "Features": {
       "type": "contentReference",
       "displayName": "Product Features",
-      "allowedTypes": ["featureItemBlock"],
+      "allowedTypes": [
+        "featureItemBlock"
+      ],
       "editorSettings": {
         "allowMultiple": true
       }

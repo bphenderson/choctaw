@@ -2,9 +2,11 @@
   "key": "DisclosureListBlock",
   "displayName": "Disclosure List Block",
   "description": "A disclosure listblock",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
-  "compositionBehaviors": ["sectionEnabled"],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
   "properties": {
     "heading": {
       "type": "string",
@@ -17,7 +19,9 @@
       "sortOrder": 20,
       "items": {
         "type": "content",
-        "allowedTypes": ["DisclosureBlock"]
+        "allowedTypes": [
+          "DisclosureBlock"
+        ]
       }
     }
   }

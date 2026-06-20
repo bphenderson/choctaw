@@ -2,7 +2,7 @@
   "key": "TestimonialElement",
   "displayName": "Testimonial",
   "description": "A customer testimonial",
-  "baseType": "component",
+  "baseType": "_component",
   "sortOrder": 0,
   "mayContainTypes": [],
   "mediaFileExtensions": [],
@@ -14,31 +14,28 @@
       "type": "string",
       "displayName": "Customer Name",
       "description": "",
-      "localized": false,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 10,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 10
     },
     "customerLocation": {
       "type": "string",
       "displayName": "Customer Location",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 20,
-      "editorSettings": {}
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
     },
     "customerImage": {
       "type": "contentReference",
       "displayName": "Customer Photo",
       "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
       "sortOrder": 30,
-      "editorSettings": {},
       "allowedTypes": [
         "Image"
       ],
@@ -49,22 +46,19 @@
       "format": "shortString",
       "displayName": "Reference title",
       "description": "",
-      "localized": true,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 40,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 40
     },
     "referenceText": {
-      "type": "string",
-      "format": "html",
+      "type": "richText",
       "displayName": "Reference text",
       "description": "",
-      "localized": true,
-      "required": true,
-      "group": "Information",
-      "sortOrder": 50,
-      "editorSettings": {}
+      "isLocalized": true,
+      "isRequired": true,
+      "group": "Content",
+      "sortOrder": 50
     }
   }
 }

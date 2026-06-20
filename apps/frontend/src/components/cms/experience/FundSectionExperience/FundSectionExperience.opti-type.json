@@ -2,9 +2,12 @@
   "key": "FundSectionExperience",
   "displayName": "Fund/News Section",
   "description": "Add a blog/news section to your site",
-  "baseType": "experience",
+  "baseType": "_experience",
   "sortOrder": 0,
-  "mayContainTypes": ["FundPostPage", "FundSectionExperience"],
+  "mayContainTypes": [
+    "FundPostPage",
+    "FundSectionExperience"
+  ],
   "mediaFileExtensions": [],
   "compositionBehaviors": [],
   "properties": {
@@ -13,11 +16,10 @@
       "contentType": "PageSeoSettings",
       "displayName": "SEO Settings",
       "description": "",
-      "localized": false,
-      "required": false,
+      "isLocalized": false,
+      "isRequired": false,
       "group": "SeoSettings",
-      "sortOrder": 0,
-      "editorSettings": {}
+      "sortOrder": 0
     }
   }
 }

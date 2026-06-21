@@ -99,6 +99,11 @@ export const ArticleListElementDataFragmentDoc = gql`
   topics
 }
     `;
+export const BookingBarBlockDataFragmentDoc = gql`
+    fragment BookingBarBlockData on BookingBarBlock {
+  buttonLabel: ButtonLabel
+}
+    `;
 export const ButtonBlockDataFragmentDoc = gql`
     fragment ButtonBlockData on ButtonBlock {
   children: ButtonText
@@ -233,6 +238,7 @@ export const HeroBlockDataFragmentDoc = gql`
     html
   }
   heroColor: HeroColor
+  heroLayout: HeroLayout
   heroButton: HeroButton {
     ...ButtonBlockPropertyData
   }
@@ -398,6 +404,15 @@ export const SecondaryNavigationBlockDataFragmentDoc = gql`
   DisplayVertically
 }
     `;
+export const SuiteCardBlockDataFragmentDoc = gql`
+    fragment SuiteCardBlockData on SuiteCardBlock {
+  suiteImage: SuiteImage {
+    ...ReferenceData
+  }
+  title: Title
+  price: Price
+}
+    `;
 export const TestimonialElementDataFragmentDoc = gql`
     fragment TestimonialElementData on TestimonialElement {
   customerName
@@ -452,16 +467,18 @@ export const BlankSectionDataFragmentDoc = gql`
   }
 }
     `;
-export const DisclosureListBlockDataFragmentDoc = gql`
-    fragment DisclosureListBlockData on DisclosureListBlock {
-  heading
-  DisclosureListBlockItems {
+export const SuiteGridBlockDataFragmentDoc = gql`
+    fragment SuiteGridBlockData on SuiteGridBlock {
+  label: Label
+  heading: Heading
+  suiteItems: SuiteItems {
     ...IContentListItem
     ...BlockData
     ...ImageMediaComponentData
     ...VideoMediaComponentData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -472,6 +489,7 @@ export const DisclosureListBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -485,6 +503,99 @@ export const DisclosureListBlockDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
+export const ExperiencesBlockDataFragmentDoc = gql`
+    fragment ExperiencesBlockData on ExperiencesBlock {
+  heading: Heading
+  subheading: SubHeading
+  experienceItems: ExperienceItems {
+    ...IContentListItem
+    ...BlockData
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...BookingBarBlockData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ChartBlockData
+    ...ComparisonBlockData
+    ...ContactUsFormBlockData
+    ...ContentRecsElementData
+    ...DisclosureBlockData
+    ...DisclosureListBlockData
+    ...ExperiencesBlockData
+    ...FundMetricsBlockData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
+export const DisclosureListBlockDataFragmentDoc = gql`
+    fragment DisclosureListBlockData on DisclosureListBlock {
+  heading
+  DisclosureListBlockItems {
+    ...IContentListItem
+    ...BlockData
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...BookingBarBlockData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ChartBlockData
+    ...ComparisonBlockData
+    ...ContactUsFormBlockData
+    ...ContentRecsElementData
+    ...DisclosureBlockData
+    ...DisclosureListBlockData
+    ...ExperiencesBlockData
+    ...FundMetricsBlockData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -502,6 +613,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...VideoMediaComponentData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -512,6 +624,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -525,6 +638,8 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -540,6 +655,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ElementData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -550,6 +666,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -563,6 +680,8 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -646,6 +765,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...VideoMediaComponentData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -656,6 +776,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -669,6 +790,8 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -724,6 +847,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...VideoMediaComponentData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -734,6 +858,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -747,6 +872,8 @@ export const FundPostPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -760,6 +887,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...VideoMediaComponentData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -770,6 +898,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -783,6 +912,8 @@ export const FundPostPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -814,6 +945,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...BlockData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -824,6 +956,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -837,6 +970,8 @@ export const LandingPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -847,6 +982,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...BlockData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -857,6 +993,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -870,6 +1007,8 @@ export const LandingPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -912,6 +1051,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...BlockData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -922,6 +1062,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -935,6 +1076,8 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -945,6 +1088,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...BlockData
     ...AccordionBlockData
     ...ArticleListElementData
+    ...BookingBarBlockData
     ...ButtonBlockData
     ...CTAElementData
     ...CalculatorBlockData
@@ -955,6 +1099,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
     ...HeroBlockData
@@ -968,6 +1113,8 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
     ...TestimonialElementData
     ...TextBlockData
     ...UserProfileCardBlockData
@@ -1685,6 +1832,7 @@ export const getContentByIdDocument = gql`
       ...PageData
       ...AccordionBlockData
       ...ArticleListElementData
+      ...BookingBarBlockData
       ...ButtonBlockData
       ...CTAElementData
       ...CalculatorBlockData
@@ -1695,6 +1843,7 @@ export const getContentByIdDocument = gql`
       ...ContentRecsElementData
       ...DisclosureBlockData
       ...DisclosureListBlockData
+      ...ExperiencesBlockData
       ...FundMetricsBlockData
       ...HeadingElementData
       ...HeroBlockData
@@ -1708,6 +1857,8 @@ export const getContentByIdDocument = gql`
       ...QuoteBlockData
       ...RichTextElementData
       ...SecondaryNavigationBlockData
+      ...SuiteCardBlockData
+      ...SuiteGridBlockData
       ...TestimonialElementData
       ...TextBlockData
       ...UserProfileCardBlockData
@@ -1732,6 +1883,7 @@ ${BlockDataFragmentDoc}
 ${PageDataFragmentDoc}
 ${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
+${BookingBarBlockDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CalculatorBlockDataFragmentDoc}
@@ -1746,6 +1898,7 @@ ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
 ${DisclosureListBlockDataFragmentDoc}
+${ExperiencesBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1762,6 +1915,8 @@ ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SecondaryNavigationBlockDataFragmentDoc}
+${SuiteCardBlockDataFragmentDoc}
+${SuiteGridBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
 ${UserProfileCardBlockDataFragmentDoc}
@@ -1820,6 +1975,7 @@ ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
 ${AccordionBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
+${BookingBarBlockDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CalculatorBlockDataFragmentDoc}
@@ -1833,6 +1989,7 @@ ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
 ${DisclosureListBlockDataFragmentDoc}
+${ExperiencesBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1849,6 +2006,8 @@ ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SecondaryNavigationBlockDataFragmentDoc}
+${SuiteCardBlockDataFragmentDoc}
+${SuiteGridBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
 ${UserProfileCardBlockDataFragmentDoc}

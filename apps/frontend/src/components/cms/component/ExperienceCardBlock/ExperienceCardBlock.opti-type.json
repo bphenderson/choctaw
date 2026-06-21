@@ -1,0 +1,53 @@
+{
+  "key": "ExperienceCardBlock",
+  "displayName": "Experience Card",
+  "description": "A single experience: number, image, short description and title. Used inside an Experiences block.",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "ItemNumber": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Number",
+      "description": "Display number, e.g. \"02\"",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "ExperienceImage": {
+      "type": "contentReference",
+      "displayName": "Image",
+      "description": "",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "Description": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Description",
+      "description": "Small uppercase line above the title",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30
+    },
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 40
+    }
+  }
+}

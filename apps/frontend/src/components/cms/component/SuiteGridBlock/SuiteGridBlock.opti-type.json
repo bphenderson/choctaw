@@ -1,0 +1,52 @@
+{
+  "key": "SuiteGridBlock",
+  "displayName": "Suite Grid",
+  "description": "Asymmetric suite collection: the first card is featured (large), the rest stack beside it.",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "Label": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Label",
+      "description": "Small label to the right of the heading, e.g. \"02 — COLLECTION\"",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    },
+    "SuiteItems": {
+      "type": "array",
+      "displayName": "Suites",
+      "description": "First card is featured (large); the remaining cards stack beside it.",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30,
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "SuiteCardBlock"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

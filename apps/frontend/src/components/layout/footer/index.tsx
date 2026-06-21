@@ -48,7 +48,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
   return (
     <footer
       className="bg-vulcan dark:bg-vulcan-85 text-white py-8 lg:py-16 outer-padding"
-      style={{ backgroundColor: "#142F38" }}
+      style={{ backgroundColor: "#373a40" }}
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6 xl:gap-8 w-full">

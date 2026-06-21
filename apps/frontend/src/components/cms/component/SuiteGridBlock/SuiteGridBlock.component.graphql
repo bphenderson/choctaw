@@ -1,0 +1,8 @@
+fragment SuiteGridBlockData on SuiteGridBlock {
+  label: Label
+  heading: Heading
+  suiteItems: SuiteItems {
+    ...IContentListItem
+    ...BlockData
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "key": "ExperiencesBlock",
+  "displayName": "Experiences",
+  "description": "Dark section with a staggered grid of numbered experience cards.",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "SubHeading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Sub heading",
+      "description": "Italic accent line shown under the heading",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    },
+    "ExperienceItems": {
+      "type": "array",
+      "displayName": "Experiences",
+      "description": "",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30,
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "ExperienceCardBlock"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

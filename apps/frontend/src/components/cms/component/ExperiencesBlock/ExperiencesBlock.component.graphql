@@ -1,0 +1,8 @@
+fragment ExperiencesBlockData on ExperiencesBlock {
+  heading: Heading
+  subheading: SubHeading
+  experienceItems: ExperienceItems {
+    ...IContentListItem
+    ...BlockData
+  }
+}

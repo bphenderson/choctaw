@@ -1,0 +1,24 @@
+{
+  "key": "BookingBarBlock",
+  "displayName": "Booking Bar",
+  "description": "Presentational availability/booking bar, typically placed directly below a full-bleed hero",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "properties": {
+    "ButtonLabel": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Button label",
+      "description": "Label for the call-to-action button",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    }
+  }
+}

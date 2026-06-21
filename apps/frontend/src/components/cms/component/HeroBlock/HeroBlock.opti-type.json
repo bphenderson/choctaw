@@ -115,6 +115,26 @@
       "isRequired": false,
       "group": "Content",
       "sortOrder": 70
+    },
+    "HeroLayout": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Layout",
+      "description": "Standard (side-by-side card) or Full bleed (background image with overlaid text)",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 80,
+      "enum": [
+        {
+          "displayName": "Standard",
+          "value": "standard"
+        },
+        {
+          "displayName": "Full bleed",
+          "value": "fullbleed"
+        }
+      ]
     }
   }
 }

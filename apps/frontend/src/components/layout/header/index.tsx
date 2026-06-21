@@ -1,14 +1,16 @@
 import 'server-only'
-import { PopoverGroup } from '@headlessui/react';
 import { ServerContext, CmsContentArea } from '@remkoj/optimizely-cms-react/rsc';
 import { localeToGraphLocale } from '@remkoj/optimizely-graph-client';
 import { type Locales, type InputMaybe } from '@gql/graphql';
 import { getSdk } from "@/sdk";
 import setupFactory from '@/components/factory';
+import Link from 'next/link';
+import { UserIcon } from '@heroicons/react/24/outline';
 
 import { Logo } from "./partials/_logo";
-import SecondaryMenu from './partials/_secondary-menu';
-import MobileMenu from './partials/_mobile-menu';
+import SiteSearch from './partials/_site-search';
+import MenuDrawer from './partials/_menu-drawer';
+import HeaderChrome from './partials/_header-chrome';
 import { Suspense } from 'react';
 
 export type HeaderProps = {
@@ -32,12 +34,26 @@ export default async function SiteHeader({ locale }: HeaderProps)
         return undefined
     })
 
-    return <header>
-        <div className="container mx-auto px-4 lg:px-6 py-4 gap-2 flex flex-row justify-between items-stretch lg:flex-wrap 2xl:flex-nowrap">
-            <Suspense fallback={<Logo />}><Logo /></Suspense>
-            <CmsContentArea as={ PopoverGroup } className="main-menu hidden 2xl:grow lg:order-last lg:basis-full 2xl:order-none 2xl:basis-auto lg:flex flex-row items-stretch" items={ headerData?.mainMenu } itemWrapper={{ noWrapper: true }} ctx={ctx} />
-            <SecondaryMenu className='grow-0 shrink-0' utilityItems={ headerData?.serviceButtons } />
-            <MobileMenu menuItems={ headerData?.mainMenu } serviceItems={ headerData?.serviceButtons } />
+    return <HeaderChrome>
+        <div className="container mx-auto px-4 lg:px-8 py-6 grid grid-cols-[1fr_auto_1fr] items-center">
+            {/* Left: menu drawer + search */}
+            <div className="flex items-center gap-4 sm:gap-6 justify-self-start">
+                <MenuDrawer menuItems={ headerData?.mainMenu } />
+                <Suspense><SiteSearch /></Suspense>
+            </div>
+            {/* Center: logo */}
+            <div className="justify-self-center min-w-0">
+                <Suspense fallback={<Logo />}><Logo /></Suspense>
+            </div>
+            {/* Right: account + service buttons (set one to "Reserve" in the CMS) */}
+            <div className="flex items-center gap-3 sm:gap-5 justify-self-end">
+                <Link href="#" aria-label="Account" className="flex items-center hover:opacity-70 transition-opacity">
+                    <UserIcon className="w-6 h-6" />
+                </Link>
+                <ul className="hidden sm:flex items-center gap-3">
+                    <CmsContentArea items={ headerData?.serviceButtons } noWrapper itemWrapper={{ as: "li" }} ctx={ctx} />
+                </ul>
+            </div>
         </div>
-    </header>
+    </HeaderChrome>
 }

@@ -1,0 +1,5 @@
+fragment SuiteCardBlockData on SuiteCardBlock {
+  suiteImage: SuiteImage { ...ReferenceData }
+  title: Title
+  price: Price
+}

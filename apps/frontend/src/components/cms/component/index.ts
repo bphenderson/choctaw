@@ -35,6 +35,11 @@ import FundTabsComponent from "./FundTabs";
 import TabItemComponent from "./TabItem";
 import DisclosureBlockComponent from "./DisclosureBlock";
 import DisclosureListBlockComponent from "./DisclosureListBlock";
+import BookingBarBlockComponent from "./BookingBarBlock";
+import SuiteGridBlockComponent from "./SuiteGridBlock";
+import SuiteCardBlockComponent from "./SuiteCardBlock";
+import ExperiencesBlockComponent from "./ExperiencesBlock";
+import ExperienceCardBlockComponent from "./ExperienceCardBlock";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -190,6 +195,26 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "DisclosureListBlock",
     component: DisclosureListBlockComponent,
+  },
+  {
+    type: "BookingBarBlock",
+    component: BookingBarBlockComponent,
+  },
+  {
+    type: "SuiteGridBlock",
+    component: SuiteGridBlockComponent,
+  },
+  {
+    type: "SuiteCardBlock",
+    component: SuiteCardBlockComponent,
+  },
+  {
+    type: "ExperiencesBlock",
+    component: ExperiencesBlockComponent,
+  },
+  {
+    type: "ExperienceCardBlock",
+    component: ExperienceCardBlockComponent,
   },
   ...ComponentPageFactory,
 ];

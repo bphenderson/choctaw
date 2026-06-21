@@ -18,6 +18,7 @@ type Documents = {
     "fragment ArticleListElementData on ArticleListElement {\n  articleListCount\n  topics\n}": typeof types.ArticleListElementDataFragmentDoc,
     "query getArticleListElementItems($count: Int!, $locale: [Locales], $topics: [String], $excludeKeys: [String]) {\n  BlogPostPage(\n    orderBy: {_metadata: {published: DESC}}\n    limit: $count\n    locale: $locale\n    where: {_metadata: {status: {eq: \"Published\"}, key: {notIn: $excludeKeys}}, Topic: {in: $topics}}\n  ) {\n    items {\n      ...IContentData\n      articleMeta: _metadata {\n        key\n        published\n        lastModified\n      }\n      blogTitle: Heading\n      blogSubtitle: ArticleSubHeading\n      blogImage: BlogPostPromoImage {\n        ...ReferenceData\n      }\n      blogBody: BlogPostBody {\n        json\n      }\n      blogAuthor: ArticleAuthor\n    }\n  }\n}": typeof types.getArticleListElementItemsDocument,
     "query getDefaultArticleList($locale: [Locales!]) {\n  ArticleListElement(\n    where: {_metadata: {displayName: {startsWith: \"[DEFAULT]\"}, status: {eq: \"Published\"}}}\n    locale: $locale\n    orderBy: {_metadata: {published: DESC}}\n    limit: 1\n  ) {\n    items {\n      ...IContentData\n      ...ArticleListElementData\n    }\n  }\n}": typeof types.getDefaultArticleListDocument,
+    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}": typeof types.BookingBarBlockDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": typeof types.CTAElementDataFragmentDoc,
@@ -29,10 +30,11 @@ type Documents = {
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
     "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": typeof types.DisclosureBlockDataFragmentDoc,
     "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.DisclosureListBlockDataFragmentDoc,
+    "fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.ExperiencesBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": typeof types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": typeof types.FundTabsDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": typeof types.HeadingElementDataFragmentDoc,
-    "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": typeof types.HeroBlockDataFragmentDoc,
+    "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroLayout: HeroLayout\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": typeof types.HeroBlockDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": typeof types.ImageElementDataFragmentDoc,
     "fragment LayoutSettingsBlockData on LayoutSettingsBlock {\n  mainMenu {\n    ...IContentListItem\n  }\n  contactInfoHeading\n  serviceButtons {\n    ...IContentListItem\n  }\n  contactInfo {\n    json\n    html\n  }\n  footerMenus {\n    ...IContentListItem\n  }\n  copyright\n  legalLinks {\n    ...LinkItemData\n  }\n  appIdentifiers\n}": typeof types.LayoutSettingsBlockDataFragmentDoc,
     "fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {\n  _metadata {\n    displayName\n  }\n  MenuMenuHeading\n  MegaMenuUrl {\n    ...LinkData\n  }\n  MegaMenuContentArea {\n    ...IContentData\n    ...MenuNavigationBlockData\n    ...BlogPostPageMenuBlock\n  }\n}": typeof types.MegaMenuGroupBlockDataFragmentDoc,
@@ -45,6 +47,8 @@ type Documents = {
     "fragment QuoteBlockData on QuoteBlock {\n  quote: QuoteText\n  color: QuoteColor\n  active: QuoteActive\n  name: QuoteProfileName\n  profilePicture: QuoteProfilePicture {\n    ...ReferenceData\n  }\n  location: QuoteProfileLocation\n}": typeof types.QuoteBlockDataFragmentDoc,
     "fragment RichTextElementData on RichTextElement {\n  text {\n    json\n    html\n  }\n}": typeof types.RichTextElementDataFragmentDoc,
     "fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {\n  _metadata {\n    displayName\n  }\n  NavigationHeading\n  NavigationLinks {\n    title\n    text\n    target\n    url {\n      base\n      hierarchical\n      default\n    }\n  }\n  ShowBorder\n  AutomaticallyAddSiblings\n  DisplayVertically\n}": typeof types.SecondaryNavigationBlockDataFragmentDoc,
+    "fragment SuiteCardBlockData on SuiteCardBlock {\n  suiteImage: SuiteImage {\n    ...ReferenceData\n  }\n  title: Title\n  price: Price\n}": typeof types.SuiteCardBlockDataFragmentDoc,
+    "fragment SuiteGridBlockData on SuiteGridBlock {\n  label: Label\n  heading: Heading\n  suiteItems: SuiteItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.SuiteGridBlockDataFragmentDoc,
     "fragment TestimonialElementData on TestimonialElement {\n  customerName\n  customerLocation\n  customerImage {\n    ...ReferenceData\n  }\n  referenceTitle\n  referenceText {\n    json\n  }\n}": typeof types.TestimonialElementDataFragmentDoc,
     "fragment TextBlockData on TextBlock {\n  overline: TextBlockOverline\n  headingSize: TextBlockHeadingSize\n  heading: TextBlockHeading\n  description: TextBlockDescription {\n    json\n    html\n  }\n  center: TextCenter\n  width: TextBlockWidth\n  className: TextClassName\n}": typeof types.TextBlockDataFragmentDoc,
     "fragment UserProfileCardBlockData on UserProfileCardBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": typeof types.UserProfileCardBlockDataFragmentDoc,
@@ -90,6 +94,7 @@ const documents: Documents = {
     "fragment ArticleListElementData on ArticleListElement {\n  articleListCount\n  topics\n}": types.ArticleListElementDataFragmentDoc,
     "query getArticleListElementItems($count: Int!, $locale: [Locales], $topics: [String], $excludeKeys: [String]) {\n  BlogPostPage(\n    orderBy: {_metadata: {published: DESC}}\n    limit: $count\n    locale: $locale\n    where: {_metadata: {status: {eq: \"Published\"}, key: {notIn: $excludeKeys}}, Topic: {in: $topics}}\n  ) {\n    items {\n      ...IContentData\n      articleMeta: _metadata {\n        key\n        published\n        lastModified\n      }\n      blogTitle: Heading\n      blogSubtitle: ArticleSubHeading\n      blogImage: BlogPostPromoImage {\n        ...ReferenceData\n      }\n      blogBody: BlogPostBody {\n        json\n      }\n      blogAuthor: ArticleAuthor\n    }\n  }\n}": types.getArticleListElementItemsDocument,
     "query getDefaultArticleList($locale: [Locales!]) {\n  ArticleListElement(\n    where: {_metadata: {displayName: {startsWith: \"[DEFAULT]\"}, status: {eq: \"Published\"}}}\n    locale: $locale\n    orderBy: {_metadata: {published: DESC}}\n    limit: 1\n  ) {\n    items {\n      ...IContentData\n      ...ArticleListElementData\n    }\n  }\n}": types.getDefaultArticleListDocument,
+    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}": types.BookingBarBlockDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
@@ -101,10 +106,11 @@ const documents: Documents = {
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
     "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": types.DisclosureBlockDataFragmentDoc,
     "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.DisclosureListBlockDataFragmentDoc,
+    "fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.ExperiencesBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": types.FundTabsDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
-    "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": types.HeroBlockDataFragmentDoc,
+    "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroLayout: HeroLayout\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": types.HeroBlockDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": types.ImageElementDataFragmentDoc,
     "fragment LayoutSettingsBlockData on LayoutSettingsBlock {\n  mainMenu {\n    ...IContentListItem\n  }\n  contactInfoHeading\n  serviceButtons {\n    ...IContentListItem\n  }\n  contactInfo {\n    json\n    html\n  }\n  footerMenus {\n    ...IContentListItem\n  }\n  copyright\n  legalLinks {\n    ...LinkItemData\n  }\n  appIdentifiers\n}": types.LayoutSettingsBlockDataFragmentDoc,
     "fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {\n  _metadata {\n    displayName\n  }\n  MenuMenuHeading\n  MegaMenuUrl {\n    ...LinkData\n  }\n  MegaMenuContentArea {\n    ...IContentData\n    ...MenuNavigationBlockData\n    ...BlogPostPageMenuBlock\n  }\n}": types.MegaMenuGroupBlockDataFragmentDoc,
@@ -117,6 +123,8 @@ const documents: Documents = {
     "fragment QuoteBlockData on QuoteBlock {\n  quote: QuoteText\n  color: QuoteColor\n  active: QuoteActive\n  name: QuoteProfileName\n  profilePicture: QuoteProfilePicture {\n    ...ReferenceData\n  }\n  location: QuoteProfileLocation\n}": types.QuoteBlockDataFragmentDoc,
     "fragment RichTextElementData on RichTextElement {\n  text {\n    json\n    html\n  }\n}": types.RichTextElementDataFragmentDoc,
     "fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {\n  _metadata {\n    displayName\n  }\n  NavigationHeading\n  NavigationLinks {\n    title\n    text\n    target\n    url {\n      base\n      hierarchical\n      default\n    }\n  }\n  ShowBorder\n  AutomaticallyAddSiblings\n  DisplayVertically\n}": types.SecondaryNavigationBlockDataFragmentDoc,
+    "fragment SuiteCardBlockData on SuiteCardBlock {\n  suiteImage: SuiteImage {\n    ...ReferenceData\n  }\n  title: Title\n  price: Price\n}": types.SuiteCardBlockDataFragmentDoc,
+    "fragment SuiteGridBlockData on SuiteGridBlock {\n  label: Label\n  heading: Heading\n  suiteItems: SuiteItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.SuiteGridBlockDataFragmentDoc,
     "fragment TestimonialElementData on TestimonialElement {\n  customerName\n  customerLocation\n  customerImage {\n    ...ReferenceData\n  }\n  referenceTitle\n  referenceText {\n    json\n  }\n}": types.TestimonialElementDataFragmentDoc,
     "fragment TextBlockData on TextBlock {\n  overline: TextBlockOverline\n  headingSize: TextBlockHeadingSize\n  heading: TextBlockHeading\n  description: TextBlockDescription {\n    json\n    html\n  }\n  center: TextCenter\n  width: TextBlockWidth\n  className: TextClassName\n}": types.TextBlockDataFragmentDoc,
     "fragment UserProfileCardBlockData on UserProfileCardBlock {\n  Name\n  Bio\n  ProfileImage {\n    ...ReferenceData\n  }\n}": types.UserProfileCardBlockDataFragmentDoc,
@@ -191,6 +199,10 @@ export function gql(source: "query getDefaultArticleList($locale: [Locales!]) {\
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function gql(source: "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}"): (typeof documents)["fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function gql(source: "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}"): (typeof documents)["fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -235,6 +247,10 @@ export function gql(source: "fragment DisclosureListBlockData on DisclosureListB
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function gql(source: "fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"): (typeof documents)["fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function gql(source: "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}"): (typeof documents)["fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -247,7 +263,7 @@ export function gql(source: "fragment HeadingElementData on HeadingElement {\n  
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}"): (typeof documents)["fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}"];
+export function gql(source: "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroLayout: HeroLayout\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}"): (typeof documents)["fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroLayout: HeroLayout\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -296,6 +312,14 @@ export function gql(source: "fragment RichTextElementData on RichTextElement {\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {\n  _metadata {\n    displayName\n  }\n  NavigationHeading\n  NavigationLinks {\n    title\n    text\n    target\n    url {\n      base\n      hierarchical\n      default\n    }\n  }\n  ShowBorder\n  AutomaticallyAddSiblings\n  DisplayVertically\n}"): (typeof documents)["fragment SecondaryNavigationBlockData on SecondaryNavigationBlockComponent {\n  _metadata {\n    displayName\n  }\n  NavigationHeading\n  NavigationLinks {\n    title\n    text\n    target\n    url {\n      base\n      hierarchical\n      default\n    }\n  }\n  ShowBorder\n  AutomaticallyAddSiblings\n  DisplayVertically\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment SuiteCardBlockData on SuiteCardBlock {\n  suiteImage: SuiteImage {\n    ...ReferenceData\n  }\n  title: Title\n  price: Price\n}"): (typeof documents)["fragment SuiteCardBlockData on SuiteCardBlock {\n  suiteImage: SuiteImage {\n    ...ReferenceData\n  }\n  title: Title\n  price: Price\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment SuiteGridBlockData on SuiteGridBlock {\n  label: Label\n  heading: Heading\n  suiteItems: SuiteItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"): (typeof documents)["fragment SuiteGridBlockData on SuiteGridBlock {\n  label: Label\n  heading: Heading\n  suiteItems: SuiteItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

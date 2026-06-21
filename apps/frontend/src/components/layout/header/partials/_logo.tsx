@@ -20,11 +20,12 @@ export const Logo: FunctionComponent<LogoProps> = ({
     <Link href="/" className="flex items-center grow-0 shrink-0" {...divProps}>
       <Image
         src={logoUrl}
-        alt="B&H Bank Logo"
-        fill
+        alt="Choctaw Casinos & Resorts Logo"
+        width={320}
+        height={56}
         unoptimized
         priority
-        className="dark:brightness-0	dark:invert !w-auto !h-20 !relative"
+        className="dark:brightness-0	dark:invert !relative h-9 sm:h-11 w-auto max-w-full"
       />
     </Link>
   );

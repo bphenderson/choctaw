@@ -1,0 +1,43 @@
+{
+  "key": "SuiteCardBlock",
+  "displayName": "Suite Card",
+  "description": "A single suite: image, title and optional price. Used inside a Suite Grid.",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "SuiteImage": {
+      "type": "contentReference",
+      "displayName": "Image",
+      "description": "",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    },
+    "Price": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Price",
+      "description": "Optional price caption, e.g. \"From $2,900 / Night\"",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30
+    }
+  }
+}

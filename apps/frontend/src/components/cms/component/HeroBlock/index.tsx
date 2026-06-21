@@ -34,8 +34,10 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     heroImage: image,
     eyebrow = "",
     heroHeading: heading = "",
+    heroSubheading: subheading = "",
     heroDescription: description = { html: "", json: "{}" },
     heroColor: color = "blue",
+    heroLayout: layout = "standard",
     heroButton = null,
   },
   inEditMode,
@@ -53,6 +55,75 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     heroButton,
   );
   const hasImage = heroImageLink != null && heroImageLink != undefined;
+
+  // Full-bleed layout: background image with a dark gradient overlay and
+  // overlaid editorial text (gold eyebrow + serif heading / italic subheading).
+  if (layout === "fullbleed") {
+    return (
+      <CmsEditable
+        as="section"
+        className="relative w-full min-h-[80vh] @container/hero flex items-center text-white"
+        cmsId={contentLink.key}
+        ctx={ctx}
+      >
+        {hasImage && (
+          <Image
+            data-epi-edit={inEditMode ? "HeroImage" : undefined}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={heroImageSrc}
+            alt={""}
+            fill
+            priority
+            sizes="100vw"
+          />
+        )}
+        {/* Left scrim behind the text, keeps the right of the image bright */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent"
+        />
+        {/* Top scrim so the overlaid (white) header nav stays legible */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent"
+        />
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-[8%] py-24 [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
+          {(inEditMode || eyebrow) && (
+            <CmsEditable
+              as="p"
+              cmsFieldName="Eyebrow"
+              className="eyebrow mb-4"
+              ctx={ctx}
+            >
+              {eyebrow || "+ Add Eyebrow"}
+            </CmsEditable>
+          )}
+          {(inEditMode || heading || subheading) && (
+            <h1 className="font-serif font-normal leading-[1.1] text-5xl @[60rem]/hero:text-7xl">
+              {(inEditMode || heading) && (
+                <CmsEditable as="span" cmsFieldName="Heading" ctx={ctx}>
+                  {heading || "+ Add Heading"}
+                </CmsEditable>
+              )}
+              {(inEditMode || subheading) && (
+                <>
+                  <br />
+                  <CmsEditable
+                    as="i"
+                    cmsFieldName="SubHeading"
+                    className="italic font-normal"
+                    ctx={ctx}
+                  >
+                    {subheading || "+ Add Sub heading"}
+                  </CmsEditable>
+                </>
+              )}
+            </h1>
+          )}
+        </div>
+      </CmsEditable>
+    );
+  }
 
   return (
     <CmsEditable

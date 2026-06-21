@@ -1,6 +1,6 @@
 import "server-only";
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Figtree, Playfair_Display } from "next/font/google";
 import "./globals.scss";
 import { Body, ThemeProvider } from "@/components/theme";
 import Header from "@/components/layout/header";
@@ -25,7 +25,12 @@ import Script from "next/script";
 
 /* eslint-disable @next/next/no-css-tags */
 
-const figtree = Figtree({ subsets: ["latin"] });
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain =
@@ -40,15 +45,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: base,
     title: {
-      default: `B&H Bank - An XCentium Demo Company`,
-      template: `%s | B&H Bank - An XCentium Demo Company`,
+      default: `Choctaw Casinos & Resorts - An XCentium Demo`,
+      template: `%s | Choctaw Casinos & Resorts - An XCentium Demo`,
     },
     openGraph: {
       title: {
-        default: `B&H Bank - An XCentium Demo Company`,
-        template: `%s | B&H Bank - An XCentium Demo Company`,
+        default: `Choctaw Casinos & Resorts - An XCentium Demo Company`,
+        template: `%s | Choctaw Casinos & Resorts - An XCentium Demo`,
       },
-      siteName: "B&H Bank",
+      siteName: "Choctaw Casinos & Resorts",
       images: [
         {
           url: "/apple-touch-icon.png",
@@ -141,18 +146,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <ThemeProvider value={{ theme: "system" }}>
         <Body
-          className={`${figtree.className} on-ghost-white overflow-x-hidden`}
+          className={`${figtree.variable} ${playfair.variable} ${figtree.className} on-ghost-white overflow-x-hidden`}
         >
           <OptimizelyOneProvider value={{ debug: false }}>
             <PageActivator />
             <div className="flex min-h-screen flex-col justify-between">
               <div className="global-alert">
-                Introducing XCentium&apos;s Financial Services Accelerator,
-                powered by Optimizely SaaS.
+                This demo showcases a sample implementation and is not affiliated with Choctaw Casinos & Resorts. All content is for demonstration purposes only.
               </div>
 
-              <Header />
-              <main className="grow">{children}</main>
+              <div className="relative flex grow flex-col">
+                <Header />
+                <main className="grow">{children}</main>
+              </div>
               <Footer />
             </div>
             <OptimizelyOneGadget />

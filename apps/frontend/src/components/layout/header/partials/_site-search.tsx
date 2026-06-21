@@ -118,7 +118,7 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
       ) : (
         <>
           <MagnifyingGlassIcon
-            className="quick-search-icon text-vulcan dark:text-white w-auto h-full min-h-11 p-2 cursor-pointer"
+            className="quick-search-icon text-vulcan dark:text-white w-auto h-full min-h-11 p-2 cursor-pointer hover:opacity-70 transition-opacity"
             onClick={() => setSearchBoxOpen((x) => !x)}
           />
           {searchBoxOpen && (

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  // Editorial display headings use the serif face; body stays sans.
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
+}
+
 @layer utilities {
   .outer-padding {
     @apply lg:px-32 md:px-16 px-8;
@@ -146,11 +156,68 @@
 
     background-color: var(--bg-inherit-button);
   }
+
+  // Pill variant — flat, thin-outline, uppercase. Driven off the section theme
+  // vars so it inverts correctly on both dark (Salon) and light surfaces.
+  .btn--pill .btn__content {
+    background-color: transparent;
+    color: var(--text-main, #fff);
+    border: 1px solid var(--text-main, #fff);
+    border-radius: 9999px;
+    box-shadow: none;
+    padding: 14px 35px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+  }
+  .btn--pill .btn__content:hover {
+    transform: none;
+    opacity: 1;
+    background-color: var(--text-main, #fff);
+    color: var(--bg-main, #373a40);
+  }
+  // Hide the default arrow icon and shine sweep for the flat pill look.
+  .btn--pill .btn__content .icon,
+  .btn--pill .btn__content::before {
+    display: none;
+  }
+
+  // Outline variant — rectangular, uppercase. Inherits `currentColor`, so it
+  // adapts to the header (white over the hero, slate on solid pages). Apply by
+  // typing "btn--outline" into a Button's "Class name" field in the CMS.
+  .btn--outline .btn__content {
+    background-color: transparent;
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 9px 22px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+  }
+  .btn--outline .btn__content:hover {
+    transform: none;
+    opacity: 0.7;
+  }
+  .btn--outline .btn__content .icon,
+  .btn--outline .btn__content::before {
+    display: none;
+  }
   // End Buttons
 
   // Typography Styles
+  // Editorial eyebrow: small, gold, wide-tracked uppercase. Gold reads on both
+  // the cream and slate surfaces, matching the mockup's hero/philosophy/salon.
   .eyebrow {
-    @apply uppercase text-xl tracking-[1px];
+    @apply uppercase tracking-[0.25em] font-medium;
+    color: var(--gold);
+    font-size: 0.7rem;
   }
 
   // Text color overrides
@@ -187,14 +254,16 @@
 
   // Fully styled classes
   .on-base {
-    --bg-main: var(--ghost-white);
+    --bg-main: var(--cream);
     --bg-dark: var(--pelorous);
-    --text-main: var(--verdansk);
+    --text-main: var(--slate);
     --text-dark: var(--white);
     --border-dark: var(--bg-main);
 
-    --btn-primary-bg: var(--golden);
-    --btn-primary-text: var(--ghost-white);
+    // Primary CTA = dark slate / white (mockup's booking-button treatment).
+    // Gold is reserved as an accent (eyebrows, italics), not a button fill.
+    --btn-primary-bg: var(--slate);
+    --btn-primary-text: var(--white);
     --bg-inherit-button: var(--bg-main);
 
     @apply bg-[var(--bg-main)] 
@@ -215,6 +284,20 @@
   }
   .on-ghost-white {
     @apply on-base;
+  }
+  .on-cream {
+    @apply on-base;
+
+    --bg-main: var(--cream);
+    --bg-dark: var(--vulcan-85);
+  }
+  .on-slate {
+    @apply on-base;
+
+    --bg-main: var(--slate);
+    --bg-dark: var(--slate);
+    --text-main: var(--white);
+    --border-dark: var(--white);
   }
   .on-light-grey {
     @apply on-base;
@@ -330,6 +413,49 @@
   display: none;
 }
 
+// --- Header: transparent overlay state (homepage, over the hero) ---
+// White chrome over the hero. Icons inherit `currentColor`, so setting the
+// header colour white carries the hamburger, search and account icons along.
+// Utility buttons keep their own backgrounds; configure a light/outline
+// "Reserve" button in the CMS for the cleanest look over the hero.
+.header--overlay {
+  color: #fff;
+
+  .quick-search-icon {
+    color: #fff !important;
+  }
+  // Logo image rendered solid white over the hero
+  img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+// --- Experiences: staggered card grid (mockup offsets cards 2 & 4) ---
+@media (min-width: 1024px) {
+  .exp-grid > *:nth-child(2) {
+    margin-top: 4rem;
+  }
+  .exp-grid > *:nth-child(4) {
+    margin-top: 2.5rem;
+  }
+}
+
+// --- Footer: editorial column treatment ---
+// Scoped to <footer> so the shared MenuNavigationBlock keeps its header styling.
+footer {
+  // Gold, letter-spaced column / contact headings (mockup footer-col h4)
+  .uppercase.font-bold {
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+  // Lighter-weight footer links
+  a {
+    font-weight: 300;
+  }
+}
+
 .user-profile-card {
   border: 1px solid #ccc;
   padding: 16px;
@@ -351,7 +477,7 @@
 }
 .global-alert {
   color: #fff;
-  background-color: #33A2B2;
+  background-color: #373a40;
   text-align: center;
   padding: 8px;
 }

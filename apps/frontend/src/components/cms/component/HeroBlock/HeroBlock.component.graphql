@@ -5,5 +5,6 @@ fragment HeroBlockData on HeroBlock {
   heroSubheading: SubHeading
   heroDescription: Description { json, html }
   heroColor: HeroColor
+  heroLayout: HeroLayout
   heroButton: HeroButton { ...ButtonBlockPropertyData }
 }

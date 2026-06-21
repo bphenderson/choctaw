@@ -9,17 +9,24 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     colors: {
-      pelorous: "#2b7e8f",
-      golden: "#33A2B2",
+      // Editorial re-skin neutrals
+      cream: "#f4f2ed",
+      slate: "#373a40",
+      gold: "#a88d66",
+      // Editorial re-skin: the former teal/navy brand family is collapsed into
+      // the cream / slate / gold palette. Tokens keep their names so existing
+      // utilities (text-azure, bg-verdansk, …) and on-* themes convert in place.
+      pelorous: "#4a4e57", // was teal; now a mid-slate (dark-mode surface)
+      golden: "#a88d66", // teal accent -> gold accent
       white: "#ffffff",
       "ghost-white": "#F8F8FC",
       "light-grey": "#D9D9D9",
-      azure: "#264853", //barley corn
-      verdansk: "#142f38",
-      "people-eater": "#4cb6c4", //barley corn
-      paleruby: "#33a2b2", //hacienda
-      tangy: "#f3f2f1", //desert storm
-      vulcan: "#0F172A", //dune
+      azure: "#373a40", // brand mid -> slate
+      verdansk: "#2f3137", // brand dark -> dark slate
+      "people-eater": "#a88d66", // teal accent -> gold
+      paleruby: "#a88d66", // teal accent -> gold
+      tangy: "#f3f2f1", // desert storm (light neutral, kept)
+      vulcan: "#2a2d32", // near-black -> darkest slate (dark text, header/footer)
       "vulcan-85": "#2C313F",
       independence: "#484F61",
       mischka: "#CED2DC",
@@ -41,6 +48,10 @@ const config: Config = {
       inherit: "inherit",
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
+      },
       typography: {
         DEFAULT: {
           css: {

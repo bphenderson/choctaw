@@ -1,3 +1,6 @@
 fragment BookingBarBlockData on BookingBarBlock {
   buttonLabel: ButtonLabel
+  guestOptions: GuestOptions
+  suiteOptions: SuiteOptions
+  bookingUrl: BookingUrl
 }

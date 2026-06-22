@@ -177,7 +177,7 @@
     transform: none;
     opacity: 1;
     background-color: var(--text-main, #fff);
-    color: var(--bg-main, #373a40);
+    color: var(--bg-main, #23262E);
   }
   // Hide the default arrow icon and shine sweep for the flat pill look.
   .btn--pill .btn__content .icon,
@@ -260,9 +260,9 @@
     --text-dark: var(--white);
     --border-dark: var(--bg-main);
 
-    // Primary CTA = dark slate / white (mockup's booking-button treatment).
+    // Primary CTA = maroon / white (brand board's "Check Availability").
     // Gold is reserved as an accent (eyebrows, italics), not a button fill.
-    --btn-primary-bg: var(--slate);
+    --btn-primary-bg: var(--maroon);
     --btn-primary-text: var(--white);
     --bg-inherit-button: var(--bg-main);
 
@@ -443,16 +443,30 @@
 // --- Footer: editorial column treatment ---
 // Scoped to <footer> so the shared MenuNavigationBlock keeps its header styling.
 footer {
-  // Gold, letter-spaced column / contact headings (mockup footer-col h4)
+  // Gold, letter-spaced column headings (mockup footer-col h4)
   .uppercase.font-bold {
     color: var(--gold);
     font-weight: 500;
     font-size: 0.7rem;
     letter-spacing: 0.18em;
   }
-  // Lighter-weight footer links
+  // Lighter-weight, muted footer links
   a {
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: #fff;
+  }
+  // Serif brand logo rendered white over the dark footer. Drive size from the
+  // width with height auto, and clear the max-w-full clamp from the shared Logo
+  // so a narrow column can't squeeze the width and stretch the aspect ratio.
+  .footer-brand img {
+    filter: brightness(0) invert(1);
+    width: 13rem;
+    height: auto;
+    max-width: 100%;
   }
 }
 
@@ -477,7 +491,7 @@ footer {
 }
 .global-alert {
   color: #fff;
-  background-color: #373a40;
+  background-color: #23262E;
   text-align: center;
   padding: 8px;
 }

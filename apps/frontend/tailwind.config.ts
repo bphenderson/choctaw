@@ -9,24 +9,26 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     colors: {
-      // Editorial re-skin neutrals
-      cream: "#f4f2ed",
-      slate: "#373a40",
-      gold: "#a88d66",
-      // Editorial re-skin: the former teal/navy brand family is collapsed into
-      // the cream / slate / gold palette. Tokens keep their names so existing
-      // utilities (text-azure, bg-verdansk, …) and on-* themes convert in place.
-      pelorous: "#4a4e57", // was teal; now a mid-slate (dark-mode surface)
-      golden: "#a88d66", // teal accent -> gold accent
+      // Editorial brand palette: cream / charcoal / gold / maroon
+      cream: "#F4F1E9",
+      slate: "#23262E", // charcoal (dark surfaces: Experiences, Salon, footer)
+      gold: "#C7A77B",
+      maroon: "#7B2E3E", // wine accent / primary CTA
+      // The former teal/navy brand family is collapsed into the palette above.
+      // Tokens keep their names so existing utilities (text-azure, bg-verdansk,
+      // …) and on-* themes convert in place.
+      pelorous: "#3a3d45", // mid-charcoal (dark-mode surface)
+      golden: "#C7A77B", // teal accent -> gold accent
+      black: "#000000",
       white: "#ffffff",
       "ghost-white": "#F8F8FC",
       "light-grey": "#D9D9D9",
-      azure: "#373a40", // brand mid -> slate
-      verdansk: "#2f3137", // brand dark -> dark slate
-      "people-eater": "#a88d66", // teal accent -> gold
-      paleruby: "#a88d66", // teal accent -> gold
+      azure: "#23262E", // brand mid -> charcoal
+      verdansk: "#1c1f25", // brand dark -> deep charcoal
+      "people-eater": "#C7A77B", // teal accent -> gold
+      paleruby: "#7B2E3E", // teal accent -> maroon
       tangy: "#f3f2f1", // desert storm (light neutral, kept)
-      vulcan: "#2a2d32", // near-black -> darkest slate (dark text, header/footer)
+      vulcan: "#1A1D23", // near-black -> darkest charcoal (dark text, header/footer)
       "vulcan-85": "#2C313F",
       independence: "#484F61",
       mischka: "#CED2DC",

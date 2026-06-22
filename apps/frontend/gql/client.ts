@@ -102,6 +102,9 @@ export const ArticleListElementDataFragmentDoc = gql`
 export const BookingBarBlockDataFragmentDoc = gql`
     fragment BookingBarBlockData on BookingBarBlock {
   buttonLabel: ButtonLabel
+  guestOptions: GuestOptions
+  suiteOptions: SuiteOptions
+  bookingUrl: BookingUrl
 }
     `;
 export const ButtonBlockDataFragmentDoc = gql`
@@ -202,6 +205,16 @@ export const DisclosureBlockDataFragmentDoc = gql`
     json
     html
   }
+}
+    `;
+export const ExperienceCardBlockDataFragmentDoc = gql`
+    fragment ExperienceCardBlockData on ExperienceCardBlock {
+  number: ItemNumber
+  experienceImage: ExperienceImage {
+    ...ReferenceData
+  }
+  experienceDescription: Description
+  title: Title
 }
     `;
 export const FundMetricsBlockDataFragmentDoc = gql`
@@ -489,6 +502,7 @@ export const SuiteGridBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -535,6 +549,7 @@ export const ExperiencesBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -580,6 +595,7 @@ export const DisclosureListBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -624,6 +640,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -666,6 +683,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -776,6 +794,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -858,6 +877,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -898,6 +918,7 @@ export const FundPostPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -956,6 +977,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -993,6 +1015,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -1062,6 +1085,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -1099,6 +1123,7 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...ContentRecsElementData
     ...DisclosureBlockData
     ...DisclosureListBlockData
+    ...ExperienceCardBlockData
     ...ExperiencesBlockData
     ...FundMetricsBlockData
     ...HeadingElementData
@@ -1843,6 +1868,7 @@ export const getContentByIdDocument = gql`
       ...ContentRecsElementData
       ...DisclosureBlockData
       ...DisclosureListBlockData
+      ...ExperienceCardBlockData
       ...ExperiencesBlockData
       ...FundMetricsBlockData
       ...HeadingElementData
@@ -1898,6 +1924,7 @@ ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
 ${DisclosureListBlockDataFragmentDoc}
+${ExperienceCardBlockDataFragmentDoc}
 ${ExperiencesBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
@@ -1989,6 +2016,7 @@ ${ContactUsFormBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${DisclosureBlockDataFragmentDoc}
 ${DisclosureListBlockDataFragmentDoc}
+${ExperienceCardBlockDataFragmentDoc}
 ${ExperiencesBlockDataFragmentDoc}
 ${FundMetricsBlockDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}

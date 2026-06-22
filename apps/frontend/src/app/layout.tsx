@@ -1,6 +1,6 @@
 import "server-only";
 import type { Metadata } from "next";
-import { Figtree, Playfair_Display } from "next/font/google";
+import { Figtree, Cormorant_Garamond } from "next/font/google";
 import "./globals.scss";
 import { Body, ThemeProvider } from "@/components/theme";
 import Header from "@/components/layout/header";
@@ -26,8 +26,9 @@ import Script from "next/script";
 /* eslint-disable @next/next/no-css-tags */
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-serif",
 });
@@ -146,7 +147,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <ThemeProvider value={{ theme: "system" }}>
         <Body
-          className={`${figtree.variable} ${playfair.variable} ${figtree.className} on-ghost-white overflow-x-hidden`}
+          className={`${figtree.variable} ${cormorant.variable} ${figtree.className} on-ghost-white overflow-x-hidden`}
         >
           <OptimizelyOneProvider value={{ debug: false }}>
             <PageActivator />

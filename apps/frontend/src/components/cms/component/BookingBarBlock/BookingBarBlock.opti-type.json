@@ -19,6 +19,36 @@
       "isRequired": false,
       "group": "Content",
       "sortOrder": 10
+    },
+    "GuestOptions": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Guest options",
+      "description": "Comma-separated options for the Guests dropdown, e.g. 'One, Two, Three, Four'",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    },
+    "SuiteOptions": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Suite options",
+      "description": "Comma-separated options for the Suite dropdown, e.g. 'Reserve Pavilion, Standard Room, Luxury Suite'",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30
+    },
+    "BookingUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Booking URL",
+      "description": "Destination the Check Availability button links to",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 40
     }
   }
 }

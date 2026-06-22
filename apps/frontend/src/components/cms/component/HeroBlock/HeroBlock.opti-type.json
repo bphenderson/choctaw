@@ -133,6 +133,10 @@
         {
           "displayName": "Full bleed",
           "value": "fullbleed"
+        },
+        {
+          "displayName": "Inset card",
+          "value": "inset"
         }
       ]
     }

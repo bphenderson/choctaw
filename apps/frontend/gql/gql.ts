@@ -18,7 +18,7 @@ type Documents = {
     "fragment ArticleListElementData on ArticleListElement {\n  articleListCount\n  topics\n}": typeof types.ArticleListElementDataFragmentDoc,
     "query getArticleListElementItems($count: Int!, $locale: [Locales], $topics: [String], $excludeKeys: [String]) {\n  BlogPostPage(\n    orderBy: {_metadata: {published: DESC}}\n    limit: $count\n    locale: $locale\n    where: {_metadata: {status: {eq: \"Published\"}, key: {notIn: $excludeKeys}}, Topic: {in: $topics}}\n  ) {\n    items {\n      ...IContentData\n      articleMeta: _metadata {\n        key\n        published\n        lastModified\n      }\n      blogTitle: Heading\n      blogSubtitle: ArticleSubHeading\n      blogImage: BlogPostPromoImage {\n        ...ReferenceData\n      }\n      blogBody: BlogPostBody {\n        json\n      }\n      blogAuthor: ArticleAuthor\n    }\n  }\n}": typeof types.getArticleListElementItemsDocument,
     "query getDefaultArticleList($locale: [Locales!]) {\n  ArticleListElement(\n    where: {_metadata: {displayName: {startsWith: \"[DEFAULT]\"}, status: {eq: \"Published\"}}}\n    locale: $locale\n    orderBy: {_metadata: {published: DESC}}\n    limit: 1\n  ) {\n    items {\n      ...IContentData\n      ...ArticleListElementData\n    }\n  }\n}": typeof types.getDefaultArticleListDocument,
-    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}": typeof types.BookingBarBlockDataFragmentDoc,
+    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n  guestOptions: GuestOptions\n  suiteOptions: SuiteOptions\n  bookingUrl: BookingUrl\n}": typeof types.BookingBarBlockDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": typeof types.CTAElementDataFragmentDoc,
@@ -30,6 +30,7 @@ type Documents = {
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
     "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": typeof types.DisclosureBlockDataFragmentDoc,
     "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.DisclosureListBlockDataFragmentDoc,
+    "fragment ExperienceCardBlockData on ExperienceCardBlock {\n  number: ItemNumber\n  experienceImage: ExperienceImage {\n    ...ReferenceData\n  }\n  experienceDescription: Description\n  title: Title\n}": typeof types.ExperienceCardBlockDataFragmentDoc,
     "fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.ExperiencesBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": typeof types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": typeof types.FundTabsDataFragmentDoc,
@@ -94,7 +95,7 @@ const documents: Documents = {
     "fragment ArticleListElementData on ArticleListElement {\n  articleListCount\n  topics\n}": types.ArticleListElementDataFragmentDoc,
     "query getArticleListElementItems($count: Int!, $locale: [Locales], $topics: [String], $excludeKeys: [String]) {\n  BlogPostPage(\n    orderBy: {_metadata: {published: DESC}}\n    limit: $count\n    locale: $locale\n    where: {_metadata: {status: {eq: \"Published\"}, key: {notIn: $excludeKeys}}, Topic: {in: $topics}}\n  ) {\n    items {\n      ...IContentData\n      articleMeta: _metadata {\n        key\n        published\n        lastModified\n      }\n      blogTitle: Heading\n      blogSubtitle: ArticleSubHeading\n      blogImage: BlogPostPromoImage {\n        ...ReferenceData\n      }\n      blogBody: BlogPostBody {\n        json\n      }\n      blogAuthor: ArticleAuthor\n    }\n  }\n}": types.getArticleListElementItemsDocument,
     "query getDefaultArticleList($locale: [Locales!]) {\n  ArticleListElement(\n    where: {_metadata: {displayName: {startsWith: \"[DEFAULT]\"}, status: {eq: \"Published\"}}}\n    locale: $locale\n    orderBy: {_metadata: {published: DESC}}\n    limit: 1\n  ) {\n    items {\n      ...IContentData\n      ...ArticleListElementData\n    }\n  }\n}": types.getDefaultArticleListDocument,
-    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}": types.BookingBarBlockDataFragmentDoc,
+    "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n  guestOptions: GuestOptions\n  suiteOptions: SuiteOptions\n  bookingUrl: BookingUrl\n}": types.BookingBarBlockDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
@@ -106,6 +107,7 @@ const documents: Documents = {
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
     "fragment DisclosureBlockData on DisclosureBlock {\n  disclosureId\n  body {\n    json\n    html\n  }\n}": types.DisclosureBlockDataFragmentDoc,
     "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.DisclosureListBlockDataFragmentDoc,
+    "fragment ExperienceCardBlockData on ExperienceCardBlock {\n  number: ItemNumber\n  experienceImage: ExperienceImage {\n    ...ReferenceData\n  }\n  experienceDescription: Description\n  title: Title\n}": types.ExperienceCardBlockDataFragmentDoc,
     "fragment ExperiencesBlockData on ExperiencesBlock {\n  heading: Heading\n  subheading: SubHeading\n  experienceItems: ExperienceItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.ExperiencesBlockDataFragmentDoc,
     "fragment FundMetricsBlockData on FundMetricsBlock {\n  symbol: Symbol\n}": types.FundMetricsBlockDataFragmentDoc,
     "fragment FundTabsData on FundTabs {\n  TabItems {\n    TabId\n    TabLabel\n    TabTitle\n    AsOfDate\n    ChartType\n  }\n}": types.FundTabsDataFragmentDoc,
@@ -199,7 +201,7 @@ export function gql(source: "query getDefaultArticleList($locale: [Locales!]) {\
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}"): (typeof documents)["fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n}"];
+export function gql(source: "fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n  guestOptions: GuestOptions\n  suiteOptions: SuiteOptions\n  bookingUrl: BookingUrl\n}"): (typeof documents)["fragment BookingBarBlockData on BookingBarBlock {\n  buttonLabel: ButtonLabel\n  guestOptions: GuestOptions\n  suiteOptions: SuiteOptions\n  bookingUrl: BookingUrl\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -244,6 +246,10 @@ export function gql(source: "fragment DisclosureBlockData on DisclosureBlock {\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"): (typeof documents)["fragment DisclosureListBlockData on DisclosureListBlock {\n  heading\n  DisclosureListBlockItems {\n    ...IContentListItem\n    ...BlockData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ExperienceCardBlockData on ExperienceCardBlock {\n  number: ItemNumber\n  experienceImage: ExperienceImage {\n    ...ReferenceData\n  }\n  experienceDescription: Description\n  title: Title\n}"): (typeof documents)["fragment ExperienceCardBlockData on ExperienceCardBlock {\n  number: ItemNumber\n  experienceImage: ExperienceImage {\n    ...ReferenceData\n  }\n  experienceDescription: Description\n  title: Title\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

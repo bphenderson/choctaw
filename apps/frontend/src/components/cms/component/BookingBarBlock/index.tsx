@@ -6,23 +6,36 @@ import {
   BookingBarBlockDataFragmentDoc,
   type BookingBarBlockDataFragment,
 } from "@/gql/graphql";
+import BookingFields from "./_booking-fields";
 
-// Static, presentational fields per the concept mockup. These are visual only —
-// there is no booking engine wired up.
-const fields = [
-  { label: "Arrival", value: "— Select date" },
-  { label: "Departure", value: "— Select date" },
-  { label: "Guests", value: "Two" },
-  { label: "Suite", value: "Reserve Pavilion" },
-];
+const DEFAULT_BOOKING_URL =
+  "https://book.rguest.com/onecart/wbe/offers/1180/Choctaw-Durant-Book";
+const DEFAULT_GUEST_OPTIONS = ["One", "Two", "Three", "Four"];
+const DEFAULT_SUITE_OPTIONS = ["Reserve Pavilion", "Standard Room", "Luxury Suite"];
+
+// Split a newline- or comma-separated option list; fall back to defaults.
+const parseOptions = (raw: string | null | undefined, fallback: string[]) => {
+  const parsed = (raw ?? "")
+    .split(/[\n,]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return parsed.length ? parsed : fallback;
+};
 
 /**
  * Booking Bar
- * Presentational availability bar, designed to overlap the hero above it.
+ * Availability bar designed to overlap the hero above it. Arrival/Departure are
+ * date pickers; Guests/Suite are CMS-configurable dropdowns; the button links
+ * to the configured booking URL.
  */
 export const BookingBarBlockComponent: CmsComponent<
   BookingBarBlockDataFragment
-> = ({ data: { buttonLabel = "Check Availability" }, contentLink, ctx }) => {
+> = ({
+  data: { buttonLabel = "Check Availability", guestOptions, suiteOptions, bookingUrl },
+  inEditMode,
+  contentLink,
+  ctx,
+}) => {
   return (
     <CmsEditable
       as="div"
@@ -30,30 +43,13 @@ export const BookingBarBlockComponent: CmsComponent<
       cmsId={contentLink.key}
       ctx={ctx}
     >
-      <div className="flex w-full max-w-[1000px] flex-col bg-[#efeadf] shadow-[0_15px_40px_rgba(0,0,0,0.1)] md:flex-row">
-        {fields.map((field) => (
-          <div
-            key={field.label}
-            className="flex flex-1 flex-col justify-center border-b border-black/5 px-8 py-6 md:border-b-0 md:border-r"
-          >
-            <span className="mb-2 text-[9px] uppercase tracking-[2px] text-[#888]">
-              {field.label}
-            </span>
-            <span className="font-serif text-base text-[#333]">
-              {field.value}
-            </span>
-          </div>
-        ))}
-        <CmsEditable
-          as="button"
-          type="button"
-          cmsFieldName="ButtonLabel"
-          className="flex items-center justify-center bg-slate px-10 py-5 text-[11px] uppercase tracking-[2px] text-white transition-colors hover:bg-[#222] md:py-0"
-          ctx={ctx}
-        >
-          {buttonLabel || "Check Availability"}
-        </CmsEditable>
-      </div>
+      <BookingFields
+        buttonLabel={buttonLabel || "Check Availability"}
+        guestOptions={parseOptions(guestOptions, DEFAULT_GUEST_OPTIONS)}
+        suiteOptions={parseOptions(suiteOptions, DEFAULT_SUITE_OPTIONS)}
+        bookingUrl={bookingUrl || DEFAULT_BOOKING_URL}
+        inEditMode={inEditMode}
+      />
     </CmsEditable>
   );
 };

@@ -55,6 +55,18 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     heroButton,
   );
   const hasImage = heroImageLink != null && heroImageLink != undefined;
+  // The Hero Image reference can point at a video; render it as a looping
+  // background instead of a still image when the URL is a video file.
+  const heroIsVideo = /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(
+    heroImageLink?.default ?? "",
+  );
+
+  // A full-content hero (body copy and/or a button, like the "gaming" feature)
+  // centers its text; a bare heading/subheading hero (the homepage) sits low so
+  // more of the image shows up top.
+  const heroHasBody =
+    Boolean(button && button.children) ||
+    Boolean(description?.json && description.json !== "{}");
 
   // Full-bleed layout: background image with a dark gradient overlay and
   // overlaid editorial text (gold eyebrow + serif heading / italic subheading).
@@ -62,32 +74,49 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     return (
       <CmsEditable
         as="section"
-        className="relative w-full min-h-[80vh] @container/hero flex items-center text-white"
+        className={`relative w-full min-h-[80vh] @container/hero flex ${heroHasBody ? "items-center" : "items-end"} text-white`}
         cmsId={contentLink.key}
         ctx={ctx}
       >
-        {hasImage && (
-          <Image
-            data-epi-edit={inEditMode ? "HeroImage" : undefined}
-            className="absolute inset-0 h-full w-full object-cover"
-            src={heroImageSrc}
-            alt={""}
-            fill
-            priority
-            sizes="100vw"
-          />
-        )}
-        {/* Left scrim behind the text, keeps the right of the image bright */}
+        {hasImage &&
+          (heroIsVideo ? (
+            <video
+              data-epi-edit={inEditMode ? "HeroImage" : undefined}
+              className="absolute inset-0 h-full w-full object-cover"
+              src={heroImageSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden
+            />
+          ) : (
+            <Image
+              data-epi-edit={inEditMode ? "HeroImage" : undefined}
+              className="absolute inset-0 h-full w-full object-cover"
+              src={heroImageSrc}
+              alt={""}
+              fill
+              priority
+              sizes="100vw"
+            />
+          ))}
+        {/* Bottom scrim — primary darkening behind the bottom-aligned text */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+        />
+        {/* Left scrim — extra contrast behind the left-aligned heading */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent"
         />
         {/* Top scrim so the overlaid (white) header nav stays legible */}
         <div
           aria-hidden
           className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent"
         />
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-[8%] py-24 [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-[8%] py-24 [text-shadow:0_2px_20px_rgba(0,0,0,0.55)]">
           {(inEditMode || eyebrow) && (
             <CmsEditable
               as="p"
@@ -120,6 +149,108 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
               )}
             </h1>
           )}
+          {description?.json && description.json !== "{}" && (
+            <CmsEditable
+              as={RichText}
+              text={sanitizeRichText(description.json)}
+              cmsFieldName="Description"
+              ctx={ctx}
+              forwardCtx={true}
+              className="prose mt-6 max-w-[460px] prose-p:text-base prose-p:leading-7 prose-p:text-white/85"
+            />
+          )}
+          {button && button.children && (
+            <div className="mt-8">
+              <CmsEditable
+                as={ButtonBlock}
+                cmsFieldName="HeroButton"
+                data={button}
+                inEditMode={false}
+                contentLink={{ key: null }}
+                ctx={ctx}
+              />
+            </div>
+          )}
+        </div>
+      </CmsEditable>
+    );
+  }
+
+  // Inset card layout: a centered dark (themed) card floating in a cream frame
+  // — the mockup's "The Salon" treatment.
+  if (layout === "inset") {
+    return (
+      <CmsEditable
+        as="section"
+        className="on-cream px-[8%] py-16 lg:py-24"
+        cmsId={contentLink.key}
+        ctx={ctx}
+      >
+        <div
+          className={`${ColorClasses[color || "blue"]} mx-auto max-w-[1100px] px-6 py-20 lg:py-28 text-center`}
+        >
+          <div className="mx-auto max-w-[640px]">
+            {(inEditMode || eyebrow) && (
+              <CmsEditable
+                as="p"
+                cmsFieldName="Eyebrow"
+                className="eyebrow mb-5"
+                ctx={ctx}
+              >
+                {eyebrow || "+ Add Eyebrow"}
+              </CmsEditable>
+            )}
+            {(inEditMode || heading) && (
+              <CmsEditable
+                as="h2"
+                cmsFieldName="Heading"
+                className="font-serif text-4xl lg:text-5xl font-normal mb-5"
+                ctx={ctx}
+              >
+                {heading || "+ Add Heading"}
+              </CmsEditable>
+            )}
+            {description?.json ? (
+              <CmsEditable
+                as={RichText}
+                text={sanitizeRichText(description.json)}
+                cmsFieldName="Description"
+                ctx={ctx}
+                forwardCtx={true}
+                className="prose prose-sm max-w-none prose-p:leading-7 mx-auto opacity-90"
+              />
+            ) : (
+              inEditMode && (
+                <div data-epi-edit={inEditMode ? "Description" : undefined}>
+                  + Add Description
+                </div>
+              )
+            )}
+            {button && button.children ? (
+              <div className="mt-8 flex justify-center">
+                <CmsEditable
+                  as={ButtonBlock}
+                  cmsFieldName="HeroButton"
+                  data={button}
+                  inEditMode={false}
+                  contentLink={{ key: null }}
+                  ctx={ctx}
+                />
+              </div>
+            ) : (
+              inEditMode && (
+                <div className="mt-8 flex justify-center">
+                  <ButtonBlock
+                    buttonType={"secondary"}
+                    buttonVariant={"cta"}
+                    data-epi-edit={inEditMode ? "HeroButton" : undefined}
+                  >
+                    + Add Button
+                  </ButtonBlock>
+                </div>
+              )
+            )}
+          </div>
         </div>
       </CmsEditable>
     );

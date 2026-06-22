@@ -6,11 +6,11 @@ import {
   RichText,
 } from "@remkoj/optimizely-cms-react/rsc";
 import { localeToGraphLocale } from "@remkoj/optimizely-graph-client";
-import Image from "next/image";
 import setupFactory from '@/components/factory';
 import CmsLink, { createListKey } from "@shared/cms_link";
 import LanguageSwitcher from "@shared/language_switcher";
 import { sanitizeRichText } from "@/lib/sanitize-rich-text";
+import { Logo } from "@/components/layout/header/partials/_logo";
 
 export type SiteFooterProps = {
   locale?: string;
@@ -48,57 +48,49 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
   return (
     <footer
       className="bg-vulcan dark:bg-vulcan-85 text-white py-8 lg:py-16 outer-padding"
-      style={{ backgroundColor: "#373a40" }}
+      style={{ backgroundColor: "#23262E" }}
     >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6 xl:gap-8 w-full">
-          <section className="">
-            <div className="pb-1 uppercase font-bold">
-              {footerData?.contactInfoHeading ?? ""}
-            </div>
+        <div className="flex flex-col gap-12 pb-12 lg:flex-row lg:justify-between lg:gap-8">
+          {/* Brand */}
+          <div className="footer-brand max-w-xs">
+            <Logo />
             <RichText
-              className="prose prose-a:text-white prose-a:hover:text-azure"
+              className="prose prose-sm mt-6 max-w-none font-light leading-7 prose-p:text-white/70 prose-a:text-white"
               text={sanitizeRichText(footerData?.contactInfo?.json)}
               factory={factory}
               ctx={ctx}
             />
-          </section>
-          <CmsContentArea
-            items={footerData?.footerMenus}
-            variant="footer"
-            noWrapper
-            itemWrapper={{
-              as: "nav",
-              className: "",
-            }}
-            ctx={ctx}
-          />
-          <LanguageSwitcher />
+          </div>
+          {/* Link columns */}
+          <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-20">
+            <CmsContentArea
+              items={footerData?.footerMenus}
+              variant="footer"
+              noWrapper
+              itemWrapper={{ as: "nav" }}
+              ctx={ctx}
+            />
+          </div>
         </div>
-        <div className="mx-auto w-fit py-6 xl:py-12">
-          <Image
-            src={"/assets/XC-Innovations13x.webp"}
-            width={200}
-            height={35}
-            alt="Moseybank Logo"
-            unoptimized
-            // style={{ WebkitFilter: "invert(100%);", filter: "invert(100%);" }}
-          />
-        </div>
-        <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 text-sm items-center justify-center">
+        {/* Divider + bottom bar */}
+        <div className="mt-4 flex flex-col gap-4 border-t border-white/10 pt-8 text-[10px] uppercase tracking-[2px] text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {footerData?.copyright ?? "&copy; Optimizely. All rights reserved"}
+            {footerData?.copyright ?? "© Choctaw Casinos & Resorts"}
           </p>
-          <ul className="flex flex-row gap-6">
-            {footerData?.legalLinks?.map(
-              (linkItem) =>
-                linkItem && (
-                  <li key={createListKey(linkItem)}>
-                    <CmsLink href={linkItem} />
-                  </li>
-                ),
-            )}
-          </ul>
+          <div className="flex flex-wrap items-center gap-6">
+            <ul className="flex flex-row gap-6">
+              {footerData?.legalLinks?.map(
+                (linkItem) =>
+                  linkItem && (
+                    <li key={createListKey(linkItem)}>
+                      <CmsLink href={linkItem} />
+                    </li>
+                  ),
+              )}
+            </ul>
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </footer>

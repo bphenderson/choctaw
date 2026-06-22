@@ -19,7 +19,12 @@ import { getFragmentData } from "@gql/fragment-masking";
 export const ExperienceCardBlockComponent: CmsComponent<
   ExperienceCardBlockDataFragment
 > = ({
-  data: { number = "", experienceImage, description = "", title = "" },
+  data: {
+    number = "",
+    experienceImage,
+    experienceDescription: description = "",
+    title = "",
+  },
   inEditMode,
   contentLink,
   ctx,

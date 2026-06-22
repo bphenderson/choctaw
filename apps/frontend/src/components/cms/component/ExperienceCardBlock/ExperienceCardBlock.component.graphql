@@ -1,6 +1,6 @@
 fragment ExperienceCardBlockData on ExperienceCardBlock {
   number: ItemNumber
   experienceImage: ExperienceImage { ...ReferenceData }
-  description: Description
+  experienceDescription: Description
   title: Title
 }

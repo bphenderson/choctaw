@@ -25,7 +25,7 @@ export const Logo: FunctionComponent<LogoProps> = ({
         height={56}
         unoptimized
         priority
-        className="dark:brightness-0	dark:invert !relative h-9 sm:h-11 w-auto max-w-full"
+        className="dark:brightness-0	dark:invert !relative h-7 sm:h-8 w-auto max-w-full"
       />
     </Link>
   );

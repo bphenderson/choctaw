@@ -108,10 +108,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <link key="dynamic-styles" rel="stylesheet" href="/main.css"></link>
         )}
 
-        {/* Cookie Consent - Script to load opti web experimentation */}
+        {/* Experimentation - Script to load Optimizely Web Experimentation */}
         <Script
           id="optimizely-one"
-          src="https://cdn.optimizely.com/js/5663395660169216.js"
+          src="https://cdn.optimizely.com/js/6070980695556096.js"
           strategy="afterInteractive"
         />
 

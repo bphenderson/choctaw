@@ -92,6 +92,12 @@
     border-color: #fff9;
   }
 
+  .btn__content:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(0, 107, 179, 0.6), 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
   .btn__content:hover::before {
     animation: shine 1.5s ease-out infinite;
   }

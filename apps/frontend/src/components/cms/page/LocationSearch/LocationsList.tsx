@@ -26,7 +26,7 @@ export function LocationsList({
           }`}
         >
           <h3 className="text-lg font-semibold mb-2">{location.name}</h3>
-          <h2 className="text-gray-600 m-2">{location.address}</h2>
+          <p className="text-gray-600 m-2">{location.address}</p>
           <div className="mt-3">
             Services:
             {location.services?.map((s, index) => (
@@ -61,11 +61,11 @@ export function LocationsList({
             <a className="btn--secondary btn--cta" href={location.url}>
               <div className="btn__content">
                 More Details
-                <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -81,11 +81,11 @@ export function LocationsList({
             >
               <div className="btn__content">
                 View on Map
-                <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>

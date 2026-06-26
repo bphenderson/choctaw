@@ -151,6 +151,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <OptimizelyOneProvider value={{ debug: false }}>
             <PageActivator />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-vulcan focus:font-semibold focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-azure"
+            >
+              Skip to main content
+            </a>
             <div className="flex min-h-screen flex-col justify-between">
               <div className="global-alert">
                 This demo showcases a sample implementation and is not affiliated with Choctaw Casinos & Resorts. All content is for demonstration purposes only.
@@ -158,7 +164,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
               <div className="relative flex grow flex-col">
                 <Header />
-                <main className="grow">{children}</main>
+                <main id="main-content" className="grow">{children}</main>
               </div>
               <Footer />
             </div>

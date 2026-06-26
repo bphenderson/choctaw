@@ -6,12 +6,20 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     const host = domain ? new URL(`${scheme}://${domain}`) : undefined
     const sitemap = host ? new URL('/sitemap.xml', host).href : undefined
 
+    const isProdLike = domain &&
+        !domain.includes('localhost') &&
+        !domain.endsWith('.local') &&
+        !domain.includes('vercel.app');
+
     return {
         rules: {
             userAgent: '*',
-            disallow: '/',
+            ...(isProdLike
+                ? { allow: '/', disallow: ['/api/'] }
+                : { disallow: '/' }
+            ),
         },
         sitemap,
-        host: host?.href
+        host: host?.href,
     }
 }

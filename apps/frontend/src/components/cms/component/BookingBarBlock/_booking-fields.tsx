@@ -43,12 +43,14 @@ function DateField({
   min: string;
   onChange: (v: string) => void;
 }) {
+  const id = `date-field-${label.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <div className={`relative ${fieldShell}`}>
-      <span className={labelCls}>{label}</span>
+      <label htmlFor={id} className={labelCls}>{label}</label>
       <span className={valueCls}>{formatDate(value)}</span>
       {/* Transparent native date input fills the field and opens the picker on click */}
       <input
+        id={id}
         type="date"
         aria-label={label}
         value={value}
@@ -72,11 +74,13 @@ function SelectField({
   options: string[];
   onChange: (v: string) => void;
 }) {
+  const labelId = `select-label-${label.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <div className={fieldShell}>
-      <span className={labelCls}>{label}</span>
+      <span id={labelId} className={labelCls}>{label}</span>
       <Listbox value={value} onChange={onChange}>
         <ListboxButton
+          aria-labelledby={labelId}
           aria-label={label}
           className={`${valueCls} flex w-full items-center justify-between gap-2 text-left outline-none`}
         >

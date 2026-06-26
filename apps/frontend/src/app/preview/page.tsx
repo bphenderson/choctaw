@@ -6,7 +6,7 @@ import { setupFactory } from "@components/factory";
 export default OnPageEdit.createEditPageComponent(setupFactory(), {
     loader: getContentById,
     clientFactory: createAuthorizedClient,
-    // refreshTimeout: 1000  // Enable this line when you have issues with the preview not updating at all
+    refreshTimeout: 1000  // Re-fetch after the CMS save round-trips so edits show in the preview
 });
 
 export const dynamic = "force-dynamic";

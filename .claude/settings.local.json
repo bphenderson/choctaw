@@ -33,7 +33,8 @@
       "Bash(yarn dev *)",
       "Bash(curl *)",
       "Bash(grep -rniE \"vb\\\\\\\\\\\\\\\\:|\\\\.vb-|vb:row|vb:col|vb:grid|VisualBuilder\" apps/frontend/.yarn)",
-      "Bash(grep -rniE \"vb:|vb\\\\\\\\\\\\\\\\:\" apps/frontend/tailwind.config* apps/frontend/src/app/globals.scss)"
+      "Bash(grep -rniE \"vb:|vb\\\\\\\\\\\\\\\\:\" apps/frontend/tailwind.config* apps/frontend/src/app/globals.scss)",
+      "Bash(yarn opti-graph *)"
     ]
   }
 }

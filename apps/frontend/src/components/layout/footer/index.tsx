@@ -74,7 +74,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
           </div>
         </div>
         {/* Divider + bottom bar */}
-        <div className="mt-4 flex flex-col gap-4 border-t border-white/10 pt-8 text-[10px] uppercase tracking-[2px] text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 flex flex-col gap-4 border-t border-white/10 pt-8 text-[10px] uppercase tracking-[2px] text-white/75 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {footerData?.copyright ?? "© Choctaw Casinos & Resorts"}
           </p>

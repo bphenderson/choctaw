@@ -74,7 +74,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     return (
       <CmsEditable
         as="section"
-        className={`relative w-full min-h-[80vh] @container/hero flex ${heroHasBody ? "items-center" : "items-end"} text-white`}
+        className={`relative w-full min-h-[clamp(600px,80vh,900px)] @container/hero flex ${heroHasBody ? "items-center" : "items-end"} text-white`}
         cmsId={contentLink.key}
         ctx={ctx}
       >

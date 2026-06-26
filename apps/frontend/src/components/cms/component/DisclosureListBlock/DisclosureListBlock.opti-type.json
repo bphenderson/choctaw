@@ -5,8 +5,7 @@
   "baseType": "_component",
   "sortOrder": 0,
   "compositionBehaviors": [
-    "sectionEnabled",
-    "elementEnabled"
+    "sectionEnabled"
   ],
   "properties": {
     "heading": {

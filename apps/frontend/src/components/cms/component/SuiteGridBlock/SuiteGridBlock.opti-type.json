@@ -7,8 +7,7 @@
   "mayContainTypes": [],
   "mediaFileExtensions": [],
   "compositionBehaviors": [
-    "sectionEnabled",
-    "elementEnabled"
+    "sectionEnabled"
   ],
   "properties": {
     "Label": {

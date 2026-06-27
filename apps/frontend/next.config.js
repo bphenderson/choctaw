@@ -5,6 +5,7 @@ const nextConfig = {
     compiler: {
         removeConsole: !isNonProduction
     },
+    productionBrowserSourceMaps: true,
     basePath: "",
     reactStrictMode: true,
     generateEtags: true,

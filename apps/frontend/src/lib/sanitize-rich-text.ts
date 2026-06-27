@@ -61,6 +61,22 @@ function sanitizeNode(node: RichTextNode): RichTextNode[] {
     return result;
   }
 
+  // Anchor element: ensure empty tel/mailto links have accessible text content
+  if (nodeType === "a") {
+    const href = (
+      node.href ??
+      (node.data as Record<string, unknown> | undefined)?.href ??
+      ""
+    ) as string;
+    const hasText = (node.children as RichTextNode[] | undefined)?.some(
+      (c) => typeof c.text === "string" && c.text.trim() !== ""
+    );
+    if (!hasText && href.match(/^(tel:|mailto:)/)) {
+      const labelText = href.startsWith("tel:") ? href.slice(4) : href.slice(7);
+      return [{ ...node, children: [{ text: labelText }] }];
+    }
+  }
+
   // Non-void element: recursively sanitize children
   if (node.children && Array.isArray(node.children)) {
     const newChildren: RichTextNode[] = [];

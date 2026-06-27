@@ -101,6 +101,7 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
           <div className="quick-search-box border-solid border-[2px] w-full rounded-[1rem] bg-ghost-white dark:bg-vulcan border-azure dark:border-verdansk flex flex-row justify-stretch content-stretch">
             <input
               type="text"
+              aria-label="Search"
               className="rounded-l-[1rem] grow h-12 pl-[0.5rem] focus:outline-none active:outline-none bg-ghost-white dark:bg-vulcan dark:text-ghost-white"
               placeholder="Search..."
               value={quickSearchTerm}
@@ -110,6 +111,7 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
             <Link
               className="grow-0 shrink-0"
               href={"/search?query=" + encodeURIComponent(quickSearchTerm)}
+              aria-label="Submit search"
             >
               <MagnifyingGlassIcon className="text-azure dark:text-verdansk w-12 p-2" />
             </Link>
@@ -118,6 +120,8 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
       ) : (
         <>
           <MagnifyingGlassIcon
+            aria-label="Open search"
+            role="button"
             className="quick-search-icon text-vulcan dark:text-white w-auto h-full min-h-11 p-2 cursor-pointer hover:opacity-70 transition-opacity"
             onClick={() => setSearchBoxOpen((x) => !x)}
           />
@@ -125,6 +129,7 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
             <div className="quick-search-box border-solid border-2 absolute top-0 right-0 h-full min-h-11 w-full min-w-[25vw] rounded-[20px] bg-ghost-white dark:bg-vulcan z-[999] border-azure dark:border-verdansk flex flex-row justify-stretch content-stretch">
               <input
                 type="text"
+                aria-label="Search"
                 className="rounded-l-[1rem] grow pl-2 focus:outline-none active:outline-none bg-ghost-white dark:bg-vulcan dark:text-ghost-white"
                 placeholder="Search..."
                 value={quickSearchTerm}
@@ -133,6 +138,7 @@ export const SiteSearch: FunctionComponent<ConfiguredSiteSearchProps> = ({
               />
               <Link
                 href={"/search?query=" + encodeURIComponent(quickSearchTerm)}
+                aria-label="Submit search"
               >
                 <MagnifyingGlassIcon className="text-azure dark:text-verdansk w-auto h-full min-h-11 p-4" />
               </Link>

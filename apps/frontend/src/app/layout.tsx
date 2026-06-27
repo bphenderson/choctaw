@@ -98,7 +98,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 
   return (
-    <html lang={locale}>
+    <html lang={locale || "en"}>
       <head>
         {/* Microsoft Verification - Bing Webmaster Tools */}
         <meta name="msvalidate.01" content="A55B465610E9BE87BE6C4FD0F0BC1533" />
@@ -173,6 +173,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Scripts.Footer />
           {enableGoogleAnalytics && <GoogleAnalytics measurementId={ga_id} />}
           <SpeedInsights />
+          {/* HubSpot — commented out to reduce third-party cookies (re-enable for marketing analytics)
           <Script
             id="hs-script-loader"
             src="//js-na1.hs-scripts.com/49716845.js"
@@ -180,6 +181,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             async
             defer
           />
+          */}
         </Body>
       </ThemeProvider>
     </html>

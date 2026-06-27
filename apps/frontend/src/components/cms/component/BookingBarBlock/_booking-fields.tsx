@@ -29,7 +29,7 @@ const todayStr = () => {
 
 const fieldShell =
   "flex flex-1 flex-col justify-center border-b border-black/5 px-8 py-6 md:border-b-0 md:border-r";
-const labelCls = "mb-2 text-[9px] uppercase tracking-[2px] text-[#888]";
+const labelCls = "mb-2 text-[9px] uppercase tracking-[2px] text-[#595959]";
 const valueCls = "font-serif text-base text-[#333]";
 
 function DateField({
@@ -81,11 +81,11 @@ function SelectField({
       <Listbox value={value} onChange={onChange}>
         <ListboxButton
           aria-labelledby={labelId}
-          aria-label={label}
+          aria-label={`${label}: ${value}`}
           className={`${valueCls} flex w-full items-center justify-between gap-2 text-left outline-none`}
         >
           <span>{value}</span>
-          <ChevronDownIcon className="h-4 w-4 shrink-0 text-[#888]" />
+          <ChevronDownIcon className="h-4 w-4 shrink-0 text-[#595959]" />
         </ListboxButton>
         <ListboxOptions
           anchor="bottom start"

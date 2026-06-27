@@ -42,7 +42,7 @@ export const SuiteGridBlockComponent: CmsComponent<SuiteGridBlockDataFragment> =
             <CmsEditable
               as="span"
               cmsFieldName="Label"
-              className="whitespace-nowrap text-[10px] uppercase tracking-[3px] text-[#888]"
+              className="whitespace-nowrap text-[10px] uppercase tracking-[3px] text-[#595959]"
               ctx={ctx}
             >
               {label || ""}

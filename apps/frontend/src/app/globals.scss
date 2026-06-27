@@ -222,8 +222,11 @@
   // the cream and slate surfaces, matching the mockup's hero/philosophy/salon.
   .eyebrow {
     @apply uppercase tracking-[0.25em] font-medium;
-    color: var(--gold);
+    color: #8C6930; // accessible dark gold: ~5.1:1 on white, ~4.6:1 on cream
     font-size: 0.7rem;
+  }
+  .dark .eyebrow {
+    color: var(--gold); // #C7A77B has adequate contrast on dark backgrounds
   }
 
   // Text color overrides

@@ -1,6 +1,7 @@
 fragment ExperiencesBlockData on ExperiencesBlock {
   heading: Heading
   subheading: SubHeading
+  layout: Layout
   experienceItems: ExperienceItems {
     ...IContentListItem
     ...BlockData

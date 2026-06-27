@@ -16,6 +16,9 @@ query getHeaderData($domain: String, $locale: [Locales!]) {
         displayName
       }
       appIdentifiers
+      noticeBar {
+        ...NoticeBarBlockPropertyData
+      }
       mainMenu {
         ...IContentData
         ...MegaMenuGroupBlockData

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import {
   CmsEditable,
+  CmsContentArea,
   type CmsComponent,
   RichText,
 } from "@remkoj/optimizely-cms-react/rsc";
@@ -38,12 +39,15 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     heroDescription: description = { html: "", json: "{}" },
     heroColor: color = "blue",
     heroLayout: layout = "standard",
+    imagePosition = "right",
     heroButton = null,
+    stats = null,
   },
   inEditMode,
   contentLink,
   ctx,
 }) => {
+  const statItems = (stats ?? []).filter(Boolean);
   const heroImage = getFragmentData(ReferenceDataFragmentDoc, image);
   const heroImageLink = getFragmentData(LinkDataFragmentDoc, heroImage?.url);
   const heroImageSrc = new URL(
@@ -170,6 +174,14 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
                 ctx={ctx}
               />
             </div>
+          )}
+          {statItems.length > 0 && (
+            <CmsContentArea
+              className="mt-12 flex flex-wrap gap-x-12 gap-y-6"
+              items={statItems}
+              itemWrapper={{ noWrapper: true }}
+              ctx={ctx}
+            />
           )}
         </div>
       </CmsEditable>
@@ -325,7 +337,13 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
             )}
           </div>
           {hasImage ? (
-            <div className={`order-first @[40rem]/card:order-last`}>
+            <div
+              className={`order-first ${
+                imagePosition === "left"
+                  ? "@[40rem]/card:order-first"
+                  : "@[40rem]/card:order-last"
+              }`}
+            >
               <Image
                 data-epi-edit={inEditMode ? "HeroImage" : undefined}
                 className="rounded-[2rem] w-full"

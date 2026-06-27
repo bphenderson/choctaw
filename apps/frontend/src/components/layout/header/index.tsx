@@ -1,7 +1,8 @@
 import 'server-only'
 import { ServerContext, CmsContentArea } from '@remkoj/optimizely-cms-react/rsc';
 import { localeToGraphLocale } from '@remkoj/optimizely-graph-client';
-import { type Locales, type InputMaybe } from '@gql/graphql';
+import { type Locales, type InputMaybe, NoticeBarBlockPropertyDataFragmentDoc } from '@gql/graphql';
+import { getFragmentData } from '@gql/fragment-masking';
 import { getSdk } from "@/sdk";
 import setupFactory from '@/components/factory';
 import Link from 'next/link';
@@ -11,6 +12,7 @@ import { Logo } from "./partials/_logo";
 import SiteSearch from './partials/_site-search';
 import MenuDrawer from './partials/_menu-drawer';
 import HeaderChrome from './partials/_header-chrome';
+import NoticeBar from '@/components/cms/component/NoticeBarBlock/_notice-bar';
 import { Suspense } from 'react';
 
 export type HeaderProps = {
@@ -34,7 +36,16 @@ export default async function SiteHeader({ locale }: HeaderProps)
         return undefined
     })
 
-    return <HeaderChrome>
+    const notice = headerData?.noticeBar
+        ? getFragmentData(NoticeBarBlockPropertyDataFragmentDoc, headerData.noticeBar)
+        : null
+
+    return <>
+    { notice && <NoticeBar data={notice} /> }
+    {/* Own positioning context so the homepage overlay header anchors below the
+        notice bar (not the shared layout container) instead of overlapping it. */}
+    <div className="relative">
+    <HeaderChrome>
         <div className="container mx-auto px-4 lg:px-8 py-6 grid grid-cols-[1fr_auto_1fr] items-center">
             {/* Left: menu drawer + search */}
             <div className="flex items-center gap-4 sm:gap-6 justify-self-start">
@@ -56,4 +67,6 @@ export default async function SiteHeader({ locale }: HeaderProps)
             </div>
         </div>
     </HeaderChrome>
+    </div>
+    </>
 }

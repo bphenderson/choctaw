@@ -40,6 +40,8 @@ import SuiteGridBlockComponent from "./SuiteGridBlock";
 import SuiteCardBlockComponent from "./SuiteCardBlock";
 import ExperiencesBlockComponent from "./ExperiencesBlock";
 import ExperienceCardBlockComponent from "./ExperienceCardBlock";
+import NoticeBarBlockComponent from "./NoticeBarBlock";
+import StatItemBlockComponent from "./StatItemBlock";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -215,6 +217,14 @@ export const ComponentFactory: ComponentTypeDictionary = [
   {
     type: "ExperienceCardBlock",
     component: ExperienceCardBlockComponent,
+  },
+  {
+    type: "NoticeBarBlock",
+    component: NoticeBarBlockComponent,
+  },
+  {
+    type: "StatItemBlock",
+    component: StatItemBlockComponent,
   },
   ...ComponentPageFactory,
 ];

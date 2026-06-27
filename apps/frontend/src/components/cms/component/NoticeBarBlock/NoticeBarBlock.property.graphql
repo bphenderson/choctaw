@@ -1,0 +1,7 @@
+fragment NoticeBarBlockPropertyData on NoticeBarBlockProperty {
+  labelText: LabelText
+  message: Message
+  linkText: LinkText
+  linkUrl: LinkUrl
+  dismissible: Dismissible
+}

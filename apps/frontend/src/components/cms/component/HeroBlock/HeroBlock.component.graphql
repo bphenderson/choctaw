@@ -6,5 +6,10 @@ fragment HeroBlockData on HeroBlock {
   heroDescription: Description { json, html }
   heroColor: HeroColor
   heroLayout: HeroLayout
+  imagePosition: ImagePosition
   heroButton: HeroButton { ...ButtonBlockPropertyData }
+  stats: Stats {
+    ...IContentListItem
+    ...BlockData
+  }
 }

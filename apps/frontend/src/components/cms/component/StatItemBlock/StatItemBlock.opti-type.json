@@ -1,0 +1,32 @@
+{
+  "key": "StatItemBlock",
+  "displayName": "Stat Item",
+  "description": "A single hero statistic: a value and a label (e.g. \"7,400\" / \"Slot machines\"). Used inside a Hero's Stats list.",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "Value": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Value",
+      "description": "The large figure, e.g. \"7,400\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "Label": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Label",
+      "description": "The caption under the value, e.g. \"Slot machines\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    }
+  }
+}

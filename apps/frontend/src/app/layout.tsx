@@ -158,10 +158,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               Skip to main content
             </a>
             <div className="flex min-h-screen flex-col justify-between">
-              <div className="global-alert">
-                This demo showcases a sample implementation and is not affiliated with Choctaw Casinos & Resorts. All content is for demonstration purposes only.
-              </div>
-
               <div className="relative flex grow flex-col">
                 <Header />
                 <main id="main-content" className="grow">{children}</main>

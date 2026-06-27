@@ -16,12 +16,15 @@ import {
 export const ExperiencesBlockComponent: CmsComponent<
   ExperiencesBlockDataFragment
 > = ({
-  data: { heading = "", subheading = "", experienceItems },
+  data: { heading = "", subheading = "", layout = "staggered", experienceItems },
   inEditMode,
   contentLink,
   ctx,
 }) => {
   const items = (experienceItems ?? []).filter(Boolean);
+  // "staggered" keeps the numbered offset grid (via .exp-grid nth-child rules in
+  // globals.scss); "grid" is a flat 4-up equal grid matching the live row.
+  const isGrid = layout === "grid";
 
   return (
     <CmsEditable
@@ -55,7 +58,9 @@ export const ExperiencesBlockComponent: CmsComponent<
         )}
       </div>
       <CmsContentArea
-        className="exp-grid grid grid-cols-2 items-start gap-8 lg:grid-cols-4"
+        className={`grid grid-cols-2 items-start gap-8 lg:grid-cols-4 ${
+          isGrid ? "" : "exp-grid"
+        }`}
         items={items}
         itemWrapper={{ noWrapper: true }}
         ctx={ctx}

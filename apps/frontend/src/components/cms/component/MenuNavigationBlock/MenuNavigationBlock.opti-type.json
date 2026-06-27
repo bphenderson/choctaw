@@ -28,8 +28,7 @@
       "group": "Content",
       "sortOrder": 20,
       "items": {
-        "type": "component",
-        "contentType": "link"
+        "type": "link"
       }
     }
   }

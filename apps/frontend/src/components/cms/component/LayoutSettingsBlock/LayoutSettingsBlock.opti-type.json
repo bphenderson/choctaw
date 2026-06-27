@@ -8,6 +8,16 @@
   "mediaFileExtensions": [],
   "compositionBehaviors": [],
   "properties": {
+    "noticeBar": {
+      "type": "component",
+      "contentType": "NoticeBarBlock",
+      "displayName": "Notice bar",
+      "description": "Dismissible advisory bar rendered above the header.",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "header",
+      "sortOrder": 30
+    },
     "mainMenu": {
       "type": "array",
       "displayName": "Main Menu",
@@ -49,6 +59,20 @@
           "ButtonBlock"
         ],
         "restrictedTypes": []
+      }
+    },
+    "propertyLinks": {
+      "type": "array",
+      "displayName": "Property selector",
+      "description": "Sibling properties shown in the master-brand property switcher (Durant, Pocola, Hochatown, Grant, McAlester).",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "header",
+      "sortOrder": 25,
+      "minItems": 0,
+      "maxItems": 12,
+      "items": {
+        "type": "link"
       }
     },
     "contactInfo": {
@@ -99,8 +123,21 @@
       "minItems": 0,
       "maxItems": 5,
       "items": {
-        "type": "component",
-        "contentType": "link"
+        "type": "link"
+      }
+    },
+    "socialLinks": {
+      "type": "array",
+      "displayName": "Social links",
+      "description": "Social media links shown in the footer (Facebook, Instagram, X).",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "footer",
+      "sortOrder": 115,
+      "minItems": 0,
+      "maxItems": 8,
+      "items": {
+        "type": "link"
       }
     },
     "appIdentifiers": {
@@ -110,7 +147,7 @@
       "description": "",
       "isLocalized": false,
       "isRequired": false,
-      "group": "Advanced",
+      "group": "Settings",
       "sortOrder": 999,
       "indexingType": "queryable"
     }

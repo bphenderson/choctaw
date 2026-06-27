@@ -1,0 +1,61 @@
+{
+  "key": "NoticeBarBlock",
+  "displayName": "Notice Bar",
+  "description": "Dismissible advisory bar shown above the site header (e.g. a travel advisory).",
+  "baseType": "_component",
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "LabelText": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Label",
+      "description": "Short prefix shown in bold, e.g. \"Travel advisory\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 10
+    },
+    "Message": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Message",
+      "description": "The advisory message body.",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 20
+    },
+    "LinkText": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Link text",
+      "description": "Optional call-to-action label, e.g. \"View updates\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 30
+    },
+    "LinkUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Link URL",
+      "description": "Where the call-to-action link points.",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 35
+    },
+    "Dismissible": {
+      "type": "boolean",
+      "displayName": "Dismissible",
+      "description": "Allow visitors to close the bar.",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 40
+    }
+  }
+}

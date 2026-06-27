@@ -28,8 +28,7 @@
       "group": "Content",
       "sortOrder": 20,
       "items": {
-        "type": "component",
-        "contentType": "link"
+        "type": "link"
       }
     },
     "ShowBorder": {
@@ -38,7 +37,7 @@
       "description": "Show a border around the navigation",
       "isLocalized": false,
       "isRequired": false,
-      "group": "Appearance",
+      "group": "Content",
       "sortOrder": 30
     },
     "AutomaticallyAddSiblings": {
@@ -47,6 +46,7 @@
       "description": "Automatically add links to sibling pages (pages with the same parent)",
       "isLocalized": false,
       "isRequired": false,
+      "group": "Content",
       "sortOrder": 40
     },
     "DisplayVertically": {
@@ -55,7 +55,7 @@
       "description": "Display navigation as a vertically stacked link list",
       "isLocalized": false,
       "isRequired": false,
-      "group": "Appearance",
+      "group": "Content",
       "sortOrder": 50
     }
   }

@@ -30,6 +30,26 @@
       "group": "Content",
       "sortOrder": 20
     },
+    "Layout": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Layout",
+      "description": "Staggered numbered grid, or a 4-up equal grid (matches the live \"demand more\" row).",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 25,
+      "enum": [
+        {
+          "displayName": "Staggered",
+          "value": "staggered"
+        },
+        {
+          "displayName": "Grid",
+          "value": "grid"
+        }
+      ]
+    },
     "ExperienceItems": {
       "type": "array",
       "displayName": "Experiences",

@@ -139,6 +139,44 @@
           "value": "inset"
         }
       ]
+    },
+    "ImagePosition": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Image position",
+      "description": "Which side the image sits on in the Standard layout.",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 85,
+      "enum": [
+        {
+          "displayName": "Right",
+          "value": "right"
+        },
+        {
+          "displayName": "Left",
+          "value": "left"
+        }
+      ]
+    },
+    "Stats": {
+      "type": "array",
+      "displayName": "Stats",
+      "description": "Optional statistic trio shown beneath the hero copy (e.g. 7,400 Slot machines).",
+      "isLocalized": false,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 90,
+      "minItems": 0,
+      "maxItems": 4,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "StatItemBlock"
+        ],
+        "restrictedTypes": []
+      }
     }
   }
 }

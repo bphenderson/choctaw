@@ -1,0 +1,4 @@
+fragment StatItemBlockData on StatItemBlock {
+  value: Value
+  label: Label
+}

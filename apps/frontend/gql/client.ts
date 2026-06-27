@@ -2,6 +2,15 @@ import type * as Schema from "./graphql";
 import type { GraphQLClient, RequestOptions } from 'graphql-request';
 import gql from 'graphql-tag';
 type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
+export const NoticeBarBlockPropertyDataFragmentDoc = gql`
+    fragment NoticeBarBlockPropertyData on NoticeBarBlockProperty {
+  labelText: LabelText
+  message: Message
+  linkText: LinkText
+  linkUrl: LinkUrl
+  dismissible: Dismissible
+}
+    `;
 export const LinkDataFragmentDoc = gql`
     fragment LinkData on ContentUrl {
   type
@@ -238,25 +247,6 @@ export const ButtonBlockPropertyDataFragmentDoc = gql`
   buttonVariant: ButtonVariant
 }
     `;
-export const HeroBlockDataFragmentDoc = gql`
-    fragment HeroBlockData on HeroBlock {
-  heroImage: HeroImage {
-    ...ReferenceData
-  }
-  eyebrow: Eyebrow
-  heroHeading: Heading
-  heroSubheading: SubHeading
-  heroDescription: Description {
-    json
-    html
-  }
-  heroColor: HeroColor
-  heroLayout: HeroLayout
-  heroButton: HeroButton {
-    ...ButtonBlockPropertyData
-  }
-}
-    `;
 export const ImageElementDataFragmentDoc = gql`
     fragment ImageElementData on ImageElement {
   altText
@@ -353,6 +343,15 @@ export const MegaMenuGroupBlockDataFragmentDoc = gql`
   }
 }
     `;
+export const NoticeBarBlockDataFragmentDoc = gql`
+    fragment NoticeBarBlockData on NoticeBarBlock {
+  labelText: LabelText
+  message: Message
+  linkText: LinkText
+  linkUrl: LinkUrl
+  dismissible: Dismissible
+}
+    `;
 export const OdpEmbedBlockDataFragmentDoc = gql`
     fragment OdpEmbedBlockData on OdpEmbedBlock {
   ContentId
@@ -415,6 +414,12 @@ export const SecondaryNavigationBlockDataFragmentDoc = gql`
   ShowBorder
   AutomaticallyAddSiblings
   DisplayVertically
+}
+    `;
+export const StatItemBlockDataFragmentDoc = gql`
+    fragment StatItemBlockData on StatItemBlock {
+  value: Value
+  label: Label
 }
     `;
 export const SuiteCardBlockDataFragmentDoc = gql`
@@ -511,12 +516,77 @@ export const SuiteGridBlockDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
+    ...SuiteCardBlockData
+    ...SuiteGridBlockData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...UserProfileCardBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+}
+    `;
+export const HeroBlockDataFragmentDoc = gql`
+    fragment HeroBlockData on HeroBlock {
+  heroImage: HeroImage {
+    ...ReferenceData
+  }
+  eyebrow: Eyebrow
+  heroHeading: Heading
+  heroSubheading: SubHeading
+  heroDescription: Description {
+    json
+    html
+  }
+  heroColor: HeroColor
+  heroLayout: HeroLayout
+  imagePosition: ImagePosition
+  heroButton: HeroButton {
+    ...ButtonBlockPropertyData
+  }
+  stats: Stats {
+    ...IContentListItem
+    ...BlockData
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+    ...AccordionBlockData
+    ...ArticleListElementData
+    ...BookingBarBlockData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CalculatorBlockData
+    ...CarouselBlockData
+    ...ChartBlockData
+    ...ComparisonBlockData
+    ...ContactUsFormBlockData
+    ...ContentRecsElementData
+    ...DisclosureBlockData
+    ...DisclosureListBlockData
+    ...ExperienceCardBlockData
+    ...ExperiencesBlockData
+    ...FundMetricsBlockData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...NoticeBarBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -531,6 +601,7 @@ export const ExperiencesBlockDataFragmentDoc = gql`
     fragment ExperiencesBlockData on ExperiencesBlock {
   heading: Heading
   subheading: SubHeading
+  layout: Layout
   experienceItems: ExperienceItems {
     ...IContentListItem
     ...BlockData
@@ -558,12 +629,14 @@ export const ExperiencesBlockDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -604,12 +677,14 @@ export const DisclosureListBlockDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -649,12 +724,14 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -692,12 +769,14 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -803,12 +882,14 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -886,12 +967,14 @@ export const FundPostPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -927,12 +1010,14 @@ export const FundPostPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -986,12 +1071,14 @@ export const LandingPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -1024,12 +1111,14 @@ export const LandingPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -1094,12 +1183,14 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -1132,12 +1223,14 @@ export const LocationSearchPageDataFragmentDoc = gql`
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
+    ...NoticeBarBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...QuoteBlockData
     ...RichTextElementData
     ...SecondaryNavigationBlockData
+    ...StatItemBlockData
     ...SuiteCardBlockData
     ...SuiteGridBlockData
     ...TestimonialElementData
@@ -1677,6 +1770,9 @@ export const getHeaderDataDocument = gql`
         displayName
       }
       appIdentifiers
+      noticeBar {
+        ...NoticeBarBlockPropertyData
+      }
       mainMenu {
         ...IContentData
         ...MegaMenuGroupBlockData
@@ -1688,7 +1784,8 @@ export const getHeaderDataDocument = gql`
     }
   }
 }
-    ${IContentDataFragmentDoc}
+    ${NoticeBarBlockPropertyDataFragmentDoc}
+${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
@@ -1877,12 +1974,14 @@ export const getContentByIdDocument = gql`
       ...LayoutSettingsBlockData
       ...MegaMenuGroupBlockData
       ...MenuNavigationBlockData
+      ...NoticeBarBlockData
       ...OdpEmbedBlockData
       ...PageSeoSettingsData
       ...ParagraphElementData
       ...QuoteBlockData
       ...RichTextElementData
       ...SecondaryNavigationBlockData
+      ...StatItemBlockData
       ...SuiteCardBlockData
       ...SuiteGridBlockData
       ...TestimonialElementData
@@ -1936,12 +2035,14 @@ ${LinkItemDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
+${NoticeBarBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SecondaryNavigationBlockDataFragmentDoc}
+${StatItemBlockDataFragmentDoc}
 ${SuiteCardBlockDataFragmentDoc}
 ${SuiteGridBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
@@ -2028,12 +2129,14 @@ ${LinkItemDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
+${NoticeBarBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SecondaryNavigationBlockDataFragmentDoc}
+${StatItemBlockDataFragmentDoc}
 ${SuiteCardBlockDataFragmentDoc}
 ${SuiteGridBlockDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}

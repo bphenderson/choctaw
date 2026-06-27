@@ -116,13 +116,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
 
         {/* Cookie Consent - Script to load popper.js */}
-        <Script
+        {/* <Script
           id="cookie-consent-loader"
           src="https://cookieconsent.popupsmart.com/src/js/popper.js"
           strategy="afterInteractive"
-        />
+        /> */}
         {/* Cookie Consent - Initialization script */}
-        <Script
+        {/* <Script
           id="cookie-consent-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -143,7 +143,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 })();
               `,
           }}
-        />
+        /> */}
       </head>
       <ThemeProvider value={{ theme: "system" }}>
         <Body

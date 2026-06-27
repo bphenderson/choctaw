@@ -61,15 +61,20 @@ function sanitizeNode(node: RichTextNode): RichTextNode[] {
     return result;
   }
 
-  // Anchor element: ensure empty tel/mailto links have accessible text content
-  if (nodeType === "a") {
+  // Anchor element: ensure empty tel/mailto links have accessible text content.
+  // Optimizely rich text emits links as `{ type: "link", url: "..." }`; older/
+  // HTML-shaped data may use `type: "a"` with `href`. Handle both.
+  if (nodeType === "link" || nodeType === "a") {
     const href = (
+      (node.url as string | undefined) ??
       node.href ??
       (node.data as Record<string, unknown> | undefined)?.href ??
       ""
     ) as string;
     const hasText = (node.children as RichTextNode[] | undefined)?.some(
-      (c) => typeof c.text === "string" && c.text.trim() !== ""
+      (c) =>
+        (typeof c.text === "string" && c.text.trim() !== "") ||
+        (Array.isArray(c.children) && c.children.length > 0)
     );
     if (!hasText && href.match(/^(tel:|mailto:)/)) {
       const labelText = href.startsWith("tel:") ? href.slice(4) : href.slice(7);

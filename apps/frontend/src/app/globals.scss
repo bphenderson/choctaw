@@ -222,11 +222,18 @@
   // the cream and slate surfaces, matching the mockup's hero/philosophy/salon.
   .eyebrow {
     @apply uppercase tracking-[0.25em] font-medium;
-    color: #8C6930; // accessible dark gold: ~5.1:1 on white, ~4.6:1 on cream
+    // Dark gold (~5.1:1 on white, ~4.6:1 on cream) by default; dark charcoal
+    // surfaces override --eyebrow-color to the lighter gold for AA contrast.
+    color: var(--eyebrow-color, #8C6930);
     font-size: 0.7rem;
   }
   .dark .eyebrow {
     color: var(--gold); // #C7A77B has adequate contrast on dark backgrounds
+  }
+  // Eyebrow on dark charcoal surfaces: dark gold fails WCAG AA, lighter gold
+  // (#C7A77B) clears ~5.7-6.6:1. Scoped to the genuinely dark surfaces only.
+  .on-slate, .on-azure, .on-verdansk, .on-vulcan, .on-vulcan-85 {
+    --eyebrow-color: var(--gold);
   }
 
   // Text color overrides

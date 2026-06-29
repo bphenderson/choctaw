@@ -42,6 +42,8 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
     imagePosition = "right",
     heroButton = null,
     stats = null,
+    captionTitle = "",
+    captionSubtitle = "",
   },
   inEditMode,
   contentLink,
@@ -86,7 +88,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
           (heroIsVideo ? (
             <video
               data-epi-edit={inEditMode ? "HeroImage" : undefined}
-              className="absolute inset-0 h-full w-full object-cover"
+              className={`absolute inset-0 h-full w-full object-cover ${heroHasBody ? "brightness-[.62]" : ""}`}
               src={heroImageSrc}
               autoPlay
               muted
@@ -97,7 +99,7 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
           ) : (
             <Image
               data-epi-edit={inEditMode ? "HeroImage" : undefined}
-              className="absolute inset-0 h-full w-full object-cover"
+              className={`absolute inset-0 h-full w-full object-cover ${heroHasBody ? "brightness-[.62]" : ""}`}
               src={heroImageSrc}
               alt={""}
               fill
@@ -105,16 +107,27 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
               sizes="100vw"
             />
           ))}
-        {/* Bottom scrim — primary darkening behind the bottom-aligned text */}
-        <div
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
-        />
-        {/* Left scrim — extra contrast behind the left-aligned heading */}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent"
-        />
+        {heroHasBody ? (
+          /* Spotlight (e.g. Fine Dining): strong left→right gradient so the
+             left-aligned copy reads over the darkened photo. */
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"
+          />
+        ) : (
+          <>
+            {/* Bottom scrim — primary darkening behind the bottom-aligned text */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+            />
+            {/* Left scrim — extra contrast behind the left-aligned heading */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent"
+            />
+          </>
+        )}
         {/* Top scrim so the overlaid (white) header nav stays legible */}
         <div
           aria-hidden
@@ -182,6 +195,30 @@ export const HeroBlockComponent: CmsComponent<HeroBlockDataFragment> = ({
               itemWrapper={{ noWrapper: true }}
               ctx={ctx}
             />
+          )}
+          {(inEditMode || captionTitle || captionSubtitle) && (
+            <div className="mt-7 flex flex-col gap-[7px]">
+              {(inEditMode || captionTitle) && (
+                <CmsEditable
+                  as="span"
+                  cmsFieldName="CaptionTitle"
+                  className="font-serif text-2xl @[60rem]/hero:text-[27px]"
+                  ctx={ctx}
+                >
+                  {captionTitle || "+ Add Caption title"}
+                </CmsEditable>
+              )}
+              {(inEditMode || captionSubtitle) && (
+                <CmsEditable
+                  as="span"
+                  cmsFieldName="CaptionSubtitle"
+                  className="text-[11px] uppercase tracking-[0.16em] text-gold"
+                  ctx={ctx}
+                >
+                  {captionSubtitle || "+ Add Caption subtitle"}
+                </CmsEditable>
+              )}
+            </div>
           )}
         </div>
       </CmsEditable>

@@ -23,6 +23,9 @@ query getFooterData($domain: String, $locale: [Locales!]) {
       legalLinks {
         ...LinkItemData
       }
+      socialLinks {
+        ...LinkItemData
+      }
       contactInfoHeading
       contactInfo { json }
     }

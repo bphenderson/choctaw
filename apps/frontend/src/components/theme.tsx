@@ -52,7 +52,10 @@ export const ThemeProvider: FunctionComponent<PropsWithChildren<{ value: ThemeCo
 export const Body: FunctionComponent<JSX.IntrinsicElements['body']> = ({ className, children, ...props }) => {
     const { effectiveTheme } = useTheme()
     const themeClass = effectiveTheme == 'dark' ? 'dark' : ''
-    return <body className={`${ themeClass } ${ className }`.trim()} {...props}>{ children }</body>
+    // suppressHydrationWarning: browser extensions (e.g. ColorZilla's
+    // `cz-shortcut-listen`) inject attributes onto <body> before hydration,
+    // which otherwise logs a benign "Extra attributes from the server" warning.
+    return <body suppressHydrationWarning className={`${ themeClass } ${ className }`.trim()} {...props}>{ children }</body>
 }
 
 export default useTheme

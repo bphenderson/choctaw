@@ -595,6 +595,8 @@ export const HeroBlockDataFragmentDoc = gql`
     ...VideoElementData
     ...BlankSectionData
   }
+  captionTitle: CaptionTitle
+  captionSubtitle: CaptionSubtitle
 }
     `;
 export const ExperiencesBlockDataFragmentDoc = gql`
@@ -1746,6 +1748,9 @@ export const getFooterDataDocument = gql`
       legalLinks {
         ...LinkItemData
       }
+      socialLinks {
+        ...LinkItemData
+      }
       contactInfoHeading
       contactInfo {
         json
@@ -1780,6 +1785,9 @@ export const getHeaderDataDocument = gql`
       serviceButtons {
         ...IContentData
         ...ButtonBlockData
+      }
+      propertyLinks {
+        ...LinkItemData
       }
     }
   }

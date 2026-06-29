@@ -12,4 +12,6 @@ fragment HeroBlockData on HeroBlock {
     ...IContentListItem
     ...BlockData
   }
+  captionTitle: CaptionTitle
+  captionSubtitle: CaptionSubtitle
 }

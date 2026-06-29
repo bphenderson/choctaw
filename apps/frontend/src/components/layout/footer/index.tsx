@@ -11,6 +11,7 @@ import CmsLink, { createListKey } from "@shared/cms_link";
 import LanguageSwitcher from "@shared/language_switcher";
 import { sanitizeRichText } from "@/lib/sanitize-rich-text";
 import { Logo } from "@/components/layout/header/partials/_logo";
+import SocialLinks from "./_social-links";
 
 export type SiteFooterProps = {
   locale?: string;
@@ -61,6 +62,7 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
               factory={factory}
               ctx={ctx}
             />
+            <SocialLinks links={footerData?.socialLinks} />
           </div>
           {/* Link columns */}
           <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-20">

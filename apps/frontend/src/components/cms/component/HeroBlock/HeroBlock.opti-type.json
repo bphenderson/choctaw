@@ -177,6 +177,26 @@
         ],
         "restrictedTypes": []
       }
+    },
+    "CaptionTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Caption title",
+      "description": "Optional featured-venue name pinned under the copy, e.g. \"1832 Steakhouse\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 95
+    },
+    "CaptionSubtitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Caption subtitle",
+      "description": "Optional descriptor under the caption title, e.g. \"Signature dining experience\".",
+      "isLocalized": true,
+      "isRequired": false,
+      "group": "Content",
+      "sortOrder": 96
     }
   }
 }

@@ -36,7 +36,10 @@
       "Bash(grep -rniE \"vb:|vb\\\\\\\\\\\\\\\\:\" apps/frontend/tailwind.config* apps/frontend/src/app/globals.scss)",
       "Bash(yarn opti-graph *)",
       "Bash(yarn push:types)",
-      "Bash(yarn compile *)"
+      "Bash(yarn compile *)",
+      "PowerShell(yarn type-check *)",
+      "WebSearch",
+      "WebFetch(domain:docs.developers.optimizely.com)"
     ]
   }
 }

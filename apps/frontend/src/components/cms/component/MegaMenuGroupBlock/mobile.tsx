@@ -11,11 +11,11 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 export const MegaMenuGroupBlockComponent : CmsComponent<MegaMenuGroupBlockDataFragment> = ({ data, ctx }) => {
     const menuName = data.MenuMenuHeading ?? data._metadata?.displayName ?? "Unnamed menu entry"
     return <Disclosure as="div">
-        <DisclosureButton className="w-full flex justify-between font-extrabold uppercase text-xl py-2" data-menu-label={menuName}>
+        <DisclosureButton className="group w-full flex items-center justify-between uppercase text-[13px] font-medium tracking-[0.16em] py-[15px] border-b border-[#E4DDCF] dark:border-white/10 outline-none hover:text-azure dark:hover:text-verdansk transition-colors" data-menu-label={menuName}>
             <span>{ menuName }</span>
-            <ChevronDownIcon className="w-8 group-data-[open]:rotate-180" />
+            <ChevronDownIcon className="w-4 transition-transform group-data-[open]:rotate-180" />
         </DisclosureButton>
-        <DisclosurePanel data-menu-item={menuName} className="flex flex-col gap-2">
+        <DisclosurePanel data-menu-item={menuName} className="flex flex-col gap-2 py-4 pl-1">
             <CmsContentArea items={ data.MegaMenuContentArea } variant='menu' noWrapper itemWrapper={{ as: "div", className: "" }} ctx={ctx} />
         </DisclosurePanel>
     </Disclosure>

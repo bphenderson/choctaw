@@ -25,9 +25,20 @@ const useIsomorphicLayoutEffect =
  *
  * Other pages: a plain solid `sticky` bar (no hero to overlay).
  */
-export default function HeaderChrome({ children }: PropsWithChildren) {
+export default function HeaderChrome({
+  children,
+  locale,
+}: PropsWithChildren<{ locale?: string }>) {
   const pathname = usePathname();
-  const overlay = pathname === "/";
+  // The homepage is served locale-prefixed (e.g. "/en"), never bare "/", so
+  // match both the root and the "/{locale}" form for the transparent hero
+  // overlay. Fall back to a locale-shaped single segment (e.g. "/en", "/en-US")
+  // when no explicit locale is passed; that pattern excludes real top-level
+  // routes like "/search" and "/preview".
+  const overlay =
+    pathname === "/" ||
+    (!!locale && pathname === `/${locale}`) ||
+    /^\/[a-z]{2}(-[a-z]{2})?\/?$/i.test(pathname);
 
   const ref = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);

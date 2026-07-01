@@ -15,6 +15,8 @@ export type PropertySelectorProps = {
  * component that hands its server-rendered link list to the headless Popover —
  * the same pattern the MenuDrawer uses. Renders nothing when no properties are
  * configured on the Application Layout.
+ *
+ * Lives at the foot of the menu dropdown, styled as the demo's squared pill.
  */
 export const PropertySelector: FunctionComponent<PropertySelectorProps> = ({
   links,
@@ -24,12 +26,12 @@ export const PropertySelector: FunctionComponent<PropertySelectorProps> = ({
   if (items.length === 0) return null;
 
   return (
-    <Popover className="hidden items-center sm:flex">
+    <Popover className="flex items-center">
       <PopoverButton
         aria-label="Choose a property"
-        className="flex items-center gap-1.5 text-sm outline-none transition-opacity hover:opacity-70"
+        className="flex items-center gap-2 border border-[#DDD6C7] px-4 py-2.5 text-xs uppercase tracking-[0.12em] outline-none transition-colors hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
       >
-        <MapPinIcon className="h-5 w-5" />
+        <MapPinIcon className="h-4 w-4" />
         <span>{label}</span>
         <ChevronDownIcon className="h-4 w-4" aria-hidden />
       </PopoverButton>
